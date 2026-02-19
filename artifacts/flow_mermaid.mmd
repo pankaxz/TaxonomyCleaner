@@ -1,0 +1,325 @@
+graph TD
+    %% Global Styles
+    classDef input fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef process fill:#f3e5f5,stroke:#4a148c,stroke-width:2px;
+    classDef decision fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    classDef output fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
+    classDef store fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+    classDef llm fill:#fce4ec,stroke:#880e4f,stroke-width:2px,stroke-dasharray: 5 5;
+
+    %% ==============================================================================
+    %% INPUTS
+    %% ==============================================================================
+    subgraph Global_Inputs [Global Inputs]
+        I_CD[canonical_data.json]:::input
+        I_AE[atomicity_exceptions.json]:::input
+    end
+
+    %% ==============================================================================
+    %% STAGE 0: Deterministic Pre-clean
+    %% ==============================================================================
+    subgraph Stage0 [Stage 0: Deterministic Pre-clean & Validation]
+        direction TB
+        S0_Start(run_stage0):::process
+        
+        %% Schema Validation
+        S0_Val{Validate Schema}:::decision
+        S0_BadSchema(Return Validation Report):::output
+        
+        %% Processing Loop
+        S0_Loop[Iterate Groups & Canonicals]:::process
+        S0_Norm[Normalize Terms]:::process
+        
+        %% Checks
+        S0_CheckDedup{Check Duplicates}:::decision
+        S0_CheckHard{Check Hard Blocks}:::decision
+        S0_CheckVer{Check Version Tokens}:::decision
+        S0_CheckAtom{Check Atomicity}:::decision
+        
+        %% Actions
+        S0_ActDedup[Mark Duplicate]:::process
+        S0_ActRemAlias[Remove Alias]:::process
+        S0_ActRewrite[Derive Atomic Rewrite]:::process
+        S0_ActUpsert[Upsert Rewritten Entries]:::process
+        
+        %% Outputs
+        S0_Out_CR[stage0_canonical_rows.json]:::output
+        S0_Out_CS[stage0_cleaned_store.json]:::store
+        S0_Out_RS[stage0_rewritten_store.json]:::store
+        S0_Out_RP[stage0_rewrite_plan.json]:::output
+        S0_Out_VR[stage0_validation_report.json]:::output
+        
+        %% Flow
+        S0_Start --> S0_Val
+        S0_Val -- Invalid --> S0_BadSchema
+        S0_Val -- Valid --> S0_Loop
+        S0_Loop --> S0_Norm
+        S0_Norm --> S0_CheckDedup
+        S0_CheckDedup -- Yes --> S0_ActDedup
+        S0_CheckDedup -- No --> S0_CheckHard
+        S0_CheckHard -- Yes --> S0_ActRemAlias
+        S0_CheckHard -- No --> S0_CheckVer
+        S0_CheckVer -- Yes --> S0_ActRemAlias
+        S0_CheckVer -- No --> S0_CheckAtom
+        S0_CheckAtom -- Violation --> S0_ActRewrite
+        S0_ActRewrite --> S0_ActUpsert
+        S0_CheckAtom -- OK --> S0_Loop
+        
+        S0_Loop --> |Done| S0_Out_CR
+        S0_Loop --> |Done| S0_Out_CS
+        S0_Loop --> |Done| S0_Out_RS
+        S0_Loop --> |Done| S0_Out_RP
+        S0_Loop --> |Done| S0_Out_VR
+    end
+
+    Global_Inputs --> S0_Start
+
+    %% ==============================================================================
+    %% STAGE 1: Embedding Similarity
+    %% ==============================================================================
+    subgraph Stage1 [Stage 1: Embedding Similarity]
+        direction TB
+        S1_Start(run_stage1_similarity):::process
+        
+        %% Vector Generation
+        S1_Sparse[Generate Sparse N-grams]:::process
+        S1_Dense[Generate Dense Embeddings]:::process
+        S1_Client(Embedding Client):::llm
+        
+        %% Indexing
+        S1_Index[Build Inverted Index]:::process
+        S1_Pairs[Generate Candidate Pairs]:::process
+        
+        %% Calculation
+        S1_Calc[Compute Cosine Similarity]:::process
+        S1_Filter{Score > 0.85?}:::decision
+        
+        %% Output
+        S1_Out_SE[stage1_similarity_edges.json]:::output
+        S1_Out_Exec[stage1_execution.json]:::output
+        
+        %% Flow
+        S0_Out_CR --> S1_Start
+        S1_Start --> S1_Sparse
+        S1_Start --> S1_Dense
+        S1_Dense -.-> S1_Client
+        S1_Sparse --> S1_Index
+        S1_Dense --> S1_Index
+        S1_Index --> S1_Pairs
+        S1_Pairs --> S1_Calc
+        S1_Calc --> S1_Filter
+        S1_Filter -- Yes --> S1_Out_SE
+        S1_Filter -- No --> S1_Pairs
+    end
+
+    %% ==============================================================================
+    %% STAGE 2: Conflict Clustering
+    %% ==============================================================================
+    subgraph Stage2 [Stage 2: Conflict Clustering]
+        direction TB
+        S2_Start(run_stage2_clusters):::process
+        
+        %% Graph Ops
+        S2_Adj[Build Adjacency Graph]:::process
+        S2_BFS[Find Connected Components]:::process
+        
+        %% Component Processing
+        S2_CompLoop[Iterate Components]:::process
+        S2_CheckSize{Size > Max?}:::decision
+        
+        %% Splitting Logic
+        S2_Split[Split Component]:::process
+        S2_Seed[Select Max Degree Seed]:::process
+        S2_Grow[Grow Cluster from Seed]:::process
+        S2_Remove[Remove from Remaining]:::process
+        
+        %% Output
+        S2_Out_CC[stage2_conflict_clusters.json]:::output
+        
+        %% Flow
+        S1_Out_SE --> S2_Start
+        S2_Start --> S2_Adj
+        S2_Adj --> S2_BFS
+        S2_BFS --> S2_CompLoop
+        S2_CompLoop --> S2_CheckSize
+        S2_CheckSize -- No --> S2_Out_CC
+        S2_CheckSize -- Yes --> S2_Split
+        S2_Split --> S2_Seed
+        S2_Seed --> S2_Grow
+        S2_Grow --> S2_Remove
+        S2_Remove -- More Remaining --> S2_Seed
+        S2_Remove -- Done --> S2_Out_CC
+    end
+
+    %% ==============================================================================
+    %% STAGE 3: Semantic Arbitration
+    %% ==============================================================================
+    subgraph Stage3 [Stage 3: Semantic Arbitration]
+        direction TB
+        S3_Start(run_stage3_arbitration):::process
+        S3_Client(LLM Client):::llm
+        
+        %% Loop
+        S3_Loop[Iterate Clusters]:::process
+        S3_Prompt[Construct Arbitration Prompt]:::process
+        S3_Call[Call LLM]:::process
+        
+        %% Validation & Governance
+        S3_Val{Validate Response}:::decision
+        S3_Gov{Govern Decision}:::decision
+        
+        %% Rules
+        S3_RuleConf{Confidence?}:::decision
+        S3_RuleAction{Valid Action?}:::decision
+        S3_RuleTarget{Target Exists?}:::decision
+        
+        %% Outputs
+        S3_Out_AD[stage3_arbitration_decisions.json]:::output
+        S3_Out_RQ[stage3_review_queue.json]:::output
+        S3_Out_F[stage3_findings.json]:::output
+        
+        %% Checkpoint
+        S3_CP[Checkpoint State]:::store
+        
+        %% Flow
+        S2_Out_CC --> S3_Start
+        S0_Out_CR --> |Known Canonicals| S3_Start
+        S3_Start --> S3_Loop
+        S3_Loop --> S3_Prompt
+        S3_Prompt --> S3_Call
+        S3_Call -.-> S3_Client
+        S3_Call --> S3_Val
+        S3_Val -- Error --> S3_Out_F
+        S3_Val -- Valid --> S3_Gov
+        S3_Gov --> S3_RuleConf
+        S3_RuleConf -- Low --> S3_Out_RQ
+        S3_RuleConf -- High --> S3_RuleAction
+        S3_RuleAction -- Invalid --> S3_Out_F
+        S3_RuleAction -- Valid --> S3_RuleTarget
+        S3_RuleTarget -- Missing --> S3_Out_F
+        S3_RuleTarget -- OK --> S3_Out_AD
+        
+        S3_Loop --> |Every N items| S3_CP
+    end
+
+    %% ==============================================================================
+    %% STAGE 4: Abstraction Classification
+    %% ==============================================================================
+    subgraph Stage4 [Stage 4: Abstraction Classification]
+        direction TB
+        S4_Start(run_stage4_classification):::process
+        S4_Client(LLM Client):::llm
+        
+        %% Loop
+        S4_Loop[Iterate Canonicals]:::process
+        S4_Prompt[Construct Classification Prompt]:::process
+        S4_Call[Call LLM]:::process
+        
+        %% Handlers
+        S4_CheckType{Special Type?}:::decision
+        S4_Comp[Handle COMPOSITE_STACK]:::process
+        S4_Cat[Handle CATEGORY]:::process
+        
+        %% Validation
+        S4_Schema{Validate Schema}:::decision
+        S4_Conf{Confidence Checks}:::decision
+        
+        %% Outputs
+        S4_Out_CD[stage4_classification_decisions.json]:::output
+        S4_Out_V2[stage4_v2_preview.json]:::output
+        S4_Out_RQ[stage4_review_queue.json]:::output
+        S4_Out_F[stage4_findings.json]:::output
+        
+        %% Checkpoint
+        S4_CP[Checkpoint State]:::store
+        
+        %% Flow
+        S0_Out_CR --> S4_Start
+        S4_Start --> S4_Loop
+        S4_Loop --> S4_Prompt
+        S4_Prompt --> S4_Call
+        S4_Call -.-> S4_Client
+        S4_Call --> S4_CheckType
+        S4_CheckType -- COMPOSITE --> S4_Comp
+        S4_Comp --> S4_Out_RQ
+        S4_CheckType -- CATEGORY --> S4_Cat
+        S4_Cat --> S4_Out_RQ
+        S4_CheckType -- Normal --> S4_Schema
+        S4_Schema -- Invalid --> S4_Out_F
+        S4_Schema -- Valid --> S4_Conf
+        S4_Conf -- Low --> S4_Out_RQ
+        S4_Conf -- High --> S4_Out_CD
+        S4_Out_CD --> S4_Out_V2
+        
+        S4_Loop --> |Every N items| S4_CP
+    end
+
+    %% ==============================================================================
+    %% STAGE 5: Graph Validation
+    %% ==============================================================================
+    subgraph Stage5 [Stage 5: Graph Validation]
+        direction TB
+        S5_Start(run_stage5_graph_validation):::process
+        
+        %% Build Graph
+        S5_Build[Build Full Graph]:::process
+        S5_Maps[Build Lookup Maps]:::process
+        
+        %% Rules
+        S5_R1{Apply Over-Generic Rule}:::decision
+        S5_R2{Apply Phantom Node Rule}:::decision
+        S5_R3{Apply Disagreement Rule}:::decision
+        
+        %% Rule Logic
+        S5_L1[Check Degree Ratio > 0.7]:::process
+        S5_L2[Check Pair-Lock Ratio > 0.9]:::process
+        S5_L3[Check Graph/Embed/Abstract Mismatch]:::process
+        
+        %% Outputs
+        S5_Out_F[stage5_graph_findings.json]:::output
+        S5_Out_GC[stage5_graph_components.json]:::output
+        
+        %% Flow
+        S1_Out_SE --> S5_Start
+        S2_Out_CC --> S5_Start
+        S4_Out_CD --> S5_Start
+        
+        S5_Start --> S5_Build
+        S5_Build --> S5_Maps
+        S5_Maps --> S5_R1
+        S5_R1 --> S5_L1
+        S5_L1 --> S5_Out_F
+        S5_Maps --> S5_R2
+        S5_R2 --> S5_L2
+        S5_L2 --> S5_Out_F
+        S5_Maps --> S5_R3
+        S5_R3 --> S5_L3
+        S5_L3 --> S5_Out_F
+        
+        S5_Build --> S5_Out_GC
+    end
+
+    %% ==============================================================================
+    %% STAGE 6: Reporting
+    %% ==============================================================================
+    subgraph Stage6 [Stage 6: Reporting]
+        direction TB
+        S6_Start(run_stage6_reporting):::process
+        S6_Merge[Merge All Findings & Decisions]:::process
+        S6_Diff[Generate Proposed Changes]:::process
+        
+        %% Outputs
+        S6_Out_J[proposed_changes.json]:::output
+        S6_Out_M[proposed_changes.md]:::output
+        
+        %% Flow
+        S0_Out_VR --> S6_Start
+        S3_Out_AD --> S6_Start
+        S4_Out_CD --> S6_Start
+        S5_Out_F --> S6_Start
+        
+        S6_Start --> S6_Merge
+        S6_Merge --> S6_Diff
+        S6_Diff --> S6_Out_J
+        S6_Diff --> S6_Out_M
+    end

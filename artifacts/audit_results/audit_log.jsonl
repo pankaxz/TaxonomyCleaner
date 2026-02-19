@@ -1,0 +1,813 @@
+{"group": "AI Data Science", "canonical": "A* Search Algorithm", "findings": [], "timestamp": "2026-02-18T00:09:00.346086"}
+{"group": "AI Data Science", "canonical": "AI tools", "findings": [], "timestamp": "2026-02-18T00:09:35.610467"}
+{"group": "AI Data Science", "canonical": "Amazon Kendra", "findings": [], "timestamp": "2026-02-18T00:10:23.047918"}
+{"group": "AI Data Science", "canonical": "AWS SageMaker", "findings": [], "timestamp": "2026-02-18T00:10:59.137874"}
+{"group": "AI Data Science", "canonical": "azure ml", "findings": [], "timestamp": "2026-02-18T00:11:53.255593"}
+{"group": "AI Data Science", "canonical": "bert", "findings": [], "timestamp": "2026-02-18T00:12:15.900456"}
+{"group": "AI Data Science", "canonical": "bm25", "findings": [{"alias": "tfidf search", "reason": "TF-IDF (Term Frequency-Inverse Document Frequency) is a different algorithm from BM25, though both are used in information retrieval.", "confidence_score": 0.95, "timestamp": "2026-02-18T00:12:50.717378"}]}
+{"group": "AI Data Science", "canonical": "Computer Vision", "findings": [], "timestamp": "2026-02-18T00:13:43.138754"}
+{"group": "AI Data Science", "canonical": "Data Analysis", "findings": [], "timestamp": "2026-02-18T00:14:41.586955"}
+{"group": "AI Data Science", "canonical": "Data Analysis and Visualization", "findings": [], "timestamp": "2026-02-18T00:15:19.890317"}
+{"group": "AI Data Science", "canonical": "dbscan", "findings": [], "timestamp": "2026-02-18T00:15:46.402615"}
+{"group": "AI Data Science", "canonical": "Deep Learning", "findings": [], "timestamp": "2026-02-18T00:16:46.307600"}
+{"group": "AI Data Science", "canonical": "diffusion models", "findings": [], "timestamp": "2026-02-18T00:17:21.978394"}
+{"group": "AI Data Science", "canonical": "federated learning", "findings": [], "timestamp": "2026-02-18T00:17:49.821085"}
+{"group": "AI Data Science", "canonical": "gaussian mixture models", "findings": [], "timestamp": "2026-02-18T00:18:21.599822"}
+{"group": "AI Data Science", "canonical": "Generative Adversarial Networks (GAN)", "findings": [], "timestamp": "2026-02-18T00:18:57.903088"}
+{"group": "AI Data Science", "canonical": "Generative AI", "findings": [], "timestamp": "2026-02-18T00:19:39.093642"}
+{"group": "AI Data Science", "canonical": "Generative Pre trained Transformer (GPT)", "findings": [], "timestamp": "2026-02-18T00:20:25.256974"}
+{"group": "AI Data Science", "canonical": "Google ML Kit", "findings": [], "timestamp": "2026-02-18T00:21:03.040705"}
+{"group": "AI Data Science", "canonical": "Image Processing", "findings": [{"alias": "image", "reason": "The term 'image' is too broad and can refer to many contexts beyond image processing, such as digital files or graphical elements, making it a distinct entity from the specific field of image processing.", "confidence_score": 0.85, "timestamp": "2026-02-18T00:21:49.391530"}]}
+{"group": "AI Data Science", "canonical": "knowledge graphs", "findings": [], "timestamp": "2026-02-18T00:22:24.676225"}
+{"group": "AI Data Science", "canonical": "llmops", "findings": [{"alias": "generative ai ops", "reason": "Generative AI Ops encompasses operations for various types of generative AI, not limited to Large Language Models (LLMs), making it a broader and distinct concept.", "confidence_score": 0.95, "timestamp": "2026-02-18T00:23:06.021281"}]}
+{"group": "AI Data Science", "canonical": "LoRA", "findings": [], "timestamp": "2026-02-18T00:23:28.984918"}
+{"group": "AI Data Science", "canonical": "Machine Learning", "findings": [], "timestamp": "2026-02-18T00:24:22.583768"}
+{"group": "AI Data Science", "canonical": "mobilenet", "findings": [], "timestamp": "2026-02-18T00:24:47.717484"}
+{"group": "AI Data Science", "canonical": "monte carlo", "findings": [], "timestamp": "2026-02-18T00:25:39.396405"}
+{"group": "AI Data Science", "canonical": "NLP", "findings": [], "timestamp": "2026-02-18T00:26:12.261171"}
+{"group": "AI Data Science", "canonical": "object detection", "findings": [], "timestamp": "2026-02-18T00:26:49.329505"}
+{"group": "AI Data Science", "canonical": "pruning", "findings": [], "timestamp": "2026-02-18T00:27:17.879238"}
+{"group": "AI Data Science", "canonical": "QLoRA", "findings": [], "timestamp": "2026-02-18T00:27:56.183430"}
+{"group": "AI Data Science", "canonical": "quantization", "findings": [], "timestamp": "2026-02-18T00:28:57.013478"}
+{"group": "AI Data Science", "canonical": "reinforcement learning", "findings": [], "timestamp": "2026-02-18T00:29:31.221095"}
+{"group": "AI Data Science", "canonical": "resnet", "findings": [], "timestamp": "2026-02-18T00:30:10.055674"}
+{"group": "AI Data Science", "canonical": "structured output", "findings": [{"alias": "constrained generation", "reason": "Constrained generation pertains to text generation with specific constraints, differing from structured output which focuses on data format.", "confidence_score": 0.95, "timestamp": "2026-02-18T00:30:46.438443"}]}
+{"group": "AI Data Science", "canonical": "synthetic data generation", "findings": [{"alias": "ai generated data", "reason": "AI-generated data can refer to various outputs produced by AI models, which may not necessarily be synthetic data specifically designed for training purposes.", "confidence_score": 0.85, "timestamp": "2026-02-18T00:31:30.435350"}, {"alias": "data augmentation", "reason": "Data augmentation refers to techniques for increasing the amount of training data by making slight perturbations to existing samples, which is distinct from creating entirely new synthetic data.", "confidence_score": 0.0, "timestamp": "2026-02-18T00:31:30.435363"}]}
+{"group": "AI Data Science", "canonical": "transformers", "findings": [], "timestamp": "2026-02-18T00:32:03.545948"}
+{"group": "AI Data Science", "canonical": "tree of thoughts", "findings": [], "timestamp": "2026-02-18T00:32:28.311234"}
+{"group": "AI Data Science", "canonical": "vector search", "findings": [], "timestamp": "2026-02-18T00:34:06.277022"}
+{"group": "AI Operational Techniques", "canonical": "agentic workflows", "findings": [], "timestamp": "2026-02-18T00:35:05.222719"}
+{"group": "AI Operational Techniques", "canonical": "Apache MXNet", "findings": [], "timestamp": "2026-02-18T00:35:41.411904"}
+{"group": "AI Operational Techniques", "canonical": "AWS X Ray", "findings": [], "timestamp": "2026-02-18T00:36:14.025223"}
+{"group": "AI Operational Techniques", "canonical": "blue green deployments", "findings": [], "timestamp": "2026-02-18T00:36:56.575071"}
+{"group": "AI Operational Techniques", "canonical": "caching", "findings": [], "timestamp": "2026-02-18T00:37:36.038837"}
+{"group": "AI Operational Techniques", "canonical": "canary deployments", "findings": [], "timestamp": "2026-02-18T00:38:24.226374"}
+{"group": "AI Operational Techniques", "canonical": "chain of thought", "findings": [], "timestamp": "2026-02-18T00:38:49.821830"}
+{"group": "AI Operational Techniques", "canonical": "context management", "findings": [], "timestamp": "2026-02-18T00:39:22.822543"}
+{"group": "AI Operational Techniques", "canonical": "cost tracking", "findings": [], "timestamp": "2026-02-18T00:39:59.615309"}
+{"group": "AI Operational Techniques", "canonical": "cublas", "findings": [], "timestamp": "2026-02-18T00:40:25.791591"}
+{"group": "AI Operational Techniques", "canonical": "data labeling", "findings": [], "timestamp": "2026-02-18T00:41:03.151959"}
+{"group": "AI Operational Techniques", "canonical": "dpo", "findings": [], "timestamp": "2026-02-18T00:41:34.157612"}
+{"group": "AI Operational Techniques", "canonical": "fine tuning", "findings": [], "timestamp": "2026-02-18T00:42:26.244610"}
+{"group": "AI Operational Techniques", "canonical": "glow", "findings": [{"alias": "pytorch compiler", "reason": "The PyTorch Compiler refers to the JIT compiler within PyTorch, which is distinct from the Glow compiler used for optimizing machine learning models.", "confidence_score": 0.95, "timestamp": "2026-02-18T00:43:25.462349"}]}
+{"group": "AI Operational Techniques", "canonical": "Google Cloud Operations Suite", "findings": [], "timestamp": "2026-02-18T00:44:06.137176"}
+{"group": "AI Operational Techniques", "canonical": "hybrid search", "findings": [], "timestamp": "2026-02-18T00:44:50.242374"}
+{"group": "AI Operational Techniques", "canonical": "inference pipelines", "findings": [{"alias": "deployment pipeline", "reason": "A deployment pipeline is a CI/CD construct for software delivery, distinct from an inference pipeline which handles data processing through models.", "confidence_score": 0.95, "timestamp": "2026-02-18T00:45:51.676781"}]}
+{"group": "AI Operational Techniques", "canonical": "intel mkl", "findings": [], "timestamp": "2026-02-18T00:46:19.183420"}
+{"group": "AI Operational Techniques", "canonical": "knowledge retrieval", "findings": [], "timestamp": "2026-02-18T00:47:21.002904"}
+{"group": "AI Operational Techniques", "canonical": "kokkos", "findings": [], "timestamp": "2026-02-18T00:47:55.077587"}
+{"group": "AI Operational Techniques", "canonical": "latency optimization", "findings": [], "timestamp": "2026-02-18T00:48:30.345936"}
+{"group": "AI Operational Techniques", "canonical": "legion", "findings": [], "timestamp": "2026-02-18T00:49:18.561004"}
+{"group": "AI Operational Techniques", "canonical": "mage ai", "findings": [], "timestamp": "2026-02-18T00:49:55.325329"}
+{"group": "AI Operational Techniques", "canonical": "magma", "findings": [{"alias": "linear algebra for gpu", "reason": "Refers to the MAGMA library for GPU-based linear algebra, distinct from the Magma computer algebra system.", "confidence_score": 0.95, "timestamp": "2026-02-18T00:50:32.291615"}]}
+{"group": "AI Operational Techniques", "canonical": "mkldnn", "findings": [], "timestamp": "2026-02-18T00:51:22.542471"}
+{"group": "AI Operational Techniques", "canonical": "mlir", "findings": [], "timestamp": "2026-02-18T00:51:50.314183"}
+{"group": "AI Operational Techniques", "canonical": "mlops", "findings": [], "timestamp": "2026-02-18T00:52:14.311030"}
+{"group": "AI Operational Techniques", "canonical": "model evaluation", "findings": [], "timestamp": "2026-02-18T00:52:53.383591"}
+{"group": "AI Operational Techniques", "canonical": "model monitoring", "findings": [], "timestamp": "2026-02-18T00:53:41.244048"}
+{"group": "AI Operational Techniques", "canonical": "model optimization", "findings": [], "timestamp": "2026-02-18T00:54:25.580056"}
+{"group": "AI Operational Techniques", "canonical": "multi agent orchestration", "findings": [], "timestamp": "2026-02-18T00:55:13.873018"}
+{"group": "AI Operational Techniques", "canonical": "nccl", "findings": [], "timestamp": "2026-02-18T00:55:58.991254"}
+{"group": "AI Operational Techniques", "canonical": "neon", "findings": [{"alias": "serverless postgres", "reason": "Serverless Postgres refers to a broader category of cloud-based PostgreSQL services, not exclusively Neon.", "confidence_score": 0.95, "timestamp": "2026-02-18T00:56:56.495120"}]}
+{"group": "AI Operational Techniques", "canonical": "nsight", "findings": [], "timestamp": "2026-02-18T00:57:32.977417"}
+{"group": "AI Operational Techniques", "canonical": "oneapi", "findings": [], "timestamp": "2026-02-18T00:58:08.102532"}
+{"group": "AI Operational Techniques", "canonical": "openacc", "findings": [], "timestamp": "2026-02-18T00:58:52.093950"}
+{"group": "AI Operational Techniques", "canonical": "opencl", "findings": [], "timestamp": "2026-02-18T00:59:41.946689"}
+{"group": "AI Operational Techniques", "canonical": "parallel programming", "findings": [], "timestamp": "2026-02-18T01:00:53.570972"}
+{"group": "AI Operational Techniques", "canonical": "parameter efficient finetuning", "findings": [], "timestamp": "2026-02-18T01:01:21.296895"}
+{"group": "AI Operational Techniques", "canonical": "Prometheus Loki", "findings": [{"alias": "Loki", "reason": "Loki is a log aggregation system that works with Prometheus but is a distinct component from the monitoring system itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:02:13.349097"}]}
+{"group": "AI Operational Techniques", "canonical": "RAG", "findings": [], "timestamp": "2026-02-18T01:02:42.167127"}
+{"group": "AI Operational Techniques", "canonical": "raja", "findings": [], "timestamp": "2026-02-18T01:03:36.866094"}
+{"group": "AI Operational Techniques", "canonical": "Ray", "findings": [], "timestamp": "2026-02-18T01:04:09.621559"}
+{"group": "AI Operational Techniques", "canonical": "reranking", "findings": [{"alias": "cross encoders", "reason": "Cross encoders are models used for text classification and information retrieval, distinct from the process of reranking results.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:04:55.654109"}]}
+{"group": "AI Operational Techniques", "canonical": "rlhf", "findings": [], "timestamp": "2026-02-18T01:05:36.637875"}
+{"group": "AI Operational Techniques", "canonical": "rocm", "findings": [], "timestamp": "2026-02-18T01:06:26.661539"}
+{"group": "AI Operational Techniques", "canonical": "self reflection", "findings": [], "timestamp": "2026-02-18T01:06:56.782300"}
+{"group": "AI Operational Techniques", "canonical": "shmem", "findings": [{"alias": "openshmem", "reason": "OpenSHMEM is a high-performance computing standard providing message-passing and one-sided operations, distinct from the general concept of shared memory (shmem).", "confidence_score": 0.0, "timestamp": "2026-02-18T01:07:55.725930"}]}
+{"group": "AI Operational Techniques", "canonical": "site reliability engineering (sre)", "findings": [], "timestamp": "2026-02-18T01:08:31.736659"}
+{"group": "AI Operational Techniques", "canonical": "sycl", "findings": [], "timestamp": "2026-02-18T01:08:58.187441"}
+{"group": "AI Operational Techniques", "canonical": "tbb", "findings": [], "timestamp": "2026-02-18T01:09:25.402318"}
+{"group": "AI Operational Techniques", "canonical": "TensorFlow Keras", "findings": [], "timestamp": "2026-02-18T01:10:30.210197"}
+{"group": "AI Operational Techniques", "canonical": "thrust", "findings": [], "timestamp": "2026-02-18T01:11:05.161670"}
+{"group": "AI Operational Techniques", "canonical": "triton", "findings": [{"alias": "openai triton", "reason": "OpenAI does not have a product named 'Triton'; this refers to a non-existent entity.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:12:22.081624"}, {"alias": "triton lang", "reason": "There is no widely recognized programming language named 'Triton', making this a distinct concept from NVIDIA's Triton.", "confidence_score": 0.85, "timestamp": "2026-02-18T01:12:22.081636"}]}
+{"group": "AI Operational Techniques", "canonical": "tvm", "findings": [], "timestamp": "2026-02-18T01:12:54.511645"}
+{"group": "AI Operational Techniques", "canonical": "xla", "findings": [], "timestamp": "2026-02-18T01:13:37.876555"}
+{"group": "API Management", "canonical": "Amazon Comprehend", "findings": [], "timestamp": "2026-02-18T01:14:15.365461"}
+{"group": "API Management", "canonical": "Firebase Authentication", "findings": [], "timestamp": "2026-02-18T01:14:39.038478"}
+{"group": "API Management", "canonical": "HTTP Body", "findings": [], "timestamp": "2026-02-18T01:15:13.451669"}
+{"group": "API Management", "canonical": "idempotency", "findings": [], "timestamp": "2026-02-18T01:15:47.566881"}
+{"group": "API Management", "canonical": "JSON Web Token", "findings": [], "timestamp": "2026-02-18T01:16:24.874916"}
+{"group": "API Management", "canonical": "Protocol Buffers", "findings": [], "timestamp": "2026-02-18T01:16:50.202952"}
+{"group": "API Management", "canonical": "rate limiting", "findings": [], "timestamp": "2026-02-18T01:17:30.586349"}
+{"group": "API Management", "canonical": "SendGrid API", "findings": [], "timestamp": "2026-02-18T01:18:05.623205"}
+{"group": "API Management", "canonical": "Stripe API", "findings": [], "timestamp": "2026-02-18T01:18:42.786157"}
+{"group": "API Management", "canonical": "token limit management", "findings": [{"alias": "window management", "reason": "Window management typically refers to the arrangement and control of graphical user interface windows, which is unrelated to token limit management.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:19:18.398308"}]}
+{"group": "API Management", "canonical": "twilio", "findings": [], "timestamp": "2026-02-18T01:20:01.866420"}
+{"group": "API Management", "canonical": "Windows API", "findings": [], "timestamp": "2026-02-18T01:20:32.697412"}
+{"group": "Application Servers", "canonical": "Apache HTTP Server", "findings": [], "timestamp": "2026-02-18T01:21:01.891769"}
+{"group": "Backend Systems", "canonical": ".net", "findings": [], "timestamp": "2026-02-18T01:21:54.735152"}
+{"group": "Backend Systems", "canonical": "activemq", "findings": [], "timestamp": "2026-02-18T01:22:18.754567"}
+{"group": "Backend Systems", "canonical": "appwrite", "findings": [], "timestamp": "2026-02-18T01:22:44.242187"}
+{"group": "Backend Systems", "canonical": "AWS Lambda", "findings": [{"alias": "serverless functions", "reason": "Serverless functions refer to a broader category of cloud computing services, including but not limited to AWS Lambda. This term encompasses various platforms and is not specific to AWS Lambda.", "confidence_score": 0.0, "timestamp": "2026-02-18T01:23:40.677552"}]}
+{"group": "Backend Systems", "canonical": "AWS SNS", "findings": [], "timestamp": "2026-02-18T01:24:15.820114"}
+{"group": "Backend Systems", "canonical": "AWS SQS", "findings": [], "timestamp": "2026-02-18T01:24:38.425550"}
+{"group": "Backend Systems", "canonical": "Azure Service Bus", "findings": [], "timestamp": "2026-02-18T01:25:13.414647"}
+{"group": "Backend Systems", "canonical": "honeycomb", "findings": [], "timestamp": "2026-02-18T01:25:45.150309"}
+{"group": "Backend Systems", "canonical": "logstash", "findings": [], "timestamp": "2026-02-18T01:26:19.972629"}
+{"group": "Backend Systems", "canonical": "nodemon", "findings": [], "timestamp": "2026-02-18T01:26:48.733067"}
+{"group": "Backend Systems", "canonical": "pm2", "findings": [], "timestamp": "2026-02-18T01:27:21.021153"}
+{"group": "Backend Systems", "canonical": "ruby sidekiq", "findings": [], "timestamp": "2026-02-18T01:27:48.730682"}
+{"group": "Backend Systems", "canonical": "ZeroMQ", "findings": [], "timestamp": "2026-02-18T01:28:17.454661"}
+{"group": "Blockchain", "canonical": "Solidity", "findings": [], "timestamp": "2026-02-18T01:30:37.428642"}
+{"group": "Blockchain", "canonical": "Tornado Cash", "findings": [{"alias": "Tornado", "reason": "Tornado refers to the Tornado web framework, which is unrelated to Tornado Cash, a cryptocurrency mixer.", "confidence_score": 1.0, "timestamp": "2026-02-18T01:35:54.348292"}]}
+{"group": "Browser Automation", "canonical": "Browser Automation Tools", "findings": [], "timestamp": "2026-02-18T01:36:05.965098"}
+{"group": "Business Sales", "canonical": "CRM", "findings": [], "timestamp": "2026-02-18T01:36:27.714600"}
+{"group": "Business Sales", "canonical": "Customer Support", "findings": [], "timestamp": "2026-02-18T01:36:46.503595"}
+{"group": "Business Sales", "canonical": "Service Level Agreements", "findings": [], "timestamp": "2026-02-18T01:37:00.891039"}
+{"group": "CAD Software", "canonical": "Bentley MicroStation", "findings": [], "timestamp": "2026-02-18T01:37:20.019695"}
+{"group": "CAD Software", "canonical": "layout", "findings": [{"alias": "ic layout", "reason": "IC layout refers specifically to the design of integrated circuits in electronics, which is distinct from the general concept of layout.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:37:43.995884"}]}
+{"group": "CAD Software", "canonical": "Siemens NX", "findings": [], "timestamp": "2026-02-18T01:38:00.967613"}
+{"group": "Change Management Tools", "canonical": "collibra", "findings": [], "timestamp": "2026-02-18T01:38:19.381684"}
+{"group": "CI/CD Infrastructure", "canonical": "Airflow", "findings": [], "timestamp": "2026-02-18T01:38:34.168735"}
+{"group": "CI/CD Infrastructure", "canonical": "Ansible", "findings": [], "timestamp": "2026-02-18T01:38:48.941424"}
+{"group": "CI/CD Infrastructure", "canonical": "ARM templates", "findings": [], "timestamp": "2026-02-18T01:38:58.785356"}
+{"group": "CI/CD Infrastructure", "canonical": "Atlantis", "findings": [], "timestamp": "2026-02-18T01:39:17.781917"}
+{"group": "CI/CD Infrastructure", "canonical": "Bicep", "findings": [], "timestamp": "2026-02-18T01:39:36.537475"}
+{"group": "CI/CD Infrastructure", "canonical": "Canary analysis", "findings": [], "timestamp": "2026-02-18T01:39:57.646770"}
+{"group": "CI/CD Infrastructure", "canonical": "cdktf", "findings": [], "timestamp": "2026-02-18T01:40:13.064865"}
+{"group": "CI/CD Infrastructure", "canonical": "CI/CD", "findings": [], "timestamp": "2026-02-18T01:40:28.516165"}
+{"group": "CI/CD Infrastructure", "canonical": "cloudformation", "findings": [], "timestamp": "2026-02-18T01:40:39.318466"}
+{"group": "CI/CD Infrastructure", "canonical": "Cross Env", "findings": [], "timestamp": "2026-02-18T01:41:01.082809"}
+{"group": "CI/CD Infrastructure", "canonical": "devsecops", "findings": [], "timestamp": "2026-02-18T01:41:12.025580"}
+{"group": "CI/CD Infrastructure", "canonical": "drone", "findings": [], "timestamp": "2026-02-18T01:41:29.835079"}
+{"group": "CI/CD Infrastructure", "canonical": "env0", "findings": [], "timestamp": "2026-02-18T01:41:47.141916"}
+{"group": "CI/CD Infrastructure", "canonical": "GitHub", "findings": [{"alias": "git cli", "reason": "Git CLI refers to the command-line interface of Git, a version control system, whereas GitHub is a web-based platform for hosting and managing Git repositories. They are distinct entities within the software development ecosystem.", "confidence_score": 1.0, "timestamp": "2026-02-18T01:42:03.909214"}]}
+{"group": "CI/CD Infrastructure", "canonical": "GitHub Actions", "findings": [], "timestamp": "2026-02-18T01:42:26.616511"}
+{"group": "CI/CD Infrastructure", "canonical": "GitLab", "findings": [], "timestamp": "2026-02-18T01:42:45.471246"}
+{"group": "CI/CD Infrastructure", "canonical": "GitLab CI", "findings": [], "timestamp": "2026-02-18T01:42:59.784125"}
+{"group": "CI/CD Infrastructure", "canonical": "gitops", "findings": [], "timestamp": "2026-02-18T01:43:19.242894"}
+{"group": "CI/CD Infrastructure", "canonical": "harness", "findings": [], "timestamp": "2026-02-18T01:43:38.127034"}
+{"group": "CI/CD Infrastructure", "canonical": "Jenkins", "findings": [], "timestamp": "2026-02-18T01:43:54.707299"}
+{"group": "CI/CD Infrastructure", "canonical": "Pulumi", "findings": [{"alias": "infrastructure as software", "reason": "Infrastructure as software is not a standard term; the correct term is infrastructure as code, which Pulumi implements. 'Infrastructure as software' may refer to a different concept.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:44:17.901296"}]}
+{"group": "CI/CD Infrastructure", "canonical": "renovate", "findings": [{"alias": "renovate bot", "reason": "Renovate Bot is a specific GitHub service built using the Renovate tool, but it is considered a distinct entity as it operates as a separate application with its own features and context.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:44:44.175174"}]}
+{"group": "CI/CD Infrastructure", "canonical": "saltstack", "findings": [], "timestamp": "2026-02-18T01:45:01.434923"}
+{"group": "CI/CD Infrastructure", "canonical": "semaphore", "findings": [{"alias": "semaphore ci", "reason": "Semaphore CI refers to a continuous integration service offered by the company Semaphore, which is distinct from the concept of a semaphore in computer science used for concurrency control.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:45:21.194595"}]}
+{"group": "CI/CD Infrastructure", "canonical": "spacelift", "findings": [], "timestamp": "2026-02-18T01:45:38.884311"}
+{"group": "CI/CD Infrastructure", "canonical": "Spinnaker", "findings": [], "timestamp": "2026-02-18T01:45:53.958597"}
+{"group": "CI/CD Infrastructure", "canonical": "TeamCity", "findings": [], "timestamp": "2026-02-18T01:46:05.260439"}
+{"group": "CI/CD Infrastructure", "canonical": "Terraform", "findings": [], "timestamp": "2026-02-18T01:46:52.995075"}
+{"group": "CI/CD Infrastructure", "canonical": "terraform cloud", "findings": [], "timestamp": "2026-02-18T01:47:10.431134"}
+{"group": "CI/CD Infrastructure", "canonical": "terragrunt", "findings": [], "timestamp": "2026-02-18T01:47:26.924489"}
+{"group": "CI/CD Infrastructure", "canonical": "Travis CI", "findings": [], "timestamp": "2026-02-18T01:47:38.560603"}
+{"group": "Cloud Computing", "canonical": "alibaba cloud", "findings": [], "timestamp": "2026-02-18T01:47:55.918202"}
+{"group": "Cloud Computing", "canonical": "Amazon S3", "findings": [], "timestamp": "2026-02-18T01:48:14.093496"}
+{"group": "Cloud Computing", "canonical": "Amazon Transcribe", "findings": [], "timestamp": "2026-02-18T01:48:38.302794"}
+{"group": "Cloud Computing", "canonical": "AWS", "findings": [], "timestamp": "2026-02-18T01:48:56.258392"}
+{"group": "Cloud Computing", "canonical": "AWS CLI", "findings": [], "timestamp": "2026-02-18T01:49:12.117720"}
+{"group": "Cloud Computing", "canonical": "AWS SAM", "findings": [{"alias": "SAM", "reason": "SAM can refer to multiple concepts such as Software as a Service, System Administration Manager, or other technologies, making it a conceptually distinct entity from AWS SAM.", "confidence_score": 0.85, "timestamp": "2026-02-18T01:49:43.372777"}]}
+{"group": "Cloud Computing", "canonical": "AWS Transit Gateway", "findings": [], "timestamp": "2026-02-18T01:50:03.023529"}
+{"group": "Cloud Computing", "canonical": "AWS Well Architected Tool", "findings": [], "timestamp": "2026-02-18T01:50:14.102499"}
+{"group": "Cloud Computing", "canonical": "Azure", "findings": [], "timestamp": "2026-02-18T01:50:24.620199"}
+{"group": "Cloud Computing", "canonical": "Azure Blob Storage", "findings": [{"alias": "Azure.Storage.Blobs", "reason": "Azure.Storage.Blobs is a .NET namespace for interacting with Azure Blob Storage via the Azure SDK, not the storage service itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:50:47.707178"}]}
+{"group": "Cloud Computing", "canonical": "Azure CLI", "findings": [], "timestamp": "2026-02-18T01:51:07.457397"}
+{"group": "Cloud Computing", "canonical": "Azure Event Hubs", "findings": [], "timestamp": "2026-02-18T01:51:26.726422"}
+{"group": "Cloud Computing", "canonical": "Controller Runtime", "findings": [], "timestamp": "2026-02-18T01:51:42.068881"}
+{"group": "Cloud Computing", "canonical": "cwpp", "findings": [], "timestamp": "2026-02-18T01:51:56.994789"}
+{"group": "Cloud Computing", "canonical": "finops", "findings": [{"alias": "cloud financial management", "reason": "Cloud financial management is a broader concept that includes various practices and tools, whereas FinOps is a specific framework within that domain.", "confidence_score": 0.85, "timestamp": "2026-02-18T01:52:16.103345"}]}
+{"group": "Cloud Computing", "canonical": "Firebase", "findings": [], "timestamp": "2026-02-18T01:52:33.542617"}
+{"group": "Cloud Computing", "canonical": "GCP", "findings": [], "timestamp": "2026-02-18T01:52:50.330748"}
+{"group": "Cloud Computing", "canonical": "Google APIs", "findings": [], "timestamp": "2026-02-18T01:53:04.428979"}
+{"group": "Cloud Computing", "canonical": "Google Cloud Game Servers", "findings": [], "timestamp": "2026-02-18T01:53:47.626820"}
+{"group": "Cloud Computing", "canonical": "Google Cloud Key Management Service", "findings": [], "timestamp": "2026-02-18T01:53:57.816112"}
+{"group": "Cloud Computing", "canonical": "Google Cloud Managed Service for Microsoft Active Directory", "findings": [{"alias": "Google Cloud Service Directory", "reason": "Google Cloud Service Directory is a service management and discovery tool, distinct from the Managed Service for Microsoft Active Directory.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:54:14.961961"}]}
+{"group": "Cloud Computing", "canonical": "Google Cloud Source Repositories", "findings": [], "timestamp": "2026-02-18T01:54:25.783470"}
+{"group": "Cloud Computing", "canonical": "heroku", "findings": [], "timestamp": "2026-02-18T01:54:38.659769"}
+{"group": "Cloud Computing", "canonical": "ibm cloud", "findings": [], "timestamp": "2026-02-18T01:54:57.152917"}
+{"group": "Cloud Computing", "canonical": "oracle cloud", "findings": [], "timestamp": "2026-02-18T01:55:11.089775"}
+{"group": "Cloud Computing", "canonical": "platform engineering", "findings": [], "timestamp": "2026-02-18T01:55:23.773653"}
+{"group": "Cloud Computing", "canonical": "render", "findings": [{"alias": "render.com", "reason": "Render.com is a cloud hosting platform, distinct from the general concept of rendering.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:55:46.589371"}]}
+{"group": "Cloud Computing", "canonical": "saas security", "findings": [{"alias": "cloud app security", "reason": "Cloud application security is a broader concept that includes, but is not limited to, SaaS security. It encompasses various types of cloud-based applications beyond SaaS, such as PaaS and IaaS.", "confidence_score": 0.95, "timestamp": "2026-02-18T01:56:15.093997"}]}
+{"group": "Cloud Computing", "canonical": "stackpath", "findings": [], "timestamp": "2026-02-18T01:56:40.338873"}
+{"group": "Cloud Computing", "canonical": "Vultr", "findings": [], "timestamp": "2026-02-18T01:56:57.152910"}
+{"group": "Computer Vision", "canonical": "mask r cnn", "findings": [{"alias": "pixel-level segmentation", "reason": "Pixel-level segmentation refers to classifying each pixel in an image, often used in semantic segmentation, whereas Mask R CNN is specifically for instance segmentation, which includes both detection and boundary delineation of objects.", "confidence_score": 0.85, "timestamp": "2026-02-18T01:57:20.287356"}]}
+{"group": "Computer Vision", "canonical": "opencv", "findings": [], "timestamp": "2026-02-18T01:57:37.733681"}
+{"group": "Containerization", "canonical": "helm", "findings": [], "timestamp": "2026-02-18T01:57:55.817697"}
+{"group": "Containerization", "canonical": "kustomize", "findings": [], "timestamp": "2026-02-18T01:58:11.012147"}
+{"group": "Content Management Systems", "canonical": "blogging", "findings": [], "timestamp": "2026-02-18T01:58:25.412547"}
+{"group": "Content Management Systems", "canonical": "Confluence", "findings": [], "timestamp": "2026-02-18T01:58:40.809111"}
+{"group": "Content Management Systems", "canonical": "Ghost CMS", "findings": [], "timestamp": "2026-02-18T01:58:57.356224"}
+{"group": "Cross Platform Development", "canonical": ".NET MAUI", "findings": [], "timestamp": "2026-02-18T01:59:24.841551"}
+{"group": "Data Engineering", "canonical": "airbyte", "findings": [], "timestamp": "2026-02-18T01:59:39.350069"}
+{"group": "Data Engineering", "canonical": "alation", "findings": [], "timestamp": "2026-02-18T01:59:55.845421"}
+{"group": "Data Engineering", "canonical": "amundsen", "findings": [], "timestamp": "2026-02-18T02:00:19.826909"}
+{"group": "Data Engineering", "canonical": "Android Room", "findings": [], "timestamp": "2026-02-18T02:00:36.215221"}
+{"group": "Data Engineering", "canonical": "Apache Arrow", "findings": [], "timestamp": "2026-02-18T02:00:53.964331"}
+{"group": "Data Engineering", "canonical": "Apache Avro", "findings": [], "timestamp": "2026-02-18T02:01:11.135249"}
+{"group": "Data Engineering", "canonical": "Apache Lucene", "findings": [], "timestamp": "2026-02-18T02:01:28.568142"}
+{"group": "Data Engineering", "canonical": "Apache Parquet", "findings": [], "timestamp": "2026-02-18T02:01:48.634062"}
+{"group": "Data Engineering", "canonical": "Athena", "findings": [], "timestamp": "2026-02-18T02:02:06.443572"}
+{"group": "Data Engineering", "canonical": "AWS Elemental MediaLive", "findings": [], "timestamp": "2026-02-18T02:02:20.951221"}
+{"group": "Data Engineering", "canonical": "Azure Data Factory", "findings": [], "timestamp": "2026-02-18T02:02:36.110623"}
+{"group": "Data Engineering", "canonical": "Azure Data Lake Storage", "findings": [], "timestamp": "2026-02-18T02:02:58.259601"}
+{"group": "Data Engineering", "canonical": "BigQuery", "findings": [], "timestamp": "2026-02-18T02:03:15.399972"}
+{"group": "Data Engineering", "canonical": "confluent cloud", "findings": [], "timestamp": "2026-02-18T02:03:29.337641"}
+{"group": "Data Engineering", "canonical": "dagster", "findings": [], "timestamp": "2026-02-18T02:03:48.827053"}
+{"group": "Data Engineering", "canonical": "data catalog", "findings": [], "timestamp": "2026-02-18T02:04:17.861873"}
+{"group": "Data Engineering", "canonical": "data fabric", "findings": [], "timestamp": "2026-02-18T02:04:43.069234"}
+{"group": "Data Engineering", "canonical": "Data Governance", "findings": [{"alias": "model safety", "reason": "Model safety pertains to ensuring machine learning models are safe and reliable, which is distinct from data governance focused on managing and governing data assets.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:05:16.008102"}]}
+{"group": "Data Engineering", "canonical": "data ingestion", "findings": [], "timestamp": "2026-02-18T02:05:35.281321"}
+{"group": "Data Engineering", "canonical": "data lineage", "findings": [], "timestamp": "2026-02-18T02:05:51.669074"}
+{"group": "Data Engineering", "canonical": "data mesh", "findings": [], "timestamp": "2026-02-18T02:06:09.466181"}
+{"group": "Data Engineering", "canonical": "data modeling", "findings": [], "timestamp": "2026-02-18T02:06:27.019813"}
+{"group": "Data Engineering", "canonical": "data orchestration", "findings": [{"alias": "workflow orchestration", "reason": "Workflow orchestration refers to managing sequences of tasks or processes, distinct from data orchestration which focuses on data flow and integration.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:06:52.597947"}]}
+{"group": "Data Engineering", "canonical": "data pipelines", "findings": [], "timestamp": "2026-02-18T02:07:12.303174"}
+{"group": "Data Engineering", "canonical": "Data Processing", "findings": [], "timestamp": "2026-02-18T02:07:30.893725"}
+{"group": "Data Engineering", "canonical": "Data Streaming", "findings": [], "timestamp": "2026-02-18T02:07:41.810715"}
+{"group": "Data Engineering", "canonical": "Databricks", "findings": [], "timestamp": "2026-02-18T02:07:55.664262"}
+{"group": "Data Engineering", "canonical": "dataflow", "findings": [{"alias": "gcp dataflow", "reason": "GCP Dataflow is a specific Google Cloud service for data processing, distinct from the general concept of dataflow.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:08:15.838053"}]}
+{"group": "Data Engineering", "canonical": "debezium", "findings": [], "timestamp": "2026-02-18T02:08:33.333463"}
+{"group": "Data Engineering", "canonical": "delta lake", "findings": [{"alias": "delta lakehouse", "reason": "Delta Lakehouse refers to an architecture combining data lakes and warehouses, distinct from Delta Lake, which is a storage layer.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:08:56.750703"}]}
+{"group": "Data Engineering", "canonical": "Elasticsearch for Go", "findings": [], "timestamp": "2026-02-18T02:09:11.684857"}
+{"group": "Data Engineering", "canonical": "emr", "findings": [], "timestamp": "2026-02-18T02:09:24.531409"}
+{"group": "Data Engineering", "canonical": "ETL/ELT workflows", "findings": [], "timestamp": "2026-02-18T02:09:40.202342"}
+{"group": "Data Engineering", "canonical": "eventbridge", "findings": [], "timestamp": "2026-02-18T02:09:56.066508"}
+{"group": "Data Engineering", "canonical": "Factory Boy", "findings": [], "timestamp": "2026-02-18T02:10:13.188871"}
+{"group": "Data Engineering", "canonical": "fivetran", "findings": [], "timestamp": "2026-02-18T02:10:31.363862"}
+{"group": "Data Engineering", "canonical": "glue", "findings": [], "timestamp": "2026-02-18T02:10:46.708929"}
+{"group": "Data Engineering", "canonical": "Gogo Proto", "findings": [], "timestamp": "2026-02-18T02:11:05.043194"}
+{"group": "Data Engineering", "canonical": "Hadoop", "findings": [], "timestamp": "2026-02-18T02:11:22.390108"}
+{"group": "Data Engineering", "canonical": "iceberg", "findings": [], "timestamp": "2026-02-18T02:11:35.800557"}
+{"group": "Data Engineering", "canonical": "Kafka", "findings": [], "timestamp": "2026-02-18T02:11:54.877323"}
+{"group": "Data Engineering", "canonical": "Kinesis", "findings": [], "timestamp": "2026-02-18T02:12:06.777803"}
+{"group": "Data Engineering", "canonical": "lakehouse", "findings": [], "timestamp": "2026-02-18T02:12:20.921573"}
+{"group": "Data Engineering", "canonical": "RabbitMQ Client", "findings": [], "timestamp": "2026-02-18T02:12:36.217728"}
+{"group": "Data Engineering", "canonical": "relational databases", "findings": [], "timestamp": "2026-02-18T02:12:52.977742"}
+{"group": "Data Engineering", "canonical": "salting", "findings": [], "timestamp": "2026-02-18T02:13:11.563218"}
+{"group": "Data Engineering", "canonical": "Sea ORM", "findings": [], "timestamp": "2026-02-18T02:13:28.266982"}
+{"group": "Data Engineering", "canonical": "soda", "findings": [], "timestamp": "2026-02-18T02:13:45.543785"}
+{"group": "Data Engineering", "canonical": "Spark", "findings": [], "timestamp": "2026-02-18T02:14:01.433162"}
+{"group": "Data Engineering", "canonical": "synapse", "findings": [], "timestamp": "2026-02-18T02:14:23.448042"}
+{"group": "Data Engineering", "canonical": "temporal", "findings": [], "timestamp": "2026-02-18T02:14:37.170091"}
+{"group": "Data Engineering", "canonical": "Tortoise ORM", "findings": [], "timestamp": "2026-02-18T02:14:58.297008"}
+{"group": "Data Engineering", "canonical": "vector indexing", "findings": [], "timestamp": "2026-02-18T02:15:15.298459"}
+{"group": "Data Governance", "canonical": "Data Quality", "findings": [{"alias": "data profiling", "reason": "Data profiling is a method used to analyze and understand data characteristics, which is a separate process from ensuring data quality.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:15:40.597231"}]}
+{"group": "Data Visualization Platforms", "canonical": "Elastic Kibana", "findings": [], "timestamp": "2026-02-18T02:16:00.141575"}
+{"group": "Data Visualization Platforms", "canonical": "Grafana", "findings": [{"alias": "dashboarding", "reason": "Dashboarding is a general term referring to the creation of data dashboards, which is a function provided by Grafana but not synonymous with it. It can apply to various tools beyond Grafana.", "confidence_score": 0.85, "timestamp": "2026-02-18T02:16:22.525800"}]}
+{"group": "Databases", "canonical": "Accumulo", "findings": [], "timestamp": "2026-02-18T02:16:33.856546"}
+{"group": "Databases", "canonical": "Apache Derby", "findings": [], "timestamp": "2026-02-18T02:16:49.581595"}
+{"group": "Databases", "canonical": "Apache Pinot", "findings": [], "timestamp": "2026-02-18T02:17:12.708064"}
+{"group": "Databases", "canonical": "ArangoDB", "findings": [], "timestamp": "2026-02-18T02:17:25.447404"}
+{"group": "Databases", "canonical": "AWS RDS", "findings": [], "timestamp": "2026-02-18T02:17:42.465949"}
+{"group": "Databases", "canonical": "AWS Redshift", "findings": [], "timestamp": "2026-02-18T02:18:03.157821"}
+{"group": "Databases", "canonical": "azure sql database", "findings": [], "timestamp": "2026-02-18T02:18:26.492533"}
+{"group": "Databases", "canonical": "Azure SQL Database", "findings": [], "timestamp": "2026-02-18T02:18:45.818055"}
+{"group": "Databases", "canonical": "Azure Synapse Analytics", "findings": [], "timestamp": "2026-02-18T02:18:59.201015"}
+{"group": "Databases", "canonical": "Cassandra", "findings": [], "timestamp": "2026-02-18T02:19:11.728189"}
+{"group": "Databases", "canonical": "chromadb", "findings": [{"alias": "Chroma", "reason": "Chroma refers to a different entity, possibly a company or unrelated project, distinct from chromadb.", "confidence_score": 0.85, "timestamp": "2026-02-18T02:19:32.437592"}]}
+{"group": "Databases", "canonical": "ClickHouse", "findings": [], "timestamp": "2026-02-18T02:19:52.500989"}
+{"group": "Databases", "canonical": "CouchDB", "findings": [], "timestamp": "2026-02-18T02:20:08.055139"}
+{"group": "Databases", "canonical": "Database tuning", "findings": [], "timestamp": "2026-02-18T02:20:21.225746"}
+{"group": "Databases", "canonical": "DynamoDB", "findings": [], "timestamp": "2026-02-18T02:20:39.959804"}
+{"group": "Databases", "canonical": "Google Cloud Spanner", "findings": [], "timestamp": "2026-02-18T02:20:51.452726"}
+{"group": "Databases", "canonical": "H2 Database", "findings": [], "timestamp": "2026-02-18T02:21:12.724875"}
+{"group": "Databases", "canonical": "hbase", "findings": [], "timestamp": "2026-02-18T02:21:27.855210"}
+{"group": "Databases", "canonical": "Knex.js", "findings": [], "timestamp": "2026-02-18T02:21:40.902229"}
+{"group": "Databases", "canonical": "MongoDB", "findings": [], "timestamp": "2026-02-18T02:22:17.347177"}
+{"group": "Databases", "canonical": "mongodb atlas", "findings": [{"alias": "managed mongodb", "reason": "Managed MongoDB refers to a broader category of cloud-based MongoDB services, which includes but is not limited to MongoDB Atlas. It can also refer to services offered by other providers like AWS DocumentDB.", "confidence_score": 0.85, "timestamp": "2026-02-18T02:22:49.480052"}]}
+{"group": "Databases", "canonical": "MongoDB Driver", "findings": [], "timestamp": "2026-02-18T02:22:58.892335"}
+{"group": "Databases", "canonical": "MySQL", "findings": [], "timestamp": "2026-02-18T02:23:22.444804"}
+{"group": "Databases", "canonical": "Neo4j", "findings": [], "timestamp": "2026-02-18T02:23:39.010666"}
+{"group": "Databases", "canonical": "Node Redis", "findings": [], "timestamp": "2026-02-18T02:23:55.241715"}
+{"group": "Databases", "canonical": "NoSQL", "findings": [{"alias": "non-relational database", "reason": "Non-relational database is a broader category that includes NoSQL but also other types like object databases, making it a distinct concept.", "confidence_score": 0.85, "timestamp": "2026-02-18T02:24:30.676331"}]}
+{"group": "Databases", "canonical": "opensearch", "findings": [{"alias": "amazon opensearch", "reason": "Amazon OpenSearch Service is a managed cloud service by AWS, distinct from the open-source OpenSearch project.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:24:45.658202"}]}
+{"group": "Databases", "canonical": "OrientDB", "findings": [], "timestamp": "2026-02-18T02:25:02.621569"}
+{"group": "Databases", "canonical": "pinecone", "findings": [], "timestamp": "2026-02-18T02:25:16.712687"}
+{"group": "Databases", "canonical": "PostgreSQL", "findings": [], "timestamp": "2026-02-18T02:25:31.118630"}
+{"group": "Databases", "canonical": "qdrant", "findings": [], "timestamp": "2026-02-18T02:25:51.241587"}
+{"group": "Databases", "canonical": "questdb", "findings": [], "timestamp": "2026-02-18T02:26:08.993406"}
+{"group": "Databases", "canonical": "Redis", "findings": [{"alias": "ioredis", "reason": "ioredis is a Redis client library for Node.js, distinct from the Redis server.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:26:34.129265"}]}
+{"group": "Databases", "canonical": "Snowflake", "findings": [], "timestamp": "2026-02-18T02:26:52.740600"}
+{"group": "Databases", "canonical": "solr", "findings": [], "timestamp": "2026-02-18T02:27:04.485328"}
+{"group": "Databases", "canonical": "SQL", "findings": [{"alias": "T SQL", "reason": "T SQL (Transact-SQL) is a specific implementation by Microsoft with additional features beyond standard SQL.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:27:20.611583"}]}
+{"group": "Databases", "canonical": "SQL Server", "findings": [], "timestamp": "2026-02-18T02:27:33.937447"}
+{"group": "Databases", "canonical": "SQLite", "findings": [], "timestamp": "2026-02-18T02:27:51.326517"}
+{"group": "Databases", "canonical": "surrealdb", "findings": [], "timestamp": "2026-02-18T02:28:08.297666"}
+{"group": "Databases", "canonical": "TiDB", "findings": [], "timestamp": "2026-02-18T02:28:26.368785"}
+{"group": "Databases", "canonical": "tigergraph", "findings": [], "timestamp": "2026-02-18T02:28:42.656791"}
+{"group": "Databases", "canonical": "TimescaleDB", "findings": [], "timestamp": "2026-02-18T02:29:03.882668"}
+{"group": "Databases", "canonical": "valkey", "findings": [], "timestamp": "2026-02-18T02:29:21.108278"}
+{"group": "Databases", "canonical": "vector db", "findings": [{"alias": "semantic database", "reason": "A semantic database focuses on structured data with semantic meaning, unlike a vector database which handles vector embeddings for similarity search.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:29:35.314721"}]}
+{"group": "Databases", "canonical": "weaviate", "findings": [], "timestamp": "2026-02-18T02:29:50.351669"}
+{"group": "Databases", "canonical": "Yugabyte", "findings": [{"alias": "YugabyteDB", "reason": "YugabyteDB is the specific database product by Yugabyte, distinct from the company itself.", "confidence_score": 0.85, "timestamp": "2026-02-18T02:30:13.079752"}]}
+{"group": "Databases", "canonical": "zilliz", "findings": [], "timestamp": "2026-02-18T02:30:37.482075"}
+{"group": "Dependency Management", "canonical": "sonatype nexus", "findings": [], "timestamp": "2026-02-18T02:30:52.579464"}
+{"group": "Dependency Management Tools", "canonical": "Artifactory", "findings": [], "timestamp": "2026-02-18T02:31:05.760139"}
+{"group": "Deployment Tools", "canonical": "kayenta", "findings": [], "timestamp": "2026-02-18T02:31:21.160083"}
+{"group": "Deployment Tools", "canonical": "octopus deploy", "findings": [], "timestamp": "2026-02-18T02:31:36.921742"}
+{"group": "Design Creative", "canonical": "Adobe After Effects", "findings": [], "timestamp": "2026-02-18T02:31:51.739013"}
+{"group": "Design Creative", "canonical": "Adobe InDesign", "findings": [], "timestamp": "2026-02-18T02:32:05.619608"}
+{"group": "Design Creative", "canonical": "Adobe Photoshop", "findings": [], "timestamp": "2026-02-18T02:32:19.676308"}
+{"group": "Design Creative", "canonical": "Autodesk Maya", "findings": [], "timestamp": "2026-02-18T02:32:31.435995"}
+{"group": "Design Creative", "canonical": "user centric", "findings": [], "timestamp": "2026-02-18T02:32:46.252361"}
+{"group": "Desktop App Development", "canonical": "Windows Presentation Foundation", "findings": [], "timestamp": "2026-02-18T02:32:57.582167"}
+{"group": "Development Tools", "canonical": "Advanced Package Tool (APT)", "findings": [], "timestamp": "2026-02-18T02:33:14.529082"}
+{"group": "Development Tools", "canonical": "ai coding assistants", "findings": [], "timestamp": "2026-02-18T02:33:36.975894"}
+{"group": "Development Tools", "canonical": "AKS", "findings": [], "timestamp": "2026-02-18T02:33:49.141734"}
+{"group": "Development Tools", "canonical": "Anaconda", "findings": [], "timestamp": "2026-02-18T02:34:15.716633"}
+{"group": "Development Tools", "canonical": "Apache Maven", "findings": [], "timestamp": "2026-02-18T02:34:31.475159"}
+{"group": "Development Tools", "canonical": "Application Observability", "findings": [{"alias": "Observability Technologies", "reason": "Observability Technologies is a broader category that includes various types of observability beyond just application observability, such as infrastructure and network observability.", "confidence_score": 0.85, "timestamp": "2026-02-18T02:34:56.517802"}]}
+{"group": "Development Tools", "canonical": "ARO", "findings": [], "timestamp": "2026-02-18T02:35:17.217565"}
+{"group": "Development Tools", "canonical": "Automation scripts", "findings": [], "timestamp": "2026-02-18T02:35:35.864164"}
+{"group": "Development Tools", "canonical": "AWS SDK", "findings": [], "timestamp": "2026-02-18T02:35:52.563747"}
+{"group": "Development Tools", "canonical": "Azure SDK", "findings": [], "timestamp": "2026-02-18T02:36:08.632163"}
+{"group": "Development Tools", "canonical": "Bitbucket pipelines", "findings": [], "timestamp": "2026-02-18T02:36:22.309524"}
+{"group": "Development Tools", "canonical": "Buildah", "findings": [], "timestamp": "2026-02-18T02:36:38.486228"}
+{"group": "Development Tools", "canonical": "Code Review", "findings": [], "timestamp": "2026-02-18T02:36:57.882756"}
+{"group": "Development Tools", "canonical": "Command Line Interface (CLI)", "findings": [], "timestamp": "2026-02-18T02:37:14.694274"}
+{"group": "Development Tools", "canonical": "Containerization", "findings": [{"alias": "ebpf networking", "reason": "eBPF is a low-level technology used for networking and security, distinct from containerization itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:37:53.875545"}, {"alias": "kubernetes engine", "reason": "Kubernetes Engine is an orchestration tool for containerized applications, separate from the containerization process.", "confidence_score": 0.9, "timestamp": "2026-02-18T02:37:53.875554"}, {"alias": "project calico", "reason": "Project Calico is a networking solution for containers, distinct from the containerization process.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:37:53.875555"}]}
+{"group": "Development Tools", "canonical": "cri o", "findings": [], "timestamp": "2026-02-18T02:38:13.714600"}
+{"group": "Development Tools", "canonical": "Crossplane", "findings": [{"alias": "cloud control plane", "reason": "Cloud control plane refers to a general concept of managing cloud resources, which is distinct from Crossplane, a specific Kubernetes-based infrastructure management tool.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:38:33.254236"}]}
+{"group": "Development Tools", "canonical": "deequ", "findings": [], "timestamp": "2026-02-18T02:38:48.177487"}
+{"group": "Development Tools", "canonical": "dive", "findings": [], "timestamp": "2026-02-18T02:39:21.287981"}
+{"group": "Development Tools", "canonical": "Dotenv", "findings": [], "timestamp": "2026-02-18T02:39:38.476616"}
+{"group": "Development Tools", "canonical": "Dotenv Expand", "findings": [], "timestamp": "2026-02-18T02:39:54.925437"}
+{"group": "Development Tools", "canonical": "e2e testing", "findings": [], "timestamp": "2026-02-18T02:40:09.542139"}
+{"group": "Development Tools", "canonical": "emulation", "findings": [], "timestamp": "2026-02-18T02:40:23.263872"}
+{"group": "Development Tools", "canonical": "Fantasy Land", "findings": [], "timestamp": "2026-02-18T02:40:42.441923"}
+{"group": "Development Tools", "canonical": "firecracker", "findings": [], "timestamp": "2026-02-18T02:41:04.166995"}
+{"group": "Development Tools", "canonical": "flannel", "findings": [], "timestamp": "2026-02-18T02:41:24.920306"}
+{"group": "Development Tools", "canonical": "gcc", "findings": [], "timestamp": "2026-02-18T02:41:39.423609"}
+{"group": "Development Tools", "canonical": "Git", "findings": [], "timestamp": "2026-02-18T02:41:52.212220"}
+{"group": "Development Tools", "canonical": "GNU Make", "findings": [{"alias": "cmake", "reason": "CMake is a separate build system generator distinct from GNU Make.", "confidence_score": 1.0, "timestamp": "2026-02-18T02:42:04.691930"}]}
+{"group": "Development Tools", "canonical": "Go Cmp", "findings": [], "timestamp": "2026-02-18T02:42:21.816112"}
+{"group": "Development Tools", "canonical": "Google Cloud SDK", "findings": [], "timestamp": "2026-02-18T02:42:40.042703"}
+{"group": "Development Tools", "canonical": "gprof", "findings": [], "timestamp": "2026-02-18T02:42:49.350882"}
+{"group": "Development Tools", "canonical": "great expectations", "findings": [], "timestamp": "2026-02-18T02:43:00.475559"}
+{"group": "Development Tools", "canonical": "gvisor", "findings": [], "timestamp": "2026-02-18T02:43:13.787992"}
+{"group": "Development Tools", "canonical": "harbor", "findings": [], "timestamp": "2026-02-18T02:43:31.224841"}
+{"group": "Development Tools", "canonical": "hdl", "findings": [], "timestamp": "2026-02-18T02:43:46.618778"}
+{"group": "Development Tools", "canonical": "hpctoolkit", "findings": [], "timestamp": "2026-02-18T02:43:57.750032"}
+{"group": "Development Tools", "canonical": "Inquirer", "findings": [], "timestamp": "2026-02-18T02:44:19.868563"}
+{"group": "Development Tools", "canonical": "iterm2", "findings": [], "timestamp": "2026-02-18T02:44:37.146024"}
+{"group": "Development Tools", "canonical": "JIRA", "findings": [], "timestamp": "2026-02-18T02:44:50.769449"}
+{"group": "Development Tools", "canonical": "K3d", "findings": [], "timestamp": "2026-02-18T02:45:10.839403"}
+{"group": "Development Tools", "canonical": "K3s", "findings": [], "timestamp": "2026-02-18T02:45:28.540151"}
+{"group": "Development Tools", "canonical": "Kaniko", "findings": [], "timestamp": "2026-02-18T02:45:44.723734"}
+{"group": "Development Tools", "canonical": "kata containers", "findings": [{"alias": "kata vms", "reason": "Kata VMS refers to virtual machines, which are distinct from Kata Containers, as they are different technologies with separate purposes.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:46:05.161139"}]}
+{"group": "Development Tools", "canonical": "Kind", "findings": [], "timestamp": "2026-02-18T02:46:21.073616"}
+{"group": "Development Tools", "canonical": "knative", "findings": [], "timestamp": "2026-02-18T02:46:39.195978"}
+{"group": "Development Tools", "canonical": "Kubernetes Client", "findings": [], "timestamp": "2026-02-18T02:46:55.169031"}
+{"group": "Development Tools", "canonical": "kubevirt", "findings": [], "timestamp": "2026-02-18T02:47:14.607928"}
+{"group": "Development Tools", "canonical": "likwid", "findings": [], "timestamp": "2026-02-18T02:47:27.559059"}
+{"group": "Development Tools", "canonical": "Linkerd", "findings": [], "timestamp": "2026-02-18T02:47:43.165957"}
+{"group": "Development Tools", "canonical": "lvs", "findings": [], "timestamp": "2026-02-18T02:47:59.502447"}
+{"group": "Development Tools", "canonical": "lxc", "findings": [], "timestamp": "2026-02-18T02:48:24.480397"}
+{"group": "Development Tools", "canonical": "lxd", "findings": [], "timestamp": "2026-02-18T02:48:39.510088"}
+{"group": "Development Tools", "canonical": "mamba", "findings": [{"alias": "selective state space", "reason": "Selective state space refers to a concept in state space modeling, which is distinct from Mamba, a package for statistical modeling.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:49:09.700338"}, {"alias": "ssm", "reason": "SSM typically stands for State Space Models, which are unrelated to Mamba's primary functions in statistical modeling.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:49:09.700347"}]}
+{"group": "Development Tools", "canonical": "Maven Central Repository", "findings": [], "timestamp": "2026-02-18T02:49:24.367728"}
+{"group": "Development Tools", "canonical": "meltano", "findings": [], "timestamp": "2026-02-18T02:49:50.370207"}
+{"group": "Development Tools", "canonical": "minikube", "findings": [], "timestamp": "2026-02-18T02:50:07.809663"}
+{"group": "Development Tools", "canonical": "Model Mommy", "findings": [], "timestamp": "2026-02-18T02:50:22.112246"}
+{"group": "Development Tools", "canonical": "ms test", "findings": [], "timestamp": "2026-02-18T02:50:54.844997"}
+{"group": "Development Tools", "canonical": "Neovim", "findings": [], "timestamp": "2026-02-18T02:51:08.153582"}
+{"group": "Development Tools", "canonical": "nvm", "findings": [], "timestamp": "2026-02-18T02:51:23.752855"}
+{"group": "Development Tools", "canonical": "Oh My Zsh", "findings": [], "timestamp": "2026-02-18T02:51:44.405135"}
+{"group": "Development Tools", "canonical": "Parking Lot", "findings": [], "timestamp": "2026-02-18T02:51:59.746709"}
+{"group": "Development Tools", "canonical": "perf", "findings": [], "timestamp": "2026-02-18T02:52:10.764870"}
+{"group": "Development Tools", "canonical": "Perforce Helix", "findings": [], "timestamp": "2026-02-18T02:52:33.259244"}
+{"group": "Development Tools", "canonical": "Pnpm", "findings": [], "timestamp": "2026-02-18T02:52:51.637726"}
+{"group": "Development Tools", "canonical": "pnr", "findings": [], "timestamp": "2026-02-18T02:53:08.968696"}
+{"group": "Development Tools", "canonical": "podman", "findings": [], "timestamp": "2026-02-18T02:53:28.557700"}
+{"group": "Development Tools", "canonical": "Proc Macro 2", "findings": [], "timestamp": "2026-02-18T02:53:44.955776"}
+{"group": "Development Tools", "canonical": "Pyenv", "findings": [], "timestamp": "2026-02-18T02:54:01.606436"}
+{"group": "Development Tools", "canonical": "Python Package Installer", "findings": [], "timestamp": "2026-02-18T02:54:15.796935"}
+{"group": "Development Tools", "canonical": "rancher", "findings": [], "timestamp": "2026-02-18T02:54:43.270730"}
+{"group": "Development Tools", "canonical": "React 360", "findings": [], "timestamp": "2026-02-18T02:55:07.730388"}
+{"group": "Development Tools", "canonical": "rkt", "findings": [], "timestamp": "2026-02-18T02:55:28.057387"}
+{"group": "Development Tools", "canonical": "sca", "findings": [], "timestamp": "2026-02-18T02:55:46.491501"}
+{"group": "Development Tools", "canonical": "skaffold", "findings": [], "timestamp": "2026-02-18T02:56:07.193090"}
+{"group": "Development Tools", "canonical": "slis", "findings": [], "timestamp": "2026-02-18T02:56:28.206140"}
+{"group": "Development Tools", "canonical": "split", "findings": [{"alias": "split.io", "reason": "Split.io is a specific company offering feature management tools, distinct from the general concept of 'split'.", "confidence_score": 0.0, "timestamp": "2026-02-18T02:56:46.064011"}]}
+{"group": "Development Tools", "canonical": "stern", "findings": [], "timestamp": "2026-02-18T02:57:02.303341"}
+{"group": "Development Tools", "canonical": "Subversion (SVN)", "findings": [], "timestamp": "2026-02-18T02:57:18.800350"}
+{"group": "Development Tools", "canonical": "tanzu", "findings": [], "timestamp": "2026-02-18T02:57:32.167843"}
+{"group": "Development Tools", "canonical": "tau", "findings": [], "timestamp": "2026-02-18T02:57:48.872356"}
+{"group": "Development Tools", "canonical": "tekton", "findings": [], "timestamp": "2026-02-18T02:58:09.566938"}
+{"group": "Development Tools", "canonical": "telepresence", "findings": [{"alias": "ambassador telepresence", "reason": "Ambassador Telepresence is a feature of the Ambassador API gateway, distinct from the standalone Telepresence tool.", "confidence_score": 0.95, "timestamp": "2026-02-18T02:58:33.440825"}]}
+{"group": "Development Tools", "canonical": "throughput optimization", "findings": [], "timestamp": "2026-02-18T02:58:49.017900"}
+{"group": "Development Tools", "canonical": "tmux", "findings": [], "timestamp": "2026-02-18T02:59:06.400718"}
+{"group": "Development Tools", "canonical": "valgrind", "findings": [], "timestamp": "2026-02-18T02:59:24.247133"}
+{"group": "Development Tools", "canonical": "versioning", "findings": [], "timestamp": "2026-02-18T02:59:40.916905"}
+{"group": "Development Tools", "canonical": "Visual Studio Code", "findings": [], "timestamp": "2026-02-18T02:59:56.990746"}
+{"group": "Development Tools", "canonical": "vtune", "findings": [], "timestamp": "2026-02-18T03:00:10.564191"}
+{"group": "Development Tools", "canonical": "Yarn (package manager)", "findings": [], "timestamp": "2026-02-18T03:00:23.878565"}
+{"group": "Development Tools", "canonical": "Zstandard", "findings": [], "timestamp": "2026-02-18T03:00:38.541282"}
+{"group": "DevOps", "canonical": "HashiCorp Vault", "findings": [], "timestamp": "2026-02-18T03:01:00.139006"}
+{"group": "Distributed Systems", "canonical": "Apache ZooKeeper", "findings": [], "timestamp": "2026-02-18T03:01:14.281962"}
+{"group": "Document Processing", "canonical": "rfc", "findings": [], "timestamp": "2026-02-18T03:01:30.207041"}
+{"group": "Document Processing", "canonical": "technical writing", "findings": [], "timestamp": "2026-02-18T03:01:45.343701"}
+{"group": "E commerce Platforms", "canonical": "Adobe Magento", "findings": [], "timestamp": "2026-02-18T03:02:02.255228"}
+{"group": "Frontend Development", "canonical": "logrocket", "findings": [], "timestamp": "2026-02-18T03:02:20.059623"}
+{"group": "Frontend Development", "canonical": "Webpack", "findings": [{"alias": "Parcel", "reason": "Parcel is a separate module bundler distinct from Webpack, though serving a similar purpose.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:02:38.754205"}]}
+{"group": "Game Engine Components", "canonical": "Entity Component System (ECS)", "findings": [], "timestamp": "2026-02-18T03:02:48.605025"}
+{"group": "Game Engine Components", "canonical": "Ogre3D", "findings": [], "timestamp": "2026-02-18T03:03:07.510067"}
+{"group": "Game Engine Components", "canonical": "Physics Engine", "findings": [], "timestamp": "2026-02-18T03:03:21.700930"}
+{"group": "Game Engines", "canonical": "Godot Engine", "findings": [], "timestamp": "2026-02-18T03:03:34.658284"}
+{"group": "Game Engines", "canonical": "Ren'Py", "findings": [], "timestamp": "2026-02-18T03:03:51.465816"}
+{"group": "Game Engines", "canonical": "Unity", "findings": [], "timestamp": "2026-02-18T03:04:03.004161"}
+{"group": "Game Engines", "canonical": "Unreal Engine", "findings": [], "timestamp": "2026-02-18T03:04:16.166371"}
+{"group": "Go Frameworks", "canonical": "AWS SDK for Go", "findings": [], "timestamp": "2026-02-18T03:04:31.721963"}
+{"group": "Go Frameworks", "canonical": "Azure SDK for Go", "findings": [], "timestamp": "2026-02-18T03:04:46.864115"}
+{"group": "GPU Computing", "canonical": "Apple Metal", "findings": [{"alias": "Metal", "reason": "Metal can refer to AMD's optimization tools, which are distinct from Apple's Metal graphics API.", "confidence_score": 0.85, "timestamp": "2026-02-18T03:05:18.362948"}]}
+{"group": "GPU Computing", "canonical": "GPU Computing", "findings": [{"alias": "cuda", "reason": "CUDA is a specific parallel computing platform and API developed by NVIDIA, distinct from the general concept of GPU Computing.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:05:41.146358"}]}
+{"group": "Graphics Techniques", "canonical": "Normal Mapping", "findings": [{"alias": "Bump Mapping", "reason": "Bump Mapping is a distinct technique from Normal Mapping, using height maps instead of normal vectors.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:06:07.197181"}]}
+{"group": "Graphics Techniques", "canonical": "WebGPU", "findings": [], "timestamp": "2026-02-18T03:06:26.572900"}
+{"group": "GUI Libraries", "canonical": "Material Components for the Web", "findings": [{"alias": "Material Components", "reason": "Material Components could refer to either the web version or the Android version, making it a distinct entity without context.", "confidence_score": 0.85, "timestamp": "2026-02-18T03:06:43.333901"}]}
+{"group": "Hardware Embedded", "canonical": "arm architecture", "findings": [], "timestamp": "2026-02-18T03:06:55.404297"}
+{"group": "Hardware Embedded", "canonical": "arm pl", "findings": [], "timestamp": "2026-02-18T03:07:09.076292"}
+{"group": "Hardware Embedded", "canonical": "asic", "findings": [], "timestamp": "2026-02-18T03:07:23.321294"}
+{"group": "Hardware Embedded", "canonical": "atpg", "findings": [], "timestamp": "2026-02-18T03:07:38.042007"}
+{"group": "Hardware Embedded", "canonical": "bare metal", "findings": [], "timestamp": "2026-02-18T03:07:52.704583"}
+{"group": "Hardware Embedded", "canonical": "chiplet", "findings": [], "timestamp": "2026-02-18T03:08:08.521504"}
+{"group": "Hardware Embedded", "canonical": "congestion analysis", "findings": [{"alias": "layout congestion", "reason": "Layout congestion refers specifically to issues arising from the arrangement of components in a design, such as in PCBs or user interfaces, which is a distinct concept from the broader congestion analysis.", "confidence_score": 0.85, "timestamp": "2026-02-18T03:08:34.575704"}]}
+{"group": "Hardware Embedded", "canonical": "cxl", "findings": [], "timestamp": "2026-02-18T03:08:48.823050"}
+{"group": "Hardware Embedded", "canonical": "ddr5", "findings": [], "timestamp": "2026-02-18T03:08:58.711004"}
+{"group": "Hardware Embedded", "canonical": "dfat", "findings": [], "timestamp": "2026-02-18T03:09:14.948430"}
+{"group": "Hardware Embedded", "canonical": "dft", "findings": [], "timestamp": "2026-02-18T03:09:29.405354"}
+{"group": "Hardware Embedded", "canonical": "drc", "findings": [], "timestamp": "2026-02-18T03:09:40.114148"}
+{"group": "Hardware Embedded", "canonical": "dsp", "findings": [{"alias": "digital signal processor", "reason": "Digital Signal Processor (DSP) is a hardware component, while DSP refers to the field of Digital Signal Processing.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:10:01.645858"}]}
+{"group": "Hardware Embedded", "canonical": "extraction", "findings": [], "timestamp": "2026-02-18T03:10:21.294772"}
+{"group": "Hardware Embedded", "canonical": "formal verification", "findings": [], "timestamp": "2026-02-18T03:10:33.048110"}
+{"group": "Hardware Embedded", "canonical": "FPGA", "findings": [], "timestamp": "2026-02-18T03:10:46.985349"}
+{"group": "Hardware Embedded", "canonical": "fpga prototyping", "findings": [], "timestamp": "2026-02-18T03:11:01.138445"}
+{"group": "Hardware Embedded", "canonical": "hardware synthesis", "findings": [{"alias": "logic synthesis", "reason": "Logic synthesis is a specific step in the hardware design flow, focusing on optimizing and translating high-level descriptions into gate-level representations. While it is a component of hardware synthesis, it represents a distinct phase with its own objectives and techniques.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:11:19.727362"}]}
+{"group": "Hardware Embedded", "canonical": "hbm", "findings": [], "timestamp": "2026-02-18T03:11:37.632766"}
+{"group": "Hardware Embedded", "canonical": "low power design", "findings": [{"alias": "power aware design", "reason": "Power aware design refers to systems that adaptively manage power consumption, whereas low power design specifically focuses on minimizing power usage. They are related but distinct concepts.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:12:00.347708"}]}
+{"group": "Hardware Embedded", "canonical": "low power microarchitecture", "findings": [], "timestamp": "2026-02-18T03:12:22.689284"}
+{"group": "Hardware Embedded", "canonical": "lpddr4", "findings": [], "timestamp": "2026-02-18T03:12:49.811343"}
+{"group": "Hardware Embedded", "canonical": "mbist", "findings": [], "timestamp": "2026-02-18T03:13:02.918809"}
+{"group": "Hardware Embedded", "canonical": "mcu", "findings": [], "timestamp": "2026-02-18T03:13:24.244807"}
+{"group": "Hardware Embedded", "canonical": "microarchitecture", "findings": [{"alias": "computer architecture", "reason": "Computer architecture refers to the overall design of a computer system, which includes but is not limited to microarchitecture. They are distinct concepts with microarchitecture being a specific component within the broader field of computer architecture.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:13:43.676977"}]}
+{"group": "Hardware Embedded", "canonical": "noc design", "findings": [], "timestamp": "2026-02-18T03:14:03.748530"}
+{"group": "Hardware Embedded", "canonical": "npu", "findings": [], "timestamp": "2026-02-18T03:14:16.972790"}
+{"group": "Hardware Embedded", "canonical": "nvme", "findings": [], "timestamp": "2026-02-18T03:14:28.990489"}
+{"group": "Hardware Embedded", "canonical": "palladium", "findings": [{"alias": "cadence palladium", "reason": "Cadence Palladium is a software tool for hardware verification, distinct from the chemical element Palladium.", "confidence_score": 1.0, "timestamp": "2026-02-18T03:14:52.546186"}]}
+{"group": "Hardware Embedded", "canonical": "pcie", "findings": [], "timestamp": "2026-02-18T03:15:06.322734"}
+{"group": "Hardware Embedded", "canonical": "physical design", "findings": [], "timestamp": "2026-02-18T03:15:29.761054"}
+{"group": "Hardware Embedded", "canonical": "risc v", "findings": [], "timestamp": "2026-02-18T03:15:43.284181"}
+{"group": "Hardware Embedded", "canonical": "routing", "findings": [{"alias": "ic routing", "reason": "IC Routing refers to a specific method of routing, such as Incremental Cost routing, which is a specialized technique within the broader field of routing. It is not a direct synonym but a distinct approach.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:16:11.145956"}]}
+{"group": "Hardware Embedded", "canonical": "rtl coding", "findings": [], "timestamp": "2026-02-18T03:16:25.550450"}
+{"group": "Hardware Embedded", "canonical": "rtos", "findings": [], "timestamp": "2026-02-18T03:16:45.887463"}
+{"group": "Hardware Embedded", "canonical": "serdes", "findings": [], "timestamp": "2026-02-18T03:17:07.483954"}
+{"group": "Hardware Embedded", "canonical": "signoff", "findings": [], "timestamp": "2026-02-18T03:17:26.497154"}
+{"group": "Hardware Embedded", "canonical": "soc integration", "findings": [], "timestamp": "2026-02-18T03:17:40.019041"}
+{"group": "Hardware Embedded", "canonical": "sta", "findings": [], "timestamp": "2026-02-18T03:17:48.858813"}
+{"group": "Hardware Embedded", "canonical": "SystemVerilog", "findings": [], "timestamp": "2026-02-18T03:18:08.799853"}
+{"group": "Hardware Embedded", "canonical": "thermal analysis", "findings": [], "timestamp": "2026-02-18T03:18:24.975437"}
+{"group": "Hardware Embedded", "canonical": "tpu", "findings": [], "timestamp": "2026-02-18T03:18:38.701970"}
+{"group": "Hardware Embedded", "canonical": "upf", "findings": [], "timestamp": "2026-02-18T03:18:52.014690"}
+{"group": "Hardware Embedded", "canonical": "uvm", "findings": [], "timestamp": "2026-02-18T03:19:06.832379"}
+{"group": "Hardware Embedded", "canonical": "vlsi design", "findings": [], "timestamp": "2026-02-18T03:19:18.167939"}
+{"group": "Hardware Embedded", "canonical": "wifi", "findings": [], "timestamp": "2026-02-18T03:19:34.524749"}
+{"group": "Hardware Embedded", "canonical": "zebu", "findings": [], "timestamp": "2026-02-18T03:19:56.122607"}
+{"group": "Healthcare Platforms", "canonical": "HIPAA", "findings": [], "timestamp": "2026-02-18T03:20:09.965603"}
+{"group": "HTTP Clients", "canonical": "Cross Fetch", "findings": [], "timestamp": "2026-02-18T03:20:25.409468"}
+{"group": "HTTP Clients", "canonical": "Google API Go Client", "findings": [], "timestamp": "2026-02-18T03:20:39.041970"}
+{"group": "HTTP Clients", "canonical": "Isomorphic Fetch", "findings": [], "timestamp": "2026-02-18T03:20:54.543249"}
+{"group": "HTTP Clients", "canonical": "Node Fetch", "findings": [], "timestamp": "2026-02-18T03:21:09.515139"}
+{"group": "Incident Management", "canonical": "incident management", "findings": [], "timestamp": "2026-02-18T03:21:29.421328"}
+{"group": "Incident Response", "canonical": "forensics", "findings": [], "timestamp": "2026-02-18T03:21:50.857771"}
+{"group": "Java Web Tools", "canonical": "Hibernate", "findings": [], "timestamp": "2026-02-18T03:22:24.673901"}
+{"group": "Java Web Tools", "canonical": "Restlet", "findings": [], "timestamp": "2026-02-18T03:22:47.794700"}
+{"group": "JavaScript Ecosystem", "canonical": "", "findings": [], "timestamp": "2026-02-18T03:23:12.549625"}
+{"group": "JavaScript Ecosystem", "canonical": "Immutable.js", "findings": [], "timestamp": "2026-02-18T03:23:31.717891"}
+{"group": "JavaScript Ecosystem", "canonical": "Remix", "findings": [{"alias": "Remix IDE", "reason": "Remix IDE is an integrated development environment focused on Ethereum smart contract development, distinct from the PHP framework named Remix.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:23:54.049505"}]}
+{"group": "Languages", "canonical": "Ada", "findings": [], "timestamp": "2026-02-18T03:24:08.607385"}
+{"group": "Languages", "canonical": "Bash", "findings": [], "timestamp": "2026-02-18T03:24:28.912177"}
+{"group": "Languages", "canonical": "C#", "findings": [], "timestamp": "2026-02-18T03:24:41.086758"}
+{"group": "Languages", "canonical": "C++", "findings": [], "timestamp": "2026-02-18T03:24:50.193865"}
+{"group": "Languages", "canonical": "Clojure", "findings": [], "timestamp": "2026-02-18T03:25:13.904512"}
+{"group": "Languages", "canonical": "COBOL", "findings": [{"alias": "legacy banking", "reason": "Legacy banking refers to older financial systems, which may use COBOL but is not the language itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:25:35.076912"}]}
+{"group": "Languages", "canonical": "Crystal", "findings": [], "timestamp": "2026-02-18T03:25:44.279648"}
+{"group": "Languages", "canonical": "Elixir", "findings": [{"alias": "erlang", "reason": "Erlang is a separate programming language from Elixir, although they share the BEAM runtime and concurrency model.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:26:08.890615"}]}
+{"group": "Languages", "canonical": "Fortran", "findings": [{"alias": "scientific computing", "reason": "Scientific computing is a field of study and application, not a specific language or tool. While Fortran is commonly used in scientific computing, the term refers to a broader domain that includes various tools and methods beyond Fortran.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:26:30.638634"}]}
+{"group": "Languages", "canonical": "Go", "findings": [], "timestamp": "2026-02-18T03:26:46.474250"}
+{"group": "Languages", "canonical": "JavaScript", "findings": [], "timestamp": "2026-02-18T03:27:03.486273"}
+{"group": "Languages", "canonical": "Kotlin", "findings": [{"alias": "Kodein", "reason": "Kodein is a dependency injection framework for Kotlin, not the language itself.", "confidence_score": 1.0, "timestamp": "2026-02-18T03:27:25.632185"}]}
+{"group": "Languages", "canonical": "LISP", "findings": [], "timestamp": "2026-02-18T03:27:51.624609"}
+{"group": "Languages", "canonical": "Nim", "findings": [{"alias": "compiled python-like", "reason": "The term 'compiled python-like' is too vague and could refer to multiple languages or tools, not exclusively Nim.", "confidence_score": 0.85, "timestamp": "2026-02-18T03:28:12.475070"}]}
+{"group": "Languages", "canonical": "Objective C", "findings": [{"alias": "ansi c", "reason": "ANSI C refers to the standardized version of the C programming language, which is distinct from Objective-C.", "confidence_score": 1.0, "timestamp": "2026-02-18T03:28:36.526019"}, {"alias": "c", "reason": "C is a general-purpose programming language, while Objective-C is an object-oriented extension of C.", "confidence_score": 1.0, "timestamp": "2026-02-18T03:28:36.526028"}, {"alias": "embedded c", "reason": "Embedded C is a specialized subset of C for embedded systems, distinct from Objective-C.", "confidence_score": 1.0, "timestamp": "2026-02-18T03:28:36.526029"}]}
+{"group": "Languages", "canonical": "Pascal", "findings": [], "timestamp": "2026-02-18T03:28:50.732394"}
+{"group": "Languages", "canonical": "PHP", "findings": [], "timestamp": "2026-02-18T03:29:04.729699"}
+{"group": "Languages", "canonical": "powershell", "findings": [], "timestamp": "2026-02-18T03:29:21.883045"}
+{"group": "Languages", "canonical": "prolog", "findings": [{"alias": "logic programming", "reason": "Logic programming is a programming paradigm, while Prolog is a specific language implementing this paradigm.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:29:44.314432"}]}
+{"group": "Languages", "canonical": "Python", "findings": [], "timestamp": "2026-02-18T03:29:59.957885"}
+{"group": "Languages", "canonical": "Ruby", "findings": [{"alias": "rails", "reason": "Rails is a web framework built on Ruby, but it is a distinct entity from the Ruby language itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:30:20.510957"}, {"alias": "ruby on rails", "reason": "Ruby on Rails refers to the Rails framework, which is separate from the Ruby programming language.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:30:20.510965"}]}
+{"group": "Languages", "canonical": "Rust", "findings": [], "timestamp": "2026-02-18T03:30:35.297042"}
+{"group": "Languages", "canonical": "Scala", "findings": [{"alias": "sbt", "reason": "SBT (Simple Build Tool) is a build automation tool for Scala and Java projects, distinct from the Scala programming language itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:31:11.891831"}]}
+{"group": "Languages", "canonical": "Smalltalk", "findings": [{"alias": "pure oop", "reason": "Pure OOP refers to a programming paradigm where all entities are objects, which is a concept distinct from Smalltalk, the specific programming language.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:31:31.744749"}]}
+{"group": "Languages", "canonical": "Swift", "findings": [{"alias": "ios development", "reason": "iOS development refers to the process of creating apps for iOS devices, which is a broader context where Swift is used, not the language itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:31:57.288998"}]}
+{"group": "Languages", "canonical": "TCL", "findings": [{"alias": "scripting language", "reason": "Scripting language is a general category encompassing multiple languages, not specific to TCL.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:32:18.247643"}]}
+{"group": "Languages", "canonical": "TypeScript", "findings": [], "timestamp": "2026-02-18T03:32:30.102316"}
+{"group": "Languages", "canonical": "verilog", "findings": [], "timestamp": "2026-02-18T03:32:44.376772"}
+{"group": "Libraries", "canonical": "Apache Log4j", "findings": [], "timestamp": "2026-02-18T03:33:05.019867"}
+{"group": "Libraries", "canonical": "Backbone.js", "findings": [], "timestamp": "2026-02-18T03:33:19.791126"}
+{"group": "Libraries", "canonical": "GNU C Library (glibc)", "findings": [{"alias": "libc", "reason": "libc is a general term for the C standard library, which can refer to different implementations across operating systems (e.g., FreeBSD's libc or macOS's libc), not exclusively the GNU C Library (glibc).", "confidence_score": 0.95, "timestamp": "2026-02-18T03:33:49.846821"}]}
+{"group": "Libraries", "canonical": "NumPy", "findings": [{"alias": "numba", "reason": "Numba is a JIT compiler for Python, distinct from the NumPy array library.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:34:13.347126"}]}
+{"group": "Libraries", "canonical": "Project Lombok", "findings": [], "timestamp": "2026-02-18T03:34:28.167674"}
+{"group": "Libraries", "canonical": "Serde JSON", "findings": [], "timestamp": "2026-02-18T03:34:46.598734"}
+{"group": "Load Balancers", "canonical": "haproxy", "findings": [], "timestamp": "2026-02-18T03:35:01.734501"}
+{"group": "Load Testing", "canonical": "gatling", "findings": [], "timestamp": "2026-02-18T03:35:19.700316"}
+{"group": "Logging and Monitoring", "canonical": "Env Logger", "findings": [], "timestamp": "2026-02-18T03:35:35.666893"}
+{"group": "Logging and Monitoring", "canonical": "Fluent Logger", "findings": [], "timestamp": "2026-02-18T03:35:54.634088"}
+{"group": "Logging Tools", "canonical": "fluentd", "findings": [], "timestamp": "2026-02-18T03:36:10.036667"}
+{"group": "Mainframe Technologies", "canonical": "IBM Z/OS", "findings": [], "timestamp": "2026-02-18T03:36:23.715366"}
+{"group": "Mainframe Technologies", "canonical": "IBM Z/VM", "findings": [], "timestamp": "2026-02-18T03:36:43.099063"}
+{"group": "Mainframe Technologies", "canonical": "IBM Z/VSE", "findings": [], "timestamp": "2026-02-18T03:36:57.087864"}
+{"group": "Management Methodologies", "canonical": "Agile", "findings": [], "timestamp": "2026-02-18T03:37:13.549003"}
+{"group": "Management Methodologies", "canonical": "Kanban", "findings": [], "timestamp": "2026-02-18T03:37:33.989633"}
+{"group": "Management Methodologies", "canonical": "Scrum", "findings": [], "timestamp": "2026-02-18T03:37:54.338564"}
+{"group": "Management Methodologies", "canonical": "slos", "findings": [], "timestamp": "2026-02-18T03:38:09.473821"}
+{"group": "Management Methodologies", "canonical": "technical leadership", "findings": [], "timestamp": "2026-02-18T03:38:25.861545"}
+{"group": "Management Methodologies", "canonical": "Time Management", "findings": [], "timestamp": "2026-02-18T03:38:38.038244"}
+{"group": "Messaging Libraries", "canonical": "Confluent Kafka", "findings": [], "timestamp": "2026-02-18T03:38:57.340104"}
+{"group": "Messaging Libraries", "canonical": "Google Cloud Pub/Sub", "findings": [], "timestamp": "2026-02-18T03:39:14.311544"}
+{"group": "Messaging Libraries", "canonical": "Slack", "findings": [], "timestamp": "2026-02-18T03:39:37.378049"}
+{"group": "Methodologies Vibe", "canonical": "Adaptability", "findings": [], "timestamp": "2026-02-18T03:40:01.583545"}
+{"group": "Methodologies Vibe", "canonical": "Communication", "findings": [], "timestamp": "2026-02-18T03:40:19.867389"}
+{"group": "Methodologies Vibe", "canonical": "community building", "findings": [], "timestamp": "2026-02-18T03:40:43.736103"}
+{"group": "Methodologies Vibe", "canonical": "conflict resolution", "findings": [{"alias": "team conflict management", "reason": "Team conflict management refers to the proactive handling and prevention of conflicts within teams, which is a broader concept than conflict resolution, which focuses on resolving existing disputes.", "confidence_score": 0.9, "timestamp": "2026-02-18T03:41:09.102921"}]}
+{"group": "Methodologies Vibe", "canonical": "contribution", "findings": [], "timestamp": "2026-02-18T03:41:29.902715"}
+{"group": "Methodologies Vibe", "canonical": "Copilot", "findings": [], "timestamp": "2026-02-18T03:41:44.718578"}
+{"group": "Methodologies Vibe", "canonical": "customer empathy", "findings": [], "timestamp": "2026-02-18T03:41:56.831855"}
+{"group": "Methodologies Vibe", "canonical": "design thinking", "findings": [], "timestamp": "2026-02-18T03:42:14.266847"}
+{"group": "Methodologies Vibe", "canonical": "devops culture", "findings": [], "timestamp": "2026-02-18T03:42:27.787778"}
+{"group": "Methodologies Vibe", "canonical": "Documentation", "findings": [], "timestamp": "2026-02-18T03:42:40.887677"}
+{"group": "Methodologies Vibe", "canonical": "emotional intelligence", "findings": [], "timestamp": "2026-02-18T03:42:58.165663"}
+{"group": "Methodologies Vibe", "canonical": "feature flags", "findings": [], "timestamp": "2026-02-18T03:43:17.075214"}
+{"group": "Methodologies Vibe", "canonical": "growth mindset", "findings": [{"alias": "professional growth", "reason": "Professional growth refers to career development and skill enhancement, which is distinct from the psychological concept of growth mindset.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:43:34.876811"}]}
+{"group": "Methodologies Vibe", "canonical": "gRPC Gateway", "findings": [], "timestamp": "2026-02-18T03:43:54.364732"}
+{"group": "Methodologies Vibe", "canonical": "husky", "findings": [], "timestamp": "2026-02-18T03:44:13.638110"}
+{"group": "Methodologies Vibe", "canonical": "incident command", "findings": [], "timestamp": "2026-02-18T03:44:30.133578"}
+{"group": "Methodologies Vibe", "canonical": "launchdarkly", "findings": [], "timestamp": "2026-02-18T03:44:42.719456"}
+{"group": "Methodologies Vibe", "canonical": "lifelong learning", "findings": [], "timestamp": "2026-02-18T03:44:56.661262"}
+{"group": "Methodologies Vibe", "canonical": "mentoring", "findings": [], "timestamp": "2026-02-18T03:45:08.510407"}
+{"group": "Methodologies Vibe", "canonical": "mob programming", "findings": [], "timestamp": "2026-02-18T03:45:22.860405"}
+{"group": "Methodologies Vibe", "canonical": "on call", "findings": [], "timestamp": "2026-02-18T03:45:37.001554"}
+{"group": "Methodologies Vibe", "canonical": "open source", "findings": [], "timestamp": "2026-02-18T03:45:50.566955"}
+{"group": "Methodologies Vibe", "canonical": "Optimization", "findings": [], "timestamp": "2026-02-18T03:46:05.174426"}
+{"group": "Methodologies Vibe", "canonical": "pacman", "findings": [], "timestamp": "2026-02-18T03:46:21.349876"}
+{"group": "Methodologies Vibe", "canonical": "pair programming", "findings": [], "timestamp": "2026-02-18T03:46:34.504123"}
+{"group": "Methodologies Vibe", "canonical": "post mortems", "findings": [], "timestamp": "2026-02-18T03:46:52.520449"}
+{"group": "Methodologies Vibe", "canonical": "presentation skills", "findings": [{"alias": "presenting tech", "reason": "Presenting tech refers specifically to presenting technology-related topics, which is a distinct application rather than the general skill of presentation skills.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:47:08.646969"}]}
+{"group": "Methodologies Vibe", "canonical": "Problem solving", "findings": [], "timestamp": "2026-02-18T03:47:21.569665"}
+{"group": "Methodologies Vibe", "canonical": "product minded", "findings": [], "timestamp": "2026-02-18T03:47:34.564136"}
+{"group": "Methodologies Vibe", "canonical": "production ready quality", "findings": [], "timestamp": "2026-02-18T03:47:47.976951"}
+{"group": "Methodologies Vibe", "canonical": "public speaking", "findings": [], "timestamp": "2026-02-18T03:47:59.047194"}
+{"group": "Methodologies Vibe", "canonical": "Root Cause Analysis", "findings": [], "timestamp": "2026-02-18T03:48:14.661187"}
+{"group": "Methodologies Vibe", "canonical": "SIEM/SOAR", "findings": [], "timestamp": "2026-02-18T03:48:32.444153"}
+{"group": "Methodologies Vibe", "canonical": "Web Content Accessibility Guidelines", "findings": [], "timestamp": "2026-02-18T03:48:43.413437"}
+{"group": "Microservices Frameworks", "canonical": "istio", "findings": [], "timestamp": "2026-02-18T03:48:57.348486"}
+{"group": "ML Algorithms", "canonical": "anomaly detection", "findings": [], "timestamp": "2026-02-18T03:49:12.191501"}
+{"group": "ML Algorithms", "canonical": "ARIMA Model", "findings": [], "timestamp": "2026-02-18T03:49:28.404519"}
+{"group": "ML Algorithms", "canonical": "bayesian optimization", "findings": [{"alias": "hyperparameter optimization", "reason": "Hyperparameter optimization is a broader concept that includes various methods like grid search, random search, and Bayesian optimization. While Bayesian optimization is a technique used within hyperparameter optimization, they are not the same thing.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:49:51.641365"}]}
+{"group": "ML Algorithms", "canonical": "CatBoost", "findings": [], "timestamp": "2026-02-18T03:50:04.428634"}
+{"group": "ML Algorithms", "canonical": "clustering", "findings": [], "timestamp": "2026-02-18T03:50:18.012688"}
+{"group": "ML Algorithms", "canonical": "contrastive learning", "findings": [{"alias": "simclr", "reason": "SimCLR is a specific framework for contrastive learning developed by Google, distinct from the general concept of contrastive learning.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:50:39.713997"}]}
+{"group": "ML Algorithms", "canonical": "diffusion sampling", "findings": [{"alias": "ancestral sampling", "reason": "Ancestral sampling is a technique used in flow-based models, not diffusion models.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:51:00.226569"}]}
+{"group": "ML Algorithms", "canonical": "feature selection", "findings": [{"alias": "dimensionality reduction", "reason": "Dimensionality reduction techniques like PCA transform data into lower dimensions, differing from feature selection which selects existing features.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:51:17.104391"}]}
+{"group": "ML Algorithms", "canonical": "gated recurrent unit", "findings": [], "timestamp": "2026-02-18T03:51:30.001738"}
+{"group": "ML Algorithms", "canonical": "gradient boosting", "findings": [], "timestamp": "2026-02-18T03:51:44.565998"}
+{"group": "ML Algorithms", "canonical": "gradient clipping", "findings": [], "timestamp": "2026-02-18T03:52:08.614032"}
+{"group": "ML Algorithms", "canonical": "hidden markov models", "findings": [], "timestamp": "2026-02-18T03:52:31.344800"}
+{"group": "ML Algorithms", "canonical": "inception", "findings": [], "timestamp": "2026-02-18T03:52:46.239016"}
+{"group": "ML Algorithms", "canonical": "isolation forest", "findings": [], "timestamp": "2026-02-18T03:53:07.380027"}
+{"group": "ML Algorithms", "canonical": "k-means", "findings": [], "timestamp": "2026-02-18T03:53:23.738328"}
+{"group": "ML Algorithms", "canonical": "knn", "findings": [], "timestamp": "2026-02-18T03:53:34.723297"}
+{"group": "ML Algorithms", "canonical": "lda", "findings": [], "timestamp": "2026-02-18T03:53:48.965791"}
+{"group": "ML Algorithms", "canonical": "learning rate scheduling", "findings": [], "timestamp": "2026-02-18T03:54:09.587795"}
+{"group": "ML Algorithms", "canonical": "LightGBM", "findings": [], "timestamp": "2026-02-18T03:54:22.240616"}
+{"group": "ML Algorithms", "canonical": "linear regression", "findings": [], "timestamp": "2026-02-18T03:54:34.258684"}
+{"group": "ML Algorithms", "canonical": "logistic regression", "findings": [], "timestamp": "2026-02-18T03:54:46.333840"}
+{"group": "ML Algorithms", "canonical": "LSTM", "findings": [], "timestamp": "2026-02-18T03:54:55.336163"}
+{"group": "ML Algorithms", "canonical": "mutual information", "findings": [], "timestamp": "2026-02-18T03:55:20.905014"}
+{"group": "ML Algorithms", "canonical": "neural networks", "findings": [], "timestamp": "2026-02-18T03:55:37.013637"}
+{"group": "ML Algorithms", "canonical": "pca", "findings": [], "timestamp": "2026-02-18T03:56:02.606812"}
+{"group": "ML Algorithms", "canonical": "Prophet", "findings": [], "timestamp": "2026-02-18T03:56:14.403532"}
+{"group": "ML Algorithms", "canonical": "qda", "findings": [], "timestamp": "2026-02-18T03:56:29.908238"}
+{"group": "ML Algorithms", "canonical": "random forests", "findings": [], "timestamp": "2026-02-18T03:56:53.137859"}
+{"group": "ML Algorithms", "canonical": "Recurrent Neural Networks", "findings": [], "timestamp": "2026-02-18T03:57:02.812091"}
+{"group": "ML Algorithms", "canonical": "regression", "findings": [], "timestamp": "2026-02-18T03:57:17.964180"}
+{"group": "ML Algorithms", "canonical": "spectral clustering", "findings": [{"alias": "graph-based clustering", "reason": "Graph-based clustering is a broader category that includes various methods, including but not limited to spectral clustering. It refers to clustering techniques that model data as graphs, which can encompass different approaches beyond spectral clustering.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:57:40.461165"}]}
+{"group": "ML Algorithms", "canonical": "svm", "findings": [{"alias": "kernel method", "reason": "Kernel methods encompass various algorithms beyond SVMs, such as kernel PCA and kernel ridge regression, making it a distinct concept.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:58:02.402198"}]}
+{"group": "ML Algorithms", "canonical": "tcn", "findings": [], "timestamp": "2026-02-18T03:58:19.372004"}
+{"group": "ML Algorithms", "canonical": "time series", "findings": [], "timestamp": "2026-02-18T03:58:47.349678"}
+{"group": "ML Algorithms", "canonical": "transformer xl", "findings": [{"alias": "long-range transformer", "reason": "Long-range transformer refers to a broader category of models designed for handling long-range dependencies, which includes various approaches beyond Transformer XL.", "confidence_score": 0.95, "timestamp": "2026-02-18T03:59:09.527257"}]}
+{"group": "ML Algorithms", "canonical": "tree ensembles", "findings": [], "timestamp": "2026-02-18T03:59:34.236989"}
+{"group": "ML Algorithms", "canonical": "u net", "findings": [], "timestamp": "2026-02-18T03:59:52.884155"}
+{"group": "ML Algorithms", "canonical": "vgg", "findings": [{"alias": "vgg16", "reason": "VGG-16 is a specific convolutional neural network model with 16 layers, distinct from the general VGG architecture.", "confidence_score": 1.0, "timestamp": "2026-02-18T04:00:20.768953"}, {"alias": "vgg19", "reason": "VGG-19 is another specific model with 19 layers, also distinct from the general VGG framework.", "confidence_score": 1.0, "timestamp": "2026-02-18T04:00:20.768961"}]}
+{"group": "ML Algorithms", "canonical": "XGBoost", "findings": [], "timestamp": "2026-02-18T04:00:36.236920"}
+{"group": "ML Algorithms", "canonical": "yolo", "findings": [], "timestamp": "2026-02-18T04:00:53.130007"}
+{"group": "Mobile Development", "canonical": "Android", "findings": [], "timestamp": "2026-02-18T04:01:08.585899"}
+{"group": "Mobile Development", "canonical": "detox", "findings": [], "timestamp": "2026-02-18T04:01:27.647350"}
+{"group": "Mobile Development", "canonical": "Espresso", "findings": [], "timestamp": "2026-02-18T04:01:43.037730"}
+{"group": "Monitoring and Error Handling", "canonical": "Sentry", "findings": [], "timestamp": "2026-02-18T04:01:59.652025"}
+{"group": "Monitoring Tools", "canonical": "Dynatrace", "findings": [], "timestamp": "2026-02-18T04:02:14.861446"}
+{"group": "Monitoring Tools", "canonical": "Jaeger", "findings": [], "timestamp": "2026-02-18T04:02:28.028806"}
+{"group": "Monitoring Tools", "canonical": "New Relic", "findings": [], "timestamp": "2026-02-18T04:02:40.418606"}
+{"group": "Monitoring Tools", "canonical": "Prometheus", "findings": [], "timestamp": "2026-02-18T04:03:04.116802"}
+{"group": "Monitoring Tools", "canonical": "zipkin tracing", "findings": [], "timestamp": "2026-02-18T04:03:22.232317"}
+{"group": "Networking Services", "canonical": "AWS VPC", "findings": [], "timestamp": "2026-02-18T04:03:40.826660"}
+{"group": "Networking Systems", "canonical": "akamai", "findings": [], "timestamp": "2026-02-18T04:03:59.635717"}
+{"group": "Networking Systems", "canonical": "Amazon Route 53", "findings": [], "timestamp": "2026-02-18T04:04:12.956709"}
+{"group": "Networking Systems", "canonical": "Amazon SNS", "findings": [], "timestamp": "2026-02-18T04:04:27.255865"}
+{"group": "Networking Systems", "canonical": "Amazon SQS", "findings": [], "timestamp": "2026-02-18T04:04:40.357449"}
+{"group": "Networking Systems", "canonical": "AWS PrivateLink", "findings": [], "timestamp": "2026-02-18T04:04:58.420625"}
+{"group": "Networking Systems", "canonical": "bluetooth", "findings": [], "timestamp": "2026-02-18T04:05:20.522128"}
+{"group": "Networking Systems", "canonical": "ddos protection", "findings": [], "timestamp": "2026-02-18T04:05:37.913014"}
+{"group": "Networking Systems", "canonical": "DNS", "findings": [], "timestamp": "2026-02-18T04:05:51.895249"}
+{"group": "Networking Systems", "canonical": "edge devices", "findings": [], "timestamp": "2026-02-18T04:06:07.082311"}
+{"group": "Networking Systems", "canonical": "Envoy", "findings": [], "timestamp": "2026-02-18T04:06:24.884902"}
+{"group": "Networking Systems", "canonical": "HTTP", "findings": [], "timestamp": "2026-02-18T04:06:36.163835"}
+{"group": "Networking Systems", "canonical": "protocols", "findings": [], "timestamp": "2026-02-18T04:06:58.001141"}
+{"group": "Networking Systems", "canonical": "Serverless Architecture", "findings": [], "timestamp": "2026-02-18T04:07:17.327015"}
+{"group": "Networking Systems", "canonical": "WebSocket", "findings": [], "timestamp": "2026-02-18T04:07:34.398478"}
+{"group": "NoSQL Databases", "canonical": "faunadb", "findings": [{"alias": "fauna", "reason": "Fauna refers to the company or other projects within the ecosystem, not strictly the database product FaunaDB.", "confidence_score": 0.85, "timestamp": "2026-02-18T04:07:52.201068"}]}
+{"group": "Operating Systems", "canonical": "Linux", "findings": [], "timestamp": "2026-02-18T04:08:13.131791"}
+{"group": "Operating Systems", "canonical": "Manjaro Linux", "findings": [], "timestamp": "2026-02-18T04:08:30.520573"}
+{"group": "Operating Systems", "canonical": "shell scripting", "findings": [], "timestamp": "2026-02-18T04:08:44.201756"}
+{"group": "Package Management", "canonical": "brew", "findings": [], "timestamp": "2026-02-18T04:08:57.563598"}
+{"group": "Parallel Computing", "canonical": "ccl", "findings": [], "timestamp": "2026-02-18T04:09:13.507367"}
+{"group": "Parallel Computing", "canonical": "Message Passing Interface (MPI)", "findings": [], "timestamp": "2026-02-18T04:09:26.951730"}
+{"group": "Parallel Computing", "canonical": "papi", "findings": [], "timestamp": "2026-02-18T04:09:41.412269"}
+{"group": "Parallel Computing", "canonical": "score p", "findings": [{"alias": "parallel performance measurement", "reason": "Parallel performance measurement is a concept or task, not a specific tool or alternative name for 'score p'. It describes the purpose of 'score p' rather than being an alias.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:10:00.948518"}]}
+{"group": "Performance Testing", "canonical": "jmeter", "findings": [], "timestamp": "2026-02-18T04:10:14.414946"}
+{"group": "Performance Testing", "canonical": "load testing", "findings": [{"alias": "performance testing", "reason": "Performance testing is a broader concept that includes load testing but also encompasses other types of testing such as stress and endurance testing. They are distinct concepts within software testing.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:10:31.273881"}]}
+{"group": "Programming Paradigms", "canonical": "OOP", "findings": [], "timestamp": "2026-02-18T04:10:52.337448"}
+{"group": "Project Management Tools", "canonical": "trello", "findings": [], "timestamp": "2026-02-18T04:11:13.514432"}
+{"group": "QA Testing", "canonical": "A/B testing", "findings": [], "timestamp": "2026-02-18T04:11:32.879654"}
+{"group": "QA Testing", "canonical": "Angular Testing Library", "findings": [], "timestamp": "2026-02-18T04:11:48.540607"}
+{"group": "QA Testing", "canonical": "BDD", "findings": [], "timestamp": "2026-02-18T04:12:12.907096"}
+{"group": "QA Testing", "canonical": "Cucumber", "findings": [], "timestamp": "2026-02-18T04:12:28.411850"}
+{"group": "QA Testing", "canonical": "Cypress", "findings": [], "timestamp": "2026-02-18T04:12:49.651585"}
+{"group": "QA Testing", "canonical": "dast", "findings": [], "timestamp": "2026-02-18T04:13:05.783394"}
+{"group": "QA Testing", "canonical": "gherkin", "findings": [], "timestamp": "2026-02-18T04:13:25.853951"}
+{"group": "QA Testing", "canonical": "gremlin", "findings": [{"alias": "gremlin chaos", "reason": "Gremlin Chaos refers to a tool used for controlled system disruption, distinct from the Gremlin graph traversal language.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:13:46.866803"}]}
+{"group": "QA Testing", "canonical": "Integration Testing", "findings": [], "timestamp": "2026-02-18T04:14:03.098390"}
+{"group": "QA Testing", "canonical": "Jest", "findings": [], "timestamp": "2026-02-18T04:14:22.912169"}
+{"group": "QA Testing", "canonical": "JUnit", "findings": [], "timestamp": "2026-02-18T04:14:45.262693"}
+{"group": "QA Testing", "canonical": "litmus chaos", "findings": [], "timestamp": "2026-02-18T04:15:15.044357"}
+{"group": "QA Testing", "canonical": "Nightwatch.js", "findings": [], "timestamp": "2026-02-18T04:15:31.801910"}
+{"group": "QA Testing", "canonical": "property based testing", "findings": [], "timestamp": "2026-02-18T04:15:43.913948"}
+{"group": "QA Testing", "canonical": "quality engineering", "findings": [], "timestamp": "2026-02-18T04:16:00.617361"}
+{"group": "QA Testing", "canonical": "React Testing Library", "findings": [], "timestamp": "2026-02-18T04:16:14.241950"}
+{"group": "QA Testing", "canonical": "Selenium WebDriver", "findings": [], "timestamp": "2026-02-18T04:16:33.717326"}
+{"group": "QA Testing", "canonical": "TDD", "findings": [], "timestamp": "2026-02-18T04:16:48.030568"}
+{"group": "QA Testing", "canonical": "test automation", "findings": [], "timestamp": "2026-02-18T04:16:59.517246"}
+{"group": "QA Testing", "canonical": "Test Driven Development", "findings": [], "timestamp": "2026-02-18T04:17:09.294950"}
+{"group": "QA Testing", "canonical": "Unit Testing", "findings": [], "timestamp": "2026-02-18T04:17:25.627001"}
+{"group": "QA Testing", "canonical": "visual regression", "findings": [], "timestamp": "2026-02-18T04:17:45.529397"}
+{"group": "Reactive Programming", "canonical": "Bacon.js", "findings": [], "timestamp": "2026-02-18T04:18:00.824261"}
+{"group": "Regulatory Compliance", "canonical": "GDPR", "findings": [], "timestamp": "2026-02-18T04:18:09.774304"}
+{"group": "Rendering Engines", "canonical": "Arnold Renderer", "findings": [], "timestamp": "2026-02-18T04:18:27.888686"}
+{"group": "Resilience Tools", "canonical": "chaos mesh", "findings": [], "timestamp": "2026-02-18T04:18:47.222015"}
+{"group": "Rust Frameworks", "canonical": "Actix web", "findings": [{"alias": "Actix", "reason": "Actix is an actor framework for Rust, while Actix web is a web framework built on top of Actix. They are distinct projects with different focuses.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:19:09.283850"}]}
+{"group": "Scientific Computing", "canonical": "linear", "findings": [{"alias": "linear.app", "reason": "Linear.app is a specific application tool, distinct from the general concept of 'linear' which could refer to linear algebra or other mathematical concepts.", "confidence_score": 0.85, "timestamp": "2026-02-18T04:19:27.919927"}]}
+{"group": "Scientific Computing", "canonical": "NVIDIA PhysX", "findings": [], "timestamp": "2026-02-18T04:19:38.021025"}
+{"group": "Search Engines", "canonical": "elasticsearch", "findings": [{"alias": "Elastic", "reason": "Elastic refers to the company Elastic, which develops Elasticsearch, but it is not a synonym for Elasticsearch itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:19:53.673570"}]}
+{"group": "Search Technologies", "canonical": "algolia", "findings": [], "timestamp": "2026-02-18T04:20:03.551229"}
+{"group": "Search Technologies", "canonical": "elastic cloud", "findings": [], "timestamp": "2026-02-18T04:20:27.893652"}
+{"group": "Security", "canonical": "abac", "findings": [], "timestamp": "2026-02-18T04:20:44.706511"}
+{"group": "Security", "canonical": "Auth0", "findings": [{"alias": "okta auth0", "reason": "Okta is a separate identity management service provider, distinct from Auth0.", "confidence_score": 1.0, "timestamp": "2026-02-18T04:21:08.053226"}]}
+{"group": "Security", "canonical": "BCrypt", "findings": [], "timestamp": "2026-02-18T04:21:28.275693"}
+{"group": "Security", "canonical": "biometrics", "findings": [], "timestamp": "2026-02-18T04:21:45.187484"}
+{"group": "Security", "canonical": "cloud security", "findings": [{"alias": "infrastructure security", "reason": "Infrastructure security refers to the protection of IT infrastructure, which can include both on-premises and cloud environments. While related, it is a broader concept than cloud security, which specifically addresses security in cloud computing environments.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:22:11.345359"}]}
+{"group": "Security", "canonical": "cloudflare", "findings": [], "timestamp": "2026-02-18T04:22:24.774915"}
+{"group": "Security", "canonical": "cspm", "findings": [], "timestamp": "2026-02-18T04:22:41.532044"}
+{"group": "Security", "canonical": "edr", "findings": [], "timestamp": "2026-02-18T04:23:00.758502"}
+{"group": "Security", "canonical": "Encryption", "findings": [{"alias": "cryptography", "reason": "Cryptography is a broader field encompassing encryption along with other security practices, making it a distinct concept from encryption itself.", "confidence_score": 0.0, "timestamp": "2026-02-18T04:23:17.828579"}]}
+{"group": "Security", "canonical": "fuzzing", "findings": [], "timestamp": "2026-02-18T04:23:32.860052"}
+{"group": "Security", "canonical": "hashing", "findings": [], "timestamp": "2026-02-18T04:23:56.834792"}
+{"group": "Security", "canonical": "iast", "findings": [], "timestamp": "2026-02-18T04:24:13.069569"}
+{"group": "Security", "canonical": "Identity and access management (IAM)", "findings": [{"alias": "Amazon IAM", "reason": "Amazon IAM is a specific implementation by Amazon, distinct from the general concept.", "confidence_score": 1.0, "timestamp": "2026-02-18T04:24:36.610161"}, {"alias": "AWS IAM", "reason": "AWS IAM is Amazon's cloud service version, separate from the general IAM concept.", "confidence_score": 1.0, "timestamp": "2026-02-18T04:24:36.610169"}]}
+{"group": "Security", "canonical": "incident response", "findings": [], "timestamp": "2026-02-18T04:24:56.143967"}
+{"group": "Security", "canonical": "ipsec", "findings": [], "timestamp": "2026-02-18T04:25:06.645841"}
+{"group": "Security", "canonical": "iso 27001", "findings": [], "timestamp": "2026-02-18T04:25:26.637025"}
+{"group": "Security", "canonical": "jwt", "findings": [{"alias": "jwt-go", "reason": "jwt-go is a specific Go library for handling JSON Web Tokens, distinct from the JWT standard itself.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:25:45.203046"}]}
+{"group": "Security", "canonical": "malware prevention", "findings": [], "timestamp": "2026-02-18T04:25:55.446243"}
+{"group": "Security", "canonical": "Multi factor authentication (MFA)", "findings": [], "timestamp": "2026-02-18T04:26:05.763715"}
+{"group": "Security", "canonical": "Native TLS", "findings": [], "timestamp": "2026-02-18T04:26:21.524587"}
+{"group": "Security", "canonical": "ndr", "findings": [], "timestamp": "2026-02-18T04:26:36.240779"}
+{"group": "Security", "canonical": "OAuth 2.0", "findings": [], "timestamp": "2026-02-18T04:26:54.625784"}
+{"group": "Security", "canonical": "OIDC", "findings": [], "timestamp": "2026-02-18T04:27:09.773399"}
+{"group": "Security", "canonical": "owasp", "findings": [{"alias": "owasp top 10", "reason": "The OWASP Top 10 is a specific document listing critical security risks, distinct from the OWASP organization itself.", "confidence_score": 0.85, "timestamp": "2026-02-18T04:28:03.608972"}]}
+{"group": "Security", "canonical": "pentesting", "findings": [], "timestamp": "2026-02-18T04:28:17.248523"}
+{"group": "Security", "canonical": "rbac", "findings": [], "timestamp": "2026-02-18T04:28:35.631392"}
+{"group": "Security", "canonical": "saml", "findings": [], "timestamp": "2026-02-18T04:29:00.405165"}
+{"group": "Security", "canonical": "Security", "findings": [], "timestamp": "2026-02-18T04:29:22.188927"}
+{"group": "Security", "canonical": "security design reviews", "findings": [{"alias": "security audits", "reason": "Security audits are broader assessments of an organization's security measures, whereas security design reviews specifically examine the security aspects of a system's design. They are distinct processes within the realm of security practices.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:29:41.940794"}]}
+{"group": "Security", "canonical": "soar", "findings": [], "timestamp": "2026-02-18T04:29:51.517948"}
+{"group": "Security", "canonical": "soc2", "findings": [], "timestamp": "2026-02-18T04:30:05.972012"}
+{"group": "Security", "canonical": "SSO", "findings": [], "timestamp": "2026-02-18T04:30:18.916705"}
+{"group": "Security", "canonical": "threat modeling", "findings": [], "timestamp": "2026-02-18T04:30:34.573611"}
+{"group": "Security", "canonical": "vpn", "findings": [], "timestamp": "2026-02-18T04:30:49.491605"}
+{"group": "Security", "canonical": "vulnerability assessment", "findings": [{"alias": "security scanning", "reason": "Security scanning is a broader process that includes but is not limited to vulnerability assessment.", "confidence_score": 0.8, "timestamp": "2026-02-18T04:31:14.078643"}, {"alias": "vulnerability scanning", "reason": "Vulnerability scanning is a specific method within vulnerability assessment, not the same concept.", "confidence_score": 0.7, "timestamp": "2026-02-18T04:31:14.078650"}]}
+{"group": "Security", "canonical": "waf", "findings": [], "timestamp": "2026-02-18T04:31:31.879946"}
+{"group": "Security", "canonical": "Web Application Firewall", "findings": [], "timestamp": "2026-02-18T04:31:46.647033"}
+{"group": "Security", "canonical": "xdr", "findings": [], "timestamp": "2026-02-18T04:31:58.190594"}
+{"group": "Security", "canonical": "zero trust", "findings": [], "timestamp": "2026-02-18T04:32:11.292434"}
+{"group": "Software Architecture", "canonical": "adr", "findings": [], "timestamp": "2026-02-18T04:32:26.317027"}
+{"group": "Software Architecture", "canonical": "api gateway", "findings": [], "timestamp": "2026-02-18T04:32:43.490254"}
+{"group": "Software Architecture", "canonical": "cap theorem", "findings": [], "timestamp": "2026-02-18T04:33:02.185995"}
+{"group": "Software Architecture", "canonical": "circuit breaker", "findings": [], "timestamp": "2026-02-18T04:33:20.052360"}
+{"group": "Software Architecture", "canonical": "clean architecture", "findings": [], "timestamp": "2026-02-18T04:33:32.689404"}
+{"group": "Software Architecture", "canonical": "consensus algorithms", "findings": [], "timestamp": "2026-02-18T04:33:49.882219"}
+{"group": "Software Architecture", "canonical": "consistent hashing", "findings": [{"alias": "distributed hashing", "reason": "Distributed hashing is a broader concept that includes various methods, whereas consistent hashing is a specific technique within that domain.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:34:07.053997"}]}
+{"group": "Software Architecture", "canonical": "cqrs", "findings": [], "timestamp": "2026-02-18T04:34:16.263000"}
+{"group": "Software Architecture", "canonical": "distributed locking", "findings": [], "timestamp": "2026-02-18T04:34:31.709419"}
+{"group": "Software Architecture", "canonical": "embedded firmware", "findings": [], "timestamp": "2026-02-18T04:34:45.505001"}
+{"group": "Software Architecture", "canonical": "event driven architecture", "findings": [], "timestamp": "2026-02-18T04:34:56.522529"}
+{"group": "Software Architecture", "canonical": "event sourcing", "findings": [], "timestamp": "2026-02-18T04:35:19.436360"}
+{"group": "Software Architecture", "canonical": "functional verification", "findings": [], "timestamp": "2026-02-18T04:35:32.899145"}
+{"group": "Software Architecture", "canonical": "grpc", "findings": [], "timestamp": "2026-02-18T04:35:42.156067"}
+{"group": "Software Architecture", "canonical": "hexagonal architecture", "findings": [], "timestamp": "2026-02-18T04:35:55.678042"}
+{"group": "Software Architecture", "canonical": "inter operability", "findings": [], "timestamp": "2026-02-18T04:36:09.511657"}
+{"group": "Software Architecture", "canonical": "kiss", "findings": [], "timestamp": "2026-02-18T04:36:20.689002"}
+{"group": "Software Architecture", "canonical": "kong", "findings": [], "timestamp": "2026-02-18T04:36:38.180573"}
+{"group": "Software Architecture", "canonical": "load balancing", "findings": [], "timestamp": "2026-02-18T04:36:54.464895"}
+{"group": "Software Architecture", "canonical": "messaging patterns", "findings": [], "timestamp": "2026-02-18T04:37:11.487751"}
+{"group": "Software Architecture", "canonical": "Microservices", "findings": [], "timestamp": "2026-02-18T04:37:26.534000"}
+{"group": "Software Architecture", "canonical": "modular monolith", "findings": [], "timestamp": "2026-02-18T04:37:47.974309"}
+{"group": "Software Architecture", "canonical": "object oriented design", "findings": [], "timestamp": "2026-02-18T04:38:00.778022"}
+{"group": "Software Architecture", "canonical": "onion architecture", "findings": [], "timestamp": "2026-02-18T04:38:17.485520"}
+{"group": "Software Architecture", "canonical": "OOAD", "findings": [], "timestamp": "2026-02-18T04:38:38.179428"}
+{"group": "Software Architecture", "canonical": "paxos", "findings": [], "timestamp": "2026-02-18T04:38:54.416058"}
+{"group": "Software Architecture", "canonical": "POJO", "findings": [], "timestamp": "2026-02-18T04:39:08.769971"}
+{"group": "Software Architecture", "canonical": "raft", "findings": [], "timestamp": "2026-02-18T04:39:23.690902"}
+{"group": "Software Architecture", "canonical": "retry logic", "findings": [], "timestamp": "2026-02-18T04:39:41.492621"}
+{"group": "Software Architecture", "canonical": "reverse proxy", "findings": [{"alias": "reverse proxy design", "reason": "Reverse proxy design refers to the architectural approach and planning of a reverse proxy setup, which is distinct from the reverse proxy itself as a component.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:40:00.504958"}]}
+{"group": "Software Architecture", "canonical": "rpcs", "findings": [], "timestamp": "2026-02-18T04:40:14.595292"}
+{"group": "Software Architecture", "canonical": "saga pattern", "findings": [], "timestamp": "2026-02-18T04:40:34.976946"}
+{"group": "Software Architecture", "canonical": "scalable architectures", "findings": [], "timestamp": "2026-02-18T04:40:49.384438"}
+{"group": "Software Architecture", "canonical": "service mesh", "findings": [{"alias": "consul", "reason": "Consul is a service discovery and configuration tool, not a service mesh.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:41:12.629244"}]}
+{"group": "Software Architecture", "canonical": "sharding", "findings": [], "timestamp": "2026-02-18T04:41:28.181755"}
+{"group": "Software Architecture", "canonical": "soa", "findings": [], "timestamp": "2026-02-18T04:41:45.514713"}
+{"group": "Software Architecture", "canonical": "solid principles", "findings": [{"alias": "solid design", "reason": "Solid Design refers to general software design practices, which is broader than the specific Solid Principles (SRP, OCP, LSP, ISP, DIP).", "confidence_score": 0.95, "timestamp": "2026-02-18T04:42:04.998255"}]}
+{"group": "Software Architecture", "canonical": "threading", "findings": [], "timestamp": "2026-02-18T04:42:19.348375"}
+{"group": "Software Architecture", "canonical": "tyk", "findings": [], "timestamp": "2026-02-18T04:42:36.473277"}
+{"group": "Software Architecture", "canonical": "yagni", "findings": [], "timestamp": "2026-02-18T04:42:46.363471"}
+{"group": "Software Development Principles", "canonical": "dry", "findings": [], "timestamp": "2026-02-18T04:42:55.154063"}
+{"group": "Software Engineering Practices", "canonical": "code ownership", "findings": [], "timestamp": "2026-02-18T04:43:09.608167"}
+{"group": "Software Quality", "canonical": "mutation testing", "findings": [], "timestamp": "2026-02-18T04:43:31.992250"}
+{"group": "State Management Libraries", "canonical": "Flux", "findings": [], "timestamp": "2026-02-18T04:43:50.599261"}
+{"group": "Storage Services", "canonical": "wasabi", "findings": [], "timestamp": "2026-02-18T04:44:13.937378"}
+{"group": "Support Services", "canonical": "Troubleshooting", "findings": [{"alias": "debugging skills", "reason": "Debugging skills pertain specifically to identifying and resolving software code errors, whereas troubleshooting refers to diagnosing and fixing a wider range of system or product issues.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:44:33.221527"}]}
+{"group": "Test Automation Frameworks", "canonical": "Robot Framework", "findings": [], "timestamp": "2026-02-18T04:44:51.024026"}
+{"group": "Testing Methodologies", "canonical": "chaos engineering", "findings": [], "timestamp": "2026-02-18T04:45:02.776078"}
+{"group": "Translation Services", "canonical": "Google Translate", "findings": [], "timestamp": "2026-02-18T04:45:28.025505"}
+{"group": "Video Processing", "canonical": "AWS MediaConvert", "findings": [], "timestamp": "2026-02-18T04:45:49.988787"}
+{"group": "Web Ecosystem", "canonical": "Angular", "findings": [], "timestamp": "2026-02-18T04:46:08.991169"}
+{"group": "Web Ecosystem", "canonical": "Apache Wicket", "findings": [{"alias": "Wicket", "reason": "The term 'Wicket' is ambiguous and refers to multiple unrelated concepts such as a cricket term, a game, or a name, which are distinct from Apache Wicket, the web framework.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:46:32.808412"}]}
+{"group": "Web Ecosystem", "canonical": "Apollo Client", "findings": [], "timestamp": "2026-02-18T04:46:45.958598"}
+{"group": "Web Ecosystem", "canonical": "astro", "findings": [{"alias": "astro.build", "reason": "Astro.build is a separate build tool related to Astro but represents a distinct concept.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:47:10.202679"}]}
+{"group": "Web Ecosystem", "canonical": "CSS", "findings": [], "timestamp": "2026-02-18T04:47:26.924269"}
+{"group": "Web Ecosystem", "canonical": "Django", "findings": [], "timestamp": "2026-02-18T04:47:44.625108"}
+{"group": "Web Ecosystem", "canonical": "edge computing", "findings": [], "timestamp": "2026-02-18T04:48:03.057052"}
+{"group": "Web Ecosystem", "canonical": "emotion", "findings": [], "timestamp": "2026-02-18T04:48:17.249868"}
+{"group": "Web Ecosystem", "canonical": "framer motion", "findings": [], "timestamp": "2026-02-18T04:48:33.540592"}
+{"group": "Web Ecosystem", "canonical": "full stack", "findings": [], "timestamp": "2026-02-18T04:48:48.778688"}
+{"group": "Web Ecosystem", "canonical": "Gorilla Mux", "findings": [], "timestamp": "2026-02-18T04:49:02.412024"}
+{"group": "Web Ecosystem", "canonical": "graphql", "findings": [], "timestamp": "2026-02-18T04:49:18.079014"}
+{"group": "Web Ecosystem", "canonical": "HTML", "findings": [], "timestamp": "2026-02-18T04:49:30.151673"}
+{"group": "Web Ecosystem", "canonical": "HTTP Router", "findings": [{"alias": "httprouter", "reason": "HTTP Router is a general concept, while httprouter is a specific Go package for routing HTTP requests.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:49:48.844214"}]}
+{"group": "Web Ecosystem", "canonical": "http/3", "findings": [{"alias": "quic", "reason": "QUIC is a transport layer protocol, not the same as HTTP/3 which operates at the application layer.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:50:08.243289"}]}
+{"group": "Web Ecosystem", "canonical": "JavaScript Frameworks", "findings": [{"alias": "Vue.js", "reason": "Vue.js is a specific JavaScript framework, whereas 'JavaScript Frameworks' refers to the broader category including multiple frameworks.", "confidence_score": 0.95, "timestamp": "2026-02-18T04:50:26.461310"}]}
+{"group": "Web Ecosystem", "canonical": "Less", "findings": [], "timestamp": "2026-02-18T04:50:45.894160"}
+{"group": "Web Ecosystem", "canonical": "material ui", "findings": [], "timestamp": "2026-02-18T04:51:02.755102"}
+{"group": "Web Ecosystem", "canonical": "Meteor.js", "findings": [], "timestamp": "2026-02-18T04:51:19.405903"}
+{"group": "Web Ecosystem", "canonical": "Node.js", "findings": [], "timestamp": "2026-02-18T04:51:42.856356"}
+{"group": "Web Ecosystem", "canonical": "Percent Encoding", "findings": [], "timestamp": "2026-02-18T04:51:59.299294"}
+{"group": "Web Ecosystem", "canonical": "Phoenix Framework", "findings": [], "timestamp": "2026-02-18T04:52:14.693938"}
+{"group": "Web Ecosystem", "canonical": "puppeteer", "findings": [], "timestamp": "2026-02-18T04:52:34.659470"}
+{"group": "Web Ecosystem", "canonical": "pwa", "findings": [], "timestamp": "2026-02-18T04:52:53.145650"}
+{"group": "Web Ecosystem", "canonical": "radix ui", "findings": [], "timestamp": "2026-02-18T04:53:09.276309"}
+{"group": "Web Ecosystem", "canonical": "React", "findings": [{"alias": "react (reason+act)", "reason": "The term 'reason+act' does not correspond to React or any known related concept, suggesting it refers to a different entity.", "confidence_score": 0.85, "timestamp": "2026-02-18T04:53:34.333186"}]}
+{"group": "Web Ecosystem", "canonical": "react query", "findings": [], "timestamp": "2026-02-18T04:53:46.340296"}
+{"group": "Web Ecosystem", "canonical": "Requests HTML", "findings": [], "timestamp": "2026-02-18T04:54:00.116015"}
+{"group": "Web Ecosystem", "canonical": "REST", "findings": [], "timestamp": "2026-02-18T04:54:16.843389"}
+{"group": "Web Ecosystem", "canonical": "Sass", "findings": [{"alias": "sast", "reason": "SAST stands for Static Application Security Testing, which is a software security analysis tool, distinct from Sass (Syntactically Awesome Stylesheets).", "confidence_score": 1.0, "timestamp": "2026-02-18T04:54:36.508208"}, {"alias": "static application security testing", "reason": "Static Application Security Testing (SAST) is a software security analysis tool, distinct from Sass, which is a CSS preprocessor.", "confidence_score": 1.0, "timestamp": "2026-02-18T04:54:36.508215"}]}
+{"group": "Web Ecosystem", "canonical": "server side rendering", "findings": [], "timestamp": "2026-02-18T04:54:46.540414"}
+{"group": "Web Ecosystem", "canonical": "Socket.IO Client", "findings": [], "timestamp": "2026-02-18T04:55:03.610342"}
+{"group": "Web Ecosystem", "canonical": "Spring", "findings": [], "timestamp": "2026-02-18T04:55:30.753981"}
+{"group": "Web Ecosystem", "canonical": "Spring Framework", "findings": [], "timestamp": "2026-02-18T04:55:44.428639"}
+{"group": "Web Ecosystem", "canonical": "Svelte", "findings": [], "timestamp": "2026-02-18T04:56:04.067600"}
+{"group": "Web Ecosystem", "canonical": "tailwind", "findings": [], "timestamp": "2026-02-18T04:56:22.972782"}
+{"group": "Web Ecosystem", "canonical": "vercel", "findings": [], "timestamp": "2026-02-18T04:56:35.034975"}
+{"group": "Web Ecosystem", "canonical": "Vue", "findings": [], "timestamp": "2026-02-18T04:56:56.477913"}
+{"group": "Web Ecosystem", "canonical": "wasm", "findings": [], "timestamp": "2026-02-18T04:57:12.969381"}
+{"group": "Web Ecosystem", "canonical": "Web Services", "findings": [], "timestamp": "2026-02-18T04:57:23.994499"}
+{"group": "Web Ecosystem", "canonical": "Web Storage API", "findings": [], "timestamp": "2026-02-18T04:57:38.810777"}
+{"group": "Web Ecosystem", "canonical": "WhatWG Fetch API", "findings": [], "timestamp": "2026-02-18T04:57:55.363647"}
+{"group": "Web Servers", "canonical": "gunicorn", "findings": [], "timestamp": "2026-02-18T04:58:15.636265"}
+{"group": "XML Libraries", "canonical": "Fast XML Parser", "findings": [], "timestamp": "2026-02-18T04:58:32.709858"}
+{"group": "XR Technologies", "canonical": "virtual reality", "findings": [], "timestamp": "2026-02-18T04:58:44.769325"}

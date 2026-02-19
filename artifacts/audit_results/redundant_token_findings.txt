@@ -1,0 +1,51 @@
+Scanning /mnt/workspace/TaxonomyCleaner/CanonicalData/Output/stage0/stage0_rewritten_store.json...
+[AI Data Science] Canonical: 'Data Analysis' -> Alias: 'Data visualization' ends with visualization
+[AI Data Science] Canonical: 'Generative AI' -> Alias: 'gen ai' ends with ai
+[AI Data Science] Canonical: 'Generative Adversarial Networks' -> Alias: 'gan training' ends with training
+[AI Data Science] Canonical: 'QLoRA' -> Alias: 'quantized lora' ends with lora
+[AI Data Science] Canonical: 'azure ml' -> Alias: 'azure machine learning' ends with machine learning
+[AI Data Science] Canonical: 'bert' -> Alias: 'bidirectional encoder representations from transformers' ends with transformers
+[AI Operational Techniques] Canonical: 'AWS X Ray' -> Alias: 'X Ray' ends with ray
+[AI Operational Techniques] Canonical: 'legion' -> Alias: 'data centric parallel programming' ends with parallel programming
+[CI/CD Infrastructure] Canonical: 'Atlantis' -> Alias: 'atlantis terraform' ends with terraform
+[CI/CD Infrastructure] Canonical: 'GitHub Actions' -> Alias: 'github ci' ends with ci
+[CI/CD Infrastructure] Canonical: 'GitLab' -> Alias: 'gitlab ci' ends with ci
+[CI/CD Infrastructure] Canonical: 'Jenkins' -> Alias: 'jenkins ci' ends with ci
+[CI/CD Infrastructure] Canonical: 'cdktf' -> Alias: 'cdk for terraform' ends with terraform
+[CI/CD Infrastructure] Canonical: 'devsecops' -> Alias: 'secure devops' ends with devops
+[CI/CD Infrastructure] Canonical: 'drone' -> Alias: 'drone ci' ends with ci
+[Data Engineering] Canonical: 'Data Streaming' -> Alias: 'Streaming data pipelines' ends with data pipelines
+[Data Engineering] Canonical: 'Databricks' -> Alias: 'databricks lakehouse' ends with lakehouse
+[Data Engineering] Canonical: 'airbyte' -> Alias: 'airbyte etl' ends with etl
+[Data Engineering] Canonical: 'alation' -> Alias: 'alation data catalog' ends with data catalog
+[Data Engineering] Canonical: 'confluent cloud' -> Alias: 'managed kafka' ends with kafka
+[Data Engineering] Canonical: 'data modeling' -> Alias: 'snowflake schema' ends with schema
+[Data Engineering] Canonical: 'data modeling' -> Alias: 'star schema' ends with schema
+[Data Engineering] Canonical: 'debezium' -> Alias: 'debezium cdc' ends with cdc
+[Data Engineering] Canonical: 'fivetran' -> Alias: 'fivetran etl' ends with etl
+[Data Engineering] Canonical: 'glue' -> Alias: 'aws glue etl' ends with etl
+[Databases] Canonical: 'azure sql database' -> Alias: 'azure sql' ends with sql
+[Databases] Canonical: 'pinecone' -> Alias: 'pinecone vector db' ends with vector db
+[Development Tools] Canonical: 'K3d' -> Alias: 'k3s in docker' ends with docker
+[Development Tools] Canonical: 'K3s' -> Alias: 'lightweight kubernetes' ends with kubernetes
+[Development Tools] Canonical: 'Pnpm' -> Alias: 'performant npm' ends with npm
+[Development Tools] Canonical: 'knative' -> Alias: 'serverless kubernetes' ends with kubernetes
+[Development Tools] Canonical: 'kubevirt' -> Alias: 'vms on kubernetes' ends with kubernetes
+[Development Tools] Canonical: 'minikube' -> Alias: 'local kubernetes' ends with kubernetes
+[Hardware Embedded] Canonical: 'low power microarchitecture' -> Alias: 'efficient microarchitecture' ends with microarchitecture
+[Languages] Canonical: 'Scala' -> Alias: 'functional java' ends with java
+[ML Algorithms] Canonical: 'XGBoost' -> Alias: 'extreme gradient boosting' ends with gradient boosting
+[ML Algorithms] Canonical: 'k-means' -> Alias: 'k means clustering' ends with clustering
+[ML Algorithms] Canonical: 'logistic regression' -> Alias: 'logit regression' ends with regression
+[Methodologies Vibe] Canonical: 'open source' -> Alias: 'oss contribution' ends with contribution
+[Networking Systems] Canonical: 'Envoy' -> Alias: 'envoy proxy' ends with proxy
+[QA Testing] Canonical: 'Cucumber' -> Alias: 'cucumber bdd' ends with bdd
+[Security] Canonical: 'abac' -> Alias: 'attribute based access control' ends with access control
+[Security] Canonical: 'rbac' -> Alias: 'role based access control' ends with access control
+[Security] Canonical: 'saml' -> Alias: 'saml sso' ends with sso
+[Software Architecture] Canonical: 'kong' -> Alias: 'kong api gateway' ends with api gateway
+[Software Architecture] Canonical: 'tyk' -> Alias: 'tyk api gateway' ends with api gateway
+[Web Ecosystem] Canonical: 'Less' -> Alias: 'less css' ends with css
+[Web Ecosystem] Canonical: 'emotion' -> Alias: 'emotion css' ends with css
+
+Total redundancies found: 48

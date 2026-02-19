@@ -1,0 +1,42 @@
+{
+  "atomicity_exceptions": [
+    {
+      "term_normalized": "tcp/ip",
+      "reason_code": "industry_standard_name",
+      "notes": "Networking protocol suite"
+    },
+    {
+      "term_normalized": "pl/sql",
+      "reason_code": "industry_standard_name",
+      "notes": "Oracle procedural SQL"
+    },
+    {
+      "term_normalized": "google cloud pub/sub",
+      "reason_code": "official_service_name",
+      "notes": "Service name includes slash"
+    },
+    {
+      "term_normalized": "ibm z/os",
+      "reason_code": "official_product_name",
+      "notes": "Mainframe operating system"
+    },
+    {
+      "term_normalized": "ibm z/vse",
+      "reason_code": "official_product_name",
+      "notes": "Mainframe operating system"
+    },
+    {
+      "term_normalized": "ibm z/vm",
+      "reason_code": "official_product_name",
+      "notes": "Mainframe operating system"
+    },
+    {
+      "term_normalized": "os/390",
+      "reason_code": "official_product_name",
+      "notes": "Mainframe operating system"
+    },
+    {
+      "term_normalized": "ci/cd"
+    }
+  ]
+}

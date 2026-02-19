@@ -1,0 +1,386 @@
+[
+  {
+    "alias": "Data visualization",
+    "band": "possible_conflict",
+    "group": "AI Data Science",
+    "score": 0.890923,
+    "source_canonical": "Data Analysis",
+    "target_canonical": "Visualization"
+  },
+  {
+    "alias": "neural nets",
+    "band": "possible_conflict",
+    "group": "AI Data Science",
+    "score": 0.880848,
+    "source_canonical": "Deep Learning",
+    "target_canonical": "neural networks"
+  },
+  {
+    "alias": "fast r cnn",
+    "band": "high_collision",
+    "group": "AI Data Science",
+    "score": 0.960075,
+    "source_canonical": "object detection",
+    "target_canonical": "faster r cnn"
+  },
+  {
+    "alias": "r cnn",
+    "band": "possible_conflict",
+    "group": "AI Data Science",
+    "score": 0.900998,
+    "source_canonical": "object detection",
+    "target_canonical": "CNN"
+  },
+  {
+    "alias": "r cnn",
+    "band": "possible_conflict",
+    "group": "AI Data Science",
+    "score": 0.851618,
+    "source_canonical": "object detection",
+    "target_canonical": "faster r cnn"
+  },
+  {
+    "alias": "json mode",
+    "band": "possible_conflict",
+    "group": "AI Data Science",
+    "score": 0.872402,
+    "source_canonical": "structured output",
+    "target_canonical": "JSON"
+  },
+  {
+    "alias": "ensemble search",
+    "band": "possible_conflict",
+    "group": "AI Operational Techniques",
+    "score": 0.889626,
+    "source_canonical": "hybrid search",
+    "target_canonical": "Ensemble"
+  },
+  {
+    "alias": "machine learning operations",
+    "band": "possible_conflict",
+    "group": "AI Operational Techniques",
+    "score": 0.922828,
+    "source_canonical": "mlops",
+    "target_canonical": "Machine Learning"
+  },
+  {
+    "alias": "observability",
+    "band": "possible_conflict",
+    "group": "AI Operational Techniques",
+    "score": 0.882795,
+    "source_canonical": "model monitoring",
+    "target_canonical": "Application Observability"
+  },
+  {
+    "alias": "github ci",
+    "band": "possible_conflict",
+    "group": "CI/CD Infrastructure",
+    "score": 0.850851,
+    "source_canonical": "GitHub Actions",
+    "target_canonical": "GitHub"
+  },
+  {
+    "alias": "aws cloud",
+    "band": "possible_conflict",
+    "group": "Cloud Computing",
+    "score": 0.868155,
+    "source_canonical": "AWS",
+    "target_canonical": "AWS Cloud Map"
+  },
+  {
+    "alias": "google cloud",
+    "band": "possible_conflict",
+    "group": "Cloud Computing",
+    "score": 0.90949,
+    "source_canonical": "GCP",
+    "target_canonical": "Google Cloud Apigee"
+  },
+  {
+    "alias": "google cloud",
+    "band": "possible_conflict",
+    "group": "Cloud Computing",
+    "score": 0.852082,
+    "source_canonical": "GCP",
+    "target_canonical": "Google Cloud Cloud IAM"
+  },
+  {
+    "alias": "google cloud",
+    "band": "possible_conflict",
+    "group": "Cloud Computing",
+    "score": 0.887495,
+    "source_canonical": "GCP",
+    "target_canonical": "Google Cloud Functions"
+  },
+  {
+    "alias": "google cloud",
+    "band": "possible_conflict",
+    "group": "Cloud Computing",
+    "score": 0.873451,
+    "source_canonical": "GCP",
+    "target_canonical": "Google Cloud Retail"
+  },
+  {
+    "alias": "google cloud",
+    "band": "possible_conflict",
+    "group": "Cloud Computing",
+    "score": 0.874581,
+    "source_canonical": "GCP",
+    "target_canonical": "Google Cloud Run"
+  },
+  {
+    "alias": "google cloud",
+    "band": "possible_conflict",
+    "group": "Cloud Computing",
+    "score": 0.869435,
+    "source_canonical": "GCP",
+    "target_canonical": "Google Cloud Storage"
+  },
+  {
+    "alias": "ai ethics compliance",
+    "band": "possible_conflict",
+    "group": "Data Engineering",
+    "score": 0.897626,
+    "source_canonical": "Data Governance",
+    "target_canonical": "ethics in ai"
+  },
+  {
+    "alias": "data catalogs",
+    "band": "high_collision",
+    "group": "Data Engineering",
+    "score": 0.964885,
+    "source_canonical": "Data Governance",
+    "target_canonical": "data catalog"
+  },
+  {
+    "alias": "Streaming data pipelines",
+    "band": "possible_conflict",
+    "group": "Data Engineering",
+    "score": 0.917003,
+    "source_canonical": "Data Streaming",
+    "target_canonical": "data pipelines"
+  },
+  {
+    "alias": "go elasticsearch",
+    "band": "high_collision",
+    "group": "Data Engineering",
+    "score": 0.958948,
+    "source_canonical": "Elasticsearch for Go",
+    "target_canonical": "elasticsearch"
+  },
+  {
+    "alias": "kafka streaming",
+    "band": "possible_conflict",
+    "group": "Data Engineering",
+    "score": 0.910682,
+    "source_canonical": "Kafka",
+    "target_canonical": "Kafka Streams"
+  },
+  {
+    "alias": "alation data catalog",
+    "band": "possible_conflict",
+    "group": "Data Engineering",
+    "score": 0.928574,
+    "source_canonical": "alation",
+    "target_canonical": "data catalog"
+  },
+  {
+    "alias": "managed kafka",
+    "band": "possible_conflict",
+    "group": "Data Engineering",
+    "score": 0.876162,
+    "source_canonical": "confluent cloud",
+    "target_canonical": "Kafka"
+  },
+  {
+    "alias": "mssql",
+    "band": "possible_conflict",
+    "group": "Databases",
+    "score": 0.870452,
+    "source_canonical": "SQL Server",
+    "target_canonical": "MySQL"
+  },
+  {
+    "alias": "devops scripts",
+    "band": "possible_conflict",
+    "group": "Development Tools",
+    "score": 0.853285,
+    "source_canonical": "Automation scripts",
+    "target_canonical": "DevOps"
+  },
+  {
+    "alias": "docker container",
+    "band": "possible_conflict",
+    "group": "Development Tools",
+    "score": 0.872426,
+    "source_canonical": "Containerization",
+    "target_canonical": "Docker"
+  },
+  {
+    "alias": "Kubernetes Kind",
+    "band": "possible_conflict",
+    "group": "Development Tools",
+    "score": 0.850199,
+    "source_canonical": "Kind",
+    "target_canonical": "Kubernetes"
+  },
+  {
+    "alias": "linkerd service mesh",
+    "band": "possible_conflict",
+    "group": "Development Tools",
+    "score": 0.860148,
+    "source_canonical": "Linkerd",
+    "target_canonical": "service mesh"
+  },
+  {
+    "alias": "performant npm",
+    "band": "possible_conflict",
+    "group": "Development Tools",
+    "score": 0.875763,
+    "source_canonical": "Pnpm",
+    "target_canonical": "npm"
+  },
+  {
+    "alias": "local kubernetes",
+    "band": "possible_conflict",
+    "group": "Development Tools",
+    "score": 0.885739,
+    "source_canonical": "minikube",
+    "target_canonical": "Kubernetes"
+  },
+  {
+    "alias": "aws sdk go",
+    "band": "possible_conflict",
+    "group": "Go Frameworks",
+    "score": 0.877359,
+    "source_canonical": "AWS SDK for Go",
+    "target_canonical": "AWS SDK"
+  },
+  {
+    "alias": "system verilog",
+    "band": "high_collision",
+    "group": "Hardware Embedded",
+    "score": 0.940858,
+    "source_canonical": "SystemVerilog",
+    "target_canonical": "verilog"
+  },
+  {
+    "alias": "design for assembly",
+    "band": "possible_conflict",
+    "group": "Hardware Embedded",
+    "score": 0.854087,
+    "source_canonical": "dfat",
+    "target_canonical": "Assembly"
+  },
+  {
+    "alias": "test",
+    "band": "possible_conflict",
+    "group": "Hardware Embedded",
+    "score": 0.853345,
+    "source_canonical": "dfat",
+    "target_canonical": "TestNG"
+  },
+  {
+    "alias": "efficient microarchitecture",
+    "band": "possible_conflict",
+    "group": "Hardware Embedded",
+    "score": 0.884337,
+    "source_canonical": "low power microarchitecture",
+    "target_canonical": "microarchitecture"
+  },
+  {
+    "alias": "power shell scripting",
+    "band": "possible_conflict",
+    "group": "Languages",
+    "score": 0.8988,
+    "source_canonical": "powershell",
+    "target_canonical": "shell scripting"
+  },
+  {
+    "alias": "Log4j",
+    "band": "high_collision",
+    "group": "Libraries",
+    "score": 0.956955,
+    "source_canonical": "Apache Log4j",
+    "target_canonical": "log4js"
+  },
+  {
+    "alias": "extreme gradient boosting",
+    "band": "high_collision",
+    "group": "ML Algorithms",
+    "score": 0.931221,
+    "source_canonical": "XGBoost",
+    "target_canonical": "gradient boosting"
+  },
+  {
+    "alias": "forecasting",
+    "band": "possible_conflict",
+    "group": "ML Algorithms",
+    "score": 0.917209,
+    "source_canonical": "time series",
+    "target_canonical": "Forecast"
+  },
+  {
+    "alias": "Confluent Kafka Go",
+    "band": "possible_conflict",
+    "group": "Messaging Libraries",
+    "score": 0.850175,
+    "source_canonical": "Confluent Kafka",
+    "target_canonical": "Kafka"
+  },
+  {
+    "alias": "Confluent.Kafka",
+    "band": "possible_conflict",
+    "group": "Messaging Libraries",
+    "score": 0.852735,
+    "source_canonical": "Confluent Kafka",
+    "target_canonical": "Kafka"
+  },
+  {
+    "alias": "analytical skills",
+    "band": "high_collision",
+    "group": "Methodologies Vibe",
+    "score": 0.940957,
+    "source_canonical": "Problem solving",
+    "target_canonical": "Analytic skills"
+  },
+  {
+    "alias": "Serverless",
+    "band": "possible_conflict",
+    "group": "Networking Systems",
+    "score": 0.859762,
+    "source_canonical": "Serverless Architecture",
+    "target_canonical": "Serverless Functions"
+  },
+  {
+    "alias": "edge computing hardware",
+    "band": "possible_conflict",
+    "group": "Networking Systems",
+    "score": 0.907887,
+    "source_canonical": "edge devices",
+    "target_canonical": "edge computing"
+  },
+  {
+    "alias": "managed elasticsearch",
+    "band": "possible_conflict",
+    "group": "Search Technologies",
+    "score": 0.904604,
+    "source_canonical": "elastic cloud",
+    "target_canonical": "elasticsearch"
+  },
+  {
+    "alias": "json web tokens",
+    "band": "high_collision",
+    "group": "Security",
+    "score": 0.963296,
+    "source_canonical": "jwt",
+    "target_canonical": "JSON Web Token"
+  },
+  {
+    "alias": "saml sso",
+    "band": "possible_conflict",
+    "group": "Security",
+    "score": 0.870456,
+    "source_canonical": "saml",
+    "target_canonical": "SSO"
+  }
+]

@@ -1,0 +1,667 @@
+[
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'Data visualization' under canonical 'Data Analysis' in group 'AI Data Science' ends with canonical 'Visualization'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Data visualization"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'gen ai' under canonical 'Generative AI' in group 'AI Data Science' ends with canonical 'AI'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "gen ai"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'gan training' under canonical 'Generative Adversarial Networks' in group 'AI Data Science' ends with canonical 'Training'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "gan training"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'quantized lora' under canonical 'QLoRA' in group 'AI Data Science' ends with canonical 'LoRA'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "quantized lora"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'azure machine learning' under canonical 'azure ml' in group 'AI Data Science' ends with canonical 'Machine Learning'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "azure machine learning"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'bidirectional encoder representations from transformers' under canonical 'bert' in group 'AI Data Science' ends with canonical 'transformers'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "bidirectional encoder representations from transformers"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'X Ray' under canonical 'AWS X Ray' in group 'AI Operational Techniques' ends with canonical 'Ray'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "X Ray"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'data centric parallel programming' under canonical 'legion' in group 'AI Operational Techniques' ends with canonical 'parallel programming'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "data centric parallel programming"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'atlantis terraform' under canonical 'Atlantis' in group 'CI/CD Infrastructure' ends with canonical 'Terraform'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "atlantis terraform"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'github ci' under canonical 'GitHub Actions' in group 'CI/CD Infrastructure' ends with canonical 'CI'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "github ci"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'jenkins ci' under canonical 'Jenkins' in group 'CI/CD Infrastructure' ends with canonical 'CI'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "jenkins ci"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'cdk for terraform' under canonical 'cdktf' in group 'CI/CD Infrastructure' ends with canonical 'Terraform'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "cdk for terraform"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'secure devops' under canonical 'devsecops' in group 'CI/CD Infrastructure' ends with canonical 'DevOps'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "secure devops"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'drone ci' under canonical 'drone' in group 'CI/CD Infrastructure' ends with canonical 'CI'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "drone ci"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'Streaming data pipelines' under canonical 'Data Streaming' in group 'Data Engineering' ends with canonical 'data pipelines'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Streaming data pipelines"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'databricks lakehouse' under canonical 'Databricks' in group 'Data Engineering' ends with canonical 'lakehouse'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "databricks lakehouse"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'airbyte etl' under canonical 'airbyte' in group 'Data Engineering' ends with canonical 'ETL'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "airbyte etl"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'alation data catalog' under canonical 'alation' in group 'Data Engineering' ends with canonical 'data catalog'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "alation data catalog"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'managed kafka' under canonical 'confluent cloud' in group 'Data Engineering' ends with canonical 'Kafka'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "managed kafka"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'snowflake schema' under canonical 'data modeling' in group 'Data Engineering' ends with canonical 'Schema'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "snowflake schema"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'star schema' under canonical 'data modeling' in group 'Data Engineering' ends with canonical 'Schema'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "star schema"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'debezium cdc' under canonical 'debezium' in group 'Data Engineering' ends with canonical 'cdc'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "debezium cdc"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'fivetran etl' under canonical 'fivetran' in group 'Data Engineering' ends with canonical 'ETL'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "fivetran etl"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'aws glue etl' under canonical 'glue' in group 'Data Engineering' ends with canonical 'ETL'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "aws glue etl"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'azure sql' under canonical 'azure sql database' in group 'Databases' ends with canonical 'SQL'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "azure sql"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'pinecone vector db' under canonical 'pinecone' in group 'Databases' ends with canonical 'vector db'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "pinecone vector db"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'k3s in docker' under canonical 'K3d' in group 'Development Tools' ends with canonical 'Docker'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "k3s in docker"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'lightweight kubernetes' under canonical 'K3s' in group 'Development Tools' ends with canonical 'Kubernetes'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "lightweight kubernetes"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'performant npm' under canonical 'Pnpm' in group 'Development Tools' ends with canonical 'npm'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "performant npm"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'serverless kubernetes' under canonical 'knative' in group 'Development Tools' ends with canonical 'Kubernetes'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "serverless kubernetes"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'vms on kubernetes' under canonical 'kubevirt' in group 'Development Tools' ends with canonical 'Kubernetes'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "vms on kubernetes"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'local kubernetes' under canonical 'minikube' in group 'Development Tools' ends with canonical 'Kubernetes'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "local kubernetes"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'efficient microarchitecture' under canonical 'low power microarchitecture' in group 'Hardware Embedded' ends with canonical 'microarchitecture'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "efficient microarchitecture"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'functional java' under canonical 'Scala' in group 'Languages' ends with canonical 'Java'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "functional java"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'extreme gradient boosting' under canonical 'XGBoost' in group 'ML Algorithms' ends with canonical 'gradient boosting'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "extreme gradient boosting"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'k means clustering' under canonical 'k-means' in group 'ML Algorithms' ends with canonical 'clustering'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "k means clustering"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'logit regression' under canonical 'logistic regression' in group 'ML Algorithms' ends with canonical 'regression'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "logit regression"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'oss contribution' under canonical 'open source' in group 'Methodologies Vibe' ends with canonical 'contribution'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "oss contribution"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'envoy proxy' under canonical 'Envoy' in group 'Networking Systems' ends with canonical 'Proxy'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "envoy proxy"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'cucumber bdd' under canonical 'Cucumber' in group 'QA Testing' ends with canonical 'BDD'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "cucumber bdd"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'attribute based access control' under canonical 'abac' in group 'Security' ends with canonical 'Access control'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "attribute based access control"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'role based access control' under canonical 'rbac' in group 'Security' ends with canonical 'Access control'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "role based access control"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'saml sso' under canonical 'saml' in group 'Security' ends with canonical 'SSO'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "saml sso"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'kong api gateway' under canonical 'kong' in group 'Software Architecture' ends with canonical 'api gateway'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "kong api gateway"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'tyk api gateway' under canonical 'tyk' in group 'Software Architecture' ends with canonical 'api gateway'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "tyk api gateway"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'less css' under canonical 'Less' in group 'Web Ecosystem' ends with canonical 'CSS'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "less css"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage0 suffix-overlap audit candidate: alias 'emotion css' under canonical 'emotion' in group 'Web Ecosystem' ends with canonical 'CSS'.",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "emotion css"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'Data visualization' from canonical 'Data Analysis' in group 'AI Data Science' is similar to canonical 'Visualization' (possible_conflict, score=0.890923).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Data visualization"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'neural nets' from canonical 'Deep Learning' in group 'AI Data Science' is similar to canonical 'neural networks' (possible_conflict, score=0.880848).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "neural nets"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'fast r cnn' from canonical 'object detection' in group 'AI Data Science' is similar to canonical 'faster r cnn' (high_collision, score=0.960075).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "fast r cnn"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'r cnn' from canonical 'object detection' in group 'AI Data Science' is similar to canonical 'CNN' (possible_conflict, score=0.900998).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "r cnn"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'r cnn' from canonical 'object detection' in group 'AI Data Science' is similar to canonical 'faster r cnn' (possible_conflict, score=0.851618).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "r cnn"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'json mode' from canonical 'structured output' in group 'AI Data Science' is similar to canonical 'JSON' (possible_conflict, score=0.872402).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "json mode"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'ensemble search' from canonical 'hybrid search' in group 'AI Operational Techniques' is similar to canonical 'Ensemble' (possible_conflict, score=0.889626).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "ensemble search"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'machine learning operations' from canonical 'mlops' in group 'AI Operational Techniques' is similar to canonical 'Machine Learning' (possible_conflict, score=0.922828).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "machine learning operations"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'observability' from canonical 'model monitoring' in group 'AI Operational Techniques' is similar to canonical 'Application Observability' (possible_conflict, score=0.882795).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "observability"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'github ci' from canonical 'GitHub Actions' in group 'CI/CD Infrastructure' is similar to canonical 'GitHub' (possible_conflict, score=0.850851).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "github ci"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'aws cloud' from canonical 'AWS' in group 'Cloud Computing' is similar to canonical 'AWS Cloud Map' (possible_conflict, score=0.868155).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "aws cloud"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'google cloud' from canonical 'GCP' in group 'Cloud Computing' is similar to canonical 'Google Cloud Apigee' (possible_conflict, score=0.909490).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "google cloud"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'google cloud' from canonical 'GCP' in group 'Cloud Computing' is similar to canonical 'Google Cloud Cloud IAM' (possible_conflict, score=0.852082).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "google cloud"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'google cloud' from canonical 'GCP' in group 'Cloud Computing' is similar to canonical 'Google Cloud Functions' (possible_conflict, score=0.887495).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "google cloud"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'google cloud' from canonical 'GCP' in group 'Cloud Computing' is similar to canonical 'Google Cloud Retail' (possible_conflict, score=0.873451).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "google cloud"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'google cloud' from canonical 'GCP' in group 'Cloud Computing' is similar to canonical 'Google Cloud Run' (possible_conflict, score=0.874581).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "google cloud"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'google cloud' from canonical 'GCP' in group 'Cloud Computing' is similar to canonical 'Google Cloud Storage' (possible_conflict, score=0.869435).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "google cloud"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'ai ethics compliance' from canonical 'Data Governance' in group 'Data Engineering' is similar to canonical 'ethics in ai' (possible_conflict, score=0.897626).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "ai ethics compliance"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'data catalogs' from canonical 'Data Governance' in group 'Data Engineering' is similar to canonical 'data catalog' (high_collision, score=0.964885).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "data catalogs"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'Streaming data pipelines' from canonical 'Data Streaming' in group 'Data Engineering' is similar to canonical 'data pipelines' (possible_conflict, score=0.917003).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Streaming data pipelines"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'go elasticsearch' from canonical 'Elasticsearch for Go' in group 'Data Engineering' is similar to canonical 'elasticsearch' (high_collision, score=0.958948).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "go elasticsearch"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'kafka streaming' from canonical 'Kafka' in group 'Data Engineering' is similar to canonical 'Kafka Streams' (possible_conflict, score=0.910682).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "kafka streaming"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'alation data catalog' from canonical 'alation' in group 'Data Engineering' is similar to canonical 'data catalog' (possible_conflict, score=0.928574).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "alation data catalog"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'managed kafka' from canonical 'confluent cloud' in group 'Data Engineering' is similar to canonical 'Kafka' (possible_conflict, score=0.876162).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "managed kafka"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'mssql' from canonical 'SQL Server' in group 'Databases' is similar to canonical 'MySQL' (possible_conflict, score=0.870452).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "mssql"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'devops scripts' from canonical 'Automation scripts' in group 'Development Tools' is similar to canonical 'DevOps' (possible_conflict, score=0.853285).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "devops scripts"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'docker container' from canonical 'Containerization' in group 'Development Tools' is similar to canonical 'Docker' (possible_conflict, score=0.872426).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "docker container"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'Kubernetes Kind' from canonical 'Kind' in group 'Development Tools' is similar to canonical 'Kubernetes' (possible_conflict, score=0.850199).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Kubernetes Kind"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'linkerd service mesh' from canonical 'Linkerd' in group 'Development Tools' is similar to canonical 'service mesh' (possible_conflict, score=0.860148).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "linkerd service mesh"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'performant npm' from canonical 'Pnpm' in group 'Development Tools' is similar to canonical 'npm' (possible_conflict, score=0.875763).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "performant npm"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'local kubernetes' from canonical 'minikube' in group 'Development Tools' is similar to canonical 'Kubernetes' (possible_conflict, score=0.885739).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "local kubernetes"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'aws sdk go' from canonical 'AWS SDK for Go' in group 'Go Frameworks' is similar to canonical 'AWS SDK' (possible_conflict, score=0.877359).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "aws sdk go"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'system verilog' from canonical 'SystemVerilog' in group 'Hardware Embedded' is similar to canonical 'verilog' (high_collision, score=0.940858).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "system verilog"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'design for assembly' from canonical 'dfat' in group 'Hardware Embedded' is similar to canonical 'Assembly' (possible_conflict, score=0.854087).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "design for assembly"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'test' from canonical 'dfat' in group 'Hardware Embedded' is similar to canonical 'TestNG' (possible_conflict, score=0.853345).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "test"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'efficient microarchitecture' from canonical 'low power microarchitecture' in group 'Hardware Embedded' is similar to canonical 'microarchitecture' (possible_conflict, score=0.884337).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "efficient microarchitecture"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'power shell scripting' from canonical 'powershell' in group 'Languages' is similar to canonical 'shell scripting' (possible_conflict, score=0.898800).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "power shell scripting"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'Log4j' from canonical 'Apache Log4j' in group 'Libraries' is similar to canonical 'log4js' (high_collision, score=0.956955).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Log4j"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'extreme gradient boosting' from canonical 'XGBoost' in group 'ML Algorithms' is similar to canonical 'gradient boosting' (high_collision, score=0.931221).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "extreme gradient boosting"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'forecasting' from canonical 'time series' in group 'ML Algorithms' is similar to canonical 'Forecast' (possible_conflict, score=0.917209).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "forecasting"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'Confluent Kafka Go' from canonical 'Confluent Kafka' in group 'Messaging Libraries' is similar to canonical 'Kafka' (possible_conflict, score=0.850175).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Confluent Kafka Go"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'Confluent.Kafka' from canonical 'Confluent Kafka' in group 'Messaging Libraries' is similar to canonical 'Kafka' (possible_conflict, score=0.852735).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Confluent.Kafka"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'analytical skills' from canonical 'Problem solving' in group 'Methodologies Vibe' is similar to canonical 'Analytic skills' (high_collision, score=0.940957).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "analytical skills"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'Serverless' from canonical 'Serverless Architecture' in group 'Networking Systems' is similar to canonical 'Serverless Functions' (possible_conflict, score=0.859762).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "Serverless"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'edge computing hardware' from canonical 'edge devices' in group 'Networking Systems' is similar to canonical 'edge computing' (possible_conflict, score=0.907887).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "edge computing hardware"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'managed elasticsearch' from canonical 'elastic cloud' in group 'Search Technologies' is similar to canonical 'elasticsearch' (possible_conflict, score=0.904604).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "managed elasticsearch"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'json web tokens' from canonical 'jwt' in group 'Security' is similar to canonical 'JSON Web Token' (high_collision, score=0.963296).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "json web tokens"
+  },
+  {
+    "confidence": "LOW",
+    "issue": "Stage1 alias->canonical advisory: alias 'saml sso' from canonical 'saml' in group 'Security' is similar to canonical 'SSO' (possible_conflict, score=0.870456).",
+    "proposed_action": "KEEP_DISTINCT",
+    "stage": 3,
+    "term": "saml sso"
+  }
+]
