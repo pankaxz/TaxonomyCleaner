@@ -830,5 +830,19 @@
       "missing_target_canonical",
       "term_not_in_cluster"
     ]
+  },
+  {
+    "blocked": true,
+    "confidence": "LOW",
+    "effective_action": "KEEP_DISTINCT",
+    "reasoning": {},
+    "requested_action": "KEEP_DISTINCT",
+    "split_candidates": null,
+    "target_canonical": null,
+    "term": "",
+    "violations": [
+      "invalid_confidence",
+      "term_not_in_cluster"
+    ]
   }
 ]

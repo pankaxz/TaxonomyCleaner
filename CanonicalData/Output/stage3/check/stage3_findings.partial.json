@@ -1399,5 +1399,28 @@
     "reason": "Arbitration decision failed deterministic governance validation.",
     "rule_id": "L3-002",
     "severity": "error"
+  },
+  {
+    "blocking": true,
+    "location": "cluster:cluster-0036|term:<missing>",
+    "normalized_value": "keep_distinct",
+    "observed_value": "KEEP_DISTINCT",
+    "proposed_action": "manual_review",
+    "proposed_payload": {
+      "cluster_id": "cluster-0036",
+      "cluster_terms": [
+        "nvm",
+        "nvme"
+      ],
+      "confidence": "",
+      "requested_action": "KEEP_DISTINCT",
+      "violations": [
+        "invalid_confidence",
+        "term_not_in_cluster"
+      ]
+    },
+    "reason": "Arbitration decision failed deterministic governance validation.",
+    "rule_id": "L3-002",
+    "severity": "error"
   }
 ]
