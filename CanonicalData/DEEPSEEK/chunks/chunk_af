@@ -1,0 +1,450 @@
+            return False
+    return True
+
+
+def _validate_resume_source_hash(
+    resume_from: str,
+    current_source_hash: str,
+) -> None:
+    validation_path = os.path.join(resume_from, "stage0_validation_report.json")
+    if not os.path.exists(validation_path):
+        raise RuntimeError(
+            "Resume directory is missing stage0_validation_report.json required for hash validation."
+        )
+
+    report = load_json_file(validation_path)
+    if not isinstance(report, dict):
+        raise RuntimeError("Resume stage0_validation_report.json is not a JSON object.")
+
+    resume_hash = report.get("source_hash")
+    if not isinstance(resume_hash, str) or not resume_hash.strip():
+        raise RuntimeError("Resume stage0_validation_report.json is missing source_hash.")
+
+    if resume_hash != current_source_hash:
+        raise RuntimeError(
+            "Resume source_hash does not match current input file hash. "
+            "Refusing to resume from mismatched artifacts."
+        )
+
+
+def _load_resume_context(args: argparse.Namespace, current_source_hash: str) -> Dict[str, object]:
+    resume_from = getattr(args, "resume_from", "")
+    context: Dict[str, object] = {
+        "enabled": False,
+        "resume_from": "",
+        "available_stage_index": -1,
+    }
+
+    if not resume_from:
+        return context
+
+    available_stage_index = _detect_resume_stage_index(resume_from)
+    _validate_resume_source_hash(resume_from, current_source_hash)
+
+    context["enabled"] = True
+    context["resume_from"] = resume_from
+    context["available_stage_index"] = available_stage_index
+    return context
+
+
+def _load_resumed_stage0(resume_from: str) -> StageResult:
+    stage0 = StageResult()
+    stage0.payload["validation_report"] = load_json_file(os.path.join(resume_from, "stage0_validation_report.json"))
+    canonical_rows_path = os.path.join(resume_from, "stage0_canonical_rows.json")
+    if os.path.exists(canonical_rows_path):
+        stage0.payload["canonical_rows"] = load_json_file(canonical_rows_path)
+    else:
+        stage0.payload["canonical_rows"] = []
+    original_rows_path = os.path.join(resume_from, "stage0_original_canonical_rows.json")
+    if os.path.exists(original_rows_path):
+        stage0.payload["original_canonical_rows"] = load_json_file(original_rows_path)
+    else:
+        stage0.payload["original_canonical_rows"] = []
+
+    rewritten_store_path = os.path.join(resume_from, "stage0_rewritten_store.json")
+    if os.path.exists(rewritten_store_path):
+        stage0.payload["rewritten_store"] = load_json_file(rewritten_store_path)
+    else:
+        stage0.payload["rewritten_store"] = {}
+
+    cleaned_store_path = os.path.join(resume_from, "stage0_cleaned_store.json")
+    if os.path.exists(cleaned_store_path):
+        stage0.payload["cleaned_store"] = load_json_file(cleaned_store_path)
+    else:
+        stage0.payload["cleaned_store"] = stage0.payload["rewritten_store"]
+
+    rewrite_plan_path = os.path.join(resume_from, "stage0_rewrite_plan.json")
+    if os.path.exists(rewrite_plan_path):
+        stage0.payload["rewrite_plan"] = load_json_file(rewrite_plan_path)
+    else:
+        stage0.payload["rewrite_plan"] = []
+
+    rewritten_validation_path = os.path.join(resume_from, "stage0_rewritten_validation_report.json")
+    if os.path.exists(rewritten_validation_path):
+        stage0.payload["rewritten_validation_report"] = load_json_file(rewritten_validation_path)
+    else:
+        stage0.payload["rewritten_validation_report"] = {}
+
+    suffix_candidates_path = os.path.join(resume_from, "stage0_suffix_redundancy_candidates.json")
+    if os.path.exists(suffix_candidates_path):
+        stage0.payload["suffix_redundancy_candidates"] = load_json_file(suffix_candidates_path)
+    else:
+        stage0.payload["suffix_redundancy_candidates"] = []
+
+    findings_path = os.path.join(resume_from, "stage0_findings.json")
+    if os.path.exists(findings_path):
+        finding_rows = load_json_file(findings_path)
+        findings = _deserialize_findings(finding_rows)
+    else:
+        report = stage0.payload.get("validation_report", {})
+        if isinstance(report, dict):
+            findings = _deserialize_findings(report.get("findings", []))
+        else:
+            findings = []
+
+    if not stage0.payload["canonical_rows"]:
+        rewritten_store = stage0.payload.get("rewritten_store", {})
+        stage0.payload["canonical_rows"] = _build_canonical_rows_from_store(rewritten_store)
+
+    stage0.findings = findings
+    stage0.blocking_error = _has_blocking_findings(findings)
+    return stage0
+
+
+def _load_resumed_stage1(resume_from: str) -> StageResult:
+    stage1 = StageResult()
+    stage1.payload["similarity_edges"] = load_json_file(os.path.join(resume_from, "stage1_similarity_edges.json"))
+    stage1.payload["thresholds"] = load_json_file(os.path.join(resume_from, "stage1_thresholds.json"))
+    advisory_path = os.path.join(resume_from, "stage1_alias_canonical_advisories.json")
+    if os.path.exists(advisory_path):
+        stage1.payload["alias_canonical_advisories"] = load_json_file(advisory_path)
+    else:
+        stage1.payload["alias_canonical_advisories"] = []
+
+    execution_path = os.path.join(resume_from, "stage1_execution.json")
+    if os.path.exists(execution_path):
+        stage1.payload["execution"] = load_json_file(execution_path)
+    else:
+        stage1.payload["execution"] = {}
+    return stage1
+
+
+def _load_resumed_stage2(resume_from: str) -> StageResult:
+    stage2 = StageResult()
+    stage2.payload["conflict_clusters"] = load_json_file(os.path.join(resume_from, "stage2_conflict_clusters.json"))
+    return stage2
+
+
+def _load_resumed_stage3(resume_from: str) -> StageResult:
+    stage3 = StageResult()
+    stage3.payload["governed_arbitration_decisions"] = load_json_file(
+        os.path.join(resume_from, "stage3_arbitration_decisions.json")
+    )
+    stage3.payload["review_queue_entries"] = load_json_file(os.path.join(resume_from, "stage3_review_queue.json"))
+    finding_rows = load_json_file(os.path.join(resume_from, "stage3_findings.json"))
+    findings = _deserialize_findings(finding_rows)
+    stage3.findings = findings
+    stage3.blocking_error = _has_blocking_findings(findings)
+    stage3.parse_error = _has_rule_id(findings, {"L3-001"})
+    return stage3
+
+
+def _load_resumed_stage4(resume_from: str) -> StageResult:
+    stage4 = StageResult()
+    stage4.payload["classification_decisions"] = load_json_file(
+        os.path.join(resume_from, "stage4_classification_decisions.json")
+    )
+    stage4.payload["v2_records"] = load_json_file(os.path.join(resume_from, "stage4_v2_preview.json"))
+    stage4.payload["review_queue_entries"] = load_json_file(os.path.join(resume_from, "stage4_review_queue.json"))
+    finding_rows = load_json_file(os.path.join(resume_from, "stage4_findings.json"))
+    findings = _deserialize_findings(finding_rows)
+    stage4.findings = findings
+    stage4.blocking_error = _has_blocking_findings(findings)
+    stage4.parse_error = _has_rule_id(findings, {"L4-001", "L4-002"})
+    return stage4
+
+
+def _load_resumed_stage5(resume_from: str) -> StageResult:
+    stage5 = StageResult()
+    stage5.payload["graph_findings"] = load_json_file(os.path.join(resume_from, "stage5_graph_findings.json"))
+    stage5.payload["graph_components"] = load_json_file(os.path.join(resume_from, "stage5_graph_components.json"))
+
+    findings = _deserialize_findings(stage5.payload["graph_findings"])
+    stage5.findings = findings
+    stage5.blocking_error = _has_blocking_findings(findings)
+    return stage5
+
+
+def _deserialize_findings(rows: object) -> List[Finding]:
+    findings: List[Finding] = []
+    if not isinstance(rows, list):
+        return findings
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        finding = Finding(
+            rule_id=str(row.get("rule_id", "")),
+            severity=str(row.get("severity", "warning")),
+            blocking=bool(row.get("blocking", False)),
+            location=str(row.get("location", "")),
+            observed_value=str(row.get("observed_value", "")),
+            normalized_value=str(row.get("normalized_value", "")),
+            proposed_action=str(row.get("proposed_action", "")),
+            proposed_payload=_safe_dict(row.get("proposed_payload")),
+            reason=str(row.get("reason", "")),
+        )
+        findings.append(finding)
+    return findings
+
+
+def _safe_dict(value: object) -> Dict[str, object]:
+    if isinstance(value, dict):
+        safe: Dict[str, object] = {}
+        for key, item in value.items():
+            safe[str(key)] = item
+        return safe
+    return {}
+
+
+def _has_blocking_findings(findings: List[Finding]) -> bool:
+    for finding in findings:
+        if finding.blocking:
+            return True
+    return False
+
+
+def _has_rule_id(findings: List[Finding], rule_ids: Set[str]) -> bool:
+    for finding in findings:
+        if finding.rule_id in rule_ids:
+            return True
+    return False
+
+
+def _build_canonical_rows_from_store(store: object) -> List[Dict[str, object]]:
+    rows: List[Dict[str, object]] = []
+    if not isinstance(store, dict):
+        return rows
+
+    sorted_groups = sorted(store)
+    for group in sorted_groups:
+        group_value = store.get(group, {})
+        if not isinstance(group_value, dict):
+            continue
+
+        sorted_canonicals = sorted(group_value)
+        for canonical in sorted_canonicals:
+            aliases_value = group_value.get(canonical, [])
+            aliases: List[str] = []
+            if isinstance(aliases_value, list):
+                for alias in aliases_value:
+                    aliases.append(str(alias))
+
+            rows.append(
+                {
+                    "group": str(group),
+                    "canonical": str(canonical),
+                    "canonical_normalized": normalize_term(str(canonical)),
+                    "aliases": aliases,
+                }
+            )
+
+    return rows
+
+
+def _stages_for_requested_stage(requested_stage: str) -> List[int]:
+    stages = EXECUTION_PLAN_BY_STAGE.get(requested_stage)
+    if stages is None:
+        return list(EXECUTION_PLAN_BY_STAGE["all"])
+    return list(stages)
+
+
+def _stages_to_execute(requested_stage: str, resume_context: Dict[str, object] | None) -> List[int]:
+    planned_stages = _stages_for_requested_stage(requested_stage)
+    available_stage_index = -1
+
+    if resume_context is not None:
+        enabled = bool(resume_context.get("enabled", False))
+        if enabled:
+            available_stage_index = int(resume_context.get("available_stage_index", -1))
+
+    stages_to_execute: List[int] = []
+    for stage_index in planned_stages:
+        if stage_index > available_stage_index:
+            stages_to_execute.append(stage_index)
+
+    return stages_to_execute
+
+
+def run_pipeline(args: argparse.Namespace) -> int:
+    requested_stage = getattr(args, "stage", "all")
+
+    if not getattr(args, "out", ""):
+        if requested_stage == "all":
+            args.out = f"{DEFAULT_OUTPUT_ROOT}/output"
+        else:
+            args.out = f"{DEFAULT_OUTPUT_ROOT}/{requested_stage}"
+
+    source_hash = stable_hash_file(args.input)
+    try:
+        resume_context = _load_resume_context(args, source_hash)
+    except Exception as exc:  # noqa: BLE001
+        os.makedirs(args.out, exist_ok=True)
+        write_json(
+            os.path.join(args.out, "preflight_error.json"),
+            {
+                "stage": requested_stage,
+                "error": str(exc),
+                "resume_from": getattr(args, "resume_from", ""),
+            },
+        )
+        return 2
+
+    stages_to_execute = _stages_to_execute(requested_stage, resume_context)
+    preflight_error = _preflight_required_models(args, requested_stage, resume_context)
+    if preflight_error is not None:
+        os.makedirs(args.out, exist_ok=True)
+        write_json(
+            os.path.join(args.out, "preflight_error.json"),
+            {
+                "stage": requested_stage,
+                "error": str(preflight_error),
+                "resume_from": resume_context.get("resume_from", ""),
+                "resume_available_stage_index": int(resume_context.get("available_stage_index", -1)),
+                "stages_to_execute": stages_to_execute,
+                "embedding_provider": getattr(args, "embedding_provider", "heuristic"),
+                "embedding_model": getattr(args, "embedding_model", DEFAULT_EMBEDDING_MODEL),
+                "embedding_endpoint": getattr(args, "embedding_endpoint", DEFAULT_EMBEDDING_ENDPOINT),
+                "llm_provider": getattr(args, "llm_provider", "heuristic"),
+                "reasoning_model": getattr(args, "reasoning_model", DEFAULT_REASONING_MODEL),
+                "reasoning_endpoint": getattr(args, "reasoning_endpoint", DEFAULT_REASONING_ENDPOINT),
+            },
+        )
+        return 3
+
+    if requested_stage == "all":
+        if bool(resume_context.get("enabled", False)):
+            return _run_single_stage(
+                args,
+                "stage6",
+                resume_context=resume_context,
+                stage6_metadata_stage="all",
+                stage6_execution_mode="serial_resume",
+                stage6_max_workers=1,
+            )
+        return _run_full_pipeline(args)
+
+    return _run_single_stage(args, requested_stage, resume_context=resume_context)
+
+
+def _preflight_required_models(
+    args: argparse.Namespace,
+    requested_stage: str,
+    resume_context: Dict[str, object] | None = None,
+) -> Exception | None:
+    stages_to_execute = _stages_to_execute(requested_stage, resume_context)
+    requires_embedding = 1 in stages_to_execute
+    requires_reasoning = 3 in stages_to_execute or 4 in stages_to_execute
+
+    try:
+        if requires_embedding:
+            embedding_provider = getattr(args, "embedding_provider", "heuristic")
+            if embedding_provider == "http":
+                embedding_client = _build_embedding_client(args)
+                if embedding_client is not None:
+                    embedding_model = getattr(args, "embedding_model", DEFAULT_EMBEDDING_MODEL)
+                    if hasattr(embedding_client, "verify_model_available"):
+                        embedding_client.verify_model_available(embedding_model)
+
+        if requires_reasoning:
+            llm_provider = getattr(args, "llm_provider", "heuristic")
+            if llm_provider == "http":
+                stage3_client, _stage4_client = _build_llm_clients(args)
+                if hasattr(stage3_client, "verify_model_available"):
+                    stage3_client.verify_model_available()
+
+        return None
+    except Exception as exc:  # noqa: BLE001
+        return exc
+
+
+def _run_full_pipeline(args: argparse.Namespace) -> int:
+    os.makedirs(args.out, exist_ok=True)
+    artifacts = build_artifact_paths(args.out)
+
+    store, source_hash, atomicity_exceptions = _prepare_stage0_inputs(args)
+    stage3_llm_client, stage4_llm_client = _build_llm_clients(args)
+
+    stage0 = run_stage0(store, args.input, source_hash, atomicity_exceptions)
+    _write_stage0_outputs(args.out, stage0)
+    canonical_rows = stage0.payload.get("canonical_rows", [])
+    suffix_redundancy_candidates = stage0.payload.get("suffix_redundancy_candidates", [])
+
+    canonicals: List[str] = []
+    for row in canonical_rows:
+        canonical = row.get("canonical")
+        if canonical:
+            canonicals.append(str(canonical))
+
+    embedding_client = _build_embedding_client(args)
+    embedding_model = getattr(args, "embedding_model", DEFAULT_EMBEDDING_MODEL)
+    embedding_batch_size = int(getattr(args, "embedding_batch_size", 64))
+
+    execution_mode = getattr(args, "execution_mode", "dag")
+    max_workers = max(2, int(getattr(args, "max_workers", 2)))
+
+    if execution_mode == "serial":
+        serial_context = _run_serial_stages_1_to_4(
+            args=args,
+            canonicals=canonicals,
+            canonical_rows=canonical_rows,
+            suffix_redundancy_candidates=suffix_redundancy_candidates,
+            embedding_client=embedding_client,
+            embedding_model=embedding_model,
+            embedding_batch_size=embedding_batch_size,
+            stage3_llm_client=stage3_llm_client,
+            stage4_llm_client=stage4_llm_client,
+        )
+    else:
+        serial_context = _run_dag_stages_1_to_4(
+            args=args,
+            canonicals=canonicals,
+            canonical_rows=canonical_rows,
+            suffix_redundancy_candidates=suffix_redundancy_candidates,
+            embedding_client=embedding_client,
+            embedding_model=embedding_model,
+            embedding_batch_size=embedding_batch_size,
+            stage3_llm_client=stage3_llm_client,
+            stage4_llm_client=stage4_llm_client,
+            max_workers=max_workers,
+        )
+
+    stage1 = serial_context["stage1"]
+    stage2 = serial_context["stage2"]
+    stage3 = serial_context["stage3"]
+    stage4 = serial_context["stage4"]
+
+    similarity_edges = stage1.payload.get("similarity_edges", [])
+    alias_canonical_advisories = stage1.payload.get("alias_canonical_advisories", [])
+    conflict_clusters = stage2.payload.get("conflict_clusters", [])
+    arbitration_decisions = stage3.payload.get("governed_arbitration_decisions", [])
+    classification_decisions = stage4.payload.get("classification_decisions", [])
+    v2_records = stage4.payload.get("v2_records", [])
+
+    stage3_review = stage3.payload.get("review_queue_entries", [])
+    stage4_review = stage4.payload.get("review_queue_entries", [])
+    review_queue = _merge_review_queue(stage3_review, stage4_review)
+
+    stage5 = run_stage5_graph_validation(
+        similarity_edges,
+        conflict_clusters,
+        classification_decisions,
+    )
+    graph_findings = stage5.payload.get("graph_findings", [])
+
+    validation_report, merged_findings = _merge_validation_report(stage0, stage3=stage3, stage4=stage4)
+
+    proposed_changes = build_proposed_changes(
+        validation_report=validation_report,
+        arbitration_decisions=arbitration_decisions,
+        classification_decisions=classification_decisions,

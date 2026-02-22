@@ -1,3 +1,55 @@
+
+===== FILE: /mnt/workspace/TaxonomyCleaner/CanonicalData/main.py =====
+
+import json
+import os
+
+def load_canonical_data():
+    file_path = os.path.join(os.path.dirname(__file__), 'Input', 'canonical_data.json')
+    try:
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+            return data
+    except FileNotFoundError:
+        print(f"Error: File not found at {file_path}")
+        return None
+    except json.JSONDecodeError:
+        print(f"Error: Failed to decode JSON from {file_path}")
+        return None
+
+def sort_canonical_data(data):
+    if not data:
+        return None
+    
+    sorted_data = {}
+    # Sort categories (keys of the main dictionary)
+    for category in sorted(data.keys(), key=str.lower):
+        sorted_data[category] = {}
+        # Sort subcategories (keys of the inner dictionary)
+        for subcategory in sorted(data[category].keys(), key=str.lower):
+            # Sort the list of values for each subcategory
+            sorted_data[category][subcategory] = sorted(data[category][subcategory], key=str.lower)
+            
+    return sorted_data
+
+def save_canonical_data(data):
+    file_path = os.path.join(os.path.dirname(__file__), 'Input', 'canonical_data.json')
+    try:
+        with open(file_path, 'w') as f:
+            json.dump(data, f, indent=2)
+        print(f"Successfully saved sorted data to {file_path}")
+    except Exception as e:
+        print(f"Error saving file: {e}")
+
+if __name__ == "__main__":
+    data = load_canonical_data()
+    if data:
+        print("Successfully loaded canonical_data.json")
+        sorted_data = sort_canonical_data(data)
+        save_canonical_data(sorted_data)
+
+===== FILE: /mnt/workspace/TaxonomyCleaner/CanonicalData/README.md =====
+
 # Governed Skill Graph Pipeline
 
 Run the governed pipeline:
@@ -396,140 +448,3 @@ Mutation semantics:
 - Human approval is required outside pipeline for any real source-of-truth update.
 
 ### Execution mode behavior (`dag` vs `serial`)
-
-Serial mode:
-- Executes in strict stage order.
-
-DAG mode:
-- Stage 1 then Stage 2 are sequential (dependency).
-- Stage 3 and Stage 4 can run concurrently once dependencies are satisfied.
-- Stage 5 waits for Stage 1, Stage 2, and Stage 4 outputs.
-- Stage 6 aggregates prior outputs.
-
-### Resume behavior (`--resume-from`)
-
-Resume contract:
-- `--resume-from` points to a prior artifacts directory.
-- Runner detects highest completed stage based on required artifact files.
-- Runner verifies `source_hash` from prior `stage0_validation_report.json` matches current `--input`.
-- On hash mismatch, run stops early and writes `preflight_error.json`.
-- When valid, runner reuses prior stage artifacts and executes only missing downstream stages.
-
-## Directory structure
-
-```text
-src/pipeline/
-  run.py
-  runner/
-    pipeline_runner.py
-  clients/
-    model_clients.py
-  shared/
-    models.py
-    findings.py
-    utilities.py
-  stages/
-    stage0_deterministic_preclean/
-      rules.py
-      stage.py
-    stage1_embedding_similarity/
-      stage.py
-    stage2_conflict_clustering/
-      stage.py
-    stage3_semantic_arbitration/
-      stage.py
-    stage4_abstraction_classification/
-      stage.py
-    stage5_graph_validation/
-      stage.py
-    stage6_diff_reporting/
-      stage.py
-```
-
-## Stage-by-stage commands
-
-```bash
-python3 -m src.pipeline.run --stage stage0 --out Output/stage0
-
-python3 -m src.pipeline.run --stage stage1 --out Output/stage1
-python3 -m src.pipeline.run --stage stage1 --out Output/stage1/run-http-check
-
-python3 -m src.pipeline.run --stage stage2 --out Output/stage2
-
-python3 -m src.pipeline.run --stage stage3 --out Output/stage3
-python3 -m src.pipeline.run --stage stage3 --out Output/stage3/check
-
-python3 -m src.pipeline.run --stage stage4 --out Output/stage4
-python3 -m src.pipeline.run --stage stage5 --out Output/stage5
-python3 -m src.pipeline.run --stage stage6 --out Output/stage6
-```
-
-## Stage outputs
-
-- `stage0`: `stage0_validation_report.json`, `stage0_rewritten_validation_report.json`, `stage0_canonical_rows.json`, `stage0_rewritten_store.json`, `stage0_rewrite_plan.json`
-- `stage1`: Stage 0 outputs + `stage1_similarity_edges.json`, `stage1_thresholds.json`, `stage1_execution.json`
-- `stage2`: Stage 1 outputs + `stage2_conflict_clusters.json`
-- `stage3`: Stage 2 outputs + `stage3_arbitration_decisions.json`, `stage3_review_queue.json`, `stage3_findings.json`, checkpoint files
-- `stage4`: Stage 2 outputs + `stage4_classification_decisions.json`, `stage4_v2_preview.json`, `stage4_review_queue.json`, `stage4_findings.json`
-- `stage5`: Stage 4 outputs + `stage5_graph_findings.json`, `stage5_graph_components.json`
-- `stage6`: Stage 5 outputs + final report artifacts
-
-## Rule legend
-
-Rule IDs follow `L<layer>-<rule_number>`.
-
-- `L1-*` deterministic pre-clean integrity rules (Stage 0)
-- `L3-*` arbitration schema/governance rules (Stage 3)
-- `L4-*` classification schema/governance rules (Stage 4)
-- `L5-*` graph validation rules (Stage 5)
-
-Current rule codes:
-
-- `L1-001` schema/type integrity
-- `L1-002` canonical duplicate after normalization
-- `L1-003` alias collides with canonical
-- `L1-004` alias maps to multiple canonicals
-- `L1-005` group name collides with canonical
-- `L1-006` canonical atomicity violation
-- `L1-007` alias version-token warning
-- `L1-008` alias not safely interchangeable
-- `L1-009` duplicate alias in same canonical
-- `L1-010` no deterministic rewrite; manual review
-- `L3-001` invalid arbitration response schema
-- `L3-002` arbitration decision failed deterministic governance
-- `L4-001` invalid classification response envelope
-- `L4-002` classification decision failed schema validation
-- `L4-003` LOW-confidence classification containment warning
-- `L4-004` composite stack rejected as canonical
-- `L4-005` category rejected as canonical
-- `L5-001` over-generic node detection
-- `L5-002` phantom node detection
-- `L5-003` embedding/graph/classification disagreement
-
-## Artifacts emitted every full run
-
-- `validation_report.json`
-- `stage0_validation_report.json`
-- `stage0_rewritten_validation_report.json`
-- `stage0_canonical_rows.json`
-- `stage0_rewritten_store.json`
-- `stage0_rewrite_plan.json`
-- `arbitration_decisions.json`
-- `classification_decisions.json`
-- `review_queue.jsonl`
-- `proposed_changes.json`
-- `proposed_changes.md`
-- `stage1_similarity_edges.json`
-- `stage1_execution.json`
-- `stage2_conflict_clusters.json`
-- `stage5_graph_findings.json`
-- `v2_preview.json`
-
-## Exit codes
-
-- `0` success with no blocking findings
-- `2` deterministic governance blocking findings
-- `3` Stage 3/4 invalid LLM output schema
-- `4` graph safety blocking findings
-
-No source canonical file is mutated by this pipeline.

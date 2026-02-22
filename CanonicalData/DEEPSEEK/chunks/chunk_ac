@@ -1,0 +1,450 @@
+                # Log clean checks too, so we know they were processed
+                log_path = os.path.join(OUTPUT_DIR, "audit_log.jsonl")
+                os.makedirs(os.path.dirname(log_path), exist_ok=True)
+                clean_entry = {
+                    "group": group,
+                    "canonical": canonical,
+                    "findings": [],
+                    "timestamp": datetime.now().isoformat()
+                }
+                with open(log_path, "a", encoding="utf-8") as f:
+                    f.write(json.dumps(clean_entry, ensure_ascii=False) + "\n")
+
+            # Save the full report on EVERY iteration (overwrite the file)
+            # This ensures we always have the latest state on disk.
+            self.save_report()
+                    
+        except json.JSONDecodeError:
+            print(f"Failed to parse JSON response for {canonical}: {content[:100]}...")
+
+    def save_report(self):
+        # Always use the same filename or timestamped one? 
+        # For "continuous saving", a single "latest" file is better than creating thousands of files.
+        # But let's also keep the final timestamped one logic if needed.
+        
+        # 1. Save "latest" file
+        latest_path = os.path.join(OUTPUT_DIR, "hard_blocks_latest.json")
+        save_json(latest_path, {"findings": self.findings})
+        # print(f"Report updated at {latest_path}") # Too noisy for every iteration?
+
+# -----------------------------------------------------------------------------
+# Main
+# -----------------------------------------------------------------------------
+def load_processed_canonicals() -> Set[str]:
+    log_path = os.path.join(OUTPUT_DIR, "audit_log.jsonl")
+    processed = set()
+    if os.path.exists(log_path):
+        with open(log_path, "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    entry = json.loads(line)
+                    if "canonical" in entry:
+                        processed.add(entry["canonical"])
+                except json.JSONDecodeError:
+                    continue
+    return processed
+
+def main():
+    print(f"Starting Hard Block Auditor...")
+    print(f"Input: {INPUT_FILE}")
+    print(f"Output: {OUTPUT_DIR}")
+    print(f"Model: {DEFAULT_MODEL_NAME}")
+
+    if not os.path.exists(INPUT_FILE):
+        print(f"Error: Input file not found at {INPUT_FILE}")
+        return
+
+    # Load Resume State
+    processed_canonicals = load_processed_canonicals()
+    print(f"Resuming... Already processed {len(processed_canonicals)} canonicals.")
+
+    data = load_json(INPUT_FILE)
+    agent = HardBlockAuditorAgent(DEFAULT_LLM_BASE_URL, DEFAULT_LLM_API_KEY, DEFAULT_MODEL_NAME)
+
+    # Pre-populate agent findings from log if we want the final report to be complete?
+    # Actually, the final report overwrites everything. 
+    # If we resume, `agent.findings` is empty, so `save_report` will only save new findings.
+    # To fix this, we should also reload existing findings from the log.
+    
+    # Reload existing findings
+    log_path = os.path.join(OUTPUT_DIR, "audit_log.jsonl")
+    if os.path.exists(log_path):
+         with open(log_path, "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    entry = json.loads(line)
+                    findings_list = entry.get("findings", [])
+                    group = entry.get("group", "")
+                    canonical = entry.get("canonical", "")
+                    
+                    for finding in findings_list:
+                        agent.findings.append({
+                            "group": group,
+                            "canonical": canonical,
+                            "alias": finding.get("alias"),
+                            "reason": finding.get("reason"),
+                            "confidence_score": finding.get("confidence_score"),
+                            "timestamp": finding.get("timestamp")
+                        })
+                except:
+                    continue
+    
+    print(f"Loaded {len(agent.findings)} existing findings from log.")
+
+    total_canonicals = 0
+    processed_count = 0
+    
+    for group, group_data in data.items():
+        if not isinstance(group_data, dict):
+            continue
+            
+        for canonical, aliases in group_data.items():
+            total_canonicals += 1
+            
+            # Resume Check
+            if canonical in processed_canonicals:
+                continue
+
+            # Simple optimization: If no aliases, skip
+            if not aliases:
+                continue
+                
+            print(f"[{processed_count+1}] Auditing: {canonical} ({len(aliases)} aliases)")
+            agent.audit_canonical(group, canonical, aliases)
+            processed_count += 1
+            
+            # Rate limiting / polite delay?
+            # time.sleep(0.1) 
+
+    agent.save_report()
+    print("Done.")
+
+if __name__ == "__main__":
+    main()
+
+===== FILE: /mnt/workspace/TaxonomyCleaner/CanonicalData/src/pipeline/clients/model_clients.py =====
+
+from __future__ import annotations
+
+import json
+import os
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Set
+from urllib import error
+from urllib import request
+
+from ..shared.utilities import contains_version_token
+from ..shared.utilities import explicit_split_tokens
+from ..shared.utilities import normalize_term
+
+
+
+
+class LLMClient:
+    def arbitrate_cluster(self, cluster_id: str, terms: List[str]) -> Dict[str, Any]:
+        raise NotImplementedError
+
+    def classify_term(self, term: str) -> Dict[str, Any]:
+        raise NotImplementedError
+
+
+class EmbeddingClient:
+    def embed_texts(
+        self,
+        texts: List[str],
+        model: Optional[str] = None,
+        batch_size: int = 64,
+    ) -> List[List[float]]:
+        raise NotImplementedError
+
+
+class HttpEmbeddingClient(EmbeddingClient):
+    def __init__(self, base_url: str, timeout_seconds: float = 120.0) -> None:
+        self.base_url = base_url.rstrip("/")
+        self.timeout_seconds = timeout_seconds
+
+    def embed_texts(
+        self,
+        texts: List[str],
+        model: Optional[str] = None,
+        batch_size: int = 64,
+    ) -> List[List[float]]:
+        if not texts:
+            return []
+
+        normalized_batch_size = max(1, int(batch_size))
+        vectors: List[List[float]] = []
+
+        start = 0
+        while start < len(texts):
+            end = min(start + normalized_batch_size, len(texts))
+            batch = texts[start:end]
+            start = end
+
+            payload: Dict[str, Any] = {"input": batch}
+            if model:
+                payload["model"] = model
+
+            batch_vectors = self._embed_batch_with_fallback(
+                batch=batch,
+                model=model,
+                batch_payload=payload,
+            )
+            for vector in batch_vectors:
+                vectors.append(vector)
+
+        if len(vectors) != len(texts):
+            expected = len(texts)
+            actual = len(vectors)
+            raise RuntimeError(
+                f"Embedding vector count mismatch: expected {expected}, got {actual}."
+            )
+
+        return vectors
+
+    def _embed_batch_with_fallback(
+        self,
+        batch: List[str],
+        model: Optional[str],
+        batch_payload: Dict[str, Any],
+    ) -> List[List[float]]:
+        openai_paths = ["/v1/embeddings", "/embeddings"]
+        last_error: Optional[Exception] = None
+
+        for path in openai_paths:
+            url = f"{self.base_url}{path}"
+            try:
+                response = _http_post_json(url, batch_payload, timeout_seconds=self.timeout_seconds)
+                vectors = _parse_openai_embeddings_response(response, expected_count=len(batch))
+                return vectors
+            except Exception as exc:  # noqa: BLE001
+                last_error = exc
+
+        for path in openai_paths:
+            per_item_vectors = self._embed_per_item_openai(path=path, batch=batch, model=model)
+            if per_item_vectors is not None:
+                return per_item_vectors
+
+        legacy_vectors = self._embed_per_item_legacy(batch=batch, model=model)
+        if legacy_vectors is not None:
+            return legacy_vectors
+
+        raise RuntimeError(f"Embedding endpoint request failed at {self.base_url}: {last_error}")
+
+    def _embed_per_item_openai(
+        self,
+        path: str,
+        batch: List[str],
+        model: Optional[str],
+    ) -> List[List[float]] | None:
+        url = f"{self.base_url}{path}"
+        vectors: List[List[float]] = []
+
+        for text in batch:
+            payload: Dict[str, Any] = {"input": text}
+            if model:
+                payload["model"] = model
+            try:
+                response = _http_post_json(url, payload, timeout_seconds=self.timeout_seconds)
+                parsed_vectors = _parse_openai_embeddings_response(response, expected_count=1)
+                vectors.append(parsed_vectors[0])
+            except Exception:  # noqa: BLE001
+                return None
+
+        return vectors
+
+    def _embed_per_item_legacy(
+        self,
+        batch: List[str],
+        model: Optional[str],
+    ) -> List[List[float]] | None:
+        url = f"{self.base_url}/embedding"
+        vectors: List[List[float]] = []
+
+        for text in batch:
+            payload_options: List[Dict[str, Any]] = []
+            option_content: Dict[str, Any] = {"content": text}
+            if model:
+                option_content["model"] = model
+            payload_options.append(option_content)
+
+            option_input: Dict[str, Any] = {"input": text}
+            if model:
+                option_input["model"] = model
+            payload_options.append(option_input)
+
+            vector = self._try_legacy_payload_options(url, payload_options)
+            if vector is None:
+                return None
+            vectors.append(vector)
+
+        return vectors
+
+    def _try_legacy_payload_options(
+        self,
+        url: str,
+        payload_options: List[Dict[str, Any]],
+    ) -> List[float] | None:
+        for payload in payload_options:
+            try:
+                response = _http_post_json(url, payload, timeout_seconds=self.timeout_seconds)
+                vector = _extract_embedding_vector(response)
+                if vector is not None:
+                    return vector
+            except Exception:  # noqa: BLE001
+                continue
+        return None
+
+    def verify_model_available(self, model: Optional[str]) -> None:
+        if model:
+            available_models = self._list_models()
+            if available_models is not None:
+                if model in available_models:
+                    return
+                raise RuntimeError(
+                    f"Embedding model '{model}' not found at {self.base_url}. "
+                    f"Available models: {sorted(available_models)}"
+                )
+
+        probe_texts = ["healthcheck"]
+        self.embed_texts(probe_texts, model=model, batch_size=1)
+
+    def _list_models(self) -> Set[str] | None:
+        model_ids: Set[str] = set()
+        paths = ["/v1/models", "/models"]
+        listed_any = False
+
+        for path in paths:
+            url = f"{self.base_url}{path}"
+            try:
+                response = _http_get_json(url, timeout_seconds=self.timeout_seconds)
+            except Exception:  # noqa: BLE001
+                continue
+
+            listed_any = True
+            ids = _extract_model_ids(response)
+            for model_id in ids:
+                model_ids.add(model_id)
+
+        if not listed_any:
+            return None
+        return model_ids
+
+
+class HttpReasoningLLMClient(LLMClient):
+    def __init__(self, base_url: str, model: str, timeout_seconds: float = 120.0) -> None:
+        self.base_url = base_url.rstrip("/")
+        self.model = model
+        self.timeout_seconds = timeout_seconds
+
+    def arbitrate_cluster(self, cluster_id: str, terms: List[str]) -> Dict[str, Any]:
+        prompt_lines: List[str] = []
+        prompt_lines.append(ARBITRATION_PROMPT_TEMPLATE)
+        prompt_lines.append("")
+        prompt_lines.append(f"Cluster ID: {cluster_id}")
+        prompt_lines.append("Terms:")
+        for term in terms:
+            prompt_lines.append(f"- {term}")
+        prompt_lines.append("")
+        prompt_lines.append("Return STRICT JSON with fields: cluster, decisions[].")
+        prompt = "\n".join(prompt_lines)
+
+        parsed = self._chat_and_parse_json(prompt)
+        if isinstance(parsed, dict):
+            return parsed
+
+        return {
+            "error": "invalid_arbitration_json",
+            "raw": parsed,
+        }
+
+    def classify_term(self, term: str) -> Dict[str, Any]:
+        prompt = self._build_classification_prompt(term)
+
+        parsed = self._chat_and_parse_json(prompt)
+        if self._is_schema_shaped_classification_response(parsed):
+            return parsed
+
+        repair_prompt = self._build_classification_repair_prompt(term, parsed)
+        repaired = self._chat_and_parse_json(repair_prompt)
+        if self._is_schema_shaped_classification_response(repaired):
+            return repaired
+
+        return {
+            "error": "invalid_classification_json",
+            "raw": parsed,
+            "repair_raw": repaired,
+        }
+
+    def _build_classification_prompt(self, term: str) -> str:
+        prompt_lines: List[str] = []
+        prompt_lines.append(CLASSIFICATION_PROMPT_TEMPLATE)
+        prompt_lines.append("")
+        prompt_lines.append(f"Input term: {term}")
+        prompt_lines.append("Now output one strict JSON object following OUTPUT CONTRACT.")
+        prompt = "\n".join(prompt_lines)
+        return prompt
+
+    def _build_classification_repair_prompt(self, term: str, previous_output: Any) -> str:
+        serialized_previous = self._serialize_for_prompt(previous_output)
+
+        prompt_lines: List[str] = []
+        prompt_lines.append("You returned an invalid classification JSON payload.")
+        prompt_lines.append("Repair it to match the exact required schema.")
+        prompt_lines.append("Return JSON only. Do not include explanations.")
+        prompt_lines.append("")
+        prompt_lines.append("Required schema:")
+        prompt_lines.append("{")
+        prompt_lines.append('  "term": "<same input term>",')
+        prompt_lines.append('  "classification": {')
+        prompt_lines.append('    "ontological_nature": "Software Artifact" | "Algorithm" | "Standard / Specification" | "Protocol" | "Concept" | "Human Skill",')
+        prompt_lines.append('    "primary_type": string | null,')
+        prompt_lines.append('    "functional_roles": string[],')
+        prompt_lines.append('    "abstraction_level": "Domain" | "Method" | "Concrete"')
+        prompt_lines.append("  },")
+        prompt_lines.append('  "status": "active" | "under_review",')
+        prompt_lines.append('  "confidence": "HIGH" | "MEDIUM" | "LOW",')
+        prompt_lines.append('  "is_contextual": boolean,')
+        prompt_lines.append('  "is_versioned": boolean,')
+        prompt_lines.append('  "is_marketing_language": boolean')
+        prompt_lines.append("}")
+        prompt_lines.append("")
+        prompt_lines.append(f"Input term: {term}")
+        prompt_lines.append("Previous invalid output:")
+        prompt_lines.append(serialized_previous)
+        prompt_lines.append("")
+        prompt_lines.append("Provide corrected JSON now.")
+        prompt = "\n".join(prompt_lines)
+        return prompt
+
+    def _serialize_for_prompt(self, value: Any) -> str:
+        try:
+            serialized = json.dumps(value, ensure_ascii=True, sort_keys=True)
+            return serialized
+        except Exception:  # noqa: BLE001
+            return str(value)
+
+    def _is_schema_shaped_classification_response(self, payload: Any) -> bool:
+        if not isinstance(payload, dict):
+            return False
+
+        special_type = payload.get("type")
+        if isinstance(special_type, str):
+            normalized_type = special_type.strip().upper()
+            if normalized_type in {"COMPOSITE_STACK", "CATEGORY"}:
+                return True
+
+        classification = payload.get("classification")
+        if not isinstance(classification, dict):
+            return False
+
+        required_keys = [
+            "ontological_nature",
+            "primary_type",
+            "functional_roles",
+            "abstraction_level",
+        ]
+        for key in required_keys:

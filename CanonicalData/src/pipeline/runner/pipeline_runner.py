@@ -4,6 +4,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 import os
 import sys
+from collections import defaultdict
 from typing import Any
 from typing import Dict
 from typing import List
@@ -1390,6 +1391,268 @@ def _write_stage4_outputs(out_dir: str, stage4) -> None:
     for finding in stage4.findings:
         finding_rows.append(finding.to_dict())
     write_json(os.path.join(out_dir, "stage4_findings.json"), finding_rows)
+
+    findings_summary = _build_findings_summary(finding_rows)
+    write_json(os.path.join(out_dir, "stage4_findings_summary.json"), findings_summary)
+
+    findings_summary_markdown = _render_findings_summary_markdown(findings_summary)
+    with open(os.path.join(out_dir, "stage4_findings_summary.md"), "w", encoding="utf-8") as handle:
+        handle.write(findings_summary_markdown)
+        handle.write("\n")
+
+
+def _build_findings_summary(
+    finding_rows: List[Dict[str, object]],
+    max_examples_per_rule: int = 5,
+) -> Dict[str, object]:
+    total = 0
+    blocking = 0
+    non_blocking = 0
+
+    severity_counts: Dict[str, int] = defaultdict(int)
+    proposed_action_counts: Dict[str, int] = defaultdict(int)
+    reason_counts: Dict[str, int] = defaultdict(int)
+
+    by_rule_internal: Dict[str, Dict[str, object]] = {}
+
+    for row in finding_rows:
+        if not isinstance(row, dict):
+            continue
+
+        total += 1
+
+        is_blocking = bool(row.get("blocking", False))
+        if is_blocking:
+            blocking += 1
+        else:
+            non_blocking += 1
+
+        severity = str(row.get("severity", ""))
+        severity_counts[severity] += 1
+
+        proposed_action = str(row.get("proposed_action", ""))
+        proposed_action_counts[proposed_action] += 1
+
+        reason = str(row.get("reason", ""))
+        reason_counts[reason] += 1
+
+        rule_id = str(row.get("rule_id", ""))
+        if rule_id not in by_rule_internal:
+            by_rule_internal[rule_id] = {
+                "rule_id": rule_id,
+                "count": 0,
+                "blocking_count": 0,
+                "severity_counts": defaultdict(int),
+                "locations": defaultdict(int),
+                "examples": [],
+            }
+
+        bucket = by_rule_internal[rule_id]
+        bucket["count"] = int(bucket["count"]) + 1
+        if is_blocking:
+            bucket["blocking_count"] = int(bucket["blocking_count"]) + 1
+
+        rule_severity_counts = bucket["severity_counts"]
+        if isinstance(rule_severity_counts, dict):
+            rule_severity_counts[severity] += 1
+
+        location = str(row.get("location", ""))
+        rule_locations = bucket["locations"]
+        if isinstance(rule_locations, dict):
+            rule_locations[location] += 1
+
+        examples = bucket["examples"]
+        if isinstance(examples, list):
+            if len(examples) < max_examples_per_rule:
+                examples.append(
+                    {
+                        "location": location,
+                        "observed_value": _truncate_text(str(row.get("observed_value", ""))),
+                        "reason": reason,
+                        "proposed_action": proposed_action,
+                    }
+                )
+
+    by_rule_rows: List[Dict[str, object]] = []
+    for rule_id in sorted(by_rule_internal.keys()):
+        bucket = by_rule_internal[rule_id]
+
+        severity_breakdown = {}
+        raw_rule_severity = bucket.get("severity_counts", {})
+        if isinstance(raw_rule_severity, dict):
+            for severity_key in sorted(raw_rule_severity.keys()):
+                severity_breakdown[str(severity_key)] = int(raw_rule_severity[severity_key])
+
+        top_locations: List[Dict[str, object]] = []
+        raw_locations = bucket.get("locations", {})
+        if isinstance(raw_locations, dict):
+            location_rows = []
+            for location_key, count in raw_locations.items():
+                location_rows.append((str(location_key), int(count)))
+            location_rows.sort(key=lambda item: (-item[1], item[0]))
+
+            for location_key, count in location_rows[:10]:
+                top_locations.append({"location": location_key, "count": count})
+
+        examples_payload = []
+        raw_examples = bucket.get("examples", [])
+        if isinstance(raw_examples, list):
+            for example in raw_examples:
+                if isinstance(example, dict):
+                    examples_payload.append(example)
+
+        by_rule_rows.append(
+            {
+                "rule_id": rule_id,
+                "count": int(bucket.get("count", 0)),
+                "blocking_count": int(bucket.get("blocking_count", 0)),
+                "severity_breakdown": severity_breakdown,
+                "top_locations": top_locations,
+                "examples": examples_payload,
+            }
+        )
+
+    by_rule_rows.sort(
+        key=lambda row: (
+            -int(row.get("count", 0)),
+            str(row.get("rule_id", "")),
+        )
+    )
+
+    severity_rows: List[Dict[str, object]] = []
+    for severity in sorted(severity_counts.keys()):
+        severity_rows.append({"severity": severity, "count": int(severity_counts[severity])})
+
+    proposed_action_rows: List[Dict[str, object]] = []
+    proposed_action_items = []
+    for action, count in proposed_action_counts.items():
+        proposed_action_items.append((str(action), int(count)))
+    proposed_action_items.sort(key=lambda item: (-item[1], item[0]))
+    for action, count in proposed_action_items:
+        proposed_action_rows.append({"proposed_action": action, "count": count})
+
+    reason_rows: List[Dict[str, object]] = []
+    reason_items = []
+    for reason, count in reason_counts.items():
+        reason_items.append((str(reason), int(count)))
+    reason_items.sort(key=lambda item: (-item[1], item[0]))
+    for reason, count in reason_items[:20]:
+        reason_rows.append({"reason": reason, "count": count})
+
+    summary = {
+        "totals": {
+            "findings": total,
+            "blocking": blocking,
+            "non_blocking": non_blocking,
+        },
+        "by_severity": severity_rows,
+        "by_rule": by_rule_rows,
+        "by_proposed_action": proposed_action_rows,
+        "top_reasons": reason_rows,
+    }
+    return summary
+
+
+def _render_findings_summary_markdown(summary: Dict[str, object]) -> str:
+    lines: List[str] = []
+    lines.append("# Stage 4 Findings Summary")
+    lines.append("")
+
+    totals = summary.get("totals", {})
+    findings_count = int(_read_int_field(totals, "findings"))
+    blocking_count = int(_read_int_field(totals, "blocking"))
+    non_blocking_count = int(_read_int_field(totals, "non_blocking"))
+
+    lines.append(f"- Total findings: {findings_count}")
+    lines.append(f"- Blocking findings: {blocking_count}")
+    lines.append(f"- Non-blocking findings: {non_blocking_count}")
+    lines.append("")
+
+    lines.append("## Rule Counts")
+    lines.append("")
+    lines.append("| Rule ID | Count | Blocking |")
+    lines.append("| --- | ---: | ---: |")
+
+    by_rule = summary.get("by_rule", [])
+    if isinstance(by_rule, list):
+        for row in by_rule:
+            if not isinstance(row, dict):
+                continue
+            rule_id = str(row.get("rule_id", ""))
+            count = int(_read_int_field(row, "count"))
+            rule_blocking = int(_read_int_field(row, "blocking_count"))
+            lines.append(f"| {rule_id} | {count} | {rule_blocking} |")
+    lines.append("")
+
+    lines.append("## Top Reasons")
+    lines.append("")
+    top_reasons = summary.get("top_reasons", [])
+    if isinstance(top_reasons, list):
+        for row in top_reasons:
+            if not isinstance(row, dict):
+                continue
+            reason = str(row.get("reason", ""))
+            count = int(_read_int_field(row, "count"))
+            lines.append(f"- {reason} ({count})")
+    lines.append("")
+
+    lines.append("## Representative Examples")
+    lines.append("")
+    if isinstance(by_rule, list):
+        for row in by_rule:
+            if not isinstance(row, dict):
+                continue
+
+            rule_id = str(row.get("rule_id", ""))
+            count = int(_read_int_field(row, "count"))
+            lines.append(f"### {rule_id} ({count})")
+
+            examples = row.get("examples", [])
+            if not isinstance(examples, list) or len(examples) == 0:
+                lines.append("- No examples captured.")
+                lines.append("")
+                continue
+
+            for example in examples:
+                if not isinstance(example, dict):
+                    continue
+                location = str(example.get("location", ""))
+                reason = str(example.get("reason", ""))
+                proposed_action = str(example.get("proposed_action", ""))
+                observed_value = str(example.get("observed_value", ""))
+
+                lines.append(f"- Location: `{location}`")
+                lines.append(f"  Reason: {reason}")
+                lines.append(f"  Proposed action: `{proposed_action}`")
+                lines.append(f"  Observed value: `{observed_value}`")
+            lines.append("")
+
+    return "\n".join(lines)
+
+
+def _read_int_field(row: object, key: str) -> int:
+    if not isinstance(row, dict):
+        return 0
+
+    value = row.get(key, 0)
+    if isinstance(value, bool):
+        return int(value)
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    try:
+        return int(str(value))
+    except (TypeError, ValueError):
+        return 0
+
+
+def _truncate_text(text: str, limit: int = 240) -> str:
+    if len(text) <= limit:
+        return text
+
+    cutoff = max(0, limit - 3)
+    return text[:cutoff] + "..."
 
 
 def _write_stage5_outputs(out_dir: str, stage5) -> None:

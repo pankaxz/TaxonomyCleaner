@@ -1,0 +1,450 @@
+        vector: List[float] = []
+        for value in embedding:
+            vector.append(float(value))
+
+        index_value = item.get("index", item_index)
+        try:
+            index_number = int(index_value)
+        except Exception:  # noqa: BLE001
+            index_number = item_index
+        vectors_with_index.append((index_number, vector))
+
+    vectors_with_index.sort(key=lambda pair: pair[0])
+    vectors: List[List[float]] = []
+    for _index, vector in vectors_with_index:
+        vectors.append(vector)
+
+    if len(vectors) != expected_count:
+        raise RuntimeError(
+            f"Embedding vector count mismatch for batch: expected {expected_count}, got {len(vectors)}."
+        )
+
+    return vectors
+
+
+def _extract_embedding_vector(response: Dict[str, Any]) -> List[float] | None:
+    parsed_from_openai = response.get("data")
+    if isinstance(parsed_from_openai, list) and parsed_from_openai:
+        first_item = parsed_from_openai[0]
+        if isinstance(first_item, dict):
+            candidate = first_item.get("embedding")
+            if isinstance(candidate, list):
+                vector: List[float] = []
+                for value in candidate:
+                    vector.append(float(value))
+                return vector
+
+    direct_embedding = response.get("embedding")
+    if isinstance(direct_embedding, list):
+        vector: List[float] = []
+        for value in direct_embedding:
+            vector.append(float(value))
+        return vector
+
+    content_embedding = response.get("data")
+    if isinstance(content_embedding, dict):
+        candidate = content_embedding.get("embedding")
+        if isinstance(candidate, list):
+            vector: List[float] = []
+            for value in candidate:
+                vector.append(float(value))
+            return vector
+
+    return None
+
+
+def _parse_json_from_text(text: str) -> Any:
+    raw = text.strip()
+    if raw.startswith("```"):
+        raw = _strip_markdown_fences(raw)
+
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        pass
+
+    first_object = raw.find("{")
+    last_object = raw.rfind("}")
+    if first_object != -1 and last_object != -1 and last_object > first_object:
+        object_snippet = raw[first_object : last_object + 1]
+        try:
+            return json.loads(object_snippet)
+        except json.JSONDecodeError:
+            pass
+
+    first_array = raw.find("[")
+    last_array = raw.rfind("]")
+    if first_array != -1 and last_array != -1 and last_array > first_array:
+        array_snippet = raw[first_array : last_array + 1]
+        try:
+            return json.loads(array_snippet)
+        except json.JSONDecodeError:
+            pass
+
+    return None
+
+
+def _strip_markdown_fences(text: str) -> str:
+    lines = text.splitlines()
+    if not lines:
+        return text
+
+    if lines[0].startswith("```"):
+        lines = lines[1:]
+
+    if lines and lines[-1].startswith("```"):
+        lines = lines[:-1]
+
+    return "\n".join(lines).strip()
+
+===== FILE: /mnt/workspace/TaxonomyCleaner/CanonicalData/src/pipeline/clients/__init__.py =====
+
+from .model_clients import EmbeddingClient
+from .model_clients import FileBackedLLMClient
+from .model_clients import HeuristicLLMClient
+from .model_clients import HttpEmbeddingClient
+from .model_clients import HttpReasoningLLMClient
+from .model_clients import LLMClient
+
+__all__ = [
+    "EmbeddingClient",
+    "FileBackedLLMClient",
+    "HeuristicLLMClient",
+    "HttpEmbeddingClient",
+    "HttpReasoningLLMClient",
+    "LLMClient",
+]
+
+===== FILE: /mnt/workspace/TaxonomyCleaner/CanonicalData/src/pipeline/run.py =====
+
+from __future__ import annotations
+
+from .runner.pipeline_runner import build_artifact_paths
+from .runner.pipeline_runner import load_atomicity_exceptions
+from .runner.pipeline_runner import main
+from .runner.pipeline_runner import parse_args
+from .runner.pipeline_runner import run_pipeline
+
+__all__ = [
+    "build_artifact_paths",
+    "load_atomicity_exceptions",
+    "main",
+    "parse_args",
+    "run_pipeline",
+]
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+
+===== FILE: /mnt/workspace/TaxonomyCleaner/CanonicalData/src/pipeline/runner/pipeline_runner.py =====
+
+from __future__ import annotations
+
+import argparse
+from concurrent.futures import ThreadPoolExecutor
+import os
+import sys
+from collections import defaultdict
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Set
+from typing import Tuple
+
+from ..clients.model_clients import FileBackedLLMClient
+from ..clients.model_clients import HeuristicLLMClient
+from ..clients.model_clients import HttpEmbeddingClient
+from ..clients.model_clients import HttpReasoningLLMClient
+from ..shared.models import Finding
+from ..shared.models import RunArtifacts
+from ..shared.models import StageResult
+from ..shared.utilities import load_json_file
+from ..shared.utilities import normalize_term
+from ..shared.utilities import stable_hash_file
+from ..shared.utilities import write_json
+from ..shared.utilities import write_jsonl
+from ..stages.stage0_deterministic_preclean import run_stage0
+from ..stages.stage1_embedding_similarity import run_stage1_similarity
+from ..stages.stage2_conflict_clustering import run_stage2_clusters
+from ..stages.stage3_semantic_arbitration import run_stage3_arbitration
+from ..stages.stage4_abstraction_classification import run_stage4_classification
+from ..stages.stage5_graph_validation import run_stage5_graph_validation
+from ..stages.stage6_diff_reporting import build_proposed_changes
+from ..stages.stage6_diff_reporting import render_markdown_diff
+
+STAGE_CHOICES = [
+    "all",
+    "stage0",
+    "stage1",
+    "stage2",
+    "stage3",
+    "stage4",
+    "stage5",
+    "stage6",
+]
+
+
+DEFAULT_INPUT_PATH = "Input/canonical_data.json"
+DEFAULT_EXCEPTIONS_PATH = "Input/atomicity_exceptions.json"
+DEFAULT_OUTPUT_ROOT = "Output"
+DEFAULT_EMBEDDING_ENDPOINT = "http://127.0.0.1:8090"
+DEFAULT_REASONING_ENDPOINT = "http://localhost:8080"
+DEFAULT_EMBEDDING_MODEL = "nomic-embed-text-v1.5.f16.gguf"
+DEFAULT_REASONING_MODEL = "DeepSeek-R1-Distill-Qwen-32B-Q3_K_M.gguf"
+
+STAGE_INDEX = {
+    "stage0": 0,
+    "stage1": 1,
+    "stage2": 2,
+    "stage3": 3,
+    "stage4": 4,
+    "stage5": 5,
+    "stage6": 6,
+    "all": 6,
+}
+
+RESUME_REQUIRED_FILES_BY_STAGE = {
+    0: [
+        "stage0_validation_report.json",
+        "stage0_rewritten_store.json",
+    ],
+    1: [
+        "stage1_similarity_edges.json",
+        "stage1_thresholds.json",
+    ],
+    2: [
+        "stage2_conflict_clusters.json",
+    ],
+    3: [
+        "stage3_arbitration_decisions.json",
+        "stage3_review_queue.json",
+        "stage3_findings.json",
+    ],
+    4: [
+        "stage4_classification_decisions.json",
+        "stage4_v2_preview.json",
+        "stage4_review_queue.json",
+        "stage4_findings.json",
+    ],
+    5: [
+        "stage5_graph_findings.json",
+        "stage5_graph_components.json",
+    ],
+}
+
+EXECUTION_PLAN_BY_STAGE = {
+    "stage0": [0],
+    "stage1": [0, 1],
+    "stage2": [0, 1, 2],
+    "stage3": [0, 1, 2, 3],
+    "stage4": [0, 1, 2, 4],
+    "stage5": [0, 1, 2, 4, 5],
+    "stage6": [0, 1, 2, 3, 4, 5, 6],
+    "all": [0, 1, 2, 3, 4, 5, 6],
+}
+
+
+def parse_args(argv: List[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Governed skill graph pipeline runner")
+
+    parser.add_argument(
+        "--input",
+        default=DEFAULT_INPUT_PATH,
+        help="Path to canonical_data.json input (default: Input/canonical_data.json)",
+    )
+    parser.add_argument(
+        "--out",
+        default="",
+        help="Output directory for run artifacts. Defaults to Output/output or Output/<stage>.",
+    )
+    parser.add_argument(
+        "--resume-from",
+        default="",
+        help="Resume from an existing artifacts directory (for example Output/stage2/runA).",
+    )
+    parser.add_argument(
+        "--exceptions",
+        default=DEFAULT_EXCEPTIONS_PATH,
+        help="Path to atomicity exceptions JSON file",
+    )
+
+    parser.add_argument(
+        "--llm-provider",
+        choices=["heuristic", "file", "http"],
+        default="http",
+        help="Provider mode for stage 3/4 reasoning outputs",
+    )
+    parser.add_argument(
+        "--arbitration-json",
+        default="",
+        help="Optional file-backed arbitration decisions JSON",
+    )
+    parser.add_argument(
+        "--classification-json",
+        default="",
+        help="Optional file-backed classification decisions JSON",
+    )
+
+    parser.add_argument(
+        "--embedding-provider",
+        choices=["heuristic", "http"],
+        default="http",
+        help="Provider mode for Stage 1 embeddings.",
+    )
+    parser.add_argument(
+        "--embedding-endpoint",
+        default=DEFAULT_EMBEDDING_ENDPOINT,
+        help="Base URL for embedding server when --embedding-provider http.",
+    )
+    parser.add_argument(
+        "--reasoning-endpoint",
+        default=DEFAULT_REASONING_ENDPOINT,
+        help="Base URL for reasoning server when --llm-provider http.",
+    )
+
+    parser.add_argument(
+        "--embedding-batch-size",
+        type=int,
+        default=64,
+        help="Batch size for embedding HTTP requests.",
+    )
+    parser.add_argument(
+        "--http-timeout-seconds",
+        type=float,
+        default=120.0,
+        help="Timeout for HTTP model requests.",
+    )
+    parser.add_argument(
+        "--stage3-checkpoint-every",
+        type=int,
+        default=1,
+        help="Persist Stage 3 partial outputs after each processed cluster (0 disables).",
+    )
+    parser.add_argument(
+        "--stage4-checkpoint-every",
+        type=int,
+        default=1,
+        help="Persist Stage 4 partial outputs after each processed canonical (0 disables).",
+    )
+
+    parser.add_argument(
+        "--embedding-model",
+        default=DEFAULT_EMBEDDING_MODEL,
+        help="Embedding model metadata tag",
+    )
+    parser.add_argument(
+        "--reasoning-model",
+        default=DEFAULT_REASONING_MODEL,
+        help="Reasoning model metadata tag",
+    )
+
+    parser.add_argument(
+        "--execution-mode",
+        choices=["dag", "serial"],
+        default="dag",
+        help="Execution mode for full pipeline runs. 'dag' runs independent stages concurrently.",
+    )
+    parser.add_argument(
+        "--max-workers",
+        type=int,
+        default=2,
+        help="Maximum worker threads for concurrent stage execution in dag mode.",
+    )
+
+    parser.add_argument(
+        "--stage",
+        choices=STAGE_CHOICES,
+        default="all",
+        help="Run a specific stage and write stage-scoped artifacts, or 'all' for full pipeline.",
+    )
+
+    parsed = parser.parse_args(argv)
+    return parsed
+
+
+def load_atomicity_exceptions(path: str) -> Set[str]:
+    default_exceptions = {
+        "tcp/ip",
+        "pl/sql",
+        "google cloud pub/sub",
+        "ibm z/os",
+        "ibm z/vse",
+        "ibm z/vm",
+        "os/390",
+    }
+
+    if not path:
+        return default_exceptions
+
+    if not os.path.exists(path):
+        return default_exceptions
+
+    data = load_json_file(path)
+    exceptions: Set[str] = set(default_exceptions)
+
+    rows: List[object] = []
+    if isinstance(data, dict):
+        maybe_rows = data.get("atomicity_exceptions", [])
+        if isinstance(maybe_rows, list):
+            rows = maybe_rows
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+
+        term = row.get("term_normalized")
+        if not isinstance(term, str):
+            continue
+        if not term.strip():
+            continue
+
+        exceptions.add(normalize_term(term))
+
+    return exceptions
+
+
+def build_artifact_paths(out_dir: str) -> RunArtifacts:
+    artifacts = RunArtifacts(
+        validation_report_json=os.path.join(out_dir, "validation_report.json"),
+        arbitration_decisions_json=os.path.join(out_dir, "arbitration_decisions.json"),
+        classification_decisions_json=os.path.join(out_dir, "classification_decisions.json"),
+        review_queue_jsonl=os.path.join(out_dir, "review_queue.jsonl"),
+        proposed_changes_json=os.path.join(out_dir, "proposed_changes.json"),
+        proposed_changes_md=os.path.join(out_dir, "proposed_changes.md"),
+    )
+    return artifacts
+
+
+def _requested_stage_index(requested_stage: str) -> int:
+    index = STAGE_INDEX.get(requested_stage)
+    if index is None:
+        return 6
+    return index
+
+
+def _detect_resume_stage_index(resume_from: str) -> int:
+    if not resume_from:
+        return -1
+    if not os.path.isdir(resume_from):
+        raise RuntimeError(f"Resume directory does not exist: {resume_from}")
+
+    highest_stage = -1
+    for stage_index in range(0, 6):
+        if _resume_stage_files_exist(resume_from, stage_index):
+            highest_stage = stage_index
+            continue
+        break
+
+    if highest_stage < 0:
+        raise RuntimeError(
+            f"Resume directory does not contain stage artifacts: {resume_from}"
+        )
+    return highest_stage
+
+
+def _resume_stage_files_exist(resume_from: str, stage_index: int) -> bool:
+    required_files = RESUME_REQUIRED_FILES_BY_STAGE.get(stage_index, [])
+    for filename in required_files:
+        file_path = os.path.join(resume_from, filename)
+        if not os.path.exists(file_path):

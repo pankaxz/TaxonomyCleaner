@@ -7,6 +7,7 @@ import unittest
 from argparse import Namespace
 from unittest.mock import patch
 
+from src.pipeline.clients.model_clients import HttpReasoningLLMClient
 from src.pipeline.run import run_pipeline
 from src.pipeline.stages.stage0_deterministic_preclean import run_stage0
 from src.pipeline.stages.stage1_embedding_similarity import run_stage1_similarity
@@ -41,6 +42,49 @@ class MockStage4LLM:
 
 
 class GovernedPipelineTests(unittest.TestCase):
+    def test_stage4_http_client_classification_repair_retry(self):
+        class StubHttpClient(HttpReasoningLLMClient):
+            def __init__(self):
+                super().__init__("http://localhost:8080", "test-model")
+                self.responses = [
+                    {"term": "Computer Vision", "classification": "General", "confidence": 0.6},
+                    {
+                        "term": "Computer Vision",
+                        "classification": {
+                            "ontological_nature": "Concept",
+                            "primary_type": "Computer Vision",
+                            "functional_roles": [],
+                            "abstraction_level": "Domain",
+                        },
+                        "status": "active",
+                        "confidence": "HIGH",
+                        "is_contextual": False,
+                        "is_versioned": False,
+                        "is_marketing_language": False,
+                    },
+                ]
+                self.prompts: List[str] = []
+
+            def _chat_and_parse_json(self, prompt: str):  # type: ignore[override]
+                self.prompts.append(prompt)
+                return self.responses.pop(0)
+
+        client = StubHttpClient()
+        response = client.classify_term("Computer Vision")
+
+        self.assertIn("classification", response)
+        self.assertTrue(isinstance(response.get("classification"), dict))
+        self.assertEqual(len(client.prompts), 2)
+
+    def test_stage4_http_client_prompt_contains_strict_contract(self):
+        client = HttpReasoningLLMClient("http://localhost:8080", "test-model")
+        prompt = client._build_classification_prompt("Computer Vision")
+
+        self.assertIn("OUTPUT CONTRACT", prompt)
+        self.assertIn('"ontological_nature"', prompt)
+        self.assertIn('"abstraction_level"', prompt)
+        self.assertIn("Computer Vision", prompt)
+
     def test_numpy_numba_alias_blocked(self):
         store = {
             "Libraries": {
@@ -641,6 +685,71 @@ class GovernedPipelineTests(unittest.TestCase):
         self.assertEqual(cls["status"], "under_review")
         self.assertTrue(stage4.payload["review_queue_entries"])
 
+    def test_stage4_normalizes_string_classification_payload(self):
+        stage4 = run_stage4_classification(
+            [{"group": "X", "canonical": "Nancy", "aliases": []}],
+            MockStage4LLM(
+                {
+                    "term": "Nancy",
+                    "classification": "General",
+                    "confidence": 0.6,
+                    "notes": "",
+                }
+            ),
+        )
+
+        self.assertFalse(stage4.parse_error)
+        self.assertEqual(len(stage4.payload["classification_decisions"]), 1)
+        decision = stage4.payload["classification_decisions"][0]
+        self.assertIn(decision["confidence"], {"HIGH", "MEDIUM", "LOW"})
+        self.assertIn(decision["classification"]["ontological_nature"], {
+            "Software Artifact",
+            "Algorithm",
+            "Standard / Specification",
+            "Protocol",
+            "Concept",
+            "Human Skill",
+        })
+        self.assertIn(decision["classification"]["abstraction_level"], {"Domain", "Method", "Concrete"})
+
+    def test_stage4_normalizes_capitalized_classification_fields(self):
+        stage4 = run_stage4_classification(
+            [{"group": "X", "canonical": "OpenRasta", "aliases": []}],
+            MockStage4LLM(
+                {
+                    "Term": "OpenRasta",
+                    "Classification": "Framework",
+                    "Subclassification": "Web Framework",
+                    "confidence_level": "High",
+                }
+            ),
+        )
+
+        self.assertFalse(stage4.parse_error)
+        self.assertEqual(len(stage4.payload["classification_decisions"]), 1)
+        decision = stage4.payload["classification_decisions"][0]
+        self.assertEqual(decision["confidence"], "HIGH")
+        self.assertEqual(decision["status"], "active")
+
+    def test_stage4_domain_override_for_computer_vision(self):
+        stage4 = run_stage4_classification(
+            [{"group": "X", "canonical": "Computer Vision", "aliases": ["cv", "machine vision"]}],
+            MockStage4LLM(
+                {
+                    "term": "Computer Vision",
+                    "classification": "Technology",
+                    "confidence": "MEDIUM",
+                }
+            ),
+        )
+
+        self.assertFalse(stage4.parse_error)
+        self.assertEqual(len(stage4.payload["classification_decisions"]), 1)
+        decision = stage4.payload["classification_decisions"][0]
+        self.assertEqual(decision["classification"]["ontological_nature"], "Concept")
+        self.assertEqual(decision["classification"]["abstraction_level"], "Domain")
+        self.assertEqual(decision["classification"]["primary_type"], "Computer Vision")
+
     def test_graph_over_generic_detection(self):
         edges = [
             {"left": "hub", "right": "n1", "score": 0.9, "band": "possible_conflict"},
@@ -788,6 +897,56 @@ class GovernedPipelineTests(unittest.TestCase):
             run_pipeline(args)
             stage1_execution_path = os.path.join(out_dir, "stage1_execution.json")
             self.assertTrue(os.path.exists(stage1_execution_path))
+
+    def test_stage4_writes_findings_summary_outputs(self):
+        with tempfile.TemporaryDirectory() as tempdir:
+            input_path = os.path.join(tempdir, "input.json")
+            out_dir = os.path.join(tempdir, "out")
+
+            store = {
+                "Web": {
+                    "React": [],
+                    "Angular": [],
+                }
+            }
+            with open(input_path, "w", encoding="utf-8") as handle:
+                json.dump(store, handle)
+
+            args = Namespace(
+                input=input_path,
+                out=out_dir,
+                resume_from="",
+                exceptions="",
+                llm_provider="heuristic",
+                arbitration_json="",
+                classification_json="",
+                embedding_provider="heuristic",
+                embedding_endpoint="http://127.0.0.1:8090",
+                reasoning_endpoint="http://localhost:8080",
+                embedding_batch_size=64,
+                http_timeout_seconds=30.0,
+                stage3_checkpoint_every=5,
+                stage4_checkpoint_every=1,
+                embedding_model="nomic-embed-text-v1.5.f16.gguf",
+                reasoning_model="DeepSeek-R1-Distill-Qwen-32B-Q3_K_M.gguf",
+                execution_mode="serial",
+                max_workers=1,
+                stage="stage4",
+            )
+
+            run_pipeline(args)
+
+            summary_json_path = os.path.join(out_dir, "stage4_findings_summary.json")
+            summary_md_path = os.path.join(out_dir, "stage4_findings_summary.md")
+
+            self.assertTrue(os.path.exists(summary_json_path))
+            self.assertTrue(os.path.exists(summary_md_path))
+
+            with open(summary_json_path, "r", encoding="utf-8") as handle:
+                summary = json.load(handle)
+
+            self.assertIn("totals", summary)
+            self.assertIn("by_rule", summary)
 
     def test_resume_from_stage2_skips_recomputing_earlier_stages(self):
         with tempfile.TemporaryDirectory() as tempdir:

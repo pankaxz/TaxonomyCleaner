@@ -28,7 +28,89 @@ ALLOWED ACTIONS:
 """
 
 CLASSIFICATION_PROMPT_TEMPLATE = """You are a Technology Ontology Classifier.
-Classify each term independently and return strict JSON only.
+Classify one term independently and return strict JSON only.
+
+OUTPUT CONTRACT
+Return exactly one JSON object with these keys:
+{
+  "term": "<same input term>",
+  "classification": {
+    "ontological_nature": "Software Artifact" | "Algorithm" | "Standard / Specification" | "Protocol" | "Concept" | "Human Skill",
+    "primary_type": string | null,
+    "functional_roles": string[],
+    "abstraction_level": "Domain" | "Method" | "Concrete"
+  },
+  "status": "active" | "under_review",
+  "confidence": "HIGH" | "MEDIUM" | "LOW",
+  "is_contextual": boolean,
+  "is_versioned": boolean,
+  "is_marketing_language": boolean
+}
+
+CRITICAL RULES
+1. Return JSON only. No markdown. No commentary.
+2. Use only allowed enum values exactly as written.
+3. If uncertain, choose confidence LOW and status under_review.
+4. Broad fields like Computer Vision, Machine Learning, Deep Learning, NLP, Data Science, Data Engineering, AI:
+   - ontological_nature = Concept
+   - abstraction_level = Domain
+5. Concrete tools/frameworks/libraries/services should usually be Software Artifact + Concrete.
+6. Algorithms should be Algorithm + Method.
+7. Protocols should be Protocol + Method.
+8. Standards/specifications should be Standard / Specification + Method.
+9. Human capabilities should be Human Skill + Domain.
+
+FEW-SHOT EXAMPLES
+Input: Computer Vision
+Output:
+{
+  "term": "Computer Vision",
+  "classification": {
+    "ontological_nature": "Concept",
+    "primary_type": "Computer Vision",
+    "functional_roles": [],
+    "abstraction_level": "Domain"
+  },
+  "status": "active",
+  "confidence": "HIGH",
+  "is_contextual": false,
+  "is_versioned": false,
+  "is_marketing_language": false
+}
+
+Input: OAuth 2.0
+Output:
+{
+  "term": "OAuth 2.0",
+  "classification": {
+    "ontological_nature": "Protocol",
+    "primary_type": "Authorization Protocol",
+    "functional_roles": ["authorization"],
+    "abstraction_level": "Method"
+  },
+  "status": "active",
+  "confidence": "HIGH",
+  "is_contextual": false,
+  "is_versioned": true,
+  "is_marketing_language": false
+}
+
+Input: React
+Output:
+{
+  "term": "React",
+  "classification": {
+    "ontological_nature": "Software Artifact",
+    "primary_type": "Framework",
+    "functional_roles": ["UI development"],
+    "abstraction_level": "Concrete"
+  },
+  "status": "active",
+  "confidence": "HIGH",
+  "is_contextual": false,
+  "is_versioned": false,
+  "is_marketing_language": false
+}
 """
 
 
@@ -251,21 +333,96 @@ class HttpReasoningLLMClient(LLMClient):
         }
 
     def classify_term(self, term: str) -> Dict[str, Any]:
-        prompt_lines: List[str] = []
-        prompt_lines.append(CLASSIFICATION_PROMPT_TEMPLATE)
-        prompt_lines.append("")
-        prompt_lines.append(f"Term: {term}")
-        prompt_lines.append("Return STRICT JSON with fields required by classification stage.")
-        prompt = "\n".join(prompt_lines)
+        prompt = self._build_classification_prompt(term)
 
         parsed = self._chat_and_parse_json(prompt)
-        if isinstance(parsed, dict):
+        if self._is_schema_shaped_classification_response(parsed):
             return parsed
+
+        repair_prompt = self._build_classification_repair_prompt(term, parsed)
+        repaired = self._chat_and_parse_json(repair_prompt)
+        if self._is_schema_shaped_classification_response(repaired):
+            return repaired
 
         return {
             "error": "invalid_classification_json",
             "raw": parsed,
+            "repair_raw": repaired,
         }
+
+    def _build_classification_prompt(self, term: str) -> str:
+        prompt_lines: List[str] = []
+        prompt_lines.append(CLASSIFICATION_PROMPT_TEMPLATE)
+        prompt_lines.append("")
+        prompt_lines.append(f"Input term: {term}")
+        prompt_lines.append("Now output one strict JSON object following OUTPUT CONTRACT.")
+        prompt = "\n".join(prompt_lines)
+        return prompt
+
+    def _build_classification_repair_prompt(self, term: str, previous_output: Any) -> str:
+        serialized_previous = self._serialize_for_prompt(previous_output)
+
+        prompt_lines: List[str] = []
+        prompt_lines.append("You returned an invalid classification JSON payload.")
+        prompt_lines.append("Repair it to match the exact required schema.")
+        prompt_lines.append("Return JSON only. Do not include explanations.")
+        prompt_lines.append("")
+        prompt_lines.append("Required schema:")
+        prompt_lines.append("{")
+        prompt_lines.append('  "term": "<same input term>",')
+        prompt_lines.append('  "classification": {')
+        prompt_lines.append('    "ontological_nature": "Software Artifact" | "Algorithm" | "Standard / Specification" | "Protocol" | "Concept" | "Human Skill",')
+        prompt_lines.append('    "primary_type": string | null,')
+        prompt_lines.append('    "functional_roles": string[],')
+        prompt_lines.append('    "abstraction_level": "Domain" | "Method" | "Concrete"')
+        prompt_lines.append("  },")
+        prompt_lines.append('  "status": "active" | "under_review",')
+        prompt_lines.append('  "confidence": "HIGH" | "MEDIUM" | "LOW",')
+        prompt_lines.append('  "is_contextual": boolean,')
+        prompt_lines.append('  "is_versioned": boolean,')
+        prompt_lines.append('  "is_marketing_language": boolean')
+        prompt_lines.append("}")
+        prompt_lines.append("")
+        prompt_lines.append(f"Input term: {term}")
+        prompt_lines.append("Previous invalid output:")
+        prompt_lines.append(serialized_previous)
+        prompt_lines.append("")
+        prompt_lines.append("Provide corrected JSON now.")
+        prompt = "\n".join(prompt_lines)
+        return prompt
+
+    def _serialize_for_prompt(self, value: Any) -> str:
+        try:
+            serialized = json.dumps(value, ensure_ascii=True, sort_keys=True)
+            return serialized
+        except Exception:  # noqa: BLE001
+            return str(value)
+
+    def _is_schema_shaped_classification_response(self, payload: Any) -> bool:
+        if not isinstance(payload, dict):
+            return False
+
+        special_type = payload.get("type")
+        if isinstance(special_type, str):
+            normalized_type = special_type.strip().upper()
+            if normalized_type in {"COMPOSITE_STACK", "CATEGORY"}:
+                return True
+
+        classification = payload.get("classification")
+        if not isinstance(classification, dict):
+            return False
+
+        required_keys = [
+            "ontological_nature",
+            "primary_type",
+            "functional_roles",
+            "abstraction_level",
+        ]
+        for key in required_keys:
+            if key not in classification:
+                return False
+
+        return True
 
     def _chat_and_parse_json(self, prompt: str) -> Any:
         raw_text = self._chat(prompt)

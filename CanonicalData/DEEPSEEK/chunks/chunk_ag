@@ -1,0 +1,450 @@
+        graph_findings=graph_findings,
+        review_queue=review_queue,
+    )
+    proposed_changes["run_metadata"] = _build_run_metadata(args, stage="all", execution_mode=execution_mode, max_workers=max_workers)
+    proposed_changes["v2_preview_count"] = len(v2_records)
+
+    markdown = render_markdown_diff(validation_report, proposed_changes)
+
+    _write_full_run_artifacts(
+        artifacts=artifacts,
+        output_dir=args.out,
+        validation_report=validation_report,
+        arbitration_decisions=arbitration_decisions,
+        classification_decisions=classification_decisions,
+        review_queue=review_queue,
+        proposed_changes=proposed_changes,
+        markdown=markdown,
+        similarity_edges=similarity_edges,
+        alias_canonical_advisories=alias_canonical_advisories,
+        conflict_clusters=conflict_clusters,
+        graph_findings=graph_findings,
+        v2_records=v2_records,
+    )
+
+    if stage3.parse_error:
+        return 3
+
+    if stage4.parse_error:
+        return 3
+
+    if stage5.blocking_error:
+        return 4
+
+    for finding in merged_findings:
+        if finding.blocking:
+            return 2
+
+    return 0
+
+
+def _run_single_stage(
+    args: argparse.Namespace,
+    requested_stage: str,
+    resume_context: Dict[str, object] | None = None,
+    stage6_metadata_stage: str = "stage6",
+    stage6_execution_mode: str = "serial",
+    stage6_max_workers: int = 1,
+) -> int:
+    os.makedirs(args.out, exist_ok=True)
+
+    if resume_context is None:
+        resume_context = {"enabled": False, "resume_from": "", "available_stage_index": -1}
+
+    resume_enabled = bool(resume_context.get("enabled", False))
+    resume_from = str(resume_context.get("resume_from", ""))
+    available_stage_index = int(resume_context.get("available_stage_index", -1))
+
+    stage3_llm_client = None
+    stage4_llm_client = None
+
+    def get_llm_clients() -> Tuple[Any, Any]:
+        nonlocal stage3_llm_client
+        nonlocal stage4_llm_client
+
+        if stage3_llm_client is None or stage4_llm_client is None:
+            stage3_llm_client, stage4_llm_client = _build_llm_clients(args)
+        return stage3_llm_client, stage4_llm_client
+
+    if resume_enabled and available_stage_index >= 0:
+        stage0 = _load_resumed_stage0(resume_from)
+    else:
+        store, source_hash, atomicity_exceptions = _prepare_stage0_inputs(args)
+        stage0 = run_stage0(store, args.input, source_hash, atomicity_exceptions)
+    _write_stage0_outputs(args.out, stage0)
+
+    canonical_rows = stage0.payload.get("canonical_rows", [])
+    suffix_redundancy_candidates = stage0.payload.get("suffix_redundancy_candidates", [])
+    canonicals: List[str] = []
+    for row in canonical_rows:
+        canonical = row.get("canonical")
+        if canonical:
+            canonicals.append(str(canonical))
+
+    if requested_stage == "stage0":
+        return _compute_exit_code(stage0)
+
+    if resume_enabled and available_stage_index >= 1:
+        stage1 = _load_resumed_stage1(resume_from)
+    else:
+        embedding_client = _build_embedding_client(args)
+        embedding_model = getattr(args, "embedding_model", DEFAULT_EMBEDDING_MODEL)
+        embedding_batch_size = int(getattr(args, "embedding_batch_size", 64))
+        stage1 = run_stage1_similarity(
+            canonicals,
+            canonical_rows=canonical_rows,
+            embedding_client=embedding_client,
+            embedding_model=embedding_model,
+            embedding_batch_size=embedding_batch_size,
+        )
+    _write_stage1_outputs(args.out, stage1)
+    similarity_edges = stage1.payload.get("similarity_edges", [])
+    alias_canonical_advisories = stage1.payload.get("alias_canonical_advisories", [])
+
+    if requested_stage == "stage1":
+        return _compute_exit_code(stage0)
+
+    if resume_enabled and available_stage_index >= 2:
+        stage2 = _load_resumed_stage2(resume_from)
+    else:
+        stage2 = run_stage2_clusters(similarity_edges)
+    _write_stage2_outputs(args.out, stage2)
+    conflict_clusters = stage2.payload.get("conflict_clusters", [])
+
+    if requested_stage == "stage2":
+        return _compute_exit_code(stage0)
+
+    known_canonicals = _build_known_canonical_set(canonicals)
+
+    stage3 = None
+    if requested_stage in {"stage3", "stage6"}:
+        if resume_enabled and available_stage_index >= 3:
+            stage3 = _load_resumed_stage3(resume_from)
+        else:
+            stage3_client, _stage4_client = get_llm_clients()
+            stage3 = run_stage3_arbitration(
+                conflict_clusters,
+                stage3_client,
+                known_canonicals,
+                alias_canonical_advisories=alias_canonical_advisories,
+                suffix_audit_candidates=suffix_redundancy_candidates,
+                checkpoint_every=max(0, int(getattr(args, "stage3_checkpoint_every", 5))),
+                checkpoint_dir=args.out,
+            )
+        _write_stage3_outputs(args.out, stage3)
+
+        if requested_stage == "stage3":
+            return _compute_exit_code(stage0, stage3=stage3)
+
+    stage4 = None
+    if requested_stage in {"stage4", "stage5", "stage6"}:
+        if resume_enabled and available_stage_index >= 4:
+            stage4 = _load_resumed_stage4(resume_from)
+        else:
+            _stage3_client, stage4_client = get_llm_clients()
+            stage4 = run_stage4_classification(
+                canonical_rows,
+                stage4_client,
+                checkpoint_every=max(0, int(getattr(args, "stage4_checkpoint_every", 1))),
+                checkpoint_dir=args.out,
+            )
+        _write_stage4_outputs(args.out, stage4)
+
+        if requested_stage == "stage4":
+            return _compute_exit_code(stage0, stage4=stage4)
+
+    stage5 = None
+    if requested_stage in {"stage5", "stage6"}:
+        if resume_enabled and available_stage_index >= 5:
+            stage5 = _load_resumed_stage5(resume_from)
+        else:
+            classification_decisions: List[Dict[str, object]] = []
+            if stage4 is not None:
+                classification_decisions = stage4.payload.get("classification_decisions", [])
+
+            stage5 = run_stage5_graph_validation(similarity_edges, conflict_clusters, classification_decisions)
+        _write_stage5_outputs(args.out, stage5)
+
+        if requested_stage == "stage5":
+            return _compute_exit_code(stage0, stage4=stage4, stage5=stage5)
+
+    if requested_stage != "stage6":
+        return _compute_exit_code(stage0, stage3=stage3, stage4=stage4, stage5=stage5)
+
+    return _run_stage6_reporting(
+        args,
+        stage0,
+        stage3,
+        stage4,
+        stage5,
+        metadata_stage=stage6_metadata_stage,
+        metadata_execution_mode=stage6_execution_mode,
+        metadata_max_workers=stage6_max_workers,
+    )
+
+
+def _run_stage6_reporting(
+    args: argparse.Namespace,
+    stage0,
+    stage3,
+    stage4,
+    stage5,
+    metadata_stage: str = "stage6",
+    metadata_execution_mode: str = "serial",
+    metadata_max_workers: int = 1,
+) -> int:
+    artifacts = build_artifact_paths(args.out)
+
+    arbitration_decisions: List[Dict[str, object]] = []
+    if stage3 is not None:
+        arbitration_decisions = stage3.payload.get("governed_arbitration_decisions", [])
+
+    classification_decisions: List[Dict[str, object]] = []
+    if stage4 is not None:
+        classification_decisions = stage4.payload.get("classification_decisions", [])
+
+    graph_findings: List[Dict[str, object]] = []
+    if stage5 is not None:
+        graph_findings = stage5.payload.get("graph_findings", [])
+
+    stage3_review: List[Dict[str, object]] = []
+    if stage3 is not None:
+        stage3_review = stage3.payload.get("review_queue_entries", [])
+
+    stage4_review: List[Dict[str, object]] = []
+    if stage4 is not None:
+        stage4_review = stage4.payload.get("review_queue_entries", [])
+
+    review_queue = _merge_review_queue(stage3_review, stage4_review)
+
+    validation_report, _ = _merge_validation_report(stage0, stage3=stage3, stage4=stage4)
+
+    proposed_changes = build_proposed_changes(
+        validation_report=validation_report,
+        arbitration_decisions=arbitration_decisions,
+        classification_decisions=classification_decisions,
+        graph_findings=graph_findings,
+        review_queue=review_queue,
+    )
+    proposed_changes["run_metadata"] = _build_run_metadata(
+        args,
+        stage=metadata_stage,
+        execution_mode=metadata_execution_mode,
+        max_workers=metadata_max_workers,
+    )
+
+    v2_preview_count = 0
+    if stage4 is not None:
+        v2_preview_count = len(stage4.payload.get("v2_records", []))
+    proposed_changes["v2_preview_count"] = v2_preview_count
+
+    markdown = render_markdown_diff(validation_report, proposed_changes)
+
+    write_json(artifacts.validation_report_json, validation_report)
+    write_json(artifacts.arbitration_decisions_json, arbitration_decisions)
+    write_json(artifacts.classification_decisions_json, classification_decisions)
+    write_jsonl(artifacts.review_queue_jsonl, review_queue)
+    write_json(artifacts.proposed_changes_json, proposed_changes)
+
+    with open(artifacts.proposed_changes_md, "w", encoding="utf-8") as handle:
+        handle.write(markdown)
+        handle.write("\n")
+
+    v2_preview: List[Dict[str, object]] = []
+    if stage4 is not None:
+        v2_preview = stage4.payload.get("v2_records", [])
+    write_json(os.path.join(args.out, "v2_preview.json"), v2_preview)
+
+    return _compute_exit_code(stage0, stage3=stage3, stage4=stage4, stage5=stage5)
+
+
+def _prepare_stage0_inputs(args: argparse.Namespace) -> Tuple[Dict[str, Any], str, Set[str]]:
+    source_hash = stable_hash_file(args.input)
+    store = load_json_file(args.input)
+    atomicity_exceptions = load_atomicity_exceptions(args.exceptions)
+    return store, source_hash, atomicity_exceptions
+
+
+def _build_llm_clients(args: argparse.Namespace) -> Tuple[Any, Any]:
+    provider = getattr(args, "llm_provider", "heuristic")
+
+    arbitration_json = getattr(args, "arbitration_json", "")
+    classification_json = getattr(args, "classification_json", "")
+    reasoning_endpoint = getattr(args, "reasoning_endpoint", DEFAULT_REASONING_ENDPOINT)
+    reasoning_model = getattr(args, "reasoning_model", DEFAULT_REASONING_MODEL)
+    timeout_seconds = float(getattr(args, "http_timeout_seconds", 120.0))
+
+    if provider == "file":
+        stage3_client = FileBackedLLMClient(arbitration_json or None, classification_json or None)
+        stage4_client = FileBackedLLMClient(arbitration_json or None, classification_json or None)
+        return stage3_client, stage4_client
+
+    if provider == "http":
+        stage3_client = HttpReasoningLLMClient(reasoning_endpoint, reasoning_model, timeout_seconds=timeout_seconds)
+        stage4_client = HttpReasoningLLMClient(reasoning_endpoint, reasoning_model, timeout_seconds=timeout_seconds)
+        return stage3_client, stage4_client
+
+    stage3_client = HeuristicLLMClient()
+    stage4_client = HeuristicLLMClient()
+    return stage3_client, stage4_client
+
+
+def _build_embedding_client(args: argparse.Namespace):
+    provider = getattr(args, "embedding_provider", "heuristic")
+    if provider != "http":
+        return None
+
+    endpoint = getattr(args, "embedding_endpoint", DEFAULT_EMBEDDING_ENDPOINT)
+    timeout_seconds = float(getattr(args, "http_timeout_seconds", 120.0))
+    return HttpEmbeddingClient(endpoint, timeout_seconds=timeout_seconds)
+
+
+def _build_known_canonical_set(canonicals: List[str]) -> Set[str]:
+    known: Set[str] = set()
+
+    for term in canonicals:
+        known.add(normalize_term(term))
+
+    return known
+
+
+def _run_serial_stages_1_to_4(
+    args: argparse.Namespace,
+    canonicals: List[str],
+    canonical_rows: List[Dict[str, object]],
+    suffix_redundancy_candidates: List[Dict[str, object]],
+    embedding_client,
+    embedding_model: str,
+    embedding_batch_size: int,
+    stage3_llm_client,
+    stage4_llm_client,
+) -> Dict[str, Any]:
+    stage1 = run_stage1_similarity(
+        canonicals,
+        canonical_rows=canonical_rows,
+        embedding_client=embedding_client,
+        embedding_model=embedding_model,
+        embedding_batch_size=embedding_batch_size,
+    )
+    similarity_edges = stage1.payload.get("similarity_edges", [])
+    alias_canonical_advisories = stage1.payload.get("alias_canonical_advisories", [])
+
+    stage2 = run_stage2_clusters(similarity_edges)
+    conflict_clusters = stage2.payload.get("conflict_clusters", [])
+
+    known_canonicals = _build_known_canonical_set(canonicals)
+    stage3 = run_stage3_arbitration(
+        conflict_clusters,
+        stage3_llm_client,
+        known_canonicals,
+        alias_canonical_advisories=alias_canonical_advisories,
+        suffix_audit_candidates=suffix_redundancy_candidates,
+        checkpoint_every=max(0, int(getattr(args, "stage3_checkpoint_every", 5))),
+        checkpoint_dir=args.out,
+    )
+
+    stage4 = run_stage4_classification(
+        canonical_rows,
+        stage4_llm_client,
+        checkpoint_every=max(0, int(getattr(args, "stage4_checkpoint_every", 1))),
+        checkpoint_dir=args.out,
+    )
+
+    context: Dict[str, Any] = {
+        "stage1": stage1,
+        "stage2": stage2,
+        "stage3": stage3,
+        "stage4": stage4,
+    }
+    return context
+
+
+def _run_dag_stages_1_to_4(
+    args: argparse.Namespace,
+    canonicals: List[str],
+    canonical_rows: List[Dict[str, object]],
+    suffix_redundancy_candidates: List[Dict[str, object]],
+    embedding_client,
+    embedding_model: str,
+    embedding_batch_size: int,
+    stage3_llm_client,
+    stage4_llm_client,
+    max_workers: int,
+) -> Dict[str, Any]:
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        stage4_future = executor.submit(
+            run_stage4_classification,
+            canonical_rows,
+            stage4_llm_client,
+            max(0, int(getattr(args, "stage4_checkpoint_every", 1))),
+            args.out,
+        )
+
+        stage1 = run_stage1_similarity(
+            canonicals,
+            canonical_rows=canonical_rows,
+            embedding_client=embedding_client,
+            embedding_model=embedding_model,
+            embedding_batch_size=embedding_batch_size,
+        )
+        similarity_edges = stage1.payload.get("similarity_edges", [])
+        alias_canonical_advisories = stage1.payload.get("alias_canonical_advisories", [])
+
+        stage2 = run_stage2_clusters(similarity_edges)
+        conflict_clusters = stage2.payload.get("conflict_clusters", [])
+
+        known_canonicals = _build_known_canonical_set(canonicals)
+        stage3_future = executor.submit(
+            run_stage3_arbitration,
+            conflict_clusters,
+            stage3_llm_client,
+            known_canonicals,
+            alias_canonical_advisories,
+            suffix_redundancy_candidates,
+            max(0, int(getattr(args, "stage3_checkpoint_every", 5))),
+            args.out,
+        )
+
+        stage3 = stage3_future.result()
+        stage4 = stage4_future.result()
+
+    context: Dict[str, Any] = {
+        "stage1": stage1,
+        "stage2": stage2,
+        "stage3": stage3,
+        "stage4": stage4,
+    }
+    return context
+
+
+def _merge_review_queue(
+    stage3_review: List[Dict[str, object]],
+    stage4_review: List[Dict[str, object]],
+) -> List[Dict[str, object]]:
+    merged: List[Dict[str, object]] = []
+
+    for row in stage3_review:
+        merged.append(row)
+    for row in stage4_review:
+        merged.append(row)
+
+    merged.sort(
+        key=lambda row: (
+            int(row.get("stage", 0)),
+            str(row.get("term", "")),
+        )
+    )
+    return merged
+
+
+def _merge_validation_report(stage0, stage3=None, stage4=None):
+    findings = []
+
+    for finding in stage0.findings:
+        findings.append(finding)
+
+    if stage3 is not None:
+        for finding in stage3.findings:
+            findings.append(finding)
+
+    if stage4 is not None:

@@ -1,0 +1,223 @@
+                summary = json.load(handle)
+
+            self.assertIn("totals", summary)
+            self.assertIn("by_rule", summary)
+
+    def test_resume_from_stage2_skips_recomputing_earlier_stages(self):
+        with tempfile.TemporaryDirectory() as tempdir:
+            input_path = os.path.join(tempdir, "input.json")
+            stage2_out = os.path.join(tempdir, "stage2")
+            stage3_out = os.path.join(tempdir, "stage3")
+
+            store = {
+                "Web": {
+                    "React": [],
+                    "Angular": [],
+                }
+            }
+            with open(input_path, "w", encoding="utf-8") as handle:
+                json.dump(store, handle)
+
+            stage2_args = Namespace(
+                input=input_path,
+                out=stage2_out,
+                resume_from="",
+                exceptions="",
+                llm_provider="heuristic",
+                arbitration_json="",
+                classification_json="",
+                embedding_provider="heuristic",
+                embedding_endpoint="http://127.0.0.1:8090",
+                reasoning_endpoint="http://localhost:8080",
+                embedding_batch_size=64,
+                http_timeout_seconds=30.0,
+                stage3_checkpoint_every=5,
+                embedding_model="nomic-embed-text-v1.5.f16.gguf",
+                reasoning_model="DeepSeek-R1-Distill-Qwen-32B-Q3_K_M.gguf",
+                execution_mode="serial",
+                max_workers=1,
+                stage="stage2",
+            )
+            stage2_code = run_pipeline(stage2_args)
+            self.assertEqual(stage2_code, 0)
+
+            stage3_args = Namespace(
+                input=input_path,
+                out=stage3_out,
+                resume_from=stage2_out,
+                exceptions="",
+                llm_provider="heuristic",
+                arbitration_json="",
+                classification_json="",
+                embedding_provider="heuristic",
+                embedding_endpoint="http://127.0.0.1:8090",
+                reasoning_endpoint="http://localhost:8080",
+                embedding_batch_size=64,
+                http_timeout_seconds=30.0,
+                stage3_checkpoint_every=5,
+                embedding_model="nomic-embed-text-v1.5.f16.gguf",
+                reasoning_model="DeepSeek-R1-Distill-Qwen-32B-Q3_K_M.gguf",
+                execution_mode="serial",
+                max_workers=1,
+                stage="stage3",
+            )
+
+            with patch(
+                "src.pipeline.runner.pipeline_runner.run_stage0",
+                side_effect=RuntimeError("stage0 must not execute when resuming from stage2"),
+            ), patch(
+                "src.pipeline.runner.pipeline_runner.run_stage1_similarity",
+                side_effect=RuntimeError("stage1 must not execute when resuming from stage2"),
+            ), patch(
+                "src.pipeline.runner.pipeline_runner.run_stage2_clusters",
+                side_effect=RuntimeError("stage2 must not execute when resuming from stage2"),
+            ):
+                stage3_code = run_pipeline(stage3_args)
+
+            self.assertEqual(stage3_code, 0)
+            self.assertTrue(os.path.exists(os.path.join(stage3_out, "stage3_arbitration_decisions.json")))
+            self.assertTrue(os.path.exists(os.path.join(stage3_out, "stage0_validation_report.json")))
+            self.assertTrue(os.path.exists(os.path.join(stage3_out, "stage1_similarity_edges.json")))
+            self.assertTrue(os.path.exists(os.path.join(stage3_out, "stage2_conflict_clusters.json")))
+
+    def test_resume_from_hash_mismatch_blocks_run(self):
+        with tempfile.TemporaryDirectory() as tempdir:
+            input_path = os.path.join(tempdir, "input.json")
+            stage2_out = os.path.join(tempdir, "stage2")
+            stage3_out = os.path.join(tempdir, "stage3")
+
+            store = {
+                "Web": {
+                    "React": [],
+                    "Angular": [],
+                }
+            }
+            with open(input_path, "w", encoding="utf-8") as handle:
+                json.dump(store, handle)
+
+            stage2_args = Namespace(
+                input=input_path,
+                out=stage2_out,
+                resume_from="",
+                exceptions="",
+                llm_provider="heuristic",
+                arbitration_json="",
+                classification_json="",
+                embedding_provider="heuristic",
+                embedding_endpoint="http://127.0.0.1:8090",
+                reasoning_endpoint="http://localhost:8080",
+                embedding_batch_size=64,
+                http_timeout_seconds=30.0,
+                stage3_checkpoint_every=5,
+                embedding_model="nomic-embed-text-v1.5.f16.gguf",
+                reasoning_model="DeepSeek-R1-Distill-Qwen-32B-Q3_K_M.gguf",
+                execution_mode="serial",
+                max_workers=1,
+                stage="stage2",
+            )
+            stage2_code = run_pipeline(stage2_args)
+            self.assertEqual(stage2_code, 0)
+
+            modified_store = {
+                "Web": {
+                    "React": [],
+                    "Angular": [],
+                    "Vue": [],
+                }
+            }
+            with open(input_path, "w", encoding="utf-8") as handle:
+                json.dump(modified_store, handle)
+
+            stage3_args = Namespace(
+                input=input_path,
+                out=stage3_out,
+                resume_from=stage2_out,
+                exceptions="",
+                llm_provider="heuristic",
+                arbitration_json="",
+                classification_json="",
+                embedding_provider="heuristic",
+                embedding_endpoint="http://127.0.0.1:8090",
+                reasoning_endpoint="http://localhost:8080",
+                embedding_batch_size=64,
+                http_timeout_seconds=30.0,
+                stage3_checkpoint_every=5,
+                embedding_model="nomic-embed-text-v1.5.f16.gguf",
+                reasoning_model="DeepSeek-R1-Distill-Qwen-32B-Q3_K_M.gguf",
+                execution_mode="serial",
+                max_workers=1,
+                stage="stage3",
+            )
+            stage3_code = run_pipeline(stage3_args)
+            self.assertEqual(stage3_code, 2)
+
+            error_path = os.path.join(stage3_out, "preflight_error.json")
+            self.assertTrue(os.path.exists(error_path))
+            with open(error_path, "r", encoding="utf-8") as handle:
+                payload = json.load(handle)
+            self.assertIn("source_hash does not match", str(payload.get("error", "")))
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+===== FILE: /mnt/workspace/TaxonomyCleaner/CanonicalData/verify_alias_atomicity.py =====
+
+
+import sys
+import os
+
+# Add the project root to sys.path
+sys.path.append(os.getcwd())
+
+from src.pipeline.stages.stage0_deterministic_preclean.stage import run_stage0
+from src.pipeline.stages.stage0_deterministic_preclean.stage import validate_schema
+
+def test_alias_atomicity():
+    print("Testing Alias Atomicity Check...")
+    
+    # Setup mock data with a violation
+    # "React/Angular" as an alias is an atomicity violator (slash)
+    mock_store = {
+        "WEb Ecosystems": {
+            "UI Frameworks": ["React/Angular"]
+        }
+    }
+    
+    source_path = "test_source.json"
+    source_hash = "abc12345"
+    atomicity_exceptions = set()
+
+    # Run stage 0
+    try:
+        result = run_stage0(
+            store=mock_store,
+            source_path=source_path,
+            source_hash=source_hash,
+            atomicity_exceptions=atomicity_exceptions
+        )
+    except Exception as e:
+        print(f"FAILED: execution error: {e}")
+        import traceback
+        traceback.print_exc()
+        return
+
+    # Check findings
+    findings = result.findings
+    found_violation = False
+    
+    for f in findings:
+        print(f"Finding: {f.rule_id} at {f.location} - {f.reason}")
+        if f.rule_id == "L1-006" and f.observed_value == "React/Angular":
+            found_violation = True
+            print("  -> SUCCESS: Found expected atomicity violation for alias.")
+            if f.proposed_action == "split_on_slash":
+                 print("  -> SUCCESS: Proposed action is split_on_slash.")
+
+    if not found_violation:
+        print("FAILED: Did not find L1-006 violation for 'Java/Kotlin' alias.")
+    else:
+        print("TEST PASSED.")
+
+if __name__ == "__main__":
+    test_alias_atomicity()
