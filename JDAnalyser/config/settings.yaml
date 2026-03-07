@@ -1,0 +1,39 @@
+logging:
+  level: INFO
+
+# Pipeline: DataCrawler → JDAnalyser → CanonicalDataCleaner → DataFactory
+#
+# JDAnalyser reads the canonical taxonomy for dedup, and writes
+# approved-review output as a separate canonical-like JSON artifact.
+
+taxonomy:
+  # Source of truth for dedup — the cleaner's input file
+  canonical_data: /mnt/workspace/CareerNavigator/DataFactory/data/input/taxonomy/canonical_data.json
+
+# Crawler input — --discover with no path uses input_dir by default
+crawler:
+  input_dir: input/Builtin
+  default_jsonl: /mnt/workspace/DataCrawler/builtin_jobs_scraper/output/2026-02-25/builtin_structured_jobs.jsonl
+
+# Discovery queue settings
+discovery:
+  queue_path: data/discovery/discovery_queue.json
+  status_output_dir: data/discovery/statuses
+  review_output: data/discovery/review_candidates.json
+  approved_output: data/discovery/approved_canonical_output.json
+  promotion_threshold: 5
+  fuzzy_threshold: 0.85
+  max_sample_sources: 10
+  audit_dir: data/discovery/audit
+
+# Local LLM via llama-server (OpenAI-compatible API)
+llm:
+  base_url: http://localhost:8080/v1
+  model: Qwen3.5-35B-A3B-Q5_K_S.gguf
+  temperature: 0.1
+  max_tokens: 8192
+  batch_size: 1
+
+# Agent output directory
+agents:
+  output_dir: data/agents

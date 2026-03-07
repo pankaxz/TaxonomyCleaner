@@ -1,0 +1,18 @@
+{
+  "langgraph": {
+    "display_name": "LangGraph",
+    "first_seen": "2026-03-07",
+    "last_seen": "2026-03-07",
+    "llm_group_tags": {
+      "AI Data Science": 1
+    },
+    "sample_sources": [
+      "https://example.com/single-record"
+    ],
+    "seen_count": 1,
+    "status": "ready_for_promotion",
+    "suggested_groups": {
+      "AI Data Science": 1
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "AI Data Science": {
+    "LangGraph": [],
+    "TensorFlow": [
+      "tf"
+    ]
+  },
+  "Cloud Computing": {
+    "AWS": [
+      "amazon web services"
+    ],
+    "Kubernetes": [
+      "k8s"
+    ]
+  },
+  "Languages": {
+    "C++": [
+      "cpp"
+    ],
+    "JavaScript": [
+      "js",
+      "ecmascript"
+    ],
+    "Python": [
+      "python3",
+      "cpython"
+    ]
+  }
+}

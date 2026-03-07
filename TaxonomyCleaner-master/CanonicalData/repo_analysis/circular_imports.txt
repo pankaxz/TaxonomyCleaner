@@ -1,0 +1,1667 @@
+<h1>pytest tests</h1>
+      <h2>
+        
+        
+        
+        
+      </h2>
+      <details id="suite.0">
+        <summary >
+          <span style="color: green">✅</span>
+           <span class="testsuite-name" title="pytest">pytest</span>
+          Tests: <b>103</b>,
+          Failures: <b>0</b>,
+          Errors: <b>0</b>,
+          Skipped: <b>0</b>,
+          <em>Time: 0.467</em>
+        </summary>
+        <div><details style="margin-left: 1em" id=case.0.0>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_html_title src.test_builtin_scraper_agent.TestExtractPageData">
+            test_extracts_html_title
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.1>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_visual_title_from_h1 src.test_builtin_scraper_agent.TestExtractPageData">
+            test_extracts_visual_title_from_h1
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.2>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_jd_text_from_body_div src.test_builtin_scraper_agent.TestExtractPageData">
+            test_extracts_jd_text_from_body_div
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.3>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_bold_highlights src.test_builtin_scraper_agent.TestExtractPageData">
+            test_extracts_bold_highlights
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.4>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_company_name_from_title src.test_builtin_scraper_agent.TestExtractPageData">
+            test_extracts_company_name_from_title
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.5>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_location src.test_builtin_scraper_agent.TestExtractPageData">
+            test_extracts_location
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.6>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_salary_range src.test_builtin_scraper_agent.TestExtractPageData">
+            test_extracts_salary_range
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.7>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_posted_date src.test_builtin_scraper_agent.TestExtractPageData">
+            test_extracts_posted_date
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.8>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_company_fallback_data_testid src.test_builtin_scraper_agent.TestExtractPageData">
+            test_company_fallback_data_testid
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.9>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_company_fallback_company_link src.test_builtin_scraper_agent.TestExtractPageData">
+            test_company_fallback_company_link
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.10>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_location_fallback_remote_keyword src.test_builtin_scraper_agent.TestExtractPageData">
+            test_location_fallback_remote_keyword
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.11>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_posted_date_fallback_relative src.test_builtin_scraper_agent.TestExtractPageData">
+            test_posted_date_fallback_relative
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.12>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_handles_missing_elements src.test_builtin_scraper_agent.TestExtractPageData">
+            test_handles_missing_elements
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.13>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_title_strips_pipe_suffix src.test_builtin_scraper_agent.TestExtractPageData">
+            test_title_strips_pipe_suffix
+            src.test_builtin_scraper_agent.TestExtractPageData
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.14>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_parses_clean_json src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_parses_clean_json
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.15>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_parses_json_with_markdown_fences src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_parses_json_with_markdown_fences
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.16>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_parses_json_with_leading_text src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_parses_json_with_leading_text
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.17>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_parses_json_with_trailing_text src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_parses_json_with_trailing_text
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.18>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_repairs_trailing_commas src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_repairs_trailing_commas
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.19>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_repairs_single_quotes src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_repairs_single_quotes
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.20>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_repairs_comments src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_repairs_comments
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.21>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_from_markdown_fence src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_extracts_from_markdown_fence
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.22>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_returns_error_on_garbage src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_returns_error_on_garbage
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.23>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_handles_empty_string src.test_builtin_scraper_agent.TestSafeJsonParse">
+            test_handles_empty_string
+            src.test_builtin_scraper_agent.TestSafeJsonParse
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.24>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_finds_exact_canonical_matches src.test_builtin_scraper_agent.TestDeterministicSkillScan">
+            test_finds_exact_canonical_matches
+            src.test_builtin_scraper_agent.TestDeterministicSkillScan
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.25>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_finds_alias_matches src.test_builtin_scraper_agent.TestDeterministicSkillScan">
+            test_finds_alias_matches
+            src.test_builtin_scraper_agent.TestDeterministicSkillScan
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.26>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_includes_category_tag src.test_builtin_scraper_agent.TestDeterministicSkillScan">
+            test_includes_category_tag
+            src.test_builtin_scraper_agent.TestDeterministicSkillScan
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.27>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_case_insensitive src.test_builtin_scraper_agent.TestDeterministicSkillScan">
+            test_case_insensitive
+            src.test_builtin_scraper_agent.TestDeterministicSkillScan
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.28>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_no_false_positives src.test_builtin_scraper_agent.TestDeterministicSkillScan">
+            test_no_false_positives
+            src.test_builtin_scraper_agent.TestDeterministicSkillScan
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.29>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_empty_taxonomy src.test_builtin_scraper_agent.TestDeterministicSkillScan">
+            test_empty_taxonomy
+            src.test_builtin_scraper_agent.TestDeterministicSkillScan
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.30>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_meaningful_phrases src.test_builtin_scraper_agent.TestPhraseMining">
+            test_extracts_meaningful_phrases
+            src.test_builtin_scraper_agent.TestPhraseMining
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.31>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_phrase_taxonomy_match_finds_skills src.test_builtin_scraper_agent.TestPhraseMining">
+            test_phrase_taxonomy_match_finds_skills
+            src.test_builtin_scraper_agent.TestPhraseMining
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.32>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_phrase_taxonomy_match_no_false_positives src.test_builtin_scraper_agent.TestPhraseMining">
+            test_phrase_taxonomy_match_no_false_positives
+            src.test_builtin_scraper_agent.TestPhraseMining
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.33>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_merges_unique_skills src.test_builtin_scraper_agent.TestMergeSkills">
+            test_merges_unique_skills
+            src.test_builtin_scraper_agent.TestMergeSkills
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.34>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_deduplicates_case_insensitive src.test_builtin_scraper_agent.TestMergeSkills">
+            test_deduplicates_case_insensitive
+            src.test_builtin_scraper_agent.TestMergeSkills
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.35>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_preserves_order src.test_builtin_scraper_agent.TestMergeSkills">
+            test_preserves_order
+            src.test_builtin_scraper_agent.TestMergeSkills
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.36>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_handles_empty_lists src.test_builtin_scraper_agent.TestMergeSkills">
+            test_handles_empty_lists
+            src.test_builtin_scraper_agent.TestMergeSkills
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.37>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_three_way_merge src.test_builtin_scraper_agent.TestMergeSkills">
+            test_three_way_merge
+            src.test_builtin_scraper_agent.TestMergeSkills
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.38>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_skill_present_in_text src.test_builtin_scraper_agent.TestGrounded">
+            test_skill_present_in_text
+            src.test_builtin_scraper_agent.TestGrounded
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.39>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_skill_absent_from_text src.test_builtin_scraper_agent.TestGrounded">
+            test_skill_absent_from_text
+            src.test_builtin_scraper_agent.TestGrounded
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.40>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_case_insensitive src.test_builtin_scraper_agent.TestGrounded">
+            test_case_insensitive
+            src.test_builtin_scraper_agent.TestGrounded
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.41>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_strips_category_tag src.test_builtin_scraper_agent.TestGrounded">
+            test_strips_category_tag
+            src.test_builtin_scraper_agent.TestGrounded
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.42>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_empty_skill_name_rejected src.test_builtin_scraper_agent.TestGrounded">
+            test_empty_skill_name_rejected
+            src.test_builtin_scraper_agent.TestGrounded
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.43>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_no_substring_false_positive src.test_builtin_scraper_agent.TestGrounded">
+            test_no_substring_false_positive
+            src.test_builtin_scraper_agent.TestGrounded
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.44>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_exact_word_matches src.test_builtin_scraper_agent.TestGrounded">
+            test_exact_word_matches
+            src.test_builtin_scraper_agent.TestGrounded
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.45>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_exact_match src.test_builtin_scraper_agent.TestWordBoundaryMatch">
+            test_exact_match
+            src.test_builtin_scraper_agent.TestWordBoundaryMatch
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.46>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_no_substring_match src.test_builtin_scraper_agent.TestWordBoundaryMatch">
+            test_no_substring_match
+            src.test_builtin_scraper_agent.TestWordBoundaryMatch
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.47>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_special_chars src.test_builtin_scraper_agent.TestWordBoundaryMatch">
+            test_special_chars
+            src.test_builtin_scraper_agent.TestWordBoundaryMatch
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.48>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_hyphenated_terms src.test_builtin_scraper_agent.TestWordBoundaryMatch">
+            test_hyphenated_terms
+            src.test_builtin_scraper_agent.TestWordBoundaryMatch
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.49>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_case_insensitive src.test_builtin_scraper_agent.TestWordBoundaryMatch">
+            test_case_insensitive
+            src.test_builtin_scraper_agent.TestWordBoundaryMatch
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.50>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_empty_inputs src.test_builtin_scraper_agent.TestWordBoundaryMatch">
+            test_empty_inputs
+            src.test_builtin_scraper_agent.TestWordBoundaryMatch
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.51>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_no_short_term_false_positives src.test_builtin_scraper_agent.TestDeterministicScanFalsePositives">
+            test_no_short_term_false_positives
+            src.test_builtin_scraper_agent.TestDeterministicScanFalsePositives
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.52>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_filters_visited_jobs src.test_builtin_scraper_agent.TestFilterJobs">
+            test_filters_visited_jobs
+            src.test_builtin_scraper_agent.TestFilterJobs
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.53>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_all_visited src.test_builtin_scraper_agent.TestFilterJobs">
+            test_all_visited
+            src.test_builtin_scraper_agent.TestFilterJobs
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.54>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_none_visited src.test_builtin_scraper_agent.TestFilterJobs">
+            test_none_visited
+            src.test_builtin_scraper_agent.TestFilterJobs
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.55>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_pops_first_job src.test_builtin_scraper_agent.TestPrepareNextJob">
+            test_pops_first_job
+            src.test_builtin_scraper_agent.TestPrepareNextJob
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.56>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_empty_queue src.test_builtin_scraper_agent.TestPrepareNextJob">
+            test_empty_queue
+            src.test_builtin_scraper_agent.TestPrepareNextJob
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.57>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_should_continue_jobs_with_job src.test_builtin_scraper_agent.TestRouting">
+            test_should_continue_jobs_with_job
+            src.test_builtin_scraper_agent.TestRouting
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.58>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_should_continue_jobs_without_job src.test_builtin_scraper_agent.TestRouting">
+            test_should_continue_jobs_without_job
+            src.test_builtin_scraper_agent.TestRouting
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.59>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_decide_navigation_with_next_page src.test_builtin_scraper_agent.TestRouting">
+            test_decide_navigation_with_next_page
+            src.test_builtin_scraper_agent.TestRouting
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.60>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_decide_navigation_no_next_page src.test_builtin_scraper_agent.TestRouting">
+            test_decide_navigation_no_next_page
+            src.test_builtin_scraper_agent.TestRouting
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.61>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_route_navigation_continues src.test_builtin_scraper_agent.TestRouting">
+            test_route_navigation_continues
+            src.test_builtin_scraper_agent.TestRouting
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.62>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_route_navigation_ends src.test_builtin_scraper_agent.TestRouting">
+            test_route_navigation_ends
+            src.test_builtin_scraper_agent.TestRouting
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.63>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_finds_next_via_aria_label src.test_builtin_scraper_agent.TestPaginationDetection">
+            test_finds_next_via_aria_label
+            src.test_builtin_scraper_agent.TestPaginationDetection
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.64>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_finds_next_via_rel_next src.test_builtin_scraper_agent.TestPaginationDetection">
+            test_finds_next_via_rel_next
+            src.test_builtin_scraper_agent.TestPaginationDetection
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.65>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_finds_next_via_page_number src.test_builtin_scraper_agent.TestPaginationDetection">
+            test_finds_next_via_page_number
+            src.test_builtin_scraper_agent.TestPaginationDetection
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.66>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_no_next_on_last_page src.test_builtin_scraper_agent.TestPaginationDetection">
+            test_no_next_on_last_page
+            src.test_builtin_scraper_agent.TestPaginationDetection
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.67>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_does_not_pick_previous_page src.test_builtin_scraper_agent.TestPaginationDetection">
+            test_does_not_pick_previous_page
+            src.test_builtin_scraper_agent.TestPaginationDetection
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.68>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_first_page_no_page_param src.test_builtin_scraper_agent.TestPaginationDetection">
+            test_first_page_no_page_param
+            src.test_builtin_scraper_agent.TestPaginationDetection
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.69>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_extracts_only_job_links src.test_builtin_scraper_agent.TestJobLinkExtraction">
+            test_extracts_only_job_links
+            src.test_builtin_scraper_agent.TestJobLinkExtraction
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.70>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_short_text src.test_builtin_scraper_agent.TestEstimateTokens">
+            test_short_text
+            src.test_builtin_scraper_agent.TestEstimateTokens
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.71>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_proportional src.test_builtin_scraper_agent.TestEstimateTokens">
+            test_proportional
+            src.test_builtin_scraper_agent.TestEstimateTokens
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.72>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_full_pipeline_on_real_html src.test_builtin_scraper_agent.TestSkillPipelineEndToEnd">
+            test_full_pipeline_on_real_html
+            src.test_builtin_scraper_agent.TestSkillPipelineEndToEnd
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.73>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_grounding_filters_hallucinated_skills src.test_builtin_scraper_agent.TestSkillPipelineEndToEnd">
+            test_grounding_filters_hallucinated_skills
+            src.test_builtin_scraper_agent.TestSkillPipelineEndToEnd
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.74>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_rawjd_fixture_loads_real_samples src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks">
+            test_rawjd_fixture_loads_real_samples
+            src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.75>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_perchwell_jd_deterministic_scan_finds_expected_stack src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks">
+            test_perchwell_jd_deterministic_scan_finds_expected_stack
+            src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks
+          </span>
+          <em>0.002</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.76>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_boeing_jd_deterministic_scan_finds_expected_stack src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks">
+            test_boeing_jd_deterministic_scan_finds_expected_stack
+            src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks
+          </span>
+          <em>0.004</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.77>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_rawjd_pipeline_grounding_blocks_injected_skill src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks">
+            test_rawjd_pipeline_grounding_blocks_injected_skill
+            src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks
+          </span>
+          <em>0.002</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.78>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_rawjd_validate_output_tracks_unmapped_skills src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks">
+            test_rawjd_validate_output_tracks_unmapped_skills
+            src.test_builtin_scraper_agent.TestRawJdPipelineNoMocks
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.79>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_parse_skill_tag_with_category src.test_builtin_scraper_agent.TestHelpers">
+            test_parse_skill_tag_with_category
+            src.test_builtin_scraper_agent.TestHelpers
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.80>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_parse_skill_tag_without_category src.test_builtin_scraper_agent.TestHelpers">
+            test_parse_skill_tag_without_category
+            src.test_builtin_scraper_agent.TestHelpers
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.81>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_parse_skill_tag_with_spaces src.test_builtin_scraper_agent.TestHelpers">
+            test_parse_skill_tag_with_spaces
+            src.test_builtin_scraper_agent.TestHelpers
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.82>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_normalize_group_name_underscores src.test_builtin_scraper_agent.TestHelpers">
+            test_normalize_group_name_underscores
+            src.test_builtin_scraper_agent.TestHelpers
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.83>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_normalize_group_name_strip src.test_builtin_scraper_agent.TestHelpers">
+            test_normalize_group_name_strip
+            src.test_builtin_scraper_agent.TestHelpers
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.84>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_type_coercion_string_to_list src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_type_coercion_string_to_list
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.85>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_type_coercion_none_to_list src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_type_coercion_none_to_list
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.86>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_type_coercion_unexpected_type src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_type_coercion_unexpected_type
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.87>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_skill_dedup src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_skill_dedup
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.88>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_category_validation src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_category_validation
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.89>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_category_case_insensitive_match src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_category_case_insensitive_match
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.90>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_unmapped_skills_tracks_only_unknown_skills src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_unmapped_skills_tracks_only_unknown_skills
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.91>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_unmapped_skills_falls_back_when_taxonomy_lookup_empty src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_unmapped_skills_falls_back_when_taxonomy_lookup_empty
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.92>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_title_fallback_visual src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_title_fallback_visual
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.93>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_title_fallback_html src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_title_fallback_html
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.94>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_quality_report_structure src.test_builtin_scraper_agent.TestValidateLlmOutput">
+            test_quality_report_structure
+            src.test_builtin_scraper_agent.TestValidateLlmOutput
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.95>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_title_priority_explicit_first src.test_builtin_scraper_agent.TestCrossValidate">
+            test_title_priority_explicit_first
+            src.test_builtin_scraper_agent.TestCrossValidate
+          </span>
+          <em>0.001</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.96>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_title_priority_implicit_fallback src.test_builtin_scraper_agent.TestCrossValidate">
+            test_title_priority_implicit_fallback
+            src.test_builtin_scraper_agent.TestCrossValidate
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.97>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_title_priority_html_meta_fallback src.test_builtin_scraper_agent.TestCrossValidate">
+            test_title_priority_html_meta_fallback
+            src.test_builtin_scraper_agent.TestCrossValidate
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.98>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_title_priority_visual_fallback src.test_builtin_scraper_agent.TestCrossValidate">
+            test_title_priority_visual_fallback
+            src.test_builtin_scraper_agent.TestCrossValidate
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.99>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_title_agreement_substring src.test_builtin_scraper_agent.TestCrossValidate">
+            test_title_agreement_substring
+            src.test_builtin_scraper_agent.TestCrossValidate
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.100>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_all_fields_present src.test_builtin_scraper_agent.TestCrossValidate">
+            test_all_fields_present
+            src.test_builtin_scraper_agent.TestCrossValidate
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.101>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_heuristic_title_populated src.test_builtin_scraper_agent.TestCrossValidate">
+            test_heuristic_title_populated
+            src.test_builtin_scraper_agent.TestCrossValidate
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details><details style="margin-left: 1em" id=case.0.102>
+        <summary >
+          <span title="passed" style="color: green">✅</span>
+          <span class="testcase-name" title=" test_heuristic_fallback_when_no_llm src.test_builtin_scraper_agent.TestCrossValidate">
+            test_heuristic_fallback_when_no_llm
+            src.test_builtin_scraper_agent.TestCrossValidate
+          </span>
+          <em>0</em>
+        </summary>
+        <div style="margin-left: 1em" >
+          
+          <div>
+            
+            
+          </div>
+        </div>
+      </details></div>
+      </details>

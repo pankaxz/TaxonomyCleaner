@@ -1,0 +1,1139 @@
+{
+  ".net_9.0_and_above": {
+    "display_name": ".NET 9.0 and above",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      ".NET Frameworks": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-developer-full-stack/8311703"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      ".NET Frameworks": 1
+    }
+  },
+  "agile": {
+    "display_name": "Agile",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Management Methodologies": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Management Methodologies": 1
+    }
+  },
+  "agile_practices": {
+    "display_name": "Agile Practices",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Project Management Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Project Management Tools": 1
+    }
+  },
+  "agile_process": {
+    "display_name": "Agile Process",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Management Methodologies": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Management Methodologies": 1
+    }
+  },
+  "android_applications": {
+    "display_name": "Android Applications",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Mobile Development": 2
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "Mobile Development": 2
+    }
+  },
+  "ansible": {
+    "display_name": "Ansible",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "CI/CD Infrastructure": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "CI/CD Infrastructure": 1
+    }
+  },
+  "apis": {
+    "display_name": "APIs",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "API Management": 2
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "API Management": 2
+    }
+  },
+  "automated_testing": {
+    "display_name": "Automated Testing",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Development Practices": 1,
+      "Testing Frameworks": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "Development Practices": 1,
+      "Testing Frameworks": 1
+    }
+  },
+  "azure": {
+    "display_name": "Azure",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Cloud Computing": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-developer-full-stack/8311703"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Cloud Computing": 1
+    }
+  },
+  "backend_development": {
+    "display_name": "Backend Development",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Backend Systems": 2
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "Backend Systems": 2
+    }
+  },
+  "bigquery": {
+    "display_name": "BigQuery",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Data Engineering": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Data Engineering": 1
+    }
+  },
+  "bluetooth_technology": {
+    "display_name": "Bluetooth Technology",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Hardware Embedded": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Hardware Embedded": 1
+    }
+  },
+  "build_systems": {
+    "display_name": "Build Systems",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Build Systems": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Build Systems": 1
+    }
+  },
+  "ci/cd": {
+    "display_name": "CI/CD",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "CI/CD Infrastructure": 2
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "CI/CD Infrastructure": 2
+    }
+  },
+  "ci/cd_pipelines": {
+    "display_name": "CI/CD Pipelines",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "CI/CD Infrastructure": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "CI/CD Infrastructure": 1
+    }
+  },
+  "clickhouse": {
+    "display_name": "ClickHouse",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Databases": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Databases": 1
+    }
+  },
+  "cloud_technologies": {
+    "display_name": "Cloud Technologies",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Cloud Computing": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Cloud Computing": 1
+    }
+  },
+  "concurrency": {
+    "display_name": "Concurrency",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Programming Paradigms": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Programming Paradigms": 1
+    }
+  },
+  "configuration_management": {
+    "display_name": "Configuration Management",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Configuration Management Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Configuration Management Tools": 1
+    }
+  },
+  "contentions": {
+    "display_name": "Contentions",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Debugging Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Debugging Tools": 1
+    }
+  },
+  "distributed_systems": {
+    "display_name": "Distributed Systems",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Distributed Systems": 2
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "Distributed Systems": 2
+    }
+  },
+  "docker": {
+    "display_name": "Docker",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Containerization Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-developer-full-stack/8311703"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Containerization Tools": 1
+    }
+  },
+  "driver_development": {
+    "display_name": "Driver Development",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Operating Systems": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Operating Systems": 1
+    }
+  },
+  "entity_framework": {
+    "display_name": "Entity Framework",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {},
+    "sample_sources": [
+      "https://builtin.com/job/sr-developer-full-stack/8311703"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {}
+  },
+  "frontend_applications": {
+    "display_name": "Frontend Applications",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Frontend Development": 2
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "Frontend Development": 2
+    }
+  },
+  "gcp": {
+    "display_name": "GCP",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Cloud Computing": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Cloud Computing": 1
+    }
+  },
+  "gerrit": {
+    "display_name": "Gerrit",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Version Control Systems": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Version Control Systems": 1
+    }
+  },
+  "git": {
+    "display_name": "Git",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Version Control Systems": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Version Control Systems": 1
+    }
+  },
+  "github_actions": {
+    "display_name": "GitHub Actions",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "CI/CD Infrastructure": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "CI/CD Infrastructure": 1
+    }
+  },
+  "golang": {
+    "display_name": "Golang",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Languages": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Languages": 1
+    }
+  },
+  "hibernate": {
+    "display_name": "Hibernate",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Java Web Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Java Web Tools": 1
+    }
+  },
+  "iot_devices": {
+    "display_name": "IoT Devices",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Internet of Things": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Internet of Things": 1
+    }
+  },
+  "java": {
+    "display_name": "Java",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Languages": 4,
+      "Mobile Development": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/software-engineer-ii-backend-ai-experiences/8442735",
+      "https://builtin.com/job/senior-engineer/8369036",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139",
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 5,
+    "status": "promoted",
+    "suggested_groups": {
+      "Languages": 4,
+      "Mobile Development": 1
+    }
+  },
+  "jenkins": {
+    "display_name": "Jenkins",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "CI/CD Infrastructure": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "CI/CD Infrastructure": 1
+    }
+  },
+  "kafka": {
+    "display_name": "Kafka",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Message Queuing Services": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/software-engineer-ii-backend-ai-experiences/8442735"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Message Queuing Services": 1
+    }
+  },
+  "kotlin": {
+    "display_name": "Kotlin",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Languages": 2,
+      "Mobile Development": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139",
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 3,
+    "status": "rejected",
+    "suggested_groups": {
+      "Languages": 2,
+      "Mobile Development": 1
+    }
+  },
+  "logging_tools": {
+    "display_name": "Logging Tools",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Logging Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Logging Tools": 1
+    }
+  },
+  "mapreduce": {
+    "display_name": "MapReduce",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Data Engineering": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Data Engineering": 1
+    }
+  },
+  "memory_corruptions": {
+    "display_name": "Memory Corruptions",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Debugging Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Debugging Tools": 1
+    }
+  },
+  "microservices_design_and_development": {
+    "display_name": "Microservices design and development",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Microservices Frameworks": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Microservices Frameworks": 1
+    }
+  },
+  "mobile_sdks": {
+    "display_name": "Mobile SDKs",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Mobile Development": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Mobile Development": 1
+    }
+  },
+  "monitoring": {
+    "display_name": "Monitoring",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Monitoring Tools": 2
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "Monitoring Tools": 2
+    }
+  },
+  "monitoring_tools": {
+    "display_name": "Monitoring Tools",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Monitoring Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Monitoring Tools": 1
+    }
+  },
+  "multi-core": {
+    "display_name": "Multi-core",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Hardware Embedded": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Hardware Embedded": 1
+    }
+  },
+  "networking_protocols": {
+    "display_name": "Networking Protocols",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Networking Systems": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-staff-software-engineer-c-c-networking/8563171"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Networking Systems": 1
+    }
+  },
+  "oauth2-based_authentication_&_authorization": {
+    "display_name": "OAuth2-based authentication & authorization",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Security": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-developer-full-stack/8311703"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Security": 1
+    }
+  },
+  "object-oriented_programming": {
+    "display_name": "Object-Oriented Programming",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Programming Paradigms": 2
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
+    ],
+    "seen_count": 2,
+    "status": "rejected",
+    "suggested_groups": {
+      "Programming Paradigms": 2
+    }
+  },
+  "objective-c": {
+    "display_name": "Objective-C",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Mobile Development": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Mobile Development": 1
+    }
+  },
+  "opensearch": {
+    "display_name": "OpenSearch",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Databases": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Databases": 1
+    }
+  },
+  "os_kernel": {
+    "display_name": "OS Kernel",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Operating Systems": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Operating Systems": 1
+    }
+  },
+  "postgresql": {
+    "display_name": "PostgreSQL",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Databases": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/software-engineer-ii-backend-ai-experiences/8442735"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Databases": 1
+    }
+  },
+  "react_native": {
+    "display_name": "React Native",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Cross Platform Development": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Cross Platform Development": 1
+    }
+  },
+  "relational_databases": {
+    "display_name": "Relational Databases",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Databases": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Databases": 1
+    }
+  },
+  "restful_apis": {
+    "display_name": "Restful APIs",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "API Management": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "API Management": 1
+    }
+  },
+  "rust": {
+    "display_name": "Rust",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Languages": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-staff-software-engineer-c-c-networking/8563171"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Languages": 1
+    }
+  },
+  "scrum": {
+    "display_name": "Scrum",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Management Methodologies": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-software-engineer-enterprise/8577140"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Management Methodologies": 1
+    }
+  },
+  "security": {
+    "display_name": "Security",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Security": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Security": 1
+    }
+  },
+  "solid_principles": {
+    "display_name": "SOLID Principles",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Software Architecture": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-developer-full-stack/8311703"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Software Architecture": 1
+    }
+  },
+  "spark": {
+    "display_name": "Spark",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Data Engineering": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Data Engineering": 1
+    }
+  },
+  "spring_boot": {
+    "display_name": "Spring Boot",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Java Web Tools": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Java Web Tools": 1
+    }
+  },
+  "sql": {
+    "display_name": "SQL",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Databases": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer/8369036"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Databases": 1
+    }
+  },
+  "swift": {
+    "display_name": "Swift",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Mobile Development": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Mobile Development": 1
+    }
+  },
+  "synchronization": {
+    "display_name": "Synchronization",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Programming Paradigms": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Programming Paradigms": 1
+    }
+  },
+  "system_performance": {
+    "display_name": "System Performance",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Performance Testing": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Performance Testing": 1
+    }
+  },
+  "terraform": {
+    "display_name": "Terraform",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "CI/CD Infrastructure": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "CI/CD Infrastructure": 1
+    }
+  },
+  "thread_development": {
+    "display_name": "Thread Development",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Programming Paradigms": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-engineer-c-linux/8512375"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Programming Paradigms": 1
+    }
+  },
+  "victoriametrics": {
+    "display_name": "VictoriaMetrics",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Databases": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/senior-engineer-i-observability/8577242"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Databases": 1
+    }
+  },
+  "video_streaming": {
+    "display_name": "Video Streaming",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Media Players": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/mobile-engineering-manager/8576370"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Media Players": 1
+    }
+  },
+  "vpn_technologies": {
+    "display_name": "VPN Technologies",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Security": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-staff-software-engineer-c-c-networking/8563171"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Security": 1
+    }
+  },
+  "windows_development": {
+    "display_name": "Windows Development",
+    "first_seen": "2026-02-25",
+    "last_seen": "2026-02-25",
+    "llm_group_tags": {
+      "Operating Systems": 1
+    },
+    "sample_sources": [
+      "https://builtin.com/job/sr-staff-software-engineer-c-c-networking/8563171"
+    ],
+    "seen_count": 1,
+    "status": "rejected",
+    "suggested_groups": {
+      "Operating Systems": 1
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "langgraph": {
+    "action": "approve",
+    "all_suggested_groups": {
+      "AI Data Science": 1
+    },
+    "display_name": "LangGraph",
+    "sample_sources": [
+      "https://example.com/single-record"
+    ],
+    "seen_count": 1,
+    "suggested_group": "AI Data Science"
+  }
+}

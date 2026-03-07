@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking
+.mypy_cache/
+
+# Discovery data artifacts (keep structure only)
+data/discovery/*
+!data/discovery/.gitkeep
+
+# Config overrides
+config/local*.yaml
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

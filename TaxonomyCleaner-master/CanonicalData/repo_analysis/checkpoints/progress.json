@@ -1,0 +1,28 @@
+{
+  "processed_files": [
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/Summary/chunk_python_repo.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/main.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/repo_architect_checkpointed.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/scripts/find_redundant_tokens.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/scripts/keyword_duplicate_report.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/scripts/resolve_duplicate_keywords.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/scripts/run_stage0_iterative.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/agents/audit_hard_blocks_agent.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/clients/model_clients.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/runner/pipeline_runner.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/shared/findings.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/shared/models.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/shared/utilities.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage0_deterministic_preclean/hard_blocks.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage0_deterministic_preclean/rewrite_logic.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage0_deterministic_preclean/rules.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage0_deterministic_preclean/stage.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage1_embedding_similarity/stage.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage2_conflict_clustering/stage.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage3_semantic_arbitration/stage.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage4_abstraction_classification/stage.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage5_graph_validation/stage.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/src/pipeline/stages/stage6_diff_reporting/stage.py",
+    "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData/verify_alias_atomicity.py"
+  ]
+}

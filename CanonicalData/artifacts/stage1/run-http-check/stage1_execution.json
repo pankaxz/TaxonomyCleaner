@@ -1,6 +1,0 @@
-{
-  "dense_embeddings_used": true,
-  "embedding_batch_size": 64,
-  "embedding_mode": "http_dense",
-  "input_canonicals": 2345
-}
