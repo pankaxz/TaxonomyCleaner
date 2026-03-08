@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Data
+GlobalInput/
+src/SkillOccurrenceAnomalyDetection/data/
+anomaly_report.json

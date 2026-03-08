@@ -1,192 +1,184 @@
 # JDAnalyser
 
-JDAnalyser discovers candidate skills from crawler JSONL output, removes anything already in the canonical taxonomy, and manages a human-review queue before producing an approved delta artifact.
+JDAnalyser discovers novel skills from job description (JD) data, classifies them using LLM and embedding models, and produces an approved delta artifact for the canonical taxonomy — all without modifying the source taxonomy directly.
 
-Pipeline position:
+## Why This Exists
 
-`DataCrawler -> JDAnalyser -> CanonicalDataCleaner -> DataFactory`
+Web scrapers extract `technical_skills` from job postings, but the scraper's skill list is noisy:
+- Skills get tagged inconsistently ("Fastify" appears under both "NodeJS Frameworks" and "Backend Systems")
+- Abbreviations and variants slip through ("K8s", "Postgres", "node")
+- Soft skills, business domains, and generic terms get mixed in
 
-## What It Produces
+JDAnalyser filters this noise through a multi-stage pipeline: deterministic dedup, LLM classification, embedding similarity, and human review.
 
-JDAnalyser does **not** edit the source taxonomy file directly. It writes artifacts that can be consumed downstream:
+## Pipeline Position
 
-- Discovery queue: `data/discovery/discovery_queue.json`
-- Queue split by status: `data/discovery/statuses/*.json`
-- Human review file: `data/discovery/review_candidates.json`
-- Approved output delta: `data/discovery/approved_canonical_output.json`
-
-All paths are configurable in `config/settings.yaml`.
+```
+DataCrawler (JSONL) → JDAnalyser → CanonicalDataCleaner → DataFactory
+```
 
 ## CLI Workflow
 
 ```bash
-# 1) Scan crawler JSONL and update discovery queue
-python main.py --discover /path/to/builtin_structured_jobs.jsonl
+# 1. Scan crawler JSONL and build discovery queue
+python main.py --discover
 
-# Optional: force single-process mode
-python main.py --discover /path/to/builtin_structured_jobs.jsonl --no-parallel
+# 2. LLM classifies ready-for-promotion skills (group, reject, ontology)
+python main.py --assign-groups
 
-# 2) Generate review file for promotion-ready entries
+# 3. Embedding similarity catches obvious aliases (fast, no LLM)
+python main.py --sbert-dedup
+
+# 4. LLM catches remaining semantic aliases (skips sbert hits)
+python main.py --semantic-dedup
+
+# 5. Generate review file merging all agent outputs
 python main.py --review
 
-# 3) Apply reviewed actions and write approved output delta
+# 6. Apply human-reviewed decisions
 python main.py --apply-review
 ```
 
-Notes:
+Additional commands:
 
-- `--discover --no-parallel` writes to a sibling queue file with `_no_parallel` suffix (for diffing parallel vs sequential output).
-- Logging is configured via `logging.level` in `config/settings.yaml`.
+```bash
+# Audit: trace every skill back to its source JD and JSONL file
+python main.py --audit
 
-## Expected Input Shape
+# Force single-process mode (writes to separate file for diffing)
+python main.py --discover --no-parallel
 
-Each JSONL line is a job record. JDAnalyser uses:
-
-- `record.extraction_quality.unmapped_skills` (new crawler signal)
-- `record.technical_skills` (can include `[Group Tag]` suffixes)
-- `record.source_url` (stored as provenance sample)
-
-Example:
-
-```json
-{
-  "technical_skills": ["LangGraph [AI Data Science]", "Python [Languages]"],
-  "extraction_quality": {"unmapped_skills": ["LangGraph"]},
-  "source_url": "https://example.com/job/123"
-}
+# Point to a specific file or directory
+python main.py --discover /path/to/file.jsonl
+python main.py --discover /path/to/directory/
 ```
 
-## Processing Flow
+## What Each Step Does
 
-### 1. Candidate extraction (`discovery/processor.py`)
+### Step 1: `--discover` (Discovery & Dedup)
 
-- Reads JSONL records (parallel parsing when input is large).
-- Extracts candidates from:
-  - `unmapped_skills`
-  - tagged `technical_skills`
-- For tagged skills, splits `"Skill [Group_Name]"` into:
-  - `name = "Skill"`
-  - `group_tag = "Group Name"` (underscores converted to spaces)
-- Deduplicates per record and enriches missing tags when later occurrences include a tag.
+Reads all `.jsonl` files from `crawler.input_dir` (or a given path). For each JD record:
 
-### 2. Taxonomy dedup (`discovery/dedup.py` + `discovery/taxonomy.py`)
+1. Extracts candidates from `extraction_quality.unmapped_skills` AND `technical_skills`
+2. Strips `[Category]` tags (e.g., `"Python [Languages]"` → `"Python"`)
+3. Deduplicates each candidate against the canonical taxonomy using 4 tiers:
+   - **Exact** (1.0) — case-insensitive alias/canonical lookup
+   - **Normalized** (0.95) — strip punctuation, collapse whitespace
+   - **Fuzzy** (≥0.85) — `difflib.SequenceMatcher` ratio
+   - **Containment** (0.80) — canonical is substring of candidate
+4. Novel skills enter the queue as `pending`
+5. Once `seen_count >= 5` (configurable), status auto-promotes to `ready_for_promotion`
 
-Each unique candidate is checked against `taxonomy.canonical_data` using 4 tiers:
+Uses `ProcessPoolExecutor` for parallel JSONL parsing and taxonomy matching.
 
-1. Exact canonical/alias match (confidence `1.0`)
-2. Normalized punctuation-insensitive match (`0.95`)
-3. Fuzzy match via `difflib.SequenceMatcher` (`>= discovery.fuzzy_threshold`)
-4. Containment match where canonical is substring of candidate (`0.80`)
+**Output:** `data/discovery/discovery_queue.json` + `data/discovery/statuses/*.json`
 
-Also filters exact group-name matches as `group_exact`.
+### Step 2: `--assign-groups` (LLM Classification)
 
-Anything matched is considered already known and is **not** added to discovery queue.
+Takes each `ready_for_promotion` skill and sends it to a local LLM (llama-server) for classification:
 
-### 3. Queue update (`DiscoveryProcessor.process_jsonl`)
+- **Group assignment** — which taxonomy group does it belong to?
+- **Rejection** — is it a soft skill, generic term, or business domain?
+- **Ontological nature** — Software Artifact, Concept, Algorithm, Protocol, Standard/Specification, Human Skill
+- **Abstraction level** — Domain, Method, Concrete
+- **Confidence** — HIGH, MEDIUM, LOW
 
-For novel skills:
+Supports checkpoint/resume — saves after every batch. If interrupted, re-running picks up where it stopped.
 
-- Key: lowercased skill name with spaces replaced by underscores
-- Tracks:
-  - `seen_count`
-  - `first_seen`, `last_seen`
-  - `suggested_groups` (tag frequency map)
-  - `llm_group_tags` (same tag counts, currently mirrored)
-  - `sample_sources` (capped by `discovery.max_sample_sources`)
-  - `status`
+**Output:** `data/agents/group_assignments.json` (split into `existing`, `new_groups`, `rejected`, `failed`)
 
-Status lifecycle:
+### Step 3: `--sbert-dedup` (Embedding Similarity)
 
-`pending -> ready_for_promotion -> promoted | rejected`
+Computes cosine similarity between novel skills and all taxonomy entries using a local embedding model (nomic-embed-text via llama-server). Catches aliases that string matching misses:
 
-Transition to `ready_for_promotion` happens automatically when
-`seen_count >= discovery.promotion_threshold`.
+- "node" → Node.js (short name)
+- "K8s" → Kubernetes (abbreviation)
+- "Postgres" → PostgreSQL (variant)
 
-### 4. Review generation (`discovery/promoter.py::generate_review`)
+Fast — no LLM reasoning, just vector math.
 
-Selects only `ready_for_promotion` entries and writes review candidates sorted by `seen_count` descending.
+**Output:** `data/agents/sbert_dedup.json`
 
-Per candidate it pre-fills:
+### Step 4: `--semantic-dedup` (LLM Alias Detection)
 
-- `action = "alias_of:<Canonical>"` if display name already maps to taxonomy alias/canonical
-- `action = "reject"` if display name is a taxonomy group name
-- otherwise `action = "approve"`
+For skills not already resolved by sbert-dedup, asks the LLM whether each one is semantically equivalent to an existing canonical in its assigned group. More thorough than embeddings but slower (one LLM call per skill).
 
-It also picks `suggested_group` as the most frequent observed group tag.
+Supports checkpoint/resume.
 
-### 5. Review apply (`discovery/promoter.py::apply_review`)
+**Output:** `data/agents/semantic_dedup.json`
 
-Reads reviewed actions and:
+### Step 5: `--review` (Generate Review File)
 
-- `approve`: adds a new canonical in approved output under `suggested_group`
-- `alias_of:X`: adds alias under canonical `X` (resolved from current run output or source taxonomy)
-- `reject`: marks queue entry rejected
-- unknown/invalid actions: counted as skipped
+Merges all agent outputs into a single `review_candidates.json` for human spot-check:
 
-Queue statuses are updated (`promoted` / `rejected`) and saved.
-Approved delta is written to `discovery.approved_output`.
+- Group assignment, reasoning, confidence from `--assign-groups`
+- Alias suggestions from `--sbert-dedup` and `--semantic-dedup`
+- Pre-filled `action` field: `approve`, `reject`, or `alias_of:CanonicalName`
 
-## Data Contracts
+The human reviewer edits the `action` field — most decisions are pre-made by the agents.
 
-### Discovery queue entry
+**Output:** `data/discovery/review_candidates.json`
 
-```json
-{
-  "display_name": "LangGraph",
-  "seen_count": 4,
-  "first_seen": "2026-03-01",
-  "last_seen": "2026-03-06",
-  "suggested_groups": {"AI Data Science": 4},
-  "llm_group_tags": {"AI Data Science": 4},
-  "sample_sources": ["https://example.com/job/123"],
-  "status": "ready_for_promotion"
-}
+### Step 6: `--apply-review` (Apply Decisions)
+
+Reads the reviewed file and writes an approved delta artifact:
+
+- `approve` → new canonical skill under its assigned group
+- `alias_of:ExistingSkill` → alias entry under that canonical
+- `reject` → marked rejected in queue, excluded from output
+
+**Output:** `data/discovery/approved_canonical_output.json`
+
+## Project Structure
+
+```
+main.py                          # CLI entry point
+config/
+  __init__.py                    # Config singleton: cfg.get("dotted.key")
+  settings.yaml                  # Paths, thresholds, model config
+discovery/
+  processor.py                   # JSONL scanning, candidate extraction, queue management
+  dedup.py                       # 4-tier matching against taxonomy
+  taxonomy.py                    # Read-only canonical_data.json access
+  promoter.py                    # Review generation, apply approvals
+  auditor.py                     # Full audit trail: skill → JD → JSONL file
+agents/
+  group_assigner.py              # LLM group classification agent
+  sbert_dedup.py                 # Embedding-based semantic dedup agent
+  semantic_dedup.py              # LLM-based semantic dedup agent
+  review_classifier.py           # (stub)
+tests/
+  test_discovery.py              # Pytest suite
+data/
+  discovery/                     # Queue, review files, audit reports (gitignored)
+  agents/                        # Agent outputs (gitignored)
+input/
+  Builtin/                       # Crawler JSONL files
 ```
 
-### Review candidate entry
+## Configuration
 
-```json
-{
-  "display_name": "LangGraph",
-  "seen_count": 4,
-  "suggested_group": "AI Data Science",
-  "all_suggested_groups": {"AI Data Science": 4},
-  "sample_sources": ["https://example.com/job/123"],
-  "action": "approve"
-}
-```
+All settings live in `config/settings.yaml`. Key entries:
 
-### Approved output delta
+| Key | Purpose | Default |
+|-----|---------|---------|
+| `taxonomy.canonical_data` | Path to canonical_data.json (source of truth) | absolute path |
+| `crawler.input_dir` | Default JSONL input directory | `input/Builtin` |
+| `discovery.promotion_threshold` | JD count to auto-promote | `5` |
+| `discovery.fuzzy_threshold` | SequenceMatcher cutoff | `0.85` |
+| `llm.base_url` | Local LLM server URL | `http://localhost:8080/v1` |
+| `llm.model` | LLM model identifier | `Qwen3.5-35B-A3B-Q5_K_S.gguf` |
+| `llm.batch_size` | Skills per LLM call | `1` |
+| `embedding.base_url` | Local embedding server URL | `http://127.0.0.1:8090` |
+| `embedding.threshold` | Cosine similarity cutoff for alias | `0.85` |
 
-```json
-{
-  "AI Data Science": {
-    "LangGraph": [],
-    "TensorFlow": ["TF2"]
-  }
-}
-```
+## External Dependencies
 
-This structure mirrors the canonical taxonomy shape: `{group: {canonical: [aliases]}}`.
-
-## Performance Characteristics
-
-- Multiprocessing is used for:
-  - JSONL parsing/candidate extraction
-  - dedup matching
-- Default worker count: `os.cpu_count()`
-- Parallel mode is skipped for small inputs (`< 50` items) to avoid overhead.
-
-## Repository Map
-
-- `main.py`: CLI and command wiring
-- `config/__init__.py`: `cfg` loader with dot-key access + absolute path resolution
-- `config/settings.yaml`: runtime paths and thresholds
-- `discovery/processor.py`: JSONL ingestion, extraction, dedup orchestration, queue persistence
-- `discovery/dedup.py`: skill matching logic
-- `discovery/taxonomy.py`: cached taxonomy reader/lookup maps
-- `discovery/promoter.py`: review generation and reviewed-action application
-- `tests/test_discovery.py`: unit + end-to-end pipeline tests
+- **LLM server** — llama-server running Qwen3.5-35B-A3B at `localhost:8080` (for `--assign-groups` and `--semantic-dedup`)
+- **Embedding server** — llama-server running nomic-embed-text-v1.5 at `127.0.0.1:8090` (for `--sbert-dedup`)
+- **Canonical taxonomy** — `canonical_data.json` from DataFactory (read-only, never mutated)
+- **Python 3.10+** — uses `X | Y` union syntax
+- **No pip dependencies beyond stdlib** — all HTTP calls use `urllib.request`
 
 ## Run Tests
 
@@ -194,10 +186,4 @@ This structure mirrors the canonical taxonomy shape: `{group: {canonical: [alias
 pytest tests/
 ```
 
-Tests patch config to temp paths and validate:
-
-- matching tiers and thresholds
-- queue accumulation across runs
-- status-file generation
-- review action defaults
-- full discover -> review -> apply flow
+Tests patch config to temp paths and validate matching tiers, queue accumulation, status files, review actions, and the full discover → review → apply flow.

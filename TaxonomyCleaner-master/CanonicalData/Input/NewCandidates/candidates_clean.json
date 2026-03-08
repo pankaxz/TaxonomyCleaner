@@ -1,0 +1,304 @@
+{
+  "AI Data Science": {
+    "AI": [
+      "Artificial Intelligence"
+    ],
+    "AI development tools": [],
+    "AI/ML pipelines": [],
+    "ChatGPT": [],
+    "Claude": [],
+    "Claude Code": [],
+    "DAX": [],
+    "feature stores": []
+  },
+  "AI Operational Techniques": {
+    "Cloudwatch": [],
+    "LLM orchestration": [],
+    "agentic AI": []
+  },
+  "AI Protocols": {
+    "Model Context Protocol (MCP)": []
+  },
+  "API Management": {
+    "Mulesoft": [],
+    "webhooks": []
+  },
+  "Application Servers": {
+    "IIS": []
+  },
+  "Audio Technologies": {
+    "AVFoundation": []
+  },
+  "Backend Systems": {
+    "Backend": [],
+    "n8n": []
+  },
+  "Blockchain": {
+    "EVM": []
+  },
+  "C# Libraries": {
+    "LINQ": []
+  },
+  "CI/CD Infrastructure": {
+    "Gearset": [],
+    "OpenTofu": []
+  },
+  "Component Libraries": {
+    "Component libraries": []
+  },
+  "Configuration Management Tools": {
+    "Microsoft Intune": [],
+    "Salt": []
+  },
+  "Container Orchestration": {
+    "EKS": [],
+    "GKE": []
+  },
+  "Containerization Tools": {
+    "Fargate": []
+  },
+  "Content Management Systems": {
+    "Contentful": [],
+    "SharePoint": []
+  },
+  "Data Access Libraries": {
+    "ORMs": []
+  },
+  "Data Analysis and Monitoring": {
+    "ELK": [],
+    "Minitab": []
+  },
+  "Data Engineering": {
+    "Apache Flink": [],
+    "Beam": [],
+    "Data Mining": [],
+    "Data lake": [],
+    "Delta": [],
+    "Flink": [],
+    "Hudi": [],
+    "NiFi": [],
+    "OLAP": [],
+    "SSIS": [],
+    "data warehousing": []
+  },
+  "Data Partitioning": {
+    "Partitioning": []
+  },
+  "Data Visualization Platforms": {
+    "Looker": [],
+    "Metabase": [],
+    "Power BI": [],
+    "PowerBI": [],
+    "Tableau": []
+  },
+  "Database Migration Tools": {
+    "migrations": []
+  },
+  "Databases": {
+    "DB2": [],
+    "Dataverse": [],
+    "Druid": [],
+    "ORACLE": [],
+    "Stored procedures": []
+  },
+  "Design Software": {
+    "Visio": []
+  },
+  "Development Practices": {
+    "Feature Flagging": []
+  },
+  "Development Tools": {
+    "SDKs": []
+  },
+  "Distributed Systems": {
+    "Distributed Computing": []
+  },
+  "Document Conversion Tools": {
+    "XSLT": []
+  },
+  "E commerce Platforms": {
+    "E-commerce platforms": [],
+    "Shopify": []
+  },
+  "Enterprise Integration Platforms": {
+    "Oracle Integration Cloud (OIC)": []
+  },
+  "Event Streaming": {
+    "Event Streaming": []
+  },
+  "Frontend Development": {
+    "Babel": [],
+    "Forms": [],
+    "LWC": [],
+    "Lazy Loading": [],
+    "Lightning Web Components": [],
+    "Lightning Web Components (LWC)": [],
+    "Visualforce": []
+  },
+  "Game Engines": {
+    "unity 3d": []
+  },
+  "Hardware Embedded": {
+    "I2C": [],
+    "SPI": []
+  },
+  "Healthcare APIs": {
+    "FHIR": [],
+    "HL7": []
+  },
+  "IT Management Tools": {
+    "ServiceNow": []
+  },
+  "Java Web Tools": {
+    "J2EE": [],
+    "JDBC": []
+  },
+  "JavaScript Ecosystem": {
+    "node": []
+  },
+  "Languages": {
+    "JVM": []
+  },
+  "Libraries": {
+    "pandas": []
+  },
+  "Logging": {
+    "structured Logging": []
+  },
+  "Logging Tools": {
+    "logs": []
+  },
+  "Low-Code Development Platforms": {
+    "Power Apps": []
+  },
+  "ML Frameworks": {
+    "ML Frameworks": []
+  },
+  "Management Methodologies": {
+    "SAFe": [],
+    "Sprint planning": []
+  },
+  "Message Queues": {
+    "MQ": [],
+    "Pulsar": []
+  },
+  "Message Queuing Services": {
+    "MSK": []
+  },
+  "Messaging Libraries": {
+    "FIX protocol": []
+  },
+  "Mobile Development": {
+    "iOS": []
+  },
+  "Model Context Protocol Servers": {
+    "MCP servers": []
+  },
+  "Monitoring Tools": {
+    "Monitoring Systems": [],
+    "telemetry": [],
+    "traces": []
+  },
+  "Networking Services": {
+    "VPC": []
+  },
+  "Networking Systems": {
+    "BGP": [],
+    "Cisco": [],
+    "DHCP": [],
+    "Ethernet": [],
+    "Juniper": [],
+    "OSPF": [],
+    "Route53": [],
+    "SD-WAN": [],
+    "SIP": [],
+    "UDP": [],
+    "VLANS": []
+  },
+  "NodeJS Frameworks": {
+    "Express": []
+  },
+  "Operating Systems": {
+    "RHEL": [],
+    "RedHat": []
+  },
+  "Performance Testing": {
+    "K6": [],
+    "Profiling": []
+  },
+  "Programming Paradigms": {
+    "Async/Await": []
+  },
+  "Python Programming": {
+    "asyncio": []
+  },
+  "QA Testing": {
+    "Cross-Browser Testing": [],
+    "Functional Testing": [],
+    "System testing": [],
+    "Test cases": [],
+    "Test execution": [],
+    "TestRail": [],
+    "Zephyr": []
+  },
+  "Reactive Programming": {
+    "RXJS": []
+  },
+  "Scheduling Tools": {
+    "Slurm": []
+  },
+  "Security": {
+    "Application security": [],
+    "CSRF": [],
+    "Data security": [],
+    "IAM Policies": [],
+    "Network security": [],
+    "Palo Alto": [],
+    "SSL": [],
+    "Secrets Management": [],
+    "Security Groups": [],
+    "Snyk": [],
+    "TLS": [],
+    "XSS": [],
+    "firewalls": [],
+    "security controls": []
+  },
+  "Software Architecture": {
+    "MVC": [],
+    "UML": []
+  },
+  "Software Development Principles": {
+    "SOLID": []
+  },
+  "Software Engineering": {
+    "Engineering": []
+  },
+  "State Management Libraries": {
+    "Context API": [],
+    "NgRx": []
+  },
+  "Static Code Analysis": {
+    "Checkmarx": []
+  },
+  "Storage Services": {
+    "Ceph": []
+  },
+  "Test Automation Frameworks": {
+    "automated testing frameworks": []
+  },
+  "Testing Frameworks": {
+    "XCTest": [],
+    "Xunit": []
+  },
+  "Version Control Systems": {
+    "Source Control": [],
+    "Version control": []
+  },
+  "Web Ecosystem": {
+    "Jquery": [],
+    "XPath": []
+  },
+  "Web Servers": {
+    "Apache": []
+  }
+}

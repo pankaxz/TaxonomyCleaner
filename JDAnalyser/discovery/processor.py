@@ -1,9 +1,9 @@
 """Discovery queue processor — scans crawler JSONL for novel skills.
 
 Accepts a single JSONL file **or** a directory of JSONL files.
-All technical_skills from every record are always checked against the
-canonical taxonomy — the scraper's extraction_quality.unmapped_skills is
-informational only and never trusted as the sole source of candidates.
+Candidates come from both extraction_quality.unmapped_skills AND
+technical_skills. Within a single record, duplicates are merged and
+tag-enriched. CanonicalDataCleaner handles dedup in later stages.
 
 Uses all available CPU cores via ProcessPoolExecutor for:
   1. JSONL parsing + candidate extraction (chunked across workers)
@@ -92,8 +92,8 @@ def _extract_candidates_from_record(record: Dict[str, Any]) -> List[Dict[str, An
     """Extract skill candidates from a single JSONL record.
 
     Pulls from:
-    1. extraction_quality.unmapped_skills (new crawler format)
-    2. technical_skills with [Group] tags (both old and new formats)
+    1. extraction_quality.unmapped_skills (primary source for discovery)
+    2. technical_skills (tag enrichment only for overlapping skill names)
 
     Returns list of {name, group_tag, source_url, scraped_date}.
     """
@@ -106,25 +106,50 @@ def _extract_candidates_from_record(record: Dict[str, Any]) -> List[Dict[str, An
     # This lets us enrich an existing candidate if a later source has a group tag.
     seen: dict[str, dict[str, Any]] = {}
 
-    # Source 1: explicit unmapped_skills from extraction_quality
+    # Parse technical skills once and keep one tag hint per skill.
+    # These tags can enrich candidates that come from unmapped_skills.
+    technical_tag_hints: dict[str, str] = {}
+    for raw_skill in record.get("technical_skills", []) or []:
+        if not isinstance(raw_skill, str):
+            continue
+        name, group_tag = _parse_skill_with_tag(raw_skill)
+        if not name:
+            continue
+        key = name.lower()
+        if group_tag and key not in technical_tag_hints:
+            technical_tag_hints[key] = group_tag
+
+    # Source 1: explicit unmapped_skills from extraction_quality.
+    # This is the source of candidates we want to promote over time.
     eq = record.get("extraction_quality", {})
     unmapped = eq.get("unmapped_skills", []) if isinstance(eq, dict) else []
     for skill_name in unmapped or []:
         if not isinstance(skill_name, str):
             continue
-        name = skill_name.strip()
+        name, group_tag = _parse_skill_with_tag(skill_name)
         if not name:
             continue
 
         key = name.lower()
-        if key in seen:
-            continue
+        resolved_group_tag = technical_tag_hints.get(key) or group_tag
 
-        candidate = {"name": name, "group_tag": None, "source_url": source_url, "scraped_date": scraped_date}
+        if key in seen:
+            existing = seen[key]
+            if not existing.get("group_tag") and resolved_group_tag:
+                existing["group_tag"] = resolved_group_tag
+            continue
+        candidate = {
+            "name": name,
+            "group_tag": resolved_group_tag,
+            "source_url": source_url,
+            "scraped_date": scraped_date,
+        }
         candidates.append(candidate)
         seen[key] = candidate
 
-    # Source 2: tagged technical_skills — extract group tag, treat all as candidates
+    # Source 2: technical_skills — also added as candidates.
+    # Duplicates with unmapped_skills are merged (tag enriched).
+    # CanonicalDataCleaner handles dedup in later stages.
     for raw_skill in record.get("technical_skills", []) or []:
         if not isinstance(raw_skill, str):
             continue
@@ -133,17 +158,19 @@ def _extract_candidates_from_record(record: Dict[str, Any]) -> List[Dict[str, An
             continue
 
         key = name.lower()
-        if key not in seen:
-            candidate = {"name": name, "group_tag": group_tag, "source_url": source_url, "scraped_date": scraped_date}
-            candidates.append(candidate)
-            seen[key] = candidate
+        if key in seen:
+            existing = seen[key]
+            if not existing.get("group_tag") and group_tag:
+                existing["group_tag"] = group_tag
             continue
-
-        # If the first occurrence came from unmapped_skills (no tag),
-        # enrich it with a later technical_skills tag.
-        existing = seen[key]
-        if not existing.get("group_tag") and group_tag:
-            existing["group_tag"] = group_tag
+        candidate = {
+            "name": name,
+            "group_tag": group_tag,
+            "source_url": source_url,
+            "scraped_date": scraped_date,
+        }
+        candidates.append(candidate)
+        seen[key] = candidate
 
     return candidates
 

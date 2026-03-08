@@ -432,6 +432,66 @@ class TestDiscoveryProcessor:
         assert candidates[0]["group_tag"] == "AI Data Science"
         assert candidates[0]["source_url"] == "https://example.com/enrich"
 
+    def test_extract_candidates_uses_unmapped_as_candidate_source(self):
+        from discovery.processor import DiscoveryProcessor
+
+        record = {
+            "source_url": "https://example.com/unmapped-only",
+            "technical_skills": ["Python [Languages]"],
+            "extraction_quality": {
+                "unmapped_skills": ["C plus plus"],
+            },
+        }
+
+        candidates = DiscoveryProcessor._extract_candidates(record)
+        assert len(candidates) == 1
+        assert candidates[0]["name"] == "C plus plus"
+        assert candidates[0]["group_tag"] is None
+
+    def test_extract_candidates_prefers_technical_tag_for_unmapped_overlap(self):
+        from discovery.processor import DiscoveryProcessor
+
+        record = {
+            "source_url": "https://example.com/overlap",
+            "technical_skills": ["LangGraph [AI Data Science]"],
+            "extraction_quality": {
+                "unmapped_skills": ["LangGraph", "LangGraph [Other Group]"],
+            },
+        }
+
+        candidates = DiscoveryProcessor._extract_candidates(record)
+        assert len(candidates) == 1
+        assert candidates[0]["name"] == "LangGraph"
+        assert candidates[0]["group_tag"] == "AI Data Science"
+
+    def test_extract_candidates_ignores_technical_only_entries(self):
+        from discovery.processor import DiscoveryProcessor
+
+        record = {
+            "source_url": "https://example.com/technical-only",
+            "technical_skills": ["LangGraph [AI Data Science]"],
+            "extraction_quality": {"unmapped_skills": []},
+        }
+
+        candidates = DiscoveryProcessor._extract_candidates(record)
+        assert candidates == []
+
+    def test_extract_candidates_can_enrich_tag_from_unmapped_hint(self):
+        from discovery.processor import DiscoveryProcessor
+
+        record = {
+            "source_url": "https://example.com/unmapped-hint",
+            "technical_skills": ["LangGraph"],
+            "extraction_quality": {
+                "unmapped_skills": ["LangGraph [AI Data Science]"],
+            },
+        }
+
+        candidates = DiscoveryProcessor._extract_candidates(record)
+        assert len(candidates) == 1
+        assert candidates[0]["name"] == "LangGraph"
+        assert candidates[0]["group_tag"] == "AI Data Science"
+
 
 # ── Promoter Tests ───────────────────────────────────────────────────────────
 
@@ -756,7 +816,7 @@ class TestDiscoveryPipelineEndToEnd:
             "title": "Applied AI Engineer",
             "technical_skills": ["LangGraph [AI Data Science]"],
             "source_url": "https://example.com/single-record",
-            "extraction_quality": {"unmapped_skills": []},
+            "extraction_quality": {"unmapped_skills": ["LangGraph"]},
         }
         jsonl_path = _make_jsonl(tmp_path, [one_record])
         shutil.copy2(jsonl_path, out_dir / "01_input.jsonl")

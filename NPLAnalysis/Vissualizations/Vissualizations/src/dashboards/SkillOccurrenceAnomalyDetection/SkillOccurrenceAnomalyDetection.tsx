@@ -4,6 +4,18 @@ import RAW_DATA from './data/anomaly_report.json'
 
 type Classification = "false_positive" | "investigate" | "legitimate";
 
+interface Skill {
+    skill: string;
+    count: number;
+    log_count: number;
+    z_score: number;
+    group_z_score: number;
+    group: string;
+    super_group: string;
+    classification: Classification;
+    localZ: number;
+}
+
 const COLORS: Record<Classification, string> = {
     false_positive: "#ff4d6a",
     investigate: "#f0a030",
@@ -44,11 +56,9 @@ function SkillOccurrenceAnomalyDetection() {
 
         // 3. Map to final skill objects
         const upperMult = sigmaThreshold + 1.0;
-        const finalSkills = weightFiltered.map((s: any) => {
+        const finalSkills: Skill[] = weightFiltered.map((s: any) => {
             let classification: Classification = "legitimate";
             
-            // Note: Using global z_score for consistent flagging OR we could use local.
-            // Let's use local z_score since we are "removing from the graph"
             const localZ = (s.log_count - m) / s_dev;
 
             if (localZ >= upperMult) {
@@ -57,7 +67,7 @@ function SkillOccurrenceAnomalyDetection() {
                 classification = "investigate";
             }
             return { ...s, classification, localZ };
-        }).sort((a: any, b: any) => b.count - a.count);
+        }).sort((a: Skill, b: Skill) => b.count - a.count);
 
         return {
             skills: finalSkills,
@@ -82,7 +92,7 @@ function SkillOccurrenceAnomalyDetection() {
 
     const counts = useMemo(() => {
         const c: Record<Classification, number> = {false_positive: 0, investigate: 0, legitimate: 0};
-        skills.forEach((s) => {
+        skills.forEach((s: Skill) => {
             c[s.classification]++;
         });
         return {
@@ -372,7 +382,7 @@ function SkillOccurrenceAnomalyDetection() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {filtered.map(s => (
+                                            {filtered.map((s: Skill) => (
                                                 <tr key={s.skill} style={{borderBottom: "1px solid rgba(255,255,255,0.03)"}}>
                                                     <td style={{padding: "10px"}}>
                                                         <div style={{fontWeight: "bold", color: "#e0ecf0"}}>{s.skill}</div>

@@ -1,108 +1,101 @@
-# CLAUDE.md — JDAnalyser
+# JDAnalyser — Job Description Discovery Pipeline
 
-## What This Project Does
+## What This Is
+A helper service for Career Navigator's DataFactory. Processes raw JD scrapes
+(JSONL from Builtin, etc.), discovers new skills not yet in the taxonomy,
+deduplicates them, assigns groups, and produces candidates for taxonomy promotion.
 
-JDAnalyser discovers novel skills from DataCrawler JSONL output, deduplicates them against the canonical taxonomy, and promotes approved skills through human review into `CanonicalDataCleaner/Input/canonical_data.json`.
+## This Project's Scope
+✅ Processing raw JD JSONL files through the discovery pipeline
+✅ Deduplicating discovered skills (exact, SBERT-based, semantic)
+✅ Auditing and reviewing discovered items
+✅ Assigning skill groups via LLM agents
+✅ Promoting validated discoveries as taxonomy candidates
 
-Pipeline position: **DataCrawler → JDAnalyser → CanonicalDataCleaner → DataFactory**
+❌ NOT building the skill graph (that's DataFactory)
+❌ NOT cleaning the taxonomy (that's TaxonomyCleaner)
+❌ NOT anomaly detection on the graph (that's NLPAnalysis)
 
-## Commands
-
-```bash
-# Run from JDAnalyser/ directory
-
-# Scan crawler JSONL and update discovery queue
-python main.py --discover /path/to/builtin_structured_jobs.jsonl
-
-# Generate review file for promotion-ready skills
-python main.py --review
-
-# Apply approved promotions to canonical_data.json
-python main.py --apply-review
-
-# Tests
-pytest tests/
-
-# Lint & format
-ruff check discovery/ config/ tests/
-ruff format discovery/ config/ tests/
+## Pipeline Flow
+```
+input/Builtin/*.jsonl          ← raw scraped JD data
+    ↓
+discovery/processor.py         — parse JSONL, extract skill candidates
+    ↓
+discovery/dedup.py             — exact/fuzzy dedup
+agents/sbert_dedup.py          — SBERT embedding-based dedup
+agents/semantic_dedup.py       — LLM-based semantic dedup
+    ↓
+discovery/auditor.py           — validate and audit discoveries
+    ↓
+agents/group_assigner.py       — assign skill group/category (LLM agent)
+    ↓
+discovery/promoter.py          — promote to taxonomy candidates
+    ↓
+data/discovery/discovery_queue.json   ← output: skills pending review
+data/agents/group_assignments.json    ← output: group assignment results
 ```
 
-## Project Structure
+Entry point: `main.py`
+Config: `config/settings.yaml`
 
+## Relationship to DataFactory (Main Project)
+
+### Shared Data
+- **Taxonomy (READ ONLY):** `input/Taxonomy/canonical_data.json`
+  This is a SYMLINK → `/mnt/workspace/CareerNavigator/DataFactory/data/input/taxonomy/canonical_data.json`
+  NEVER break this symlink. NEVER edit this file from JDAnalyser.
+  All taxonomy changes go through TaxonomyCleaner.
+
+- **JD Input:** Raw JSONL files in `input/Builtin/` come from the scraper
+  (builtin_scraper_agent.py in DataFactory/utils). The JSONL schema must
+  stay compatible with both DataFactory's reader.py and our processor.py.
+
+### What Flows Back to DataFactory
+- discovery_queue.json contains new skill candidates
+- group_assignments.json maps discovered skills to groups
+- These feed into DataFactory's taxonomy update cycle (via TaxonomyCleaner)
+
+### Discovery → TaxonomyCleaner → DataFactory cycle:
 ```
-main.py                     # CLI entry point (--discover | --review | --apply-review)
-config/
-  __init__.py               # Config singleton: cfg.get("dotted.key"), cfg.get_abs_path("key")
-  settings.yaml             # Paths, thresholds, logging level
-discovery/
-  processor.py              # DiscoveryProcessor: scan JSONL, extract candidates, update queue
-  dedup.py                  # SkillDeduplicator: 4-tier matching against taxonomy
-  promoter.py               # PromotionManager: generate review file, apply approvals
-  taxonomy.py               # TaxonomyReader: read-only canonical_data.json access
-tests/
-  test_discovery.py         # Full test suite (dedup, processor, promoter)
-data/discovery/
-  discovery_queue.json      # Persistent queue (gitignored)
-  review_candidates.json    # Generated review file (gitignored)
+JDAnalyser discovers "Kubernetes Operator SDK"
+    ↓ (discovery_queue.json)
+Human review → approved
+    ↓
+TaxonomyCleaner adds to canonical_data.json
+    ↓ (symlink updates automatically)
+DataFactory & JDAnalyser see the new canonical entry
 ```
 
-## Key Design Patterns
+## Key Files
+- `discovery/processor.py` — main JSONL processing logic
+- `discovery/dedup.py` — deduplication orchestration
+- `discovery/auditor.py` — validates discovery quality
+- `discovery/promoter.py` — promotes discoveries for taxonomy inclusion
+- `discovery/taxonomy.py` — reads taxonomy for lookups during discovery
+- `agents/group_assigner.py` — LLM-based group assignment
+- `agents/sbert_dedup.py` — SBERT similarity dedup
+- `agents/semantic_dedup.py` — semantic dedup with checkpointing
 
-### 4-Tier Deduplication (`dedup.py`)
+## Data Directory
+```
+input/
+├── Builtin/             ← raw JD JSONL files (timestamped)
+└── Taxonomy/
+    └── canonical_data.json → (symlink to DataFactory)
 
-Candidates are matched against the taxonomy in priority order:
-1. **Exact** (1.0) — case-insensitive alias map lookup
-2. **Normalized** (0.95) — strip punctuation, collapse whitespace
-3. **Fuzzy** (>=0.85) — `difflib.SequenceMatcher` ratio
-4. **Containment** (0.80) — canonical is a substring of candidate
+data/
+├── discovery/
+│   ├── discovery_queue.json    ← pending skill discoveries
+│   └── statuses/               ← per-item status tracking
+└── agents/
+    ├── group_assignments.json  ← LLM group assignment results
+    ├── sbert_dedup.json        ← SBERT dedup results
+    └── semantic_dedup.checkpoint.json ← resumable dedup state
+```
 
-### Static Classes with Cache
-
-All core classes (`TaxonomyReader`, `SkillDeduplicator`, `DiscoveryProcessor`) use class-level `_CACHE` dicts for lazy-loaded data. Each has an `invalidate_cache()` / `invalidate()` method. Tests must call these between runs.
-
-### Discovery Queue Lifecycle
-
-`pending` → `ready_for_promotion` (auto at `seen_count >= threshold`) → human review → `promoted` | `rejected`
-
-### Review Actions
-
-- `approve` — add as new canonical skill under `suggested_group`
-- `alias_of:<CanonicalName>` — add as alias of existing canonical
-- `reject` — mark rejected in queue, skip
-
-## Configuration (`config/settings.yaml`)
-
-| Key | Purpose | Default |
-|-----|---------|---------|
-| `taxonomy.canonical_data` | Path to canonical_data.json (source of truth for dedup) | absolute path |
-| `crawler.default_jsonl` | Default crawler input | absolute path |
-| `discovery.queue_path` | Discovery queue persistence | `data/discovery/discovery_queue.json` |
-| `discovery.review_output` | Review candidates output | `data/discovery/review_candidates.json` |
-| `discovery.promotion_threshold` | Seen count to auto-promote | `5` |
-| `discovery.fuzzy_threshold` | SequenceMatcher cutoff | `0.85` |
-| `discovery.max_sample_sources` | Max source URLs per queue entry | `10` |
-
-All relative paths resolve from the JDAnalyser project root via `cfg.get_abs_path()`.
-
-## Integration Points
-
-- **Reads** `CanonicalDataCleaner/Input/canonical_data.json` for dedup (configured via `taxonomy.canonical_data`)
-- **Writes** promoted skills back to that same file (only after human review via `--apply-review`)
-- **Reads** DataCrawler JSONL output (structured job records with `technical_skills` and `extraction_quality.unmapped_skills`)
-
-## Testing
-
-Tests use `pytest` with an `autouse` fixture that:
-- Patches `cfg` to use `tmp_path` for all file I/O
-- Provides a `SAMPLE_TAXONOMY` with known skills (Python, JavaScript, C++, AWS, Kubernetes, TensorFlow)
-- Invalidates all static caches between tests
-- Sets `promotion_threshold=3` (lower than production default of 5)
-
-## Code Style
-
-- Python 3.10+ (uses `X | Y` union syntax)
-- Ruff rules: `E`, `F`, `I` (errors, pyflakes, isort)
-- `known-first-party = ["discovery", "config"]` for isort
-- All JSON output uses `indent=2, ensure_ascii=False, sort_keys` for deterministic diffs
-- No hardcoded paths — everything comes from `config/settings.yaml` or CLI args
+## Conventions
+- Python 3.12, config via settings.yaml
+- Tests in tests/ — run with pytest
+- Agent checkpointing: semantic_dedup saves progress for resumability
+- JSONL files are timestamped: `builtin_structured_jobs_YYYY-MM-DD_HHMMSS.jsonl`

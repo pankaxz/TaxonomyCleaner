@@ -48,9 +48,9 @@ DEFAULT_INPUT_PATH = "Input/canonical_data.json"
 DEFAULT_EXCEPTIONS_PATH = "Input/atomicity_exceptions.json"
 DEFAULT_OUTPUT_ROOT = "Output"
 DEFAULT_EMBEDDING_ENDPOINT = "http://127.0.0.1:8090"
-DEFAULT_REASONING_ENDPOINT = "http://localhost:8080"
+DEFAULT_REASONING_ENDPOINT = "http://localhost:8001"
 DEFAULT_EMBEDDING_MODEL = "nomic-embed-text-v1.5.f16.gguf"
-DEFAULT_REASONING_MODEL = "DeepSeek-R1-Distill-Qwen-32B-Q3_K_M.gguf"
+DEFAULT_REASONING_MODEL = "qwen3.5-35b"
 
 STAGE_INDEX = {
     "stage0": 0,

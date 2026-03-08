@@ -57,14 +57,65 @@ class PromotionManager:
         )
         return str(queue_path.parent / "approved_canonical_output.json")
 
+    @staticmethod
+    def _load_semantic_dedup() -> Dict[str, dict]:
+        """Load semantic dedup alias suggestions keyed by lowered skill name.
+
+        Returns empty dict if the file doesn't exist (--semantic-dedup not run).
+        """
+        agents_dir = cfg.get_abs_path("agents.output_dir") or "data/agents"
+        path = Path(agents_dir) / "semantic_dedup.json"
+        if not path.exists():
+            return {}
+
+        with open(path, "r", encoding="utf-8") as f:
+            report = json.load(f)
+
+        aliases: Dict[str, dict] = {}
+        for entry in report.get("aliases", []):
+            aliases[entry["skill_name"].lower()] = entry
+        return aliases
+
+    @staticmethod
+    def _load_group_assignments() -> Dict[str, dict]:
+        """Load LLM group assignments keyed by lowered skill name.
+
+        Returns empty dict if the file doesn't exist (--assign-groups not run).
+        """
+        agents_dir = cfg.get_abs_path("agents.output_dir") or "data/agents"
+        path = Path(agents_dir) / "group_assignments.json"
+        if not path.exists():
+            return {}
+
+        with open(path, "r", encoding="utf-8") as f:
+            report = json.load(f)
+
+        assignments: Dict[str, dict] = {}
+        # Index existing assignments
+        for entry in report.get("existing", []):
+            assignments[entry["skill_name"].lower()] = entry
+        # Index new group suggestions (flatten from grouped structure)
+        for group_entry in report.get("new_groups", []):
+            suggested_group = group_entry["suggested_group"]
+            for skill in group_entry.get("skills", []):
+                skill["assigned_group"] = f"NEW:{suggested_group}"
+                assignments[skill["skill_name"].lower()] = skill
+        # Index rejected
+        for entry in report.get("rejected", []):
+            assignments[entry["skill_name"].lower()] = entry
+        return assignments
+
     @classmethod
     def generate_review(cls) -> Path:
         """Write review_candidates.json with all ready_for_promotion entries.
 
-        Each entry gets an `action` field:
-          - "alias_of:<CanonicalName>" if it already matches taxonomy
-          - "reject" if it matches a taxonomy group name
-          - otherwise "approve"
+        If --assign-groups was run first, each entry is enriched with the LLM's
+        group assignment, reasoning, ontological_nature, abstraction_level, and
+        confidence. The LLM's decision also influences the default action:
+          - REJECT:* from LLM → action defaults to "reject"
+          - alias_of match in taxonomy → "alias_of:<CanonicalName>"
+          - otherwise → "approve"
+
         Sorted by seen_count descending.
 
         Returns:
@@ -80,6 +131,20 @@ class PromotionManager:
         if not candidates:
             logger.info("discovery: no candidates ready for promotion")
 
+        # Load LLM assignments if available
+        llm_assignments = cls._load_group_assignments()
+        if llm_assignments:
+            logger.info(
+                f"discovery: loaded {len(llm_assignments)} LLM group assignments"
+            )
+
+        # Load semantic dedup results if available
+        semantic_aliases = cls._load_semantic_dedup()
+        if semantic_aliases:
+            logger.info(
+                f"discovery: loaded {len(semantic_aliases)} semantic alias suggestions"
+            )
+
         # Sort by frequency (highest first)
         sorted_candidates = dict(
             sorted(
@@ -89,22 +154,39 @@ class PromotionManager:
             )
         )
 
-        # Add action field + pick best suggested group
+        # Add action field + merge LLM assignments
         review: Dict[str, dict] = {}
-        alias_map = TaxonomyReader.get_alias_map()  # {lowered alias/canonical: lowered canonical}
+        alias_map = TaxonomyReader.get_alias_map()
         canonical_case_map = {
             canonical.lower(): canonical for canonical in TaxonomyReader.get_all_canonicals()
         }
         group_names = TaxonomyReader.get_group_names()
 
         for key, entry in sorted_candidates.items():
-            suggested = entry.get("suggested_groups", {})
-            # Pick the most frequent suggested group
-            best_group = (
-                max(suggested, key=suggested.get, default="") if suggested else ""
-            )
             display_name = entry["display_name"]
             normalized = display_name.lower()
+
+            # LLM assignment for this skill (if --assign-groups was run)
+            llm = llm_assignments.get(normalized, {})
+            llm_group = llm.get("assigned_group", "")
+
+            # Determine suggested_group: prefer LLM assignment over scraper tag
+            scraper_suggested = entry.get("suggested_groups", {})
+            if llm_group and not llm_group.startswith("REJECT:"):
+                # Strip "NEW:" prefix for the review file
+                best_group = llm_group.removeprefix("NEW:")
+            else:
+                best_group = (
+                    max(scraper_suggested, key=scraper_suggested.get, default="")
+                    if scraper_suggested
+                    else ""
+                )
+
+            # Check semantic dedup — LLM detected alias
+            sem = semantic_aliases.get(normalized, {})
+            sem_alias_of = sem.get("alias_of") if sem.get("is_alias") else None
+
+            # Determine default action
             matched_canonical_lower = alias_map.get(normalized)
             matched_canonical = (
                 canonical_case_map.get(matched_canonical_lower, display_name)
@@ -113,19 +195,46 @@ class PromotionManager:
             )
             if matched_canonical:
                 default_action = f"alias_of:{matched_canonical}"
+            elif sem_alias_of:
+                default_action = f"alias_of:{sem_alias_of}"
+            elif llm_group.startswith("REJECT:"):
+                default_action = "reject"
             elif normalized in group_names:
                 default_action = "reject"
             else:
                 default_action = "approve"
 
-            review[key] = {
+            review_entry = {
                 "display_name": display_name,
                 "seen_count": entry["seen_count"],
                 "suggested_group": best_group,
-                "all_suggested_groups": suggested,
+                "all_suggested_groups": scraper_suggested,
                 "sample_sources": entry.get("sample_sources", [])[:5],
                 "action": default_action,
             }
+
+            # Enrich with LLM fields if available
+            if llm:
+                review_entry["llm_reasoning"] = llm.get("reasoning", "")
+                review_entry["llm_group"] = llm_group
+                review_entry["ontological_nature"] = llm.get(
+                    "ontological_nature", ""
+                )
+                review_entry["abstraction_level"] = llm.get(
+                    "abstraction_level", ""
+                )
+                review_entry["confidence"] = llm.get("confidence", "")
+
+            # Enrich with semantic dedup info if available
+            if sem:
+                review_entry["semantic_dedup"] = {
+                    "is_alias": sem.get("is_alias", False),
+                    "alias_of": sem.get("alias_of"),
+                    "confidence": sem.get("confidence", ""),
+                    "reasoning": sem.get("reasoning", ""),
+                }
+
+            review[key] = review_entry
 
         review_path = cfg.get_abs_path("discovery.review_output")
         _save_json(review, review_path)

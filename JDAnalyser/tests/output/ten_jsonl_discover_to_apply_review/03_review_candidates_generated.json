@@ -11,30 +11,6 @@
     "seen_count": 1,
     "suggested_group": ".NET Frameworks"
   },
-  "agile": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Management Methodologies": 1
-    },
-    "display_name": "Agile",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Management Methodologies"
-  },
-  "agile_practices": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Project Management Tools": 1
-    },
-    "display_name": "Agile Practices",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Project Management Tools"
-  },
   "agile_process": {
     "action": "approve",
     "all_suggested_groups": {
@@ -60,82 +36,6 @@
     "seen_count": 2,
     "suggested_group": "Mobile Development"
   },
-  "ansible": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "CI/CD Infrastructure": 1
-    },
-    "display_name": "Ansible",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer-i-observability/8577242"
-    ],
-    "seen_count": 1,
-    "suggested_group": "CI/CD Infrastructure"
-  },
-  "apis": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "API Management": 2
-    },
-    "display_name": "APIs",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
-    ],
-    "seen_count": 2,
-    "suggested_group": "API Management"
-  },
-  "automated_testing": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Development Practices": 1,
-      "Testing Frameworks": 1
-    },
-    "display_name": "Automated Testing",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
-    ],
-    "seen_count": 2,
-    "suggested_group": "Development Practices"
-  },
-  "azure": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Cloud Computing": 1
-    },
-    "display_name": "Azure",
-    "sample_sources": [
-      "https://builtin.com/job/sr-developer-full-stack/8311703"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Cloud Computing"
-  },
-  "backend_development": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Backend Systems": 2
-    },
-    "display_name": "Backend Development",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
-    ],
-    "seen_count": 2,
-    "suggested_group": "Backend Systems"
-  },
-  "bigquery": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Data Engineering": 1
-    },
-    "display_name": "BigQuery",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer/8369036"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Data Engineering"
-  },
   "bluetooth_technology": {
     "action": "approve",
     "all_suggested_groups": {
@@ -160,19 +60,6 @@
     "seen_count": 1,
     "suggested_group": "Build Systems"
   },
-  "ci/cd": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "CI/CD Infrastructure": 2
-    },
-    "display_name": "CI/CD",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
-    ],
-    "seen_count": 2,
-    "suggested_group": "CI/CD Infrastructure"
-  },
   "ci/cd_pipelines": {
     "action": "approve",
     "all_suggested_groups": {
@@ -184,18 +71,6 @@
     ],
     "seen_count": 1,
     "suggested_group": "CI/CD Infrastructure"
-  },
-  "clickhouse": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Databases": 1
-    },
-    "display_name": "ClickHouse",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer-i-observability/8577242"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Databases"
   },
   "cloud_technologies": {
     "action": "approve",
@@ -221,18 +96,6 @@
     "seen_count": 1,
     "suggested_group": "Programming Paradigms"
   },
-  "configuration_management": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Configuration Management Tools": 1
-    },
-    "display_name": "Configuration Management",
-    "sample_sources": [
-      "https://builtin.com/job/mobile-engineering-manager/8576370"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Configuration Management Tools"
-  },
   "contentions": {
     "action": "approve",
     "all_suggested_groups": {
@@ -245,31 +108,6 @@
     "seen_count": 1,
     "suggested_group": "Debugging Tools"
   },
-  "distributed_systems": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Distributed Systems": 2
-    },
-    "display_name": "Distributed Systems",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
-    ],
-    "seen_count": 2,
-    "suggested_group": "Distributed Systems"
-  },
-  "docker": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Containerization Tools": 1
-    },
-    "display_name": "Docker",
-    "sample_sources": [
-      "https://builtin.com/job/sr-developer-full-stack/8311703"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Containerization Tools"
-  },
   "driver_development": {
     "action": "approve",
     "all_suggested_groups": {
@@ -281,16 +119,6 @@
     ],
     "seen_count": 1,
     "suggested_group": "Operating Systems"
-  },
-  "entity_framework": {
-    "action": "approve",
-    "all_suggested_groups": {},
-    "display_name": "Entity Framework",
-    "sample_sources": [
-      "https://builtin.com/job/sr-developer-full-stack/8311703"
-    ],
-    "seen_count": 1,
-    "suggested_group": ""
   },
   "frontend_applications": {
     "action": "approve",
@@ -305,18 +133,6 @@
     "seen_count": 2,
     "suggested_group": "Frontend Development"
   },
-  "gcp": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Cloud Computing": 1
-    },
-    "display_name": "GCP",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer/8369036"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Cloud Computing"
-  },
   "gerrit": {
     "action": "approve",
     "all_suggested_groups": {
@@ -329,54 +145,6 @@
     "seen_count": 1,
     "suggested_group": "Version Control Systems"
   },
-  "git": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Version Control Systems": 1
-    },
-    "display_name": "Git",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer/8369036"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Version Control Systems"
-  },
-  "github_actions": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "CI/CD Infrastructure": 1
-    },
-    "display_name": "GitHub Actions",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer-i-observability/8577242"
-    ],
-    "seen_count": 1,
-    "suggested_group": "CI/CD Infrastructure"
-  },
-  "golang": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Languages": 1
-    },
-    "display_name": "Golang",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer-i-observability/8577242"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Languages"
-  },
-  "hibernate": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Java Web Tools": 1
-    },
-    "display_name": "Hibernate",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer/8369036"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Java Web Tools"
-  },
   "iot_devices": {
     "action": "approve",
     "all_suggested_groups": {
@@ -388,62 +156,6 @@
     ],
     "seen_count": 1,
     "suggested_group": "Internet of Things"
-  },
-  "java": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Languages": 4,
-      "Mobile Development": 1
-    },
-    "display_name": "Java",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
-      "https://builtin.com/job/software-engineer-ii-backend-ai-experiences/8442735",
-      "https://builtin.com/job/senior-engineer/8369036",
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577139",
-      "https://builtin.com/job/mobile-engineering-manager/8576370"
-    ],
-    "seen_count": 5,
-    "suggested_group": "Languages"
-  },
-  "jenkins": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "CI/CD Infrastructure": 1
-    },
-    "display_name": "Jenkins",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer/8369036"
-    ],
-    "seen_count": 1,
-    "suggested_group": "CI/CD Infrastructure"
-  },
-  "kafka": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Message Queuing Services": 1
-    },
-    "display_name": "Kafka",
-    "sample_sources": [
-      "https://builtin.com/job/software-engineer-ii-backend-ai-experiences/8442735"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Message Queuing Services"
-  },
-  "kotlin": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Languages": 2,
-      "Mobile Development": 1
-    },
-    "display_name": "Kotlin",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577139",
-      "https://builtin.com/job/mobile-engineering-manager/8576370"
-    ],
-    "seen_count": 3,
-    "suggested_group": "Languages"
   },
   "logging_tools": {
     "action": "approve",
@@ -591,18 +303,6 @@
     "seen_count": 1,
     "suggested_group": "Mobile Development"
   },
-  "opensearch": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Databases": 1
-    },
-    "display_name": "OpenSearch",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer-i-observability/8577242"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Databases"
-  },
   "os_kernel": {
     "action": "approve",
     "all_suggested_groups": {
@@ -615,78 +315,6 @@
     "seen_count": 1,
     "suggested_group": "Operating Systems"
   },
-  "postgresql": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Databases": 1
-    },
-    "display_name": "PostgreSQL",
-    "sample_sources": [
-      "https://builtin.com/job/software-engineer-ii-backend-ai-experiences/8442735"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Databases"
-  },
-  "react_native": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Cross Platform Development": 1
-    },
-    "display_name": "React Native",
-    "sample_sources": [
-      "https://builtin.com/job/mobile-engineering-manager/8576370"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Cross Platform Development"
-  },
-  "relational_databases": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Databases": 1
-    },
-    "display_name": "Relational Databases",
-    "sample_sources": [
-      "https://builtin.com/job/mobile-engineering-manager/8576370"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Databases"
-  },
-  "restful_apis": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "API Management": 1
-    },
-    "display_name": "Restful APIs",
-    "sample_sources": [
-      "https://builtin.com/job/mobile-engineering-manager/8576370"
-    ],
-    "seen_count": 1,
-    "suggested_group": "API Management"
-  },
-  "rust": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Languages": 1
-    },
-    "display_name": "Rust",
-    "sample_sources": [
-      "https://builtin.com/job/sr-staff-software-engineer-c-c-networking/8563171"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Languages"
-  },
-  "scrum": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Management Methodologies": 1
-    },
-    "display_name": "Scrum",
-    "sample_sources": [
-      "https://builtin.com/job/senior-software-engineer-enterprise/8577140"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Management Methodologies"
-  },
   "security": {
     "action": "approve",
     "all_suggested_groups": {
@@ -698,66 +326,6 @@
     ],
     "seen_count": 1,
     "suggested_group": "Security"
-  },
-  "solid_principles": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Software Architecture": 1
-    },
-    "display_name": "SOLID Principles",
-    "sample_sources": [
-      "https://builtin.com/job/sr-developer-full-stack/8311703"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Software Architecture"
-  },
-  "spark": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Data Engineering": 1
-    },
-    "display_name": "Spark",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer/8369036"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Data Engineering"
-  },
-  "spring_boot": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Java Web Tools": 1
-    },
-    "display_name": "Spring Boot",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer/8369036"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Java Web Tools"
-  },
-  "sql": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Databases": 1
-    },
-    "display_name": "SQL",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer/8369036"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Databases"
-  },
-  "swift": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Mobile Development": 1
-    },
-    "display_name": "Swift",
-    "sample_sources": [
-      "https://builtin.com/job/mobile-engineering-manager/8576370"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Mobile Development"
   },
   "synchronization": {
     "action": "approve",
@@ -783,18 +351,6 @@
     "seen_count": 1,
     "suggested_group": "Performance Testing"
   },
-  "terraform": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "CI/CD Infrastructure": 1
-    },
-    "display_name": "Terraform",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer-i-observability/8577242"
-    ],
-    "seen_count": 1,
-    "suggested_group": "CI/CD Infrastructure"
-  },
   "thread_development": {
     "action": "approve",
     "all_suggested_groups": {
@@ -806,18 +362,6 @@
     ],
     "seen_count": 1,
     "suggested_group": "Programming Paradigms"
-  },
-  "victoriametrics": {
-    "action": "approve",
-    "all_suggested_groups": {
-      "Databases": 1
-    },
-    "display_name": "VictoriaMetrics",
-    "sample_sources": [
-      "https://builtin.com/job/senior-engineer-i-observability/8577242"
-    ],
-    "seen_count": 1,
-    "suggested_group": "Databases"
   },
   "video_streaming": {
     "action": "approve",

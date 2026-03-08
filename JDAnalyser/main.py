@@ -131,6 +131,16 @@ def main() -> None:
         action="store_true",
         help="Run LLM agent to assign taxonomy groups to ready_for_promotion skills",
     )
+    group.add_argument(
+        "--sbert-dedup",
+        action="store_true",
+        help="Run embedding-based dedup to detect semantic duplicates via cosine similarity",
+    )
+    group.add_argument(
+        "--semantic-dedup",
+        action="store_true",
+        help="Run LLM agent to detect semantic duplicates (K8s=Kubernetes, Postgres=PostgreSQL)",
+    )
 
     parser.add_argument(
         "--no-parallel",
@@ -151,6 +161,10 @@ def main() -> None:
         cmd_apply_review()
     elif args.assign_groups:
         cmd_assign_groups()
+    elif args.sbert_dedup:
+        cmd_sbert_dedup()
+    elif args.semantic_dedup:
+        cmd_semantic_dedup()
     elif args.audit is not None:
         path = None if args.audit is True else args.audit
         cmd_audit(path)
@@ -166,11 +180,60 @@ def cmd_assign_groups() -> None:
     )
     print(
         f"  Existing groups: {meta.get('assigned_to_existing_group', 0)}, "
-        f"New groups suggested: {meta.get('suggested_new_group', 0)}, "
+        f"New groups suggested: {meta.get('suggested_new_groups', meta.get('suggested_new_group', 0))}, "
         f"Failed: {meta.get('failed', 0)}"
     )
     out_dir = cfg.get_abs_path("agents.output_dir") or "data/agents"
     print(f"  Output: {out_dir}/group_assignments.json")
+
+
+def cmd_sbert_dedup() -> None:
+    from agents.sbert_dedup import SbertDedup
+
+    threshold = cfg.get("embedding.threshold", 0.85)
+    report = SbertDedup.run(threshold=threshold)
+    meta = report.get("meta", {})
+    print(
+        f"\nEmbedding dedup complete: {meta.get('total_checked', 0)} skills checked"
+    )
+    print(
+        f"  Aliases found: {meta.get('aliases_found', 0)}, "
+        f"Confirmed novel: {meta.get('confirmed_novel', 0)}"
+    )
+    if report.get("aliases"):
+        print(f"\n  Top alias suggestions (threshold={threshold}):")
+        for a in report["aliases"][:20]:
+            print(
+                f"    {a['skill_name']} → {a['alias_of']} "
+                f"(score={a['best_score']})"
+            )
+        if len(report["aliases"]) > 20:
+            print(f"    ... and {len(report['aliases']) - 20} more")
+    out_dir = cfg.get_abs_path("agents.output_dir") or "data/agents"
+    print(f"\n  Output: {out_dir}/sbert_dedup.json")
+
+
+def cmd_semantic_dedup() -> None:
+    from agents.semantic_dedup import SemanticDedup
+
+    report = SemanticDedup.run()
+    meta = report.get("meta", {})
+    print(
+        f"\nSemantic dedup complete: {meta.get('total_checked', 0)} skills checked"
+    )
+    print(
+        f"  Aliases found: {meta.get('aliases_found', 0)}, "
+        f"Confirmed novel: {meta.get('confirmed_novel', 0)}"
+    )
+    if report.get("aliases"):
+        print("\n  Suggested aliases:")
+        for a in report["aliases"]:
+            print(
+                f"    {a['skill_name']} → {a['alias_of']} "
+                f"({a['confidence']}) — {a['reasoning']}"
+            )
+    out_dir = cfg.get_abs_path("agents.output_dir") or "data/agents"
+    print(f"\n  Output: {out_dir}/semantic_dedup.json")
 
 
 def cmd_audit(path: str | None = None) -> None:

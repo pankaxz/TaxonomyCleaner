@@ -37,6 +37,21 @@
     },
     {
       "term_normalized": "ci/cd"
+    },
+    {
+      "term_normalized": "ai/ml",
+      "reason_code": "industry_standard_name",
+      "notes": "Standard abbreviation for AI and ML used together"
+    },
+    {
+      "term_normalized": "async/await",
+      "reason_code": "industry_standard_name",
+      "notes": "Programming paradigm, not two separate concepts"
+    },
+    {
+      "term_normalized": "sns/sqs",
+      "reason_code": "industry_standard_name",
+      "notes": "AWS services commonly written together"
     }
   ]
 }

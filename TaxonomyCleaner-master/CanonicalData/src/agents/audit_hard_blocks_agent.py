@@ -1,34 +1,25 @@
 
+import argparse
+import hashlib
 import json
 import os
-import sys
-import time
+import re
 from datetime import datetime
-from typing import List, Dict, Any, Set
+from typing import Any, Dict, List, Set, Tuple
+
 from openai import OpenAI
-import argparse
 
 # -----------------------------------------------------------------------------
 # Configuration
 # -----------------------------------------------------------------------------
-DEFAULT_LLM_BASE_URL = "http://localhost:8080/v1"
+DEFAULT_LLM_BASE_URL = "http://localhost:8002/"
 DEFAULT_LLM_API_KEY = "sk-no-key-required"
-DEFAULT_MODEL_NAME = "DeepSeek-R1-Distill-Qwen-32B-Q3_K_M.gguf"
+DEFAULT_MODEL_NAME = "deepseek-r1-32b"
 
-# Paths relative to the script location (assuming src/agents/audit_hard_blocks_agent.py)
-# We need to resolve these to absolute paths or relative to the project root.
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
 INPUT_FILE = os.path.join(PROJECT_ROOT, "Input/canonical_data.json")
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, "artifacts/audit_results")
-
-# We need to point to the prompt file we created. 
-# It was saved to /home/pankaj/.gemini/antigravity/brain/26ff4e9b-828c-4763-8bb0-a7f0aef3d70f/prompts/hard_block_detection_prompt.md
-# But for the agent to be portable, ideally it should be in the repo.
-# For now, I will use the absolute path from the artifact location, or I should copy it to the repo.
-# Let's assume I should copy it to `artifacts/prompts/` in the repo if it's not there.
-# I will use a hardcoded path for now based on where I know I saved it in brain, 
-# but also try to look in the local project artifacts.
 
 BRAIN_PROMPT_PATH = "/home/pankaj/.gemini/antigravity/brain/26ff4e9b-828c-4763-8bb0-a7f0aef3d70f/prompts/hard_block_detection_prompt.md"
 
@@ -44,89 +35,136 @@ def save_json(path: str, data: Any) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+def hash_file(path: str) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(8192), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
 def get_system_prompt() -> str:
     if os.path.exists(BRAIN_PROMPT_PATH):
         with open(BRAIN_PROMPT_PATH, "r", encoding="utf-8") as f:
             return f.read()
     else:
         print(f"Warning: Prompt file not found at {BRAIN_PROMPT_PATH}. Using fallback.")
-        return "You are a helpful assistant." # Fallback (should not happen in this flow)
+        return "You are a helpful assistant."
 
 def normalize_term(term: str) -> str:
     return term.lower().strip()
+
+
+# -----------------------------------------------------------------------------
+# Checkpoint
+# -----------------------------------------------------------------------------
+class Checkpoint:
+    """Tracks which (group, canonical) pairs have been processed.
+
+    Persists to a JSON file alongside the audit output. Validates that the
+    input file hasn't changed since the checkpoint was created (via SHA-256).
+    """
+
+    def __init__(self, output_dir: str, input_path: str):
+        self.path = os.path.join(output_dir, "checkpoint.json")
+        self.input_path = input_path
+        self.input_hash = hash_file(input_path)
+        self.processed: Set[Tuple[str, str]] = set()
+        self.findings: List[Dict[str, Any]] = []
+        self._load()
+
+    def _load(self) -> None:
+        if not os.path.exists(self.path):
+            return
+        try:
+            data = load_json(self.path)
+        except (json.JSONDecodeError, OSError):
+            print("Warning: corrupt checkpoint file, starting fresh.")
+            return
+
+        saved_hash = data.get("input_hash", "")
+        if saved_hash != self.input_hash:
+            print(f"Input file changed (hash mismatch). Discarding old checkpoint.")
+            # Also remove stale audit_log.jsonl so we don't mix results
+            log_path = os.path.join(os.path.dirname(self.path), "audit_log.jsonl")
+            if os.path.exists(log_path):
+                os.remove(log_path)
+            return
+
+        for key in data.get("processed", []):
+            parts = key.split("::", 1)
+            if len(parts) == 2:
+                self.processed.add((parts[0], parts[1]))
+
+        self.findings = data.get("findings", [])
+        print(f"Checkpoint loaded: {len(self.processed)} processed, {len(self.findings)} findings.")
+
+    def save(self) -> None:
+        data = {
+            "input_path": self.input_path,
+            "input_hash": self.input_hash,
+            "updated_at": datetime.now().isoformat(),
+            "processed": sorted(f"{g}::{c}" for g, c in self.processed),
+            "findings": self.findings,
+        }
+        save_json(self.path, data)
+
+    def is_done(self, group: str, canonical: str) -> bool:
+        return (group, canonical) in self.processed
+
+    def mark_done(self, group: str, canonical: str) -> None:
+        self.processed.add((group, canonical))
+
+    def add_findings(self, entries: List[Dict[str, Any]]) -> None:
+        self.findings.extend(entries)
+
 
 # -----------------------------------------------------------------------------
 # Agent Class
 # -----------------------------------------------------------------------------
 class HardBlockAuditorAgent:
-    def __init__(self, base_url: str, api_key: str, model: str):
+    def __init__(self, base_url: str, api_key: str, model: str, checkpoint: Checkpoint):
         self.client = OpenAI(base_url=base_url, api_key=api_key)
         self.model = model
-        self.system_prompt = get_system_prompt()
-        self.findings: List[Dict[str, Any]] = []
+        self.system_prompt = get_system_prompt().replace("{{INPUT_JSON}}", "")
+        self.checkpoint = checkpoint
+        self.output_dir = os.path.dirname(checkpoint.path)
 
     def audit_canonical(self, group: str, canonical: str, aliases: List[str]) -> None:
         if not aliases:
+            self.checkpoint.mark_done(group, canonical)
             return
 
-        # Construct User Message
-        user_payload = {
-            "canonical": canonical,
-            "aliases": aliases
-        }
+        user_payload = {"canonical": canonical, "aliases": aliases}
         user_message = json.dumps(user_payload, indent=2)
-
-        # Prompt with template replacement if needed, 
-        # but the prompt says "{{INPUT_JSON}}", so let's do that replacement manually
-        # or just append it.
-        # The prompt file instructions say: "Analyze the following Canonical and Alias list: {{INPUT_JSON}}"
-        # So we should replace that placeholder.
-        
-        final_user_content = user_message
-        final_system_prompt = self.system_prompt.replace("{{INPUT_JSON}}", "") # We put payload in user message usually, but let's follow the prompt style.
-        # Actually, the prompt ends with "{{INPUT_JSON}}". It's better to put the JSON *in* the user message 
-        # basically saying "Here is the input: ..."
-        
-        # Strategy: 
-        # System Message: The definitions and rules.
-        # User Message: The specific JSON input.
-        
-        # Let's strip the {{INPUT_JSON}} from the system prompt and append it to user message context if needed.
-        # Or just use the system prompt as is (minus the placeholder) and send the JSON as user message.
-        
-        cleaned_system_prompt = self.system_prompt.replace("{{INPUT_JSON}}", "")
 
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": cleaned_system_prompt},
-                    {"role": "user", "content": user_message}
+                    {"role": "system", "content": self.system_prompt},
+                    {"role": "user", "content": user_message},
                 ],
-                temperature=0.0, # Deterministic
+                temperature=0.0,
                 max_tokens=1024,
             )
-
             content = response.choices[0].message.content
             self._process_response(group, canonical, content)
 
         except Exception as e:
-            print(f"Error processing {canonical}: {e}")
+            print(f"  Error processing {canonical}: {e}")
+            return  # Don't mark as done so it retries on next run
+
+        # Mark done and save checkpoint after successful processing
+        self.checkpoint.mark_done(group, canonical)
+        self.checkpoint.save()
 
     def _process_response(self, group: str, canonical: str, content: str) -> None:
-        import re
-        
-        # Regex to find JSON object { ... }
-        # Uses dotall flag to capture across newlines
-        # Looks for the first opening brace and the last closing brace
         json_match = re.search(r'(\{.*\})', content, re.DOTALL)
-        
+
         json_str = ""
         if json_match:
             json_str = json_match.group(1)
         else:
-            # Fallback: try stripping markdown code blocks if regex failed 
-            # (though regex should catch it if it's inside code blocks tools)
             clean_content = content.strip()
             if clean_content.startswith("```json"):
                 clean_content = clean_content[7:]
@@ -139,161 +177,131 @@ class HardBlockAuditorAgent:
         try:
             data = json.loads(json_str)
             hard_blocks = data.get("hard_blocks", [])
-            
+
+            log_entry = {
+                "group": group,
+                "canonical": canonical,
+                "findings": [],
+                "timestamp": datetime.now().isoformat(),
+            }
+
             if hard_blocks:
-                print(f"FOUND BLOCK for '{canonical}': {len(hard_blocks)} items")
-                
-                # Prepare the findings for this canonical
-                canonical_findings = {
-                    "group": group,
-                    "canonical": canonical,
-                    "findings": []
-                }
-                
+                print(f"  FOUND BLOCK for '{canonical}': {len(hard_blocks)} items")
+
+                new_findings = []
                 for block in hard_blocks:
-                    finding_entry = {
+                    finding = {
                         "alias": block.get("alias"),
                         "reason": block.get("reason"),
-                        "confidence_score": block.get("confidence_score", 0.0), # Default to 0.0 if missing
-                        "timestamp": datetime.now().isoformat()
+                        "confidence_score": block.get("confidence_score", 0.0),
+                        "timestamp": datetime.now().isoformat(),
                     }
-                    canonical_findings["findings"].append(finding_entry)
-                    
-                    # Also keep in memory if we want a summary later
-                    self.findings.append({
+                    log_entry["findings"].append(finding)
+                    new_findings.append({
                         "group": group,
                         "canonical": canonical,
-                        **finding_entry
+                        **finding,
                     })
-                
-                # Incremental Log: Append to JSONL file
-                # File: artifacts/audit_results/audit_log.jsonl
-                log_path = os.path.join(OUTPUT_DIR, "audit_log.jsonl")
-                os.makedirs(os.path.dirname(log_path), exist_ok=True)
-                with open(log_path, "a", encoding="utf-8") as f:
-                    f.write(json.dumps(canonical_findings, ensure_ascii=False) + "\n")
-            
-            else:
-                # Log clean checks too, so we know they were processed
-                log_path = os.path.join(OUTPUT_DIR, "audit_log.jsonl")
-                os.makedirs(os.path.dirname(log_path), exist_ok=True)
-                clean_entry = {
-                    "group": group,
-                    "canonical": canonical,
-                    "findings": [],
-                    "timestamp": datetime.now().isoformat()
-                }
-                with open(log_path, "a", encoding="utf-8") as f:
-                    f.write(json.dumps(clean_entry, ensure_ascii=False) + "\n")
 
-            # Save the full report on EVERY iteration (overwrite the file)
-            # This ensures we always have the latest state on disk.
-            self.save_report()
-                    
+                self.checkpoint.add_findings(new_findings)
+
+            # Append to incremental JSONL log
+            log_path = os.path.join(self.output_dir, "audit_log.jsonl")
+            with open(log_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+
+            # Update the latest report
+            self._save_report()
+
         except json.JSONDecodeError:
-            print(f"Failed to parse JSON response for {canonical}: {content[:100]}...")
+            print(f"  Failed to parse JSON response for {canonical}: {content[:100]}...")
 
-    def save_report(self):
-        # Always use the same filename or timestamped one? 
-        # For "continuous saving", a single "latest" file is better than creating thousands of files.
-        # But let's also keep the final timestamped one logic if needed.
-        
-        # 1. Save "latest" file
-        latest_path = os.path.join(OUTPUT_DIR, "hard_blocks_latest.json")
-        save_json(latest_path, {"findings": self.findings})
-        # print(f"Report updated at {latest_path}") # Too noisy for every iteration?
+    def _save_report(self) -> None:
+        latest_path = os.path.join(self.output_dir, "hard_blocks_latest.json")
+        save_json(latest_path, {"findings": self.checkpoint.findings})
+
 
 # -----------------------------------------------------------------------------
 # Main
 # -----------------------------------------------------------------------------
-def load_processed_canonicals() -> Set[str]:
-    log_path = os.path.join(OUTPUT_DIR, "audit_log.jsonl")
-    processed = set()
-    if os.path.exists(log_path):
-        with open(log_path, "r", encoding="utf-8") as f:
-            for line in f:
-                try:
-                    entry = json.loads(line)
-                    if "canonical" in entry:
-                        processed.add(entry["canonical"])
-                except json.JSONDecodeError:
-                    continue
-    return processed
+def parse_args():
+    parser = argparse.ArgumentParser(description="Audit canonical entries for hard block pairs")
+    parser.add_argument(
+        "--input",
+        default=INPUT_FILE,
+        help="Path to canonical data JSON file to audit.",
+    )
+    parser.add_argument(
+        "--reset",
+        action="store_true",
+        help="Discard existing checkpoint and start fresh.",
+    )
+    return parser.parse_args()
+
 
 def main():
+    args = parse_args()
+    input_file = args.input
+
     print(f"Starting Hard Block Auditor...")
-    print(f"Input: {INPUT_FILE}")
+    print(f"Input: {input_file}")
     print(f"Output: {OUTPUT_DIR}")
     print(f"Model: {DEFAULT_MODEL_NAME}")
 
-    if not os.path.exists(INPUT_FILE):
-        print(f"Error: Input file not found at {INPUT_FILE}")
+    if not os.path.exists(input_file):
+        print(f"Error: Input file not found at {input_file}")
         return
 
-    # Load Resume State
-    processed_canonicals = load_processed_canonicals()
-    print(f"Resuming... Already processed {len(processed_canonicals)} canonicals.")
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    data = load_json(INPUT_FILE)
-    agent = HardBlockAuditorAgent(DEFAULT_LLM_BASE_URL, DEFAULT_LLM_API_KEY, DEFAULT_MODEL_NAME)
+    # Handle --reset
+    if args.reset:
+        ckpt_path = os.path.join(OUTPUT_DIR, "checkpoint.json")
+        log_path = os.path.join(OUTPUT_DIR, "audit_log.jsonl")
+        for p in (ckpt_path, log_path):
+            if os.path.exists(p):
+                os.remove(p)
+                print(f"Removed {p}")
+        print("Checkpoint reset.")
 
-    # Pre-populate agent findings from log if we want the final report to be complete?
-    # Actually, the final report overwrites everything. 
-    # If we resume, `agent.findings` is empty, so `save_report` will only save new findings.
-    # To fix this, we should also reload existing findings from the log.
-    
-    # Reload existing findings
-    log_path = os.path.join(OUTPUT_DIR, "audit_log.jsonl")
-    if os.path.exists(log_path):
-         with open(log_path, "r", encoding="utf-8") as f:
-            for line in f:
-                try:
-                    entry = json.loads(line)
-                    findings_list = entry.get("findings", [])
-                    group = entry.get("group", "")
-                    canonical = entry.get("canonical", "")
-                    
-                    for finding in findings_list:
-                        agent.findings.append({
-                            "group": group,
-                            "canonical": canonical,
-                            "alias": finding.get("alias"),
-                            "reason": finding.get("reason"),
-                            "confidence_score": finding.get("confidence_score"),
-                            "timestamp": finding.get("timestamp")
-                        })
-                except:
-                    continue
-    
-    print(f"Loaded {len(agent.findings)} existing findings from log.")
+    checkpoint = Checkpoint(OUTPUT_DIR, input_file)
+    data = load_json(input_file)
+    agent = HardBlockAuditorAgent(
+        DEFAULT_LLM_BASE_URL, DEFAULT_LLM_API_KEY, DEFAULT_MODEL_NAME, checkpoint
+    )
 
-    total_canonicals = 0
-    processed_count = 0
-    
+    # Count total work items (canonicals with aliases)
+    work_items: List[Tuple[str, str, List[str]]] = []
     for group, group_data in data.items():
         if not isinstance(group_data, dict):
             continue
-            
         for canonical, aliases in group_data.items():
-            total_canonicals += 1
-            
-            # Resume Check
-            if canonical in processed_canonicals:
+            if not isinstance(aliases, list) or not aliases:
                 continue
+            work_items.append((group, canonical, aliases))
 
-            # Simple optimization: If no aliases, skip
-            if not aliases:
-                continue
-                
-            print(f"[{processed_count+1}] Auditing: {canonical} ({len(aliases)} aliases)")
-            agent.audit_canonical(group, canonical, aliases)
-            processed_count += 1
-            
-            # Rate limiting / polite delay?
-            # time.sleep(0.1) 
+    total = len(work_items)
+    already_done = sum(1 for g, c, _ in work_items if checkpoint.is_done(g, c))
+    remaining = total - already_done
 
-    agent.save_report()
-    print("Done.")
+    print(f"Total canonicals with aliases: {total}")
+    print(f"Already processed:             {already_done}")
+    print(f"Remaining:                     {remaining}")
+
+    if remaining == 0:
+        print("Nothing to do — all entries already processed.")
+        return
+
+    processed_count = 0
+    for group, canonical, aliases in work_items:
+        if checkpoint.is_done(group, canonical):
+            continue
+
+        processed_count += 1
+        print(f"[{processed_count}/{remaining}] Auditing: {canonical} ({len(aliases)} aliases)")
+        agent.audit_canonical(group, canonical, aliases)
+
+    print(f"\nDone. Total findings: {len(checkpoint.findings)}")
 
 if __name__ == "__main__":
     main()

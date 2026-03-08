@@ -14,8 +14,8 @@ REPO_PATH = "/mnt/workspace/Backups/TaxonomyCleaner-master/CanonicalData"
 OUTPUT_DIR = "repo_analysis"
 CHECKPOINT_DIR = f"{OUTPUT_DIR}/checkpoints"
 
-LLM_ENDPOINT = "http://127.0.0.1:8080/v1/completions"
-MODEL_NAME = "Qwen3.5-35B-A3B-Q5_K_S.gguf"
+LLM_ENDPOINT = "http://localhost:8002/v1/completions"
+MODEL_NAME = "deepseek-r1-32b"
 
 TEMPERATURE = 0.1
 MAX_TOKENS = 400

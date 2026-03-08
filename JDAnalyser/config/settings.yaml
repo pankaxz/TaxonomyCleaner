@@ -34,6 +34,13 @@ llm:
   max_tokens: 8192
   batch_size: 1
 
+# Local embedding model via llama-server
+embedding:
+  base_url: http://127.0.0.1:8090
+  model: nomic-embed-text-v1.5
+  batch_size: 100
+  threshold: 0.85
+
 # Agent output directory
 agents:
   output_dir: data/agents

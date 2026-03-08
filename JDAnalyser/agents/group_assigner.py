@@ -138,6 +138,11 @@ def _parse_llm_response(text: str) -> list[dict]:
     cleaned = re.sub(r"```", "", cleaned)
     cleaned = cleaned.strip()
 
+    # Fix Python-style booleans/None → JSON true/false/null
+    cleaned = re.sub(r'\bTrue\b', 'true', cleaned)
+    cleaned = re.sub(r'\bFalse\b', 'false', cleaned)
+    cleaned = re.sub(r'\bNone\b', 'null', cleaned)
+
     # Try to find a JSON array first
     start = cleaned.find("[")
     end = cleaned.rfind("]")
