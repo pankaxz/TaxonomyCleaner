@@ -1,0 +1,1541 @@
+Project Role :AI / ML Engineer
+
+
+Project Role Description :Develops applications and systems that utilize AI tools, Cloud AI services, with proper cloud or on-prem application pipeline with production ready quality. Be able to apply GenAI models as part of the solution. Could also include but not limited to deep learning, neural networks, chatbots, image processing.
+
+
+Must have skills :Computer Vision
+
+
+
+Good to have skills :NA
+Minimum
+
+3 year(s) of experience is required
+
+
+
+Educational Qualification :15 years full time education
+
+
+
+Summary:As an AI / ML Engineer, you will engage in the development of applications and systems that leverage artificial intelligence tools and cloud AI services. Your typical day will involve designing and implementing production-ready solutions, ensuring that they meet quality standards. You will also explore the integration of generative AI models into your projects, while working with various technologies such as deep learning, neural networks, chatbots, and image processing. Collaboration with team members and stakeholders will be essential as you contribute to innovative solutions that address complex challenges in the field of AI and machine learning.
+
+Roles & Responsibilities:
+Expected to perform independently and become an SME.
+Required active participation/contribution in team discussions.
+Contribute in providing solutions to work related problems.
+Collaborate with cross-functional teams to gather requirements and deliver effective AI solutions.
+Conduct research and stay updated on the latest advancements in AI and machine learning technologies.
+
+Professional & Technical
+
+Skills:
+
+Must To Have
+
+Skills:
+
+Proficiency in Computer Vision.
+Good To Have
+
+Skills:
+Experience with image processing techniques.
+Strong understanding of deep learning frameworks such as TensorFlow or PyTorch.
+Familiarity with cloud platforms and services for deploying AI applications.
+Experience in developing and optimizing algorithms for real-time image analysis.
+
+Additional Information:
+The candidate should have minimum 3 years of experience in Computer Vision.
+This position is based at our Bengaluru office.
+A 15 years full time education is required.
+
+ Qualification 15 years full time education
+Role: Machine Learning Engineer
+Industry Type: IT Services & Consulting
+Department: Data Science & Analytics
+Employment Type: Full Time, Permanent
+Role Category: Data Science & Machine Learning
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+###END###
+
+Job description
+Job Area:
+Engineering Group, Engineering Group > Hardware Engineering
+General Summary:
+
+As a leading technology innovator, Qualcomm pushes the boundaries of what's possible to enable next-generation experiences and drives digital transformation to help create a smarter, connected future for all. As a Qualcomm Hardware Engineer, you will plan, design, optimize, verify, and test electronic systems, bring-up yield, circuits, mechanical systems, Digital/Analog/RF/optical systems, equipment and packaging, test systems, FPGA, and/or DSP systems that launch cutting-edge, world class products. Qualcomm Hardware Engineers collaborate with cross-functional teams to develop solutions and meet performance requirements.
+
+Minimum Qualifications:
+
+Bachelor's degree in Computer Science, Electrical/Electronics Engineering, Engineering, or related field.
+Core Technical Expertise:
+
+Strong software development experience (software engineering principles, algorithms, and data structures) with proficiency in Python.
+Strong foundations in mathematics for ML and ML Algorithms (regression, tree ensembles, SVMs, clustering, time series), feature selection (PCA, mutual information), and model interpretability.
+Hands-on experience with deep learning architectures (CNNs, RNNs, LSTMs, Transformers), training optimization (regularization, gradient clipping, learning rate scheduling), and advanced loss functions (contrastive, triplet).
+Ability to break down design requirements and propose innovative, scalable solutions.
+
+o Additional Expertise
+
+Exposure to generative AI & LLMs: Experience with prompt engineering, RAG, parameter-efficient finetuning, context management, and LLM evaluation frameworks.
+Good understanding of VLSI Design Execution - with development experience on PnR or Synthesis or STA
+Tooling & Infrastructure: Proficient in Python, PyTorch/TensorFlow, Scikit-learn, Pandas, NumPy
+2+ years
+Role: Machine Learning Engineer
+Industry Type: IT Services & Consulting
+Department: Data Science & Analytics
+Employment Type: Full Time, Permanent
+Role Category: Data Science & Machine Learning
+Education
+UG: Any Graduate
+PG: LLM in Law
+###END###
+
+Job description
+General Summary:Job Overview
+We are seeking an Engineer with a strong foundation in software engineering and DevOps practices. The ideal candidate will have experience in CI/CD pipelines, containerization, cloud platforms, and AI/ML technologies. This role involves working on cutting-edge solutions that integrate hardware and software, leveraging modern tools and frameworks.
+
+Key Responsibilities
+Create and maintain Jenkins pipelines for automated builds and deployments.
+Implement and manage CI/CD best practices across projects.
+Work with GIT and Gerrit for version control and code review workflows.
+Develop automation scripts using Python and Bash.
+Deploy and manage containerized applications using Docker and Kubernetes.
+Utilize Exoscale or similar cloud platforms for infrastructure management.
+Collaborate with hardware teams and apply knowledge of PCIe and related interfaces.
+Integrate AI/ML solutions, including LLMs and frameworks like LangChain, into software workflows.
+Troubleshoot and optimize system performance across hardware and software layers.
+Desirable Skills and Aptitudes
+Strong problem-solving and analytical skills.
+Ability to work in a fast-paced, collaborative environment.
+Familiarity with distributed systems and scalable architectures.
+Interest in emerging technologies such as AI/ML, LLMs, and cloud-native solutions.
+Excellent communication and documentation skills.
+Hands-on experience with:
+Jenkins
+Python
+Git & Gerrit
+Exoscale (or similar cloud platforms)
+Bash scripting
+Docker
+Kubernetes
+Qualifications
+Bachelor's / Master's / Ph.D. degree in Engineering, Machine Learning/AI, Information Systems, Computer Science, or related field.
+1+ years of software engineering or related work experience.
+1+ years experience with programming languages such as C++ and Python.
+Minimum Qualifications
+Bachelor's degree in Engineering, Information Systems, Computer Science, or related field.
+Minimum Qualifications:
+
+Bachelor's degree in Engineering, Information Systems, Computer Science, or related field.
+You may e-mail or call Qualcomm's toll-free number found .
+
+
+Role: Release Engineer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: DevOps
+Education
+UG: B.Tech/B.E. in Production/Industrial
+PG: Any Postgraduate
+###END###
+
+Job description
+General Summary:
+We are seeking a passionate and skilled AI/ML Engineer to join our cutting-edge Extended Reality (XR) Software team. In this role, you will work on next-generation XR products that blend the physical and digital worlds, leveraging artificial intelligence and machine learning to create immersive, intelligent, and responsive experiences.
+You will collaborate with cross-functional teams of researchers, engineers, and designers to build real-time AI/ML software optimized for XR platforms. A strong background in C++ or embedded firmware development is essential, as you will be working close to hardware and performance-critical systems.
+Key Responsibilities
+Design, develop, and optimize AI/ML models for XR applications such as computer vision, sensor fusion, gesture recognition, and spatial understanding.
+Implement real-time inference pipelines on embedded or edge devices.
+Collaborate with firmware and hardware teams to integrate ML models into XR systems.
+Analyze system performance and optimize for latency, power, and memory.
+Stay up to date with the latest research and trends in AI/ML and XR technologies.
+Contribute to the full lifecycle of product developmentfrom prototyping to production.
+Required Qualifications
+Bachelors or Masters degree in Computer Science, Electrical Engineering, or a related field.
+110 years of industry experience in AI/ML engineering or embedded systems.
+Proficiency in C++ and/or embedded firmware development .
+Solid understanding of machine learning fundamentals and experience with frameworks like TensorFlow , PyTorch , or ONNX .
+Experience with deploying ML models on edge devices
+Familiarity with XR technologies (AR/VR/MR), sensor data processing, or 3D spatial computing.
+Minimum Qualifications:
+Bachelor's degree in Engineering, Information Systems, Computer Science, or related field and 3+ years of Systems Engineering or related work experience.
+OR
+Master's degree in Engineering, Information Systems, Computer Science, or related field and 2+ years of Systems Engineering or related work experience.
+OR
+PhD in Engineering, Information Systems, Computer Science, or related field and 1+ year of Systems Engineering or related work experience.
+Please do not forward resumes to our jobs alias, Qualcomm employees or any other company location.
+Role: Blockchain Quality Assurance Engineer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Quality Assurance and Testing
+Education
+UG: B.Tech/B.E. in Production/Industrial
+PG: Any Postgraduate
+###END###
+
+Job description
+Conduct security investigations of Cloud security and vulnerability incidents, analyzing various data sources to assess risk and impact.
+Manage multiple cross-functional efforts and escalations simultaneously, engaging priorities and communicating with key stakeholders.
+Solve complex technical problems involving independent but interconnected components.
+Serve as the go-to person for broad security domains, understanding the interplay of threats between systems and services.
+Build and maintain strong relationships with stakeholders across Google, including Legal, Engineering, and Communications teams.
+Investigate the impact on Google Cloud customers to determine if new detection or compromise notifications are necessary.
+Job Requirements
+Bachelor's degree or equivalent practical experience.
+Minimum 2 years of experience with vulnerability assessment, security assessments, security design reviews, or threat modeling and insider threat.
+Minimum 2 years of experience with incident management and incident response.
+Minimum 2 years of coding experience in one or more general-purpose languages.
+Experience with malware prevention is preferred.
+Excellent communication skills and a data-driven methodical approach towards solving tests.
+About Company
+Our Security team works to create and maintain the safest operating environment for Google's users and developers. We deliver enterprise-grade solutions that leverage Googles cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to us as their trusted partner to enable growth and solve their most critical business problems.
+Google is proud to be an equal opportunity workplace and is an affirmative action employer. We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, or Veteran status. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements. If you have a disability or special need that requires accommodation, please let us know by completing our Accommodations for Applicants form.
+Role: Blockchain Quality Assurance Engineer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Quality Assurance and Testing
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+###END###
+
+Job description
+Your key responsibilities
+Develop and deploy machine learning models on Azure cloud platform using Python programming language and Azure ML services.
+Design and implement scalable and efficient data pipelines for model training and inference.
+Collaborate with data scientists and business stakeholders to understand requirements and translate them into technical solutions.
+Implement best practices for ML development, including version control, testing, and documentation.
+Develop and maintain APIs on Azure cloud platform for model deployment and integration with applications.
+Monitor and optimize model performance, ensuring scalability, reliability, and security.
+Participate in code reviews, troubleshooting, and optimization to improve performance and maintainability.
+Stay updated with industry trends and best practices in machine learning, cloud computing, and API development.
+Mentor junior team members, sharing expertise and guiding them in technical challenges.
+Collaborate with cross-functional teams, including data engineers, data scientists, and business analysts, to deliver end-to-end solutions.
+Conduct regular evaluations and assessments of ML models and APIs, identifying areas for improvement and optimization.
+Lead and contribute to innovation initiatives, exploring new technologies and approaches to enhance our ML and cloud capabilities.
+Soft Skills
+
+Bachelor's degree in computer science, data science, or related field.
+6-8 years of experience in machine learning, data engineering, and cloud computing, with a strong focus on Azure services.
+Proficiency in Python programming language for ML model development and deployment.
+Experience with Azure ML services, Azure data services (e.g., Azure Data Lake, Azure SQL Database), and Azure cloud infrastructure.
+Strong understanding of machine learning concepts, algorithms, and techniques, including supervised and unsupervised learning, deep learning, and natural language processing.
+Expertise in designing and implementing data pipelines for ML model training and inference, using tools like Azure Databricks, Azure Data Factory, and Azure Synapse Analytics.
+Familiarity with cloud-native technologies, containerization (e.g., Docker, Kubernetes), and DevOps practices for ML model deployment and automation.
+Experience with version control systems (e.g., Git/GitHub), CI/CD pipelines, and software engineering best practices for ML projects.
+Strong analytical and problem-solving skills, with the ability to analyze complex data sets, identify patterns, and derive meaningful insights.
+Excellent communication and collaboration skills, with the ability to work effectively in cross-functional teams and communicate technical concepts to non-technical stakeholders.
+Proactive mindset, self-driven, and eager to learn new technologies and methodologies in the ML and cloud computing space.
+Ability to work in a fast-paced environment, manage multiple priorities, and deliver high-quality results under tight deadlines.
+
+To qualify for the role, you must have
+
+
+A bachelor's or master's degree in computer science, data science, or related field.
+6-8 years of hands-on experience in machine learning, cloud computing, and API development, with a focus on Azure services.
+Proficiency in Python programming language for ML model development and deployment, along with experience using Azure ML services and Azure cloud infrastructure.
+Strong communication skills, both verbal and written, with the ability to articulate technical concepts effectively to diverse audiences.
+Proven track record of successfully delivering ML projects, designing scalable data pipelines, and collaborating in cross-functional teams.
+Certifications such as Microsoft Certified: Azure AI Engineer Associate, Microsoft Certified: Azure Data Scientist Associate, or equivalent, are highly desirable.
+Experience with other cloud platforms (e.g., AWS, Google Cloud Platform) and additional programming languages (e.g., R, Java) is a plus.
+Ideally, youll also have
+
+Analytical ability to manage multiple ML projects simultaneously, prioritize tasks effectively, and make data-driven decisions.
+Experience operating independently or with minimal supervision, demonstrating strong problem-solving skills and initiative.
+Familiarity with advanced ML techniques and frameworks (e.g., TensorFlow, PyTorch) for deep learning and computer vision applications.
+Knowledge of cloud security principles, data governance, and regulatory compliance frameworks relevant to ML and cloud environments.
+Experience with Big Data technologies (e.g., Apache Spark, Hadoop) for processing large-scale datasets and building ML models at scale.
+
+What working at EY offers
+
+At EY, were dedicated to helping our clients, from startups to Fortune 500 companies and the work we do with them is as varied as they are.
+
+You get to work with inspiring and meaningful projects. Our focus is education and coaching alongside practical experience to ensure your personal development. We value our employees and you will be able to control your own development with an individual progression plan. You will quickly grow into a responsible role with challenging and stimulating assignments. Moreover, you will be part of an interdisciplinary environment that emphasizes high quality and knowledge exchange. Plus, we offer:
+
+Support, coaching and feedback from some of the most engaging colleagues around
+Opportunities to develop new skills and progress your career
+The freedom and flexibility to handle your role in a way thats right for you
+EY | Building a better working world
+
+EY is building a better working world by creating new value for clients, people, society and the planet, while building trust in capital markets.
+
+Enabled by data, AI and advanced technology, EY teams help clients shape the future with confidence and develop answers for the most pressing issues of today and tomorrow.
+
+EY teams work across a full spectrum of services in assurance, consulting, tax, strategy and transactions. Fueled by sector insights, a globally connected, multi-disciplinary network and diverse ecosystem partners, EY teams can provide services in more than 150 countries and territories.
+
+
+Role: Data Platform Engineer
+Industry Type: Banking
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+###END###
+
+Job description
+General Summary:
+
+Looking for ML framework and AI compiler Engineer responsible for
+
+Designing, implementing, and deploying machine learning models using PyTorch
+Focusing on backend infrastructure and system architecture.
+Responsibilities often include developing framework, integrating with other AI tools, and ensuring scalability and reliability.
+Here's a more detailed breakdown of what you might see in such a job description:
+
+Key Responsibilities:
+
+Model Development and Deployment: Designing, building, and deploying AI models, particularly those leveraging PyTorch for deep learning.
+Backend Infrastructure: Developing and maintaining the backend systems that power AI applications, including data ingestion, processing, and storage.
+System Architecture: Designing scalable and high-performance backend architectures to handle AI workloads.
+Model Optimization: Optimizing model performance for speed, accuracy, and resource efficiency.
+Integration: Integrating AI models with other systems and applications.
+API Development: Creating and maintaining APIs for communication between frontend and backend components.
+Data Handling: Managing data ingestion, preprocessing, and storage for AI training and inference.
+Collaboration: Working with data scientists, product managers, and other engineers to bring AI solutions to life.
+Tools, Technologies, Skills and Programming:
+
+C, C++: Strong programming capability using advanced techniques to design and develop AI compilers and backends.
+Scripting: Strong expertise in Python with design, develop, release and maintain projects.
+AI Frameworks:Familiarity with other AI frameworks like PyTorch, TensorFlow, Hugging Face, etc.
+Machine Learning Knowledge:Understanding of machine learning principles and algorithms starting Computer vision to large language models and continuously update to new trends.
+Expertise to deep learning accelerator programming (GPU, NPU). Any parallel programming experience (Like CUDA, OpenCL, MKLDNN ..etc) is a plus.
+Experience with deep leaning compilers like Glow, TVM etc is a plus.
+Minimum Qualifications:
+
+Bachelor's degree in Engineering, Information Systems, Computer Science, or related field and 4+ years of Systems Engineering or related work experience. ORMaster's degree in Engineering, Information Systems, Computer Science, or related field and 3+ years of Systems Engineering or related work experience. ORPhD in Engineering, Information Systems, Computer Science, or related field and 2+ years of Systems Engineering or related work experience.
+
+Role: Blockchain Quality Assurance Engineer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Quality Assurance and Testing
+Education
+UG: B.Tech/B.E. in Production/Industrial
+PG: Any Postgraduate
+
+###END###
+
+Job description
+In this role
+You will be interacting closely with the product definition and architecture team.
+Developing implementation (microarchitecture and coding) strategies to meet quality, and PPAS (Performance Power Area Schedule) goals for Sub-system.
+Define various aspects of the block level design such as block diagram, interfaces, clocking, transaction flow, pipeline, low power etc.
+Perform as well as lead a team of engineers on RTL coding for Sub-system/SOC integration, function/performance simulation debug.
+Drive Lint/CDC/FV/UPF checks to ensure design quality.
+Develop Assertions as part of white-box testing-coverage.
+Work with stakeholders to discuss the right collateral quality and identify solutions/workarounds.
+Work towards delivering with key design collaterals (timing constraints, UPF etc.).
+Desired Skillset:
+
+Good understanding of low power microarchitecture techniques and AI/ML systems.
+Thorough knowledge of Computer system architecture, including design aspects of AI/ML designs.
+Experience in high performance design techniques and trade-offs in a Computer microarchitecture.
+Good understanding of principals of NoC Design
+Define Performance (Bandwidth, Latency) and Bus transactions sizing based on usecases across Voltage/Frequency corners
+Working with Power and Synthesis teams on usecases, dynamic power and datapath interactions
+Knowledge of Verilog / System Verilog. Experience with simulators and waveform debugging tools
+Working with SOC DFT and PD teams as part of collaterals exchanges
+Knowledge of logic design principles along with timing and power implications.
+Preferred Qualifications:
+
+Master's or Bachelor's degree in Electronics or Electrical Engineering or equivalent.
+At least 2+ years of experience working on multiple designs.
+Minimum Qualifications:
+
+Bachelor's degree in Computer Science, Electrical/Electronics Engineering, Engineering, or related field and 2+ years of Hardware Engineering or related work experience
+ORMaster's degree in Computer Science, Electrical/Electronics Engineering, Engineering, or related field and 1+ year of Hardware Engineering or related work experience
+ORPhD in Computer Science, Electrical/Electronics Engineering, Engineering, or related field
+
+
+Role: ASIC / RTL / Logic Design Engineer
+Industry Type: IT Services & Consulting
+Department: Engineering - Hardware & Networks
+Employment Type: Full Time, Permanent
+Role Category: Hardware
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+###END###
+
+Job description
+Minimum qualifications:
+Bachelor s degree or equivalent practical experience.
+2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.
+1 year of experience with one or more of the following: Speech/audio (e.g., technology duplicating and responding to the human voice), reinforcement learning (e.g., sequential decision making), ML infrastructure, or specialization in another ML field.
+1 year of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).
+
+Preferred qualifications:
+Master's degree or PhD in Computer Science or related technical fields.
+2 years of experience with data structures or algorithms.
+Experience developing accessible technologies.
+About the job
+Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.
+Google Cloud accelerates every organization s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.
+Responsibilities
+Write product or system development code.
+Collaborate with peers and stakeholders through design and code reviews to ensure best practices amongst available technologies (e.g., style guidelines, checking code in, accuracy, testability, and efficiency,)
+Contribute to existing documentation or educational content and adapt content based on product/program updates and user feedback.
+Triage product or system issues and debug/track/resolve by analyzing the sources of issues and the impact on hardware, network, or service operations and quality.
+Implement solutions in one or more specialized ML areas, utilize ML infrastructure, and contribute to model optimization and data processing.
+Role: Blockchain Quality Assurance Engineer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Quality Assurance and Testing
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+###END###
+
+
+Job description
+General Summary:
+
+As a Qualcomm Hardware Engineer, you will plan, design, optimize, verify, and test electronic systems, bring-up yield, circuits, mechanical systems, Digital/Analog/RF/optical systems, equipment and packaging, test systems, FPGA, and/or DSP systems that launch cutting-edge, world class products
+Qualcomm Hardware Engineers collaborate with cross-functional teams to develop solutions and meet performance requirements
+Minimum Qualifications:
+
+Bachelor's degree in Computer Science, Electrical/Electronics Engineering, Engineering, or related field and 8+ years of Hardware Engineering or related work experience
+OR Master's degree in Computer Science, Electrical/Electronics Engineering, Engineering, or related field and 7+ years of Hardware Engineering or related work experience
+OR PhD in Computer Science, Electrical/Electronics Engineering, Engineering, or related field and 6+ years of Hardware Engineering or related work experience
+Core Technical Expertise:
+
+Strong software development experience (software engineering principles, algorithms, and data structures) with proficiency in Python.
+Strong foundations in mathematics for ML and ML Algorithms (regression, tree ensembles, SVMs, clustering, time series), feature selection (PCA, mutual information), and model interpretability.
+Hands-on experience with deep learning architectures (CNNs, RNNs, LSTMs, Transformers), training optimization (regularization, gradient clipping, learning rate scheduling), and advanced loss functions (contrastive, triplet).
+Ability to break down design requirements and propose innovative, scalable solutions.
+
+Additional Expertise
+
+Exposure to generative AI & LLMs: Experience with prompt engineering, RAG, parameter-efficient finetuning, context management, and LLM evaluation frameworks.
+Good understanding of VLSI Design Execution - with development experience on PnR or Synthesis or STA
+Tooling & Infrastructure: Proficient in Python, PyTorch/TensorFlow, Scikit-learn, Pandas, NumPy
+16+ years experience required.
+Role: Machine Learning Engineer
+Industry Type: IT Services & Consulting
+Department: Data Science & Analytics
+Employment Type: Full Time, Permanent
+Role Category: Data Science & Machine Learning
+Education
+UG: Any Graduate
+PG: LLM in Law
+
+
+###END###
+
+Job description
+General Summary:
+
+As a Qualcomm Hardware Engineer, you will plan, design, optimize, verify, and test electronic systems, bring-up yield, circuits, mechanical systems, Digital/Analog/RF/optical systems, equipment and packaging, test systems, FPGA, and/or DSP systems that launch cutting-edge, world class products
+Qualcomm Hardware Engineers collaborate with cross-functional teams to develop solutions and meet performance requirements.
+Minimum Qualifications:
+
+Bachelor's degree in Computer Science, Electrical/Electronics Engineering, Engineering, or related field and 3+ years of Hardware Engineering or related work experience
+OR Master's degree in Computer Science, Electrical/Electronics Engineering, Engineering, or related field and 2+ years of Hardware Engineering or related work experience
+OR PhD in Computer Science, Electrical/Electronics Engineering, Engineering, or related field and 1+ year of Hardware Engineering or related work experience
+Core Technical Expertise:
+
+Strong software development experience (software engineering principles, algorithms, and data structures) with proficiency in Python.
+Strong foundations in mathematics for ML and ML Algorithms (regression, tree ensembles, SVMs, clustering, time series), feature selection (PCA, mutual information), and model interpretability.
+Hands-on experience with deep learning architectures (CNNs, RNNs, LSTMs, Transformers), training optimization (regularization, gradient clipping, learning rate scheduling), and advanced loss functions (contrastive, triplet).
+Ability to break down design requirements and propose innovative, scalable solutions.
+
+Additional Expertise
+
+Exposure to generative AI & LLMs: Experience with prompt engineering, RAG, parameter-efficient finetuning, context management, and LLM evaluation frameworks.
+Good understanding of VLSI Design Execution - with development experience on PnR or Synthesis or STA
+Tooling & Infrastructure: Proficient in Python, PyTorch/TensorFlow, Scikit-learn, Pandas, NumPy
+6+ years experience.
+Role: Technical Lead
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: LLM in Law
+
+
+###END###
+
+
+Job description
+Minimum qualifications:
+Bachelor's degree or equivalent practical experience.
+8 years of experience with data structures/algorithms and software development in one or more programming languages.
+5 years of experience testing, maintaining or launching software products, and 1 year of experience with software design and architecture.
+5 years of experience with one or more of the following such speech/audio (e.g., technology duplicating and responding to the human voice), reinforcement learning (e.g., sequential decision making), ML infrastructure, or specialization in another ML field.
+3 years of experience with machine learning infrastructure (e.g., model deployment/evaluation, optimization, debugging) or large-scale distributed systems.
+
+Preferred qualifications:
+Experience with large-scale system design, artificial intelligence or machine learning.
+Knowledge of modern react-style web development.
+Understanding of the full web stack, including protocols and web server optimization techniques.
+About the job
+Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.
+Google Cloud accelerates every organization s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.
+
+Responsibilities
+Develop AI platforms and applications for Google Cloud's enterprise customers.
+Grow in a fluid environment solving critical issues and delivers innovative solutions at speed.
+Role: Full Stack Developer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+###END###
+
+Job description
+Extensive experience in designing and implementing scalable, maintainable and reliable software solutions
+Working knowledge of AI/ML and Gen AI applications and how they can enhance software engineering processes to improve productivity Experience building RAGs using LlamaIndex, LangChain, or similar frameworks
+Experience building Agentic AI systems using AutoGen, SemanticKernel, Pydantic, or similar frameworks is preferred
+Proficiency in one or more programming languages (e.g, Python, TypeScript or C#) and experience developing microservices architecture on cloud platforms (AWS Azure)
+A keen interest in researching new AI tooling and you are a daily user of AI coding assistants such as Cursor, Continue, GitHub CoPilot, Aider, Cline, etc
+Knowledge of or experience in Anthropic Claude, Llama, LiteLLM, Cursor, windsurf / Codeium, VO Vercel, Continue, Aider, Cline, Langchain, Langgraph, Hugging Face will be highly desirable
+Strong technical leadership skills and ability to collaborate with stakeholders to solve business-critical problems
+Ability to provide technical direction to teams, reviewing designs and code to ensure best practices
+Proficiency in agile development methodologies and iterative experimentation from ideation to prototype to pilot to product .
+Role: Blockchain Quality Assurance Engineer
+Industry Type: Banking
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Quality Assurance and Testing
+Education
+UG: B.Tech/B.E. in Any Specialization
+PG: Any Postgraduate
+
+
+###END###
+
+Job description
+Minimum qualifications:
+Bachelor's degree or equivalent practical experience.
+8 years of experience with software development in one or more programming languages.
+7 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture.
+5 years of experience with one or more of the following: Speech/audio (e.g., technology duplicating and responding to the human voice), reinforcement learning (e.g., sequential decision making), or specialization in another ML field.
+5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging) or large-scale distributed systems.
+
+Preferred qualifications:
+8 years of experience with data structures/algorithms.
+Knowledge of modern react-style web development.
+Familiarity with the whole web stack, including protocols and web server optimization techniques.
+Proven track record in large-scale system design, artificial intelligence, or machine learning.
+About the job
+Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.
+Google Cloud accelerates every organization s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.
+Responsibilities
+Develop AI platforms and applications for Google Cloud's enterprise customers.
+Grow in a fluid environment solving critical issues and deliver innovative solutions at speed.
+Role: Full Stack Developer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+
+###END###
+
+Job description
+Note: By applying to this position you will have an opportunity to share your preferred working location from the following: New York, NY, USA; Bengaluru, Karnataka, India, Minimum qualifications:
+Bachelors degree or equivalent practical experience, 8 years of experience in software development, 7 years of experience leading technical project strategy, ML design, and optimizing industry-scale ML infrastructure (e-g
+, model deployment, model evaluation, data processing, debugging, fine tuning), 5 years of experience with design and architecture; and testing/launching software products, 5 years of experience with state of the art GenAI techniques (e-g
+, LLMs, Multi-Modal, Large Vision Models) or with GenAI-related concepts (language modeling, computer vision), Preferred qualifications:
+Masters degree or PhD in Engineering, Computer Science, or a related technical field, 8 years of experience with data structures/algorithms, 5 years of experience in a technical leadership role leading project teams and setting technical direction, 3 years of experience working in an organization involving cross-functional, or cross-business projects, About The Job
+Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another
+Our products need to handle information at massive scale, and extend well beyond web search
+We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day
+As a software engineer, you will work on a specific project critical to Googles needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve
+We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward, AI will change the future of work in profound ways, and our products? Gmail, Docs, Drive, Calendar, Sheets, Vids and Meet are at the forefront
+From pre-computed summaries for email threads, summaries for meetings, and videos created from a document using lifelike AI avatars, our AI opportunity is huge
+Our mission is to meaningfully connect people so they can create, build, and grow together and as part of the team you can build how productivity tools should work 5-10 years into the future
+You will work with model builders (Google DeepMind), work with exceptional leaders, and have the ability to impact billions of users across the world, The US base salary range for this full-time position is $248,000-$349,000 + bonus + equity + benefits
+Our salary ranges are determined by role, level, and location
+Within the range, individual pay is determined by work location and additional factors, including job-related skills, experience, and relevant education or training
+Your recruiter can share more about the specific salary range for your preferred location during the hiring process, Please note that the compensation details listed in US role postings reflect the base salary only, and do not include bonus, equity, or benefits
+Learn more about benefits at Google, Responsibilities
+Design, develop, test, deploy, maintain, and enhance large scale software solutions, Provide technical leadership on high-impact projects
+Manage project priorities, deadlines, and deliverables, Facilitate alignment and clarity across teams on goals, outcomes, and timelines
+Influence and coach a distributed team of engineers, Drive technical project strategy, lead large-scale ML infrastructure optimization, and oversee the design and implementation of state-of-the-art GenAI solutions, Google is proud to be an equal opportunity workplace and is an affirmative action employer
+We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status
+We also consider qualified applicants regardless of criminal histories, consistent with legal requirements
+See also Google's EEO Policy and EEO is the Law
+If you have a disability or special need that requires accommodation, please let us know by completing our Accommodations for Applicants form,
+Role: Technical Lead
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+###END###
+
+Job description
+Minimum qualifications:
+Bachelors degree or equivalent practical experience, 5 years of experience with software development in one or more programming languages, 3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture, 3 years of experience with ML infrastructure (e
+g
+, model deployment, model evaluation, optimization, data processing, debugging), 1 year of experience with state of the art GenAI techniques (e
+g
+, LLMs, Multi-Modal, Large Vision Models) or with GenAI-related concepts (language modeling, computer vision), Preferred qualifications:
+Master's degree or PhD in Computer Science or related technical field, 5 years of experience with data structures/algorithms, 1 year of experience in a technical leadership role, Experience developing accessible technologies, About The Job
+Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another
+Our products need to handle information at massive scale, and extend well beyond web search
+We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day
+As a software engineer, you will work on a specific project critical to Googles needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve
+We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward, Google Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google
+Were made up of multiple teams, building Googles Advertising products including search, display, shopping, travel and video advertising, as well as analytics
+Our teams create trusted experiences between people and businesses with useful ads
+We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results
+We also enable Google to engage with customers at scale, Responsibilities
+Write and test product or system development code, Collaborate with peers and stakeholders through design and code reviews to ensure best practices amongst available technologies (e
+g
+, style guidelines, checking code in, accuracy, testability, and efficiency,)
+Contribute to existing documentation or educational content and adapt content based on product/program updates and user feedback, Triage product or system issues and debug/track/resolve by analyzing the sources of issues and the impact on hardware, network, or service operations and quality, Design and implement GenAI solutions, leverage ML infrastructure, and evaluate tradeoffs between different techniques and their application domains, Google is proud to be an equal opportunity workplace and is an affirmative action employer
+We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status
+We also consider qualified applicants regardless of criminal histories, consistent with legal requirements
+See also Google's EEO Policy and EEO is the Law
+If you have a disability or special need that requires accommodation, please let us know by completing our Accommodations for Applicants form ,
+Role: Software Development - Other
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+###END###
+
+Job description
+As a Principal Software Developer, you will design, build, and deliver scalable automation frameworks and advanced platforms leveraging AI/ML to drive operational excellence across OCI s global network. This includes building network event driven data (such as failures), hybrid classification, and both training and inference. You are passionate about developing software that solves real-world operational challenges, thrive in a fast-paced team, and are comfortable working with complex distributed systems. You value simplicity, scalability, and collaboration.
+Responsibilities:
+Architect, build, and support distributed systems for process control and execution based on Product Requirement Documents (PRDs).
+Develop and sustain DevOps tooling, new product process integrations and automated testing.
+Develop ML in Python 3; build backend services in Go (Golang); create command-line interface (CLI) tools in Rust or Python 3; and integrate with other services as needed using Go, Python 3, or C.
+Build and maintain schemas/models to ensure every platform and service write is captured for monitoring, debugging and compliance
+Build and maintain dashboards that monitor the quality and effectiveness of service execution for "process as code" your team delivers.
+Build automated systems that route code failures to the appropriate oncall engineers and service owners.
+Ensure high availability, reliability, and performance of developed solutions in production environments.
+Support serverless workflow development for workflows which call and utlize the above mentioned services support our GNOC, GNRE, and onsite operations and hardware support teams.
+Participate in code reviews, mentor peers, and help build a culture of engineering excellence.
+Operate in an Extreme Programming (XP) asynchronous environment (chat/tasks) without daily standups, and keep work visible by continuously updating task and ticket states in Jira.
+Required Qualifications:
+8 - 10 years of experience in process as code, software engineering, automation development, or similar roles
+Bachelors in computer science and Engineering or related engineering fields
+Strong coding skills in Go and Python3
+Experience with distributed systems, micro-services, and cloud-native technologies
+Proficiency in Linux environments and scripting languages
+Proficiency with database creation, maintenance and code using SQL and Go or Py3 libraries
+Understanding of network operations or large-scale IT infrastructure
+Excellent problem-solving, organizational, and communication skills
+Experience using AI coding assistants or AI-powered tools to help accelerate software development, including code generation, code review, or debugging.
+Preferred Qualifications:
+Process engineering experience (control systems, proportional integral derivatives (pid), statistical process control (SPC))
+Proficiency with data modeling, data analysis, and reporting frameworks (e.g., SQL, Spark, Prometheus, Grafana, etc.)
+Experience with C, Cpp, Java, or Rust
+Experience developing automation and tools for network or scale cloud operations
+Background in creating dashboards, alerts, and real-time reporting platforms
+Familiarity with workflow automation (e.g., Apache Airflow), CI/CD pipelines, or infrastructure as code
+Previous experience supporting or building tools for (any) hyperscale or scale could network, compute, or storage operations.
+Knowledge of REST APIs, remote procedure calls (RPCs), and service oriented architectures (SOA)
+Familiarity with eXtreme programming (xp), agile, and devops process
+Experience with ticketing and version control systems (e.g., Jira, Git)
+Role: Search Engineer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+
+###END###
+
+Job description
+Minimum qualifications:
+Bachelors degree or equivalent practical experience, 5 years of experience with software development in one or more programming languages, 3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture, 3 years of experience with ML infrastructure (e
+g
+, model deployment, model evaluation, optimization, data processing, debugging), 1 year of experience with state of the art GenAI techniques (e
+g
+, LLMs, Multi-Modal, Large Vision Models) or with GenAI-related concepts (language modeling, computer vision), Preferred qualifications:
+Master's degree or PhD in Computer Science or related technical field, 5 years of experience with data structures/algorithms, 1 year of experience in a technical leadership role, Experience developing accessible technologies, About The Job
+Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another
+Our products need to handle information at massive scale, and extend well beyond web search
+We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day
+As a software engineer, you will work on a specific project critical to Googles needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve
+We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward, Google Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google
+Were made up of multiple teams, building Googles Advertising products including search, display, shopping, travel and video advertising, as well as analytics
+Our teams create trusted experiences between people and businesses with useful ads
+We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results
+We also enable Google to engage with customers at scale, Responsibilities
+Write and test product or system development code, Collaborate with peers and stakeholders through design and code reviews to ensure best practices amongst available technologies (e
+g
+, style guidelines, checking code in, accuracy, testability, and efficiency,)
+Contribute to existing documentation or educational content and adapt content based on product/program updates and user feedback, Triage product or system issues and debug/track/resolve by analyzing the sources of issues and the impact on hardware, network, or service operations and quality, Design and implement GenAI solutions, leverage ML infrastructure, and evaluate tradeoffs between different techniques and their application domains, Google is proud to be an equal opportunity workplace and is an affirmative action employer
+We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status
+We also consider qualified applicants regardless of criminal histories, consistent with legal requirements
+See also Google's EEO Policy and EEO is the Law
+If you have a disability or special need that requires accommodation, please let us know by completing our Accommodations for Applicants form ,
+Role: Software Development - Other
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+
+###END###
+
+Job description
+
+Software Development Engineer CAD/Mesh
+
+Job Title: SDE2(CAD)/SDE3(CAD)
+
+Job Summary:
+
+Being an integral part of an agile team where the person will be responsible for designing, enhancing, developing and delivering backend CAD/Mesh features of Electronic Simulation Software. You should also be able to work as a technical lead collaborating with both junior and senior team members and drive end-to-end feature delivery.
+
+Roles and Responsibilities
+
+Design and develop CAD, Mesh features that aligns with the simulation software requirements
+Responsible for Automated unit and integration testing ensuring quality
+Effective planning and timely delivery
+Work closely with UI/3D Visualisation team and Product manager
+Be aware of the latest developments in CAD/Mesh generation
+Perform code reviews
+Mentor the junior team members
+Required Skills
+
+Experience with geometric kernels/geometry compression/mesh compression
+Good understanding of product architecture, design philosophy and geometric modelling
+Good understanding of different geometric representations and geometric operations
+Software engineering experience designing and building enterprise grade products
+Understanding and experience writing unit and integration tests as part of Test Driven Development
+Proficient with C++ application development targeting Windows and Linux platforms
+Experience working with Acis/Parasolid, MeshGems, openGL
+Experience with version control, CMake and CI/CD
+Experience working with open source technologies
+Security tools for analysing vulnerabilities in software
+Understanding of static code analysis, code coverage methods
+Understanding and experience with Docker and Kubernates
+Good communication skills and ability to work collaboratively with various stakeholders
+Relevant Education + Experience
+
+Bachelors or Masters in Computer Science or Mechanical Engineering
+5-8 years of industry experience
+3+ years of relevant experience
+
+
+Job Type: Full Time
+
+Job Location: Bengaluru
+
+Role: Hardware - Other
+Industry Type: IT Services & Consulting
+Department: Engineering - Hardware & Networks
+Employment Type: Full Time, Permanent
+Role Category: Hardware
+Education
+UG: Any Graduate
+###END###
+
+Job description
+Kredivo Group is looking for Backend Engineer SDE3 to join our dynamic team and embark on a rewarding career journey.
+A Backend Engineer is responsible for designing, developing, and maintaining the server-side components of a software application or system
+They collaborate with cross-functional teams, including front-end developers, product managers, and data engineers, to ensure the seamless integration and functionality of the software
+Backend Engineers work with programming languages, databases, and frameworks to create robust and scalable server-side solutions
+Key Responsibilities:Collaborate with cross-functional teams to understand software requirements and translate them into technical specifications
+Design and develop server-side software components, APIs, and services to support the functionality of the software application
+Write clean, efficient, and maintainable code using programming languages such as Python, Java, or Nodejs
+Implement and maintain data models, databases, and data access layers for efficient data storage and retrieval
+Ensure the security, performance, and scalability of backend systems through proper design and optimization techniques
+Integrate third-party services, APIs, and libraries into the backend infrastructure to enhance functionality
+Implement and maintain unit tests, automated tests, and continuous integration/continuous deployment (CI/CD) pipelines to ensure code quality and reliability
+Collaborate with front-end developers to design and implement API endpoints and data formats for efficient client-server communication
+Monitor and troubleshoot production systems to identify and resolve backend-related issues and performance bottlenecks
+Role: Back End Developer
+Industry Type: Financial Services
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+###END###
+
+
+Job description
+Loadshare is looking for SDE3 - Backend to join our dynamic team and embark on a rewarding career journey.
+
+Design, develop, and maintain high - performance Java backend systems.
+Collaborate with cross - functional teams to define software requirements and architecture.
+Optimize code for performance, scalability, and reliability.
+Write unit tests and conduct code reviews to maintain code quality.
+Implement APIs and integrate backend services with front - end applications.
+Stay updated with Java frameworks and emerging technologies.
+Role: MIS Executive
+Industry Type: Courier / Logistics
+Department: Finance & Accounting
+Employment Type: Full Time, Permanent
+Role Category: Finance
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+###END###
+
+
+Job description
+About Loadshare:
+
+LoadShare is one of India’s most innovative and resilient logistics platforms, transforming how goods move across the country. Founded in 2017, we’ve grown to become a pan-India, multi-category last-mile network with a unique presence in both Tier 1 metros and deep Tier 2/3 towns.
+What sets us apart:
+   •    Scale with depth: We handle ~400K deliveries/day across food, e-commerce (B2C), B2B retail, and digital commerce, powered by a 20,000+ rider network.
+   •    Strong financials, stronger ambition: With 430 Cr in FY25 revenue and support from global investors (Tiger Global, Matrix, BII, Stellaris, BeeNext), we have a long runway and a path to profitability
+   •    Dual-engine model: We not only operate India’s most flexible last-mile delivery network, but also license our in-house logistics tech platform that processes an additional 20 lac orders/day — one of the few in India to enable asset cross-utilization across verticals
+   •    Strategic partner to India’s digital economy: We work with every major digital commerce player (ecomm, quick commerce, food, mobility) , and are expanding wallet share and capabilities within existing giants while co-creating new models with emerging platforms and brands.
+   •    Built to scale profitably: We’re not chasing GMV at all costs. We’re building the most capital-efficient, tech-enabled logistics engine in the country.
+We’re now building for our next phase: a 5X scale-up over the next 5 years, anchored in sharper client focus, deeper solutions, and new growth engines.
+Founders/ Founding team:
+Raghu Talluri (CEO) - Formerly at Myntra, McKinsey
+Pramod Nair (CTO) - Formerly at Freecharge, Snapdeal, MartMobi
+Rakib Ahmed (Co Founder, Head EComm/ Trucking/Warehousing)- Formerly at ICICI Prudential, Co founder Lunate Eco
+Overall 500+ employees on roll
+
+ 
+
+Key Result Areas: 
+
+Timeliness of delivery as per plan made by POD lead engineer.
+ Velocity of software engineering.
+Quality of deliverables -Defects in QA, Post Production., Performance bottlenecks in production.
+Coding quality and architecture standards.
+ 
+
+Key Skills & Background: 
+
+B.E. / B.Tech in Computer Science or equivalent.
+5+ years of software development experience.
+Solid understanding of core CS fundamental concepts. 
+Strong development, coding experience in one or more programming languages like OO Programming (Java), Functional/Scripting languages. Expertise in Data Structures, Algorithms, Concurrency. 
+Expertise in more than one of the persistence technologies (Cassandra, Redis, Elastic Search, RDBMS). 
+Proven expert and go to person for one technology. 
+Acquired at least one major skill outside of programming such as monitoring, performance optimization, documentation, integration testing, visual design.
+
+ 
+
+
+Roles and Responsibilities
+ 
+
+Own complete and independent development of assigned tasks to launch new products or iterate over existing features.
+ Own technical design for projects of moderate complexity.
+You will implement cutting-edge technologies and will be writing state-of-the-art code to keep Loadshare at the cutting edge of current technology. 
+Innovating new / unique ways to solve known and unknown problems. 
+Using independent judgment in selection of alternative courses of action. 
+Deliver products to QA that they believe are well-baked and bug-free. 
+ Assist QA in identifying and validating test cases and can identify regression risks in their features. 
+Participate extensively in code reviews, and mentor others via code reviews and pairing.
+Role: Back End Developer
+Industry Type: Courier / Logistics
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: B.Tech/B.E. in Any Specialization
+###END###
+Job description
+
+Job Title: SDE2(Full-Stack)/SDE3(Full-Stack)
+
+Job Summary:
+
+
+Integral part of an agile team where the person will be responsible for designing, enhancing, developing and delivering frontend features of Electronic Simulation Software and backend integration components. You should also possess leadership qualities to work as technical lead collaborating with both junior and senior team members and drive end-to-end feature delivery.
+
+
+Roles and Responsibilities
+
+
+Design and develop GUI, 3D Visualisation and backend software components
+Responsible for Automated unit and integration testing ensuring quality
+Effective planning and timely delivery
+Work closely with CAD/Mesh team, UX designer and Product manager
+Be aware of the latest developments in GUI/front end development and keep the UI current and relevant
+Perform code reviews
+Mentor the junior team members
+
+Required Skills
+
+
+Experience with front end development or full stack development
+Good understanding of product architecture, design philosophy and GUI design
+Software engineering experience designing and building enterprise grade products
+Understanding and experience writing unit and integration tests as part of Test Driven Development
+Proficient with C++/Python application development targeting Windows and Linux platforms
+Experience working with Qt, QML, VTK, HOOPS, openGL
+Experience with version control, CMake and CI/CD
+Experience working with open source technologies
+Security tools for analysing vulnerabilities in software
+Understanding of static code analysis, code coverage methods
+Understanding and experience with Docker and Kubernates
+Good communication skills and ability to work collaboratively with various stakeholders
+
+Relevant Education + Experience
+
+
+Bachelors or Masters in Computer Science or related fields
+5-8 years of industry experience
+3+ years of relevant experience
+Job Type: Full Time
+
+Job Location: Bengaluru
+
+
+Role: Full Stack Developer
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: B.Tech/B.E. in Any Specialization, B.Com in Any Specialization, B.Sc in Computer Science
+###END###
+
+Job description
+As a Software Engineer, you take ownership of projects, learn, and work
+collaboratively with your colleagues. You constantly design, test, evolve and evaluate the nuts and bolts of our operation while offering a creative and analytical approach.The high-quality code that stems from your fingertips is robust, readable and understandable. Your pragmatic test coverage allows you to confidently and responsibly practice continuous refactoring.
+As a backend specialist, you're passionate about building scalable, resilient and secure systems.you're at home writing platforms, and you'display an intricate understanding of how each line of code fits into a business plan.
+Roles & Responsibility
+Lead and mentor a team of backend engineers
+Design, develop, and maintain highly scalable and reliable backend applications
+Work with a team of engineers to implement new features and improve existing ones
+Have deep knowledge of software architecture principles and best practices
+Participate in the system design process and contribute to the overall architecture of the backend system
+Write clean, maintainable, and efficient code following best practices and coding standards
+Collaborate with frontend developers and UI/UX designers to ensure seamless integration between the frontend and backend
+Conduct thorough testing and debugging of the backend code
+Stay up-to-date with the latest industry trends and technologies, and proactively suggest improvements to enhance the backend infrastructure
+Conduct performance reviews and provide feedback to team members.
+Core Skills
+Overall 5+ years of experience with Node.js , TypeScript , NestJS , PostgreSQL and Azure
+Strong understanding of unit testing principles and practices
+Experience using a unit testing framework such as Jest or JUnit
+Experience writing unit tests for both Node.js and Java code
+Experience using TDD to build software
+Role: Full Stack Developer
+Industry Type: Financial Services
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+###END###
+
+
+Job description
+About the Role:
+
+We are looking for an experienced software engineer with strong technical and communication skills who has developed full stack web apps, created solid APIs and beautiful interfaces for consuming them in user friendly apps. Focusing on details and well written self documented code are essential for this position. You can expect to collaborate with a solid team of designers, product managers, developers and testers on a daily basis. You must be experienced in building highly scalable and resilient systems that can meet our customer needs.
+
+
+Responsibilities
+
+Improve and create new lead capture domain models.
+Build backend & Frontend API features and architecture.
+Work cross-functionally across our platform, experience, integrations, payments and marketplace teams.
+Drive performance through benchmarking and optimization
+Work with a wide range of systems, processes, and technologies to own and solve problems from end to end
+Collaborate closely with our leadership team including engineers, designers, and product managers to build new features and products
+Uphold high engineering standards and bring consistency to the many codebases and systems you will encounter.
+Work on 1 to 2 products.
+Create and improve lead capture tools like funnels, websites, forms, surveys, social media
+Architect and build backend & Frontend APIs and features
+
+Your Core Skills
+
+4+ years of experience in a full-stack environment.
+Develop and maintain a highly scalable email builder web App, enabling customers to send ~30 million emails per day.
+Manage email statistics and integrate with internal teams leveraging email builder templates.
+Scale and optimize our countdown timer, used across emails, websites, and funnels, with more than 300K daily views.
+Design and develop Brand Board, a tool that helps customers build and integrate their brand identity seamlessly across the platform.
+Optimize application performance and scalability using modern development practices.
+Troubleshoot, debug, and implement improvements to existing systems.
+Proficient with various programming languages and tools such as but not limited to Javascript, TypeScript, Vue.js, NodeJS, and GraphQL
+Must be able to work with a team and collaborate remotely.
+You have an entrepreneurial mindset, are eager to take on different roles when necessary and know how to navigate a start-up environment.
+You are fulfilled by being a generalist working on both the frontend, backend, and anything it takes to solve problems and delight users and take pride in working on projects involving a variety of technologies and systems.
+Ability to stitch together many different services and processes together, even if you have not worked with them before.
+Hold a great deal of empathy for your team and users, you are a steward of crafting great experiences.
+Have great communication skills and can thrive in a highly collaborative environment when working cross-functionally with many stakeholders.
+Driven by product quality, and innately know how to balance trade-offs with time to launch new features.
+A keen eye for design and love to think about user flows and user experiences.
+Must have experience with HTML5 and CSS3
+
+Additional Skills
+
+Experience with the Nuxt.js framework is a plus.
+Experience with MongoDB profiling and query optimization.
+Using CSS frameworks such as Bootstrap and TailwindCSS
+Experience working in the GCP (Google Cloud Platform) ecosystem.
+Role: Software Development - Other
+Industry Type: IT Services & Consulting
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: B.Tech/B.E. in Any Specialization
+###END###
+
+
+Job description
+About the Company:
+
+
+
+Scapia! A co-branded credit card that s out there to make travel happen for people, by converting their everyday expenses into travel experiences. We re a bunch of passionate people who work together, brainstorm, and debate with each other, and don t stop until we re proud of our work. Customer delight tops everything else! We ve worked hard to create an environment of honesty and passion that sets everyone up for success.
+
+
+
+Role Overview:
+
+
+
+We are looking for an experienced and highly skilled SDE III - Backend Engineer to join our growing engineering team. You ll work on designing, building, and scaling backend services that power our products. As a senior individual contributor, you ll take ownership of complex projects, influence technical strategy, and mentor junior engineers.
+
+
+Focus area:
+
+
+Design, develop, and maintain scalable, reliable, and secure backend services and APIs.
+
+Own end-to-end execution of large technical projects, from design to deployment and maintenance.
+
+Collaborate closely with Product Managers, Designers, and other Engineers to deliver exceptional customer experiences.
+
+Lead architectural discussions, propose technical solutions, and advocate for engineering best practices.
+
+Write clean, maintainable, and efficient code with comprehensive tests.
+
+Mentor and guide junior and mid-level engineers through code reviews and design sessions.
+
+Identify and resolve performance bottlenecks and system issues.
+
+Stay current with backend technologies, tools, and trends, and share knowledge across the team
+
+
+Profile:
+
+
+7+ years of professional experience in backend software development.
+
+Experience building and maintaining distributed, scalable, high-performance systems.
+
+Solid grasp of data structures, algorithms, and system design principles.
+
+Experience working with cloud platforms (AWS, GCP, etc) and modern CI/CD pipelines.
+
+Strong problem-solving skills and ability to work independently in a fast-paced environment.
+
+
+Good to have:
+
+
+Passion for working in a startup: comfortable with ambiguity and fast iteration.
+
+Prior work in early-stage or hyper-growth startups.
+
+
+
+Role: Search Engineer
+Industry Type: Financial Services
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+###END###
+
+Job description
+About Tripjack
+
+
+TripJack: A Great Place to Work and the trusted tech platform for over 60K+ travel agents across India!Were proud to be Great Place to Work® Certified™ workplace, reflecting the trust, pride, and sense of belonging our people feel every day.This recognition reflects our commitment to a culture where our teams grow, collaborate, and drive the future of travel technology, while consistently delivering excellent service to our agent partners. With over 35+ years of travel experience between the founders, TripJack has always prioritized the needs of travel agent partners.TripJack’s integrated platform offers content from 750+ airlines, 2 Mn+ Hotels including services across Corporate Travel, Travel assistance and Insurance, Rail and Marine segments. With a superior tech platform, seamless agent pre- and post-booking journeys, and 24/7 customer service, we are on a mission to transform the travel booking & management experience for our agent partners.
+
+Role: SDE 1/2/3 - Backend (Java)
+
+Location: Connaught Place, Delhi
+
+Experience: 2-6 years
+
+Education: B.Tech/B.E
+
+
+Role Overview:
+
+We are seeking a skilled and passionate Software Development Engineer (SDE 1/2/3 ) to join our growing tech team. The ideal candidate will have strong expertise in building scalable and high-performance systems, a deep understanding of software development principles, and a collaborative mindset to solve complex technical challenges.
+
+
+Responsibilities:
+
+Design, develop, and maintain server-side architecture and backend logic for web/mobile applications.
+Develop RESTful APIs and services that can support multiple products and services.
+Collaborate with frontend engineers to ensure seamless integration between the backend and frontend.
+Write clean, efficient, and well-documented code following industry best practices.
+Optimize backend performance to ensure high availability and scalability.
+Work with databases (SQL/NoSQL) to ensure data integrity, security, and performance.
+Debug and troubleshoot issues, ensuring minimal downtime and rapid resolution.
+Participate in code reviews and contribute to improving code quality and team processes.
+Stay up-to-date with new backend development trends and technologies to continuously improve the backend architecture.
+Required Skills & Qualifications:
+
+Bachelor’s degree in Computer Science, Engineering, or a related field.
+2-6 years of experience in backend development, preferably in a startup or fast-paced environment.
+Strong proficiency in one or more backend programming languages such as Java, Go, or Ruby.
+Hands-on experience with RESTful APIs and microservices architecture.
+Solid understanding of databases such as MySQL, PostgreSQL, MongoDB, or similar.
+Familiarity with cloud platforms like AWS, Azure, or Google Cloud.
+Experience with version control systems like Git.
+Knowledge of CI/CD pipelines and automated deployment tools is a plus.
+Strong problem-solving and analytical skills with attention to detail.
+Excellent communication skills and ability to work in a collaborative environment.
+
+Role: Back End Developer
+Industry Type: Travel & Tourism
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: B.Tech/B.E. in Any Specialization
+
+###END###
+
+
+Job description
+Work with development teams and product managers to ideate software solutions.
+Design client-side and server-side architecture.
+Build the front-end of applications through appealing visual design.
+Develop and manage well-functioning databases and applications.
+Write effective APIs.6. Testsoftware to ensure responsiveness and efficiency.
+Troubleshoot, debug and upgrade software.
+Create security and data protection settings.
+Build features and applications with a mobile responsive design.
+Write technical documentation.
+Our Current Stack
+Backend: Spring (JAVA), Spring Boot, Laravel (PHP), MySQL, NoSQL, NGINXPlus.
+Frontend: Angular 5+ Ngrx/store5.
+Infrastructure: Google cloud platform (App engine, CloudSQL, BigQuery, PubSub, Firebase Hosting), Pusher.io (WebSockets), Filestack, Postmark app,
+Tools: Postman app, JIRA
+Rest APIs, Microservices, Agile, Oauth, Message Queue, Git
+What makes you eligible?
+6 years proven experience as a Full Stack Developer or similar role.
+Experience working with service-oriented architectures and web-based solutions.
+Familiarity with common stacks.
+Knowledge of multiple front-end languages and libraries (e.g. HTML/ CSS, JavaScript, XML,jQuery).
+Knowledge of multiple back-end languages (e.g. C#, Java, Python) and JavaScript frameworks(e.g. Angular, React, Node.js).
+Faimilarity with databases (e.g. MySQL, MongoDB), web servers (e.g. Apache) and UI/UX design.
+Experience working on Agile processes (Scrum, Kanban).
+Experience working on the AWS technologies.
+Excellent communication and teamwork skills.
+Great attention to detail.
+Organizational skills.
+An analytical mind.
+Degree in B.tech/BE
+Role: Software Development - Other
+Industry Type: Courier / Logistics
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: B.Tech/B.E. in Any Specialization
+PG: Any Postgraduate
+
+###END###
+
+Job description
+We are looking for a skilled Senior Software Developer with experience in Node.js and React.js to join our growing team. The ideal candidate will be responsible for developing and maintaining web applications, ensuring seamless performance, and collaborating with cross-functional teams to deliver high-quality solutions.
+You can also read more about us here: https://www.tequity.tech/
+
+
+
+
+Requirements
+
+6+ years of experience in full stack development.
+Strong proficiency in Node.js (Express.js, Nest.js) and React.js.
+Experience with databases such as MongoDB, PostgreSQL, or MySQL.
+Knowledge of front-end technologies such as HTML, CSS, JavaScript, and modern UI frameworks.
+Hands-on experience with state management libraries (Redux, Context API) and component-based architecture.
+Understanding of authentication and authorization mechanisms (JWT, OAuth, etc.).
+Familiarity with cloud platforms like AWS, Azure, or Google Cloud.
+Proficiency in version control systems (Git, GitHub, GitLab).
+Experience with CI/CD pipelines and DevOps practices is a plus.Able to solve complex front-end and back-end challenges and work with multiple teams and ensure deliverables are closed.
+Follow best coding practices to deliver high quality outcomes in given time
+Able to leverage LLMs to increase productively in day-to-day work.
+Likes to take ownership and works without a lot of guidance
+
+Benefits
+Competitive salary and benefits.
+Opportunities for professional growth and development.
+A dynamic and inclusive work environment.
+
+If you are passionate about building high-quality applications and eager to work in a collaborative environment, we would love to hear from you!
+
+
+Role: Full Stack Developer
+Industry Type: Software Product
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+PG: Any Postgraduate
+
+###END###
+
+
+Job description
+Tractor Junction-
+
+
+At Tractor Junction, we proudly stand as India's premier digital marketplace dedicated to
+
+farmers, founded in 2018. With a vision of "Revolutionising the Rural Auto Ecosystem,"
+
+we empower rural communities with enhanced auto solutions for sustainable growth and
+
+prosperity. Our commitment extends to providing seamless auto services that cater to
+
+the diverse needs of farming, agriculture, commercial vehicles, and construction
+
+equipment. We aim to elevate the rural auto ecosystem by offering comprehensive
+
+services. This includes buying, selling, financing, insuring, servicing, and providing
+
+warranties for both new and used tractors and farm equipment. Our mission is rooted in
+
+transforming the rural auto ecosystem through digitisation, ensuring a more connected
+
+and efficient future for agriculture in India.
+
+
+SDE1 Junior Engineer (2 - 4 yrs exp)
+
+Responsibilities:
+
+Build and maintain applications using PHP, Node.js, React.js, and MySQL.
+Write clean, maintainable code and work in Agile teams.
+Debug, optimize, and integrate REST APIs.
+Skills:
+
+PHP (Laravel/CodeIgniter), Node.js, React.js (ES6+), MySQL.
+Strong foundation in Data Structures & Algorithms.
+Basic understanding of System Design, MVC pattern, and Docker.
+Familiarity with AI-based coding tools and basic Pub/Sub concepts.
+Knowledge of Git and collaborative development.
+
+SDE2 Mid-Level Engineer (4 - 8 yrs exp)
+
+Responsibilities:
+
+Own module-level design and development.
+Review code, optimize APIs and databases, and ensure scalability.
+Implement Dockerized deployments and CI/CD pipelines.
+Skills:
+
+PHP, Node.js, React.js (Redux), MySQL optimization & schema design.
+Strong understanding of Data Structures, System Design, and Design Patterns.
+Experience with Docker, Pub/Sub (Kafka/RabbitMQ/SQS/SNS), and basic cloud deployment
+(AWS/GCP).
+
+Ability to use AI editors for optimization, refactoring, and documentation.
+
+SDE3 Senior/Lead Engineer (8 - 12 yrs exp)
+
+Responsibilities:
+
+Lead architecture design, mentor team members, and drive scalability initiatives.
+Review code, enforce best practices, and optimize system performance.
+Manage Pub/Sub architectures, container orchestration (Docker/Kubernetes), and cloud
+deployments.
+
+Skills:
+
+Expertise in PHP, Node.js, React.js, MySQL/PostgreSQL/Mongo.
+Deep understanding of Data Structures, Distributed System Design, and Design Patterns.
+Strong experience with Docker, Kubernetes, Pub/Sub systems (Kafka, RabbitMQ/SQS/SNS),
+and Cloud (AWS/GCP/Azure).
+
+Familiarity with AI-assisted development for automation, code quality, and documentation.
+Role: Software Development - Other
+Industry Type: Agriculture / Forestry / Fishing (Agri-tech)
+Department: Engineering - Software & QA
+Employment Type: Full Time, Permanent
+Role Category: Software Development
+Education
+UG: Any Graduate
+
+###END###
+
+About the job
+WHAT YOU DO AT AMD CHANGES EVERYTHING
+
+At AMD, our mission is to build great products that accelerate next-generation computing experiences—from AI and data centers, to PCs, gaming and embedded systems. Grounded in a culture of innovation and collaboration, we believe real progress comes from bold ideas, human ingenuity and a shared passion to create something extraordinary. When you join AMD, you’ll discover the real differentiator is our culture. We push the limits of innovation to solve the world’s most important challenges—striving for execution excellence, while being direct, humble, collaborative, and inclusive of diverse perspectives. Join us as we shape the future of AI and beyond. Together, we advance your career. 
+
+SENIOR SOFTWARE SYSTEMS DESIGNER
+
+ 
+
+THE ROLE: 
+
+We are looking for a dynamic, energetic Software Systems Design Engineer to join our growing team. As a key contributor to the success of AMD’s products, you will be part of a leading team to drive and improve AMD’s abilities to deliver the highest quality, industry-leading technologies to market. The Software Systems Design Engineering team fosters and encourages continuous technical innovation to showcase successes as well as facilitate continuous career development. 
+
+ 
+
+THE PERSON: 
+
+As a Software Systems Design Engineer, you will deliver our next generation of products in the computer graphics industry - 3D Gaming, Display Technologies, Compute, Virtual Reality, etc. In this high visibility position, your systems engineering expertise will be necessary to define products, develop solutions, assess root causes, and produce solution resolutions. As a senior member of the team, taking initiative in mentoring to achieve the team’s goal of on time delivery is expected.
+
+ 
+
+Responsibilities
+
+Software application development
+
+
+Skills
+
+Strong object-oriented design concepts
+Hands-on experience in .Net , C#, Angular, CSS, Python, and Relational Databases
+Understand requirements, Design, Develop, Code review, Write test-cases
+Experienced in RESTful API & Web Services, Threading concepts, Inter-operability
+Prior experience in any of the unit testing framework such as MS Test, NUnit etc.
+Front-end development experience using Angular, CSS is must have
+Good Problem-solving skills
+Developed application for Windows and Linux
+Good understanding and/or work exposure on GIT, Docker etc.
+Excellent troubleshooting skills
+Good interpersonal and organizational skills
+Work under minimal supervision
+
+
+Nice To Have Skills
+
+C++ experience
+Configuration and managing databases such as SQL Server, MySQL
+Experience in deployment, management, and maintenance of web applications
+
+
+Education And Experience
+
+MS / M Tech / BE/ B.Sc. in Computer Science /Computer Engineering/Electronics/Electrical Engineering
+Should have relevant work experience of about 5 years.
+
+
+Benefits offered are described: AMD benefits at a glance.
+
+AMD does not accept unsolicited resumes from headhunters, recruitment agencies, or fee-based recruitment services. AMD and its subsidiaries are equal opportunity, inclusive employers and will consider all applicants without regard to age, ancestry, color, marital status, medical condition, mental or physical disability, national origin, race, religion, political and/or third-party affiliation, sex, pregnancy, sexual orientation, gender identity, military or veteran status, or any other characteristic protected by law. We encourage applications from all qualified candidates and will accommodate applicants’ needs under the respective laws throughout all stages of the recruitment and selection process.
+
+###END###
+
+Qualcomm India Bangalore Development Center is expanding its Connected Infotainment team as part of a global Qualcomm Automotive initiative. This role offers a unique opportunity to work on cutting-edge display technologies integrated into next-generation vehicles. As part of Qualcomm’s mission to redefine the digital cockpit experience, you will contribute to the development of high-performance display systems that enhance safety, usability, and entertainment for drivers and passengers. From multi-display rendering to real-time graphics optimization, your work will help shape the visual interface of tomorrow’s connected cars. 
+
+
+
+Minimum Qualifications 
+
+Experience: 8-18 years of hands-on experience in embedded software and/or driver development. 
+
+Programming Skills: Strong proficiency in C/C++ is mandatory. 
+
+System Knowledge: Practical experience with device driver programming in Linux or RTOS environments such as QNX, LRH. 
+
+Debugging & Analysis: Excellent analytical and debugging skills, with a detail-oriented approach to problem-solving. 
+
+Areas of Expertise - Audio, Video, Display, Camera & Grafics
+
+###END###
+
+About the job
+Job Details:
+
+Position : Engineering Lead- Full Stack & Mobile Platform
+
+Experience : 8 + Years
+
+Location : Bengaluru
+
+
+
+Lead engineering strategy, architecture, and technical direction
+Manage a 15-member cross-functional team across backend and mobile platforms
+Oversee development of Java Spring Boot microservices
+Guide mobile app development using Flutter, Android, and iOS
+Ensure performance, security, and engineering best practices
+Conduct code reviews, mentoring, and technical evaluations
+Manage sprints, releases, and end-to-end delivery
+Collaborate closely with product and leadership teams
+Requires 10+ years of experience with 3+ years in engineering leadership
+
+###END###
+About the job
+AVEVA is creating software trusted by over 90% of leading industrial companies.
+
+Job Title: R&D Principal Technologist
+
+Location: Hyderabad/Bangalore, India
+
+Employment Type: Full-time, regular, hybrid work arrangement
+
+The job 
+
+A Principal Technologist will be responsible for translating software requirements into workable programming code and build scalable web & cloud applications with a full understanding of the area of specialization; resolves a wide range of issues in creative ways. Designs and develops complex software systems or subsystems, with involvement at all stages, from the initial concept through the detailed design and release to production. This role will also be involved in architectural decisions and leverage technical knowledge to build solutions.
+
+Key Responsibilities
+
+Use a variety of programming languages and development tools to build, test, implement, and support the development of web/cloud software applications.
+Performs design architecture activities as needed.
+Collaborate with other technology experts and develop the technology framework.
+Participate and provide technical perspective to the Product Owners and/or R&D Management during project phases such as in the defining of product requirements and features. Assist in clarifying stakeholder requirements; communicate questions and address concerns; provide relevant and detailed updates and feedback on time.
+Actively contributes to establishing delivery timelines within a project during release planning meetings as well as assists junior staff in providing their timeline recommendations.
+Actively involved in sprint execution on looking for any scope deviations and backlog growth. Proactively identifies technical and procedural areas of concern to avoid gaps and problems.
+Analyses and defines requirements for data, workflow and logical processes, hardware and operating system environments and interfaces with other systems.
+Performs highly complex or specialized development activities involving coding in adherence to cybersecurity standards, code reviews, unit testing, debugging, and document creation and maintenance.
+Provides coaching and mentoring to junior staff and peer group.
+
+Essential Requirements
+
+Demonstrated ability to articulate and implement object-oriented concepts, design patterns and design principles
+Technical proficiency in writing software using C#, .NET 8, Web API, REST API and database technologies like SQL, NoSQL or PostgreSQL
+Experienced in developing web applications with Java Script, jQuery and Angular
+Experience with the cloud technologies like Azure or AWS
+Proven expertise with Azure OpenAI Service and Azure Cognitive Services
+Experience building AI solutions using Semantic Kernel or similar .NET frameworks
+Hands-on experience with Azure Kubernetes Service, Azure Functions, App Services, and Container Apps for AI deployment
+Working experience with LLMs and AI agents
+Familiarity with serverless architecture and microservice architecture
+Designed and developed frameworks considering security aspects
+Experienced in migrating projects from legacy to latest technologies
+Demonstrated ability to build automated unit/integration tests that proves the quality of code
+Good exposure to software configuration, build deployment and release management, infrastructure and DevOps areas.
+Ability to set up and maintain CI/CD pipelines using Azure DevOps
+Proficient to convey a message (written or verbal) in a logical and meaningful manner to influence the awareness, understanding, attitudes and behaviors of the audience
+Work experience in Industry digitalization products would be an added advantage
+
+Desired Skills And Competencies
+
+C#, .NET, Web API
+Azure, AWS
+LLMs, AI agents, Azure OpenAI Service
+Kubernetes
+Angular
+
+###END###
+
+About the job
+Position: C#.Net Developer
+
+
+
+
+
+Location: Mumbai/Bangalore/Hyderabad/Pune (Hybrid)
+
+
+
+
+
+About us:
+
+
+
+Zemoso Technologies is a Software Product Market Fit Studio that brings silicon valley style rapid prototyping and rapid application builds to Entrepreneurs and Corporate innovation. We offer Innovation as a service and work on ideas from scratch and take it to the Product Market Fit stage using Design Thinking->Lean Execution->Agile Methodology.
+
+
+We were featured as one of Deloitte Fastest 50 growing tech companies from India thrice (2016,
+2018 and 2019). We were also featured in Deloitte Technology Fast 500 Asia Pacific both in 2016 and 2018.
+
+
+We are located in Hyderabad, India, and Dallas, US. We have recently incorporated another office in Waterloo, Canada.
+
+
+Our founders have had past successes - founded a decision management company acquired by SAP AG (now part of Hana Big data stack & NetWeaver BPM), early engineering team of Zoho
+(leading billion $ SaaS player) & some Private Equity experience. Marquee customers along with some exciting start-ups are part of our clientele.
+
+
+What You will do:
+
+
+
+● Create beautiful software experiences for our clients using design thinking, lean and agile methodology.
+● Work on software products designed from scratch using the latest cutting edge technologies, platforms and languages such as JAVA, .NET, python, Javascript, GoLang and Scala.
+● Work in a dynamic, collaborative, transparent, non-hierarchical culture.
+● Work in collaborative, fast-paced and value-driven teams to build innovative customer experiences for our clients.
+● Help to grow the next generation of developers and have a positive impact on the industry.
+
+
+Basic Qualifications:
+
+
+
+● Experience: 8+ years on C#.NET Technologies
+● UI development experience in ReactJS or AngularJS are good to have.
+● Experience in working in Agile process with fully automated CI/CD processes.
+● Passion for software engineering and follow the best coding concepts.
+● Good to great problem solving and communication skills.
+
+
+Nice to have Qualifications:
+
+
+
+● Product and customer-centric mindset.
+● Great OO skills, including design patterns.
+● Tech enthusiast aware of the latest happenings in the tech landscape.
+
+
+Benefits :
+
+
+
+● Competitive salary.
+● Hybrid work model.
+● Learning and gaining experience rapidly.
+● Reimbursement for basic working set up at home.
+● Insurance (including a top up insurance for COVID).
+
+###END###

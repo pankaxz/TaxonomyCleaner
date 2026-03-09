@@ -82,6 +82,14 @@ def analyze_anomalies(file_path, output_path):
     }
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    
+    # Backup previous report if it exists
+    if os.path.exists(output_path):
+        backup_path = output_path.replace('.json', '_previous.json')
+        import shutil
+        shutil.copy2(output_path, backup_path)
+        print(f"Backed up previous report to {backup_path}")
+
     with open(output_path, 'w') as f:
         json.dump(report, f, indent=2)
     
@@ -92,5 +100,5 @@ def analyze_anomalies(file_path, output_path):
 if __name__ == "__main__":
     analyze_anomalies(
         'GlobalInput/Taxonomy/universe.json', 
-        'src/SkillOccurrenceAnomalyDetection/data/anomaly_report.json'
+        'src/dashboards/SkillOccurrenceAnomalyDetection/data/anomaly_report.json'
     )

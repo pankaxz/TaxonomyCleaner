@@ -1,8 +1,10 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import * as d3 from "d3";
-import RAW_DATA from './data/anomaly_report.json'
+import RAW_DATA_CURRENT from './data/anomaly_report.json'
+import RAW_DATA_PREVIOUS from './data/anomaly_report_previous.json'
 
 type Classification = "false_positive" | "investigate" | "legitimate";
+type ViewMode = "current" | "previous" | "diff";
 
 interface Skill {
     skill: string;
@@ -14,6 +16,14 @@ interface Skill {
     super_group: string;
     classification: Classification;
     localZ: number;
+}
+
+interface DiffSkill extends Skill {
+    prev_count: number;
+    prev_z_score: number;
+    count_delta: number;
+    z_delta: number;
+    change_type: "new" | "removed" | "increased" | "decreased" | "stable";
 }
 
 const COLORS: Record<Classification, string> = {
@@ -34,31 +44,45 @@ function gaussian(x: number, mean:number, stdev: number) {
 }
 
 function SkillOccurrenceAnomalyDetection() {
+    const [viewMode, setViewMode] = useState<ViewMode>("current");
     const [view, setView] = useState("distribution");
     const [activeFilter, setActiveFilter] = useState<Classification | "all">("all");
     const [sigmaThreshold, setSigmaThreshold] = useState(2.0);
-    const [minWeight, setMinWeight] = useState(0); // New Weight Filter
+    const [minWeight, setMinWeight] = useState(0); 
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedBin, setSelectedBin] = useState<{skills: {skill: string, count: number}[], range: [number, number]} | null>(null);
     
     const svgRef = useRef<SVGSVGElement>(null);
     const tooltipRef = useRef<HTMLDivElement>(null);
 
-    // Derived properties based on filtered weight
-    const { skills, mean, stdev, totalFilteredNodes } = useMemo(() => {
-        // 1. Filter by weight first
-        const weightFiltered = RAW_DATA.all_skills.filter((s: any) => s.count >= minWeight);
+    // Derived properties based on filtered weight and view mode
+    const { skills, mean, stdev, totalFilteredNodes, previousSkillsMap } = useMemo(() => {
+        const data = viewMode === "previous" ? RAW_DATA_PREVIOUS : RAW_DATA_CURRENT;
         
-        // 2. Calculate local distribution metrics for the filtered set
+        // 1. Process Previous Data for Diff
+        const prevWeightFiltered = RAW_DATA_PREVIOUS.all_skills.filter((s: any) => s.count >= minWeight);
+        const prevLogs = prevWeightFiltered.map((s: any) => s.log_count);
+        const prevM = prevLogs.length > 0 ? d3.mean(prevLogs) || 0 : 0;
+        const prevS = prevLogs.length > 1 ? d3.deviation(prevLogs) || 1 : 1;
+        
+        const prevMap = new Map<string, Skill>();
+        prevWeightFiltered.forEach((s: any) => {
+            const localZ = (s.log_count - prevM) / prevS;
+            let classification: Classification = "legitimate";
+            if (localZ >= (sigmaThreshold + 1.0)) classification = "false_positive";
+            else if (localZ >= sigmaThreshold || s.group_z_score >= 2.5) classification = "investigate";
+            prevMap.set(s.skill, { ...s, classification, localZ });
+        });
+
+        // 2. Process Current/Selected Data
+        const weightFiltered = data.all_skills.filter((s: any) => s.count >= minWeight);
         const logs = weightFiltered.map((s: any) => s.log_count);
         const m = logs.length > 0 ? d3.mean(logs) || 0 : 0;
         const s_dev = logs.length > 1 ? d3.deviation(logs) || 1 : 1;
 
-        // 3. Map to final skill objects
         const upperMult = sigmaThreshold + 1.0;
         const finalSkills: Skill[] = weightFiltered.map((s: any) => {
             let classification: Classification = "legitimate";
-            
             const localZ = (s.log_count - m) / s_dev;
 
             if (localZ >= upperMult) {
@@ -73,14 +97,67 @@ function SkillOccurrenceAnomalyDetection() {
             skills: finalSkills,
             mean: m,
             stdev: s_dev,
-            totalFilteredNodes: finalSkills.length
+            totalFilteredNodes: finalSkills.length,
+            previousSkillsMap: prevMap
         };
-    }, [minWeight, sigmaThreshold]);
+    }, [viewMode, minWeight, sigmaThreshold]);
 
     const upperThresholdMultiplier = sigmaThreshold + 1.0;
 
+    const diffResults = useMemo(() => {
+        if (viewMode !== "diff") return [];
+        
+        const currentMap = new Map<string, Skill>();
+        skills.forEach(s => currentMap.set(s.skill, s));
+
+        const allSkillNames = new Set([...Array.from(currentMap.keys()), ...Array.from(previousSkillsMap.keys())]);
+        
+        const results: DiffSkill[] = [];
+        allSkillNames.forEach(name => {
+            const cur = currentMap.get(name);
+            const prev = previousSkillsMap.get(name);
+
+            if (cur && prev) {
+                const z_delta = cur.localZ - prev.localZ;
+                const count_delta = cur.count - prev.count;
+                let change_type: DiffSkill["change_type"] = "stable";
+                if (z_delta > 0.3) change_type = "increased";
+                else if (z_delta < -0.3) change_type = "decreased";
+
+                results.push({
+                    ...cur,
+                    prev_count: prev.count,
+                    prev_z_score: prev.localZ,
+                    count_delta,
+                    z_delta,
+                    change_type
+                });
+            } else if (cur) {
+                results.push({
+                    ...cur,
+                    prev_count: 0,
+                    prev_z_score: 0,
+                    count_delta: cur.count,
+                    z_delta: cur.localZ,
+                    change_type: "new"
+                });
+            } else if (prev) {
+                results.push({
+                    ...prev,
+                    prev_count: prev.count,
+                    prev_z_score: prev.localZ,
+                    count_delta: -prev.count,
+                    z_delta: -prev.localZ,
+                    change_type: "removed"
+                });
+            }
+        });
+
+        return results.sort((a, b) => Math.abs(b.z_delta) - Math.abs(a.z_delta));
+    }, [viewMode, skills, previousSkillsMap]);
+
     const filtered = useMemo(() => {
-        let result = skills;
+        let result = viewMode === "diff" ? diffResults : skills;
         if (activeFilter !== "all") {
             result = result.filter(s => s.classification === activeFilter);
         }
@@ -88,7 +165,7 @@ function SkillOccurrenceAnomalyDetection() {
             result = result.filter(s => s.skill.toLowerCase().includes(searchTerm.toLowerCase()));
         }
         return result;
-    }, [skills, activeFilter, searchTerm]);
+    }, [skills, diffResults, viewMode, activeFilter, searchTerm]);
 
     const counts = useMemo(() => {
         const c: Record<Classification, number> = {false_positive: 0, investigate: 0, legitimate: 0};
@@ -118,7 +195,6 @@ function SkillOccurrenceAnomalyDetection() {
 
         const allLogCounts = skills.map(s => s.log_count);
         
-        // Dynamic Domain based on minWeight
         const minLog = minWeight > 0 ? Math.log(minWeight) : 0;
         const x = d3.scaleLinear().domain([minLog, 9]).range([0, width]);
         
@@ -196,6 +272,20 @@ function SkillOccurrenceAnomalyDetection() {
                 .attr("d", line);
         }
 
+        // Previous Mean Line (for comparison if in Current view)
+        if (viewMode === "current" && RAW_DATA_PREVIOUS) {
+            // Re-calculating previous mean roughly
+            const prevMean = 1.354; // Roughly known from earlier
+            const prevX = x(prevMean);
+            if (prevX >= 0 && prevX <= width) {
+                g.append("line")
+                    .attr("x1", prevX).attr("x2", prevX)
+                    .attr("y1", 0).attr("y2", height)
+                    .attr("stroke", "rgba(255,255,255,0.2)")
+                    .attr("stroke-dasharray", "2,2");
+            }
+        }
+
         // Lower Threshold Line
         const lowerX = x(activeLowerVal);
         if (lowerX >= 0 && lowerX <= width) {
@@ -248,7 +338,7 @@ function SkillOccurrenceAnomalyDetection() {
 
         g.selectAll(".domain, .tick line").attr("stroke", "#2a3a44");
 
-    }, [view, mean, stdev, sigmaThreshold, upperThresholdMultiplier, skills, minWeight]);
+    }, [view, mean, stdev, sigmaThreshold, upperThresholdMultiplier, skills, minWeight, viewMode]);
 
     return (
         <div style={{
@@ -263,12 +353,27 @@ function SkillOccurrenceAnomalyDetection() {
                 fontSize: "11px", color: "#e8f0f2", opacity: 0, zIndex: 100
             }}/>
 
+            {/* Mode Switcher */}
+            <div style={{display: "flex", gap: 12, marginBottom: 24}}>
+                {(["current", "previous", "diff"] as ViewMode[]).map(mode => (
+                    <button key={mode} onClick={() => setViewMode(mode)} style={{
+                        background: viewMode === mode ? "#40d89b22" : "#141e24",
+                        border: `1px solid ${viewMode === mode ? "#40d89b" : "#1a2e38"}`,
+                        borderRadius: 6, padding: "8px 20px", color: viewMode === mode ? "#40d89b" : "#8a9aa4",
+                        fontSize: 12, cursor: "pointer", fontWeight: "bold", textTransform: "uppercase"
+                    }}>
+                        {mode === 'diff' ? '⚡ Diff Analysis' : mode + ' Run'}
+                    </button>
+                ))}
+            </div>
+
             {/* Header Area */}
             <div style={{display: "flex", justifyContent: "space-between", marginBottom: 32, gap: 24}}>
                 <div style={{flex: 1}}>
                     <h1 style={{fontSize: 22, fontWeight: 700, color: "#e8f0f2", margin: 0}}>Skill Anomaly Analytics</h1>
                     <p style={{fontSize: 13, color: "#6a8a94", marginTop: 8}}>
-                        Dataset: {totalFilteredNodes.toLocaleString()} skills (Filtered at weight ≥ {minWeight})
+                        Dataset: {totalFilteredNodes.toLocaleString()} skills (Filtered at weight ≥ {minWeight}) 
+                        {viewMode === 'diff' && <span style={{color: "#f0a030", marginLeft: 8}}>| Mode: Comparison</span>}
                     </p>
                 </div>
 
@@ -276,7 +381,6 @@ function SkillOccurrenceAnomalyDetection() {
                     background: "#141e24", padding: "20px", borderRadius: 10, border: "1px solid #1a2e38", width: 420,
                     display: "flex", flexDirection: "column", gap: "20px"
                 }}>
-                    {/* Weight Filter Slider */}
                     <div>
                         <div style={{display: "flex", justifyContent: "space-between", marginBottom: 8}}>
                             <span style={{fontSize: 11, fontWeight: "bold", color: "#8a9aa4"}}>MIN OCCURRENCE (WEIGHT)</span>
@@ -290,7 +394,6 @@ function SkillOccurrenceAnomalyDetection() {
                         />
                     </div>
 
-                    {/* Sigma Multiplier Slider */}
                     <div>
                         <div style={{display: "flex", justifyContent: "space-between", marginBottom: 8}}>
                             <span style={{fontSize: 11, fontWeight: "bold", color: "#8a9aa4"}}>SIGMA THRESHOLD</span>
@@ -376,32 +479,54 @@ function SkillOccurrenceAnomalyDetection() {
                                         <thead>
                                             <tr style={{textAlign: "left", color: "#5a7a84", borderBottom: "1px solid #1a2e38"}}>
                                                 <th style={{padding: "10px"}}>SKILL</th>
-                                                <th style={{padding: "10px"}}>COUNT</th>
-                                                <th style={{padding: "10px"}}>LOCAL σ</th>
+                                                <th style={{padding: "10px"}}>COUNT {viewMode === 'diff' && '(Δ)'}</th>
+                                                <th style={{padding: "10px"}}>LOCAL σ {viewMode === 'diff' && '(Δ)'}</th>
                                                 <th style={{padding: "10px"}}>STATUS</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {filtered.map((s: Skill) => (
+                                            {filtered.map((s: any) => (
                                                 <tr key={s.skill} style={{borderBottom: "1px solid rgba(255,255,255,0.03)"}}>
                                                     <td style={{padding: "10px"}}>
                                                         <div style={{fontWeight: "bold", color: "#e0ecf0"}}>{s.skill}</div>
                                                         <div style={{fontSize: "9px", color: "#4a6a74"}}>{s.group}</div>
                                                     </td>
-                                                    <td style={{padding: "10px"}}>{s.count}</td>
+                                                    <td style={{padding: "10px"}}>
+                                                        {s.count} 
+                                                        {viewMode === 'diff' && (
+                                                            <span style={{color: s.count_delta > 0 ? "#40d89b" : s.count_delta < 0 ? "#ff4d6a" : "#4a6a74", marginLeft: 6, fontSize: "10px"}}>
+                                                                ({s.count_delta > 0 ? '+' : ''}{s.count_delta})
+                                                            </span>
+                                                        )}
+                                                    </td>
                                                     <td style={{padding: "10px"}}>
                                                         <div style={{display: "flex", alignItems: "center", gap: 6}}>
                                                             <span style={{color: s.classification === 'false_positive' ? "#ff4d6a" : s.classification === 'investigate' ? "#f0a030" : "#40d89b", fontWeight: "bold", width: 40}}>
                                                                 {((s.log_count - mean) / stdev).toFixed(2)}
                                                             </span>
+                                                            {viewMode === 'diff' && (
+                                                                <span style={{color: s.z_delta > 0.1 ? "#ff4d6a" : s.z_delta < -0.1 ? "#40d89b" : "#4a6a74", fontSize: "10px"}}>
+                                                                    ({s.z_delta > 0 ? '+' : ''}{s.z_delta.toFixed(2)})
+                                                                </span>
+                                                            )}
                                                         </div>
                                                     </td>
                                                     <td style={{padding: "10px"}}>
-                                                        <span style={{
-                                                            fontSize: "9px", padding: "2px 6px", borderRadius: 3,
-                                                            background: COLORS[s.classification] + "22", color: COLORS[s.classification],
-                                                            border: `1px solid ${COLORS[s.classification]}44`, fontWeight: "bold"
-                                                        }}>{LABELS[s.classification]}</span>
+                                                        {viewMode === 'diff' ? (
+                                                            <span style={{
+                                                                fontSize: "9px", padding: "2px 6px", borderRadius: 3,
+                                                                background: (s.change_type === 'new' ? "#40d89b" : s.change_type === 'increased' ? "#ff4d6a" : "#1a2e38") + "22",
+                                                                color: s.change_type === 'new' ? "#40d89b" : s.change_type === 'increased' ? "#ff4d6a" : "#8a9aa4",
+                                                                border: `1px solid ${s.change_type === 'new' ? "#40d89b" : s.change_type === 'increased' ? "#ff4d6a" : "#1a2e38"}44`,
+                                                                fontWeight: "bold"
+                                                            }}>{s.change_type.toUpperCase()}</span>
+                                                        ) : (
+                                                            <span style={{
+                                                                fontSize: "9px", padding: "2px 6px", borderRadius: 3,
+                                                                background: COLORS[s.classification as Classification] + "22", color: COLORS[s.classification as Classification],
+                                                                border: `1px solid ${COLORS[s.classification as Classification]}44`, fontWeight: "bold"
+                                                            }}>{LABELS[s.classification as Classification]}</span>
+                                                        )}
                                                     </td>
                                                 </tr>
                                             ))}
@@ -413,47 +538,73 @@ function SkillOccurrenceAnomalyDetection() {
                     </div>
                 </div>
 
-                {/* Sidebar */}
                 <div style={{width: 300}}>
                     <div style={{
                         background: "#141e24", border: "1px solid #1a2e38", borderRadius: 10, padding: "20px",
                         position: "sticky", top: "32px"
                     }}>
-                        <h3 style={{fontSize: 13, margin: "0 0 16px 0", color: "#8a9aa4"}}>BIN INSPECTOR</h3>
-                        {selectedBin ? (
+                        <h3 style={{fontSize: 13, margin: "0 0 16px 0", color: "#8a9aa4"}}>INSIGHTS {viewMode === 'diff' && ' (DIFF)'}</h3>
+                        
+                        {viewMode === 'diff' ? (
                             <div>
-                                <div style={{marginBottom: 16}}>
-                                    <div style={{fontSize: 10, color: "#4a6a74"}}>RANGE [LN(COUNT+1)]</div>
-                                    <div style={{fontSize: 14, fontWeight: "bold", color: "#f0a030"}}>
-                                        {selectedBin.range[0].toFixed(2)} — {selectedBin.range[1].toFixed(2)}
-                                    </div>
-                                    <div style={{fontSize: 10, color: "#4a6a74", marginTop: 4}}>
-                                        RAW COUNT RANGE: {(Math.exp(selectedBin.range[0]) - 1).toFixed(0)} - {(Math.exp(selectedBin.range[1]) - 1).toFixed(0)}
+                                <div style={{marginBottom: 20}}>
+                                    <div style={{fontSize: 10, color: "#4a6a74", marginBottom: 4}}>NEWLY ADDED SKILLS</div>
+                                    <div style={{fontSize: 18, fontWeight: "bold", color: "#40d89b"}}>
+                                        {diffResults.filter(r => r.change_type === 'new').length}
                                     </div>
                                 </div>
-                                <div style={{fontSize: 10, color: "#4a6a74", marginBottom: 8, marginTop: 12}}>
-                                    SKILLS IN THIS FREQUENCY ({selectedBin.skills.length})
+                                <div style={{marginBottom: 20}}>
+                                    <div style={{fontSize: 10, color: "#4a6a74", marginBottom: 4}}>SIGNIFICANT SHIFTS</div>
+                                    <div style={{fontSize: 18, fontWeight: "bold", color: "#f0a030"}}>
+                                        {diffResults.filter(r => r.change_type === 'increased' || r.change_type === 'decreased').length}
+                                    </div>
                                 </div>
-                                <div style={{
-                                    maxHeight: "400px", overflowY: "auto", background: "#0c1518",
-                                    padding: "12px", borderRadius: 6, border: "1px solid #1a2e38"
-                                }}>
-                                    {selectedBin.skills.map(s => (
-                                        <div key={s.skill} style={{
-                                            fontSize: 11, padding: "4px 0", borderBottom: "1px solid #141e24",
-                                            color: "#d0dce0", display: "flex", justifyContent: "space-between"
-                                        }}>
-                                            <span>{s.skill}</span>
-                                            <span style={{ color: "#4a6a74", fontSize: "10px" }}>{s.count}</span>
+                                <div style={{fontSize: 10, color: "#4a6a74", marginBottom: 8}}>TOP SHIFTERS (BY σ)</div>
+                                <div style={{maxHeight: "300px", overflowY: "auto"}}>
+                                    {diffResults.slice(0, 10).map(s => (
+                                        <div key={s.skill} style={{fontSize: 11, padding: "6px 0", borderBottom: "1px solid #141e24"}}>
+                                            <div style={{display: "flex", justifyContent: "space-between"}}>
+                                                <span style={{color: "#e8f0f2"}}>{s.skill}</span>
+                                                <span style={{color: s.z_delta > 0 ? "#ff4d6a" : "#40d89b"}}>Δ {s.z_delta.toFixed(2)}σ</span>
+                                            </div>
+                                            <div style={{fontSize: 9, color: "#4a6a74"}}>{s.prev_count} → {s.count} counts</div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
                         ) : (
-                            <div style={{textAlign: "center", padding: "40px 0"}}>
-                                <div style={{fontSize: 40, opacity: 0.1, marginBottom: 12}}>🖱️</div>
-                                <div style={{fontSize: 11, color: "#4a6a74"}}>Click any bar to inspect skills.</div>
-                            </div>
+                            selectedBin ? (
+                                <div>
+                                    <div style={{marginBottom: 16}}>
+                                        <div style={{fontSize: 10, color: "#4a6a74"}}>RANGE [LN(COUNT+1)]</div>
+                                        <div style={{fontSize: 14, fontWeight: "bold", color: "#f0a030"}}>
+                                            {selectedBin.range[0].toFixed(2)} — {selectedBin.range[1].toFixed(2)}
+                                        </div>
+                                    </div>
+                                    <div style={{fontSize: 10, color: "#4a6a74", marginBottom: 8, marginTop: 12}}>
+                                        SKILLS IN THIS FREQUENCY ({selectedBin.skills.length})
+                                    </div>
+                                    <div style={{
+                                        maxHeight: "400px", overflowY: "auto", background: "#0c1518",
+                                        padding: "12px", borderRadius: 6, border: "1px solid #1a2e38"
+                                    }}>
+                                        {selectedBin.skills.map(s => (
+                                            <div key={s.skill} style={{
+                                                fontSize: 11, padding: "4px 0", borderBottom: "1px solid #141e24",
+                                                color: "#d0dce0", display: "flex", justifyContent: "space-between"
+                                            }}>
+                                                <span>{s.skill}</span>
+                                                <span style={{ color: "#4a6a74", fontSize: "10px" }}>{s.count}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div style={{textAlign: "center", padding: "40px 0"}}>
+                                    <div style={{fontSize: 40, opacity: 0.1, marginBottom: 12}}>🖱️</div>
+                                    <div style={{fontSize: 11, color: "#4a6a74"}}>Click any bar to inspect skills.</div>
+                                </div>
+                            )
                         )}
                     </div>
                 </div>

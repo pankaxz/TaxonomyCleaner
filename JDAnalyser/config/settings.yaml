@@ -10,6 +10,20 @@ taxonomy:
   # Source of truth for dedup — the cleaner's input file
   canonical_data: /mnt/workspace/CareerNavigator/DataFactory/data/input/taxonomy/canonical_data.json
 
+soft_skill_taxonomy:
+  path: input/Taxonomy/soft_skill_taxonomy.json
+  queue_path: data/discovery/soft_skills_queue.json
+  status_output_dir: data/discovery/soft_skills_statuses
+  # Entries longer than this are likely full sentences, not skill names
+  max_name_chars: 60
+  # Entries with more words than this are filtered out
+  max_name_words: 6
+
+verb_taxonomy:
+  path: input/Taxonomy/verb-taxonomy.json
+  queue_path: data/discovery/verb_occurrences.json
+  status_output_dir: data/discovery/verb_statuses
+
 # Crawler input — --discover with no path uses input_dir by default
 crawler:
   input_dir: input/Builtin

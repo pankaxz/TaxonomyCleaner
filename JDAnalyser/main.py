@@ -43,7 +43,7 @@ def setup_logging() -> None:
 def cmd_discover(path: str | None = None, *, parallel: bool = True) -> None:
     from pathlib import Path
 
-    from discovery.processor import DiscoveryProcessor
+    from discovery.processor import DiscoveryProcessor, SoftSkillProcessor, VerbProcessor
 
     # No path given → use the configured input directory (crawler.input_dir)
     if path is None:
@@ -57,15 +57,37 @@ def cmd_discover(path: str | None = None, *, parallel: bool = True) -> None:
         p = Path(default_queue)
         out_path = str(p.with_stem(p.stem + "_no_parallel"))
 
+    # ── Technical skills (existing pipeline) ─────────────────────────
     queue = DiscoveryProcessor.process_jsonl(path, parallel=parallel, out_path=out_path)
-
     ready = sum(1 for e in queue.values() if e.get("status") == "ready_for_promotion")
     pending = sum(1 for e in queue.values() if e.get("status") == "pending")
     print(
-        f"\nQueue: {len(queue)} total — {ready} ready for promotion, {pending} pending"
+        f"\nTechnical skills queue: {len(queue)} total "
+        f"— {ready} ready for promotion, {pending} pending"
     )
+
+    # ── Soft skills ───────────────────────────────────────────────────
+    ss_queue = SoftSkillProcessor.process_jsonl(path, parallel=parallel)
+    ss_novel = sum(1 for e in ss_queue.values() if e.get("status") != "known")
+    ss_ready = sum(
+        1 for e in ss_queue.values() if e.get("status") == "ready_for_promotion"
+    )
+    print(
+        f"Soft skills queue:      {len(ss_queue)} total "
+        f"— {ss_ready} ready for promotion, {ss_novel - ss_ready} pending"
+    )
+
+    # ── Action verbs ──────────────────────────────────────────────────
+    vb_queue = VerbProcessor.process_jsonl(path, parallel=parallel)
+    vb_known = sum(1 for e in vb_queue.values() if e.get("status") == "known")
+    vb_novel = sum(1 for e in vb_queue.values() if e.get("status") == "novel")
+    print(
+        f"Verb occurrences queue: {len(vb_queue)} total "
+        f"— {vb_known} known (taxonomy), {vb_novel} novel"
+    )
+
     if out_path:
-        print(f"Output: {out_path}")
+        print(f"\nTechnical skills output: {out_path}")
 
 
 def cmd_review() -> None:

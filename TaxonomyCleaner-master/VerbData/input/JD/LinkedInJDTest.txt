@@ -1,0 +1,47 @@
+About the job
+We are seeking highly skilled Senior AI-Integrated Software Engineer with 6–10 years of experience in .Net Tech stack and AI tools (i.e GitHub Copilot). The candidate should have deep technical expertise, leadership ability, and experience architecting scalable web solutions.
+
+
+Job Description:
+
+Job Title: Senior AI-Integrated Software Engineer (.NET or react, C# & AI Tool (i.e GitHub Copilot)
+
+Shift Timings: should be available till 9:30 PM or 10:00 PM (IST)
+
+Location : Remote until office reopens, Work from Home
+
+Experience required: 6 to 10 years
+
+
+
+Job Summary:
+
+
+
+We are looking for a dynamic and innovative Senior Software Engineer with a strong foundation in .NET or React, C# and a proven track record of integrating modern AI tools into development workflows.
+
+The ideal candidate will bring hands-on experience in AI-assisted development practices using tools like and GitHub Copilot OR VertexAI OR RooCode OR Claude OR Cursor Or can be a combination of one or two tools.
+
+
+Key Responsibilities:
+
+Design and develop scalable backend systems using .NET or React, C#.
+Integrate AI tools (e.g. GitHub Copilot OR VertexAI OR RooCode OR Claude OR Cursor Or can be a combination of one or two tools) to enhance development speed, code quality, and team productivity.
+
+
+Required Skills:
+
+Proficiency in .NET or React, C#, SQL.
+Excellent communication, mentoring, and analytical skills.
+Proficient in AI-powered development tools like GitHub Copilot / VertexAI / RooCode / Claude / Cursor tools to accelerate the application development.
+We need Senior & AI-Enabled Developer.
+Leveraged GitHub Copilot (or any AI-powered tools) and prompt engineering techniques to accelerate development and improve code quality.
+Experience in migration of applications from one programming language to another.
+
+
+
+
+Work Environment:
+
+Flexible work location across India.
+Must be available till 9:30 PM – 10:00 PM IST to support collaboration and client needs.
