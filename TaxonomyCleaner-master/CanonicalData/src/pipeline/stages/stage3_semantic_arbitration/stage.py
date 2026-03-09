@@ -11,6 +11,7 @@ from ...shared.models import ALLOWED_ARBITRATION_ACTIONS
 from ...shared.models import ALLOWED_PRIMARY_CONFIDENCE
 from ...shared.models import CONFIDENCE_HIGH
 from ...shared.models import CONFIDENCE_LOW
+from ...shared.models import CONFIDENCE_MEDIUM
 from ...shared.models import GovernedArbitrationDecision
 from ...shared.models import ReviewQueueEntry
 from ...shared.models import StageResult
@@ -146,6 +147,8 @@ def run_stage3_arbitration(
             continue
         
         print(f">> LLM Response Received (Decisions: {len(decisions)})")
+
+        decisions = _schema_repair_decisions(decisions, terms)
 
         for row in decisions:
             decision = _validate_and_govern_decision(
@@ -361,6 +364,44 @@ def _append_alias_canonical_advisory_entries(
         )
 
 
+def _schema_repair_decisions(
+    decisions: List[object],
+    cluster_terms: List[str],
+) -> List[Dict[str, object]]:
+    """Pre-governance repair pass: fix missing/invalid fields so governance
+    sees clean data instead of rejecting on schema alone."""
+    repaired: List[Dict[str, object]] = []
+    for row in decisions:
+        if not isinstance(row, dict):
+            continue
+
+        term = str(row.get("term", "")).strip()
+        if not term:
+            continue
+
+        confidence = str(row.get("confidence", ""))
+        if confidence not in {"HIGH", "MEDIUM", "LOW"}:
+            row["confidence"] = "LOW"
+
+        if not isinstance(row.get("reasoning"), dict):
+            row["reasoning"] = {
+                "semantic_equivalence": "Unknown",
+                "ecosystem": "Unknown",
+                "abstraction_level": "Unknown",
+                "graph_safety": "Unknown",
+            }
+
+        action = str(row.get("action", ""))
+        if action in {"MERGE_AS_ALIAS", "MARK_AS_CONTEXTUAL"}:
+            target = row.get("target_canonical")
+            if not target or not str(target).strip():
+                row["action"] = "KEEP_DISTINCT"
+                row["confidence"] = "LOW"
+
+        repaired.append(row)
+    return repaired
+
+
 def _validate_and_govern_decision(
     row: object,
     cluster_id: str,
@@ -459,6 +500,17 @@ def _validate_and_govern_decision(
         effective_action = "KEEP_DISTINCT"
         blocked = True
         violations.append("low_confidence_containment")
+
+    if action in {"MERGE_AS_ALIAS", "MARK_AS_CONTEXTUAL"} and confidence == CONFIDENCE_MEDIUM and not blocked:
+        review_queue.append(
+            ReviewQueueEntry(
+                term=term,
+                stage=3,
+                issue=f"MEDIUM confidence {action} requires human review",
+                proposed_action=action,
+                confidence=CONFIDENCE_MEDIUM,
+            )
+        )
 
     if violations:
         blocked = True

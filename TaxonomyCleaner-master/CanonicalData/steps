@@ -1,0 +1,52 @@
+
+1st step
+  cd CanonicalData && python3 scripts/check_collisions.py
+
+  Or:
+
+  python3 CanonicalData/scripts/check_collisions.py \
+    --existing CanonicalData/Input/canonical_data.json \
+    --candidates CanonicalData/Input/NewCandidates/approved_canonical_output.json \
+    --output CanonicalData/Input/NewCandidates/candidates_clean.json \
+    --report CanonicalData/Output/collision_report.json
+
+stage 0
+python3 -m src.pipeline.run --stage stage0 --input Input/NewCandidates/candidates_clean.json --out Output/candidate_validation
+
+stage 1
+python3 -m src.pipeline.run --stage stage1 --input Input/NewCandidates/candidates_clean.json --out Output/candidate_validation
+
+stage 2
+cd /mnt/workspace/DataFactoryServices/TaxonomyCleaner-master/CanonicalData && python3 -m src.pipeline.run --stage stage2 --input Input/NewCandidates/candidates_clean.json --out Output/candidate_validation --resume-from Output/candidate_validation 2>&1
+
+Stage 3
+python3 -m src.pipeline.run --stage stage3 --in
+put Input/NewCandidates/candidates_clean.json --out Output/candidate_validation --resume-from Output/candidate_validation --reasoning-model "Qwen3.5-35B-A3B-Q5_K_S"
+
+stage 4
+python3 -m src.pipeline.run --stage stage4 --input Input/NewCandidates/candidates_clean.json --out Output/candidate_validation --resume-from Output/candidate_validation 2>&1
+
+
+
+stage 7
+# Dry run — show overlaps and exclusions only
+  python3 scripts/stage7_merge_validated.py --dry-run
+
+  # Full merge
+  python3 scripts/stage7_merge_validated.py
+
+  # Custom paths
+  python3 scripts/stage7_merge_validated.py \
+      --v2-preview Output/candidate_validation_v2/v2_preview.json \
+      --findings Output/candidate_validation_v2/stage4_findings.json \
+      --existing Input/canonical_data.json \
+      --output Input/canonical_data_merged.json \
+      --report Output/candidate_validation/stage7_merge_report.json
+
+  What it does:
+  1. Loads v2_preview.json and stage4_findings.json
+  2. Excludes blocking findings (Sprint planning) and LOW confidence entries
+  3. Shows overlap analysis — entries already in canonical_data.json
+  4. For overlaps: merges new aliases into existing entries
+  5. For new entries: adds under their tag/group
+  6. Writes sorted merged output and a detailed merge report

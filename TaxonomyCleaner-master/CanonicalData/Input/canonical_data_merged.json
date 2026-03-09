@@ -1,0 +1,4864 @@
+{
+  ".NET Frameworks": {
+    "Nancy": [],
+    "OpenRasta": []
+  },
+  "Advertising Insertion Services": {
+    "AWS MediaTailor": []
+  },
+  "Advisory Services": {
+    "AWS Trusted Advisor": []
+  },
+  "AI Data Science": {
+    "3d genai": [],
+    "A* Search Algorithm": [
+      "A* Algorithm"
+    ],
+    "Advanced algorithms": [],
+    "Advanced Analytics": [],
+    "AI": [
+      "Artificial Intelligence"
+    ],
+    "AI development tools": [],
+    "AI tools": [
+      "AI based Tools"
+    ],
+    "AI/ML Integration": [],
+    "Alchemy": [],
+    "Amazon Kendra": [
+      "Kendra"
+    ],
+    "Analytics workflows": [],
+    "attention mechanisms": [],
+    "AWS SageMaker": [
+      "SageMaker"
+    ],
+    "Azure HDInsight": [],
+    "azure ml": [
+      "azure machine learning",
+      "azure ml studio"
+    ],
+    "bert": [
+      "bidirectional encoder representations from transformers"
+    ],
+    "bias detection": [],
+    "bm25": [
+      "best matching 25",
+      "tfidf search"
+    ],
+    "ChatGPT": [],
+    "Claude": [],
+    "Claude Code": [],
+    "Computer Vision": [
+      "cv",
+      "machine vision"
+    ],
+    "Data Analysis": [
+      "Analytics"
+    ],
+    "Data Analysis and Visualization": [
+      "Data visualization"
+    ],
+    "Data Classification": [],
+    "Data Science": [],
+    "DAX": [],
+    "dbscan": [
+      "density-based spatial clustering"
+    ],
+    "decision trees": [],
+    "Deep Learning": [
+      "dl",
+      "dnn",
+      "neural nets",
+      "neural networks"
+    ],
+    "diffusion models": [
+      "ddpm",
+      "latent diffusion"
+    ],
+    "DVC": [],
+    "Faiss": [],
+    "feature stores": [],
+    "federated learning": [
+      "fl"
+    ],
+    "few shot learning": [],
+    "flash attention": [],
+    "Forecast": [],
+    "Fraud Detector": [],
+    "gaussian mixture models": [
+      "expectation maximization",
+      "gmm"
+    ],
+    "gaussian splatting": [],
+    "Generative Adversarial Networks (GAN)": [
+      "adversarial networks",
+      "GAN",
+      "gan",
+      "gan training",
+      "generator discriminator"
+    ],
+    "Generative AI": [
+      "gen ai",
+      "genai",
+      "generative artificial intelligence"
+    ],
+    "Generative Pre trained Transformer (GPT)": [
+      "GPT"
+    ],
+    "gesture recognition": [],
+    "Google Cloud Document AI": [],
+    "Google Cloud Natural Language API": [],
+    "Google ML Kit": [
+      "ML Kit"
+    ],
+    "graph neural networks": [],
+    "hallucination mitigation": [],
+    "Healthcare Domain": [],
+    "Hypothesis testing": [],
+    "Image Processing": [
+      "image"
+    ],
+    "instance segmentation": [],
+    "Kaggle": [],
+    "keypoint detection": [],
+    "knowledge distillation": [],
+    "knowledge graphs": [
+      "graph based rag",
+      "kg",
+      "semantic graph"
+    ],
+    "large vision models": [],
+    "liquid neural networks": [],
+    "LlamaIndex": [],
+    "llmops": [
+      "generative ai ops",
+      "llm operations"
+    ],
+    "llms": [],
+    "long context window": [],
+    "LoRA": [
+      "lora weights",
+      "low rank adaptation"
+    ],
+    "Machine Learning": [
+      "AI/ML",
+      "automated learning",
+      "ml"
+    ],
+    "manifold learning": [],
+    "Megatron LM": [],
+    "Mimir": [],
+    "mixture of experts (moe)": [],
+    "ML pipelines": [],
+    "MLPlatform Engineer": [],
+    "mmlab": [],
+    "mobilenet": [
+      "lightweight cnn"
+    ],
+    "Model Development": [],
+    "Model lifecycle management": [],
+    "monte carlo": [
+      "monte carlo data observability"
+    ],
+    "multi modal": [],
+    "neural radiance fields (nerf)": [],
+    "neuro symbolic": [],
+    "NLP": [
+      "natural language processing"
+    ],
+    "nltk": [],
+    "object detection": [
+      "fast r-cnn",
+      "r-cnn",
+      "single shot detector",
+      "ssd"
+    ],
+    "Pathfinding": [],
+    "PEFT": [],
+    "prompt engineering": [],
+    "Prompts": [],
+    "pruning": [
+      "structured pruning",
+      "weight pruning"
+    ],
+    "QLoRA": [
+      "4bit lora",
+      "quantized lora"
+    ],
+    "quantization": [
+      "4bit",
+      "8bit",
+      "fp8",
+      "int8",
+      "model quantization",
+      "weight quantization"
+    ],
+    "reinforcement learning": [
+      "rl"
+    ],
+    "resnet": [
+      "residual networks",
+      "skip connections"
+    ],
+    "self supervised learning": [],
+    "semantic segmentation": [],
+    "spatial understanding": [],
+    "Stable Diffusion": [],
+    "Stata": [],
+    "Statistical techniques": [],
+    "structured output": [
+      "constrained generation",
+      "json mode"
+    ],
+    "synthetic data generation": [
+      "ai generated data",
+      "data augmentation"
+    ],
+    "Tesseract OCR": [],
+    "Training": [],
+    "transformers": [
+      "self-attention mechanism",
+      "transformer models"
+    ],
+    "tree of thoughts": [
+      "deliberative reasoning",
+      "tot"
+    ],
+    "vector search": [
+      "ann",
+      "approximate nearest neighbor",
+      "semantic search"
+    ],
+    "Whisper": [],
+    "zero shot learning": []
+  },
+  "AI Operational Techniques": {
+    "accelerate": [],
+    "agentic AI": [],
+    "Agentic frameworks": [],
+    "agentic workflows": [
+      "ai agents",
+      "autonomous agents",
+      "multi agent systems"
+    ],
+    "Apache MXNet": [
+      "MXNet"
+    ],
+    "autogen": [],
+    "AWS CloudWatch": [],
+    "AWS Config": [],
+    "AWS X Ray": [
+      "X-Ray"
+    ],
+    "Azure Monitor": [],
+    "bitsandbytes": [],
+    "blue green deployments": [
+      "zero downtime deployment"
+    ],
+    "caching": [
+      "prompt caching",
+      "semantic caching"
+    ],
+    "Caffe": [],
+    "canary deployments": [
+      "canary release",
+      "gradual rollout"
+    ],
+    "chain of thought": [
+      "cot",
+      "step by step reasoning"
+    ],
+    "Chainer": [],
+    "Cloudwatch": [],
+    "context management": [
+      "context window scaling",
+      "kv cache",
+      "sliding window attention"
+    ],
+    "cost tracking": [
+      "inference cost",
+      "token usage"
+    ],
+    "cublas": [
+      "cuda basic linear algebra subprograms"
+    ],
+    "data labeling": [
+      "annotation",
+      "ground truth labeling"
+    ],
+    "deepmap": [],
+    "deepspeed": [],
+    "detectron2": [],
+    "diffusers": [],
+    "dpo": [
+      "direct preference optimization"
+    ],
+    "Ehcache": [],
+    "ELK Stack": [],
+    "Ensemble": [],
+    "explainable ai (xai)": [],
+    "fairseq": [],
+    "Fastai": [],
+    "fine tuning": [
+      "instruction tuning",
+      "model tuning",
+      "sft",
+      "supervised fine tuning"
+    ],
+    "Flower": [],
+    "function calling": [],
+    "glow": [
+      "glow compiler",
+      "pytorch compiler"
+    ],
+    "Google Cloud Memcache": [],
+    "Google Cloud Operations Suite": [
+      "Google Cloud Cloud Monitoring"
+    ],
+    "Google Cloud Profiler": [],
+    "Google Cloud Trace": [],
+    "gradio": [],
+    "Hazelcast": [],
+    "Horovod": [],
+    "hugging face": [],
+    "hybrid search": [
+      "ensemble search",
+      "keyword plus vector"
+    ],
+    "inference pipelines": [
+      "deployment pipeline",
+      "inference engine"
+    ],
+    "Infinispan": [],
+    "instructor": [],
+    "intel mkl": [
+      "math kernel library"
+    ],
+    "jax": [],
+    "knowledge retrieval": [
+      "document retrieval",
+      "information retrieval"
+    ],
+    "kokkos": [
+      "performance portability programming"
+    ],
+    "langgraph": [],
+    "latency optimization": [
+      "inference latency",
+      "time to first token"
+    ],
+    "legion": [
+      "data centric parallel programming"
+    ],
+    "litellm": [],
+    "llama.cpp": [],
+    "LLM orchestration": [],
+    "LogDNA": [],
+    "mage ai": [
+      "mage etl"
+    ],
+    "magma": [
+      "linear algebra for gpu"
+    ],
+    "mistral common": [],
+    "mkldnn": [
+      "intel dnn"
+    ],
+    "MLflow": [],
+    "mlir": [
+      "llvm mlir"
+    ],
+    "mlops": [
+      "machine learning operations"
+    ],
+    "model deployment": [],
+    "model evaluation": [
+      "benchmarking",
+      "evals",
+      "llm evaluation",
+      "model scoring"
+    ],
+    "model monitoring": [
+      "drift detection",
+      "observability",
+      "performance tracking"
+    ],
+    "model optimization": [
+      "graph optimization",
+      "inference speedup",
+      "throughput tuning"
+    ],
+    "multi agent orchestration": [
+      "agent coordination",
+      "swarm intelligence"
+    ],
+    "Nagios": [],
+    "nccl": [
+      "nvidia collective communications library"
+    ],
+    "neon": [
+      "serverless postgres"
+    ],
+    "nsight": [
+      "nvidia nsight"
+    ],
+    "ollama": [],
+    "oneapi": [
+      "dpc++",
+      "sycl oneapi"
+    ],
+    "onnx": [],
+    "openacc": [
+      "directive based gpu"
+    ],
+    "opencl": [
+      "heterogeneous computing"
+    ],
+    "OpenTelemetry": [],
+    "PaddlePaddle": [],
+    "PagerDuty": [],
+    "parallel programming": [
+      "concurrent programming",
+      "multi-threading",
+      "parallelism",
+      "simd"
+    ],
+    "parameter efficient finetuning": [
+      "adapter tuning",
+      "peft"
+    ],
+    "Prometheus Loki": [
+      "Loki"
+    ],
+    "PyTorch": [],
+    "RAG": [
+      "retrieval augmented generation"
+    ],
+    "raja": [
+      "llnl raja",
+      "parallel loop abstraction"
+    ],
+    "Ray": [
+      "Ray RLlib"
+    ],
+    "reranking": [
+      "cross encoders",
+      "ranker",
+      "rerank"
+    ],
+    "rlhf": [
+      "reinforcement learning from human feedback"
+    ],
+    "rocm": [
+      "amd gpu software",
+      "rocm platform"
+    ],
+    "self reflection": [
+      "ai self correction",
+      "critic agent"
+    ],
+    "semantickernel": [],
+    "shmem": [
+      "openshmem",
+      "shared memory"
+    ],
+    "site reliability engineering (sre)": [
+      "SRE Principles"
+    ],
+    "Stability AI": [],
+    "StatsD": [],
+    "sycl": [
+      "khronos sycl",
+      "sycl standard"
+    ],
+    "synapseml": [],
+    "Sysdig": [],
+    "tbb": [
+      "intel tbb",
+      "threading building blocks"
+    ],
+    "Tempo": [],
+    "tensorflow": [],
+    "TensorFlow Keras": [
+      "Keras",
+      "keras"
+    ],
+    "tensorrt": [],
+    "Thanos": [],
+    "thrust": [
+      "cuda parallel algorithms library"
+    ],
+    "timm": [],
+    "tracing": [],
+    "transformers.js": [],
+    "triton": [
+      "openai triton",
+      "triton gpu",
+      "triton lang"
+    ],
+    "trl": [],
+    "tvm": [
+      "apache tvm",
+      "relay ir",
+      "tvm compiler"
+    ],
+    "upc++": [],
+    "VictoriaMetrics": [],
+    "vllm": [],
+    "wandb": [],
+    "xla": [
+      "accelerated linear algebra",
+      "google xla",
+      "tpu compiler"
+    ],
+    "Zabbix": []
+  },
+  "AI Protocols": {
+    "Model Context Protocol": [
+      "MCP"
+    ]
+  },
+  "API Management": {
+    "Amazon Comprehend": [
+      "Comprehend"
+    ],
+    "Apigee": [],
+    "APIs": [],
+    "Axis2": [],
+    "Azure API Management": [],
+    "Braintree": [],
+    "Cohere API": [],
+    "contract testing": [],
+    "Firebase Authentication": [
+      "Firebase Auth"
+    ],
+    "Google Cloud Apigee": [],
+    "Google Cloud Cloud Endpoints": [],
+    "HTTP Body": [
+      "http-body"
+    ],
+    "idempotency": [
+      "idempotent operations"
+    ],
+    "IdentityServer": [],
+    "Infura": [],
+    "Insomnia": [],
+    "JSON Web Token": [
+      "jsonwebtoken"
+    ],
+    "Morgan": [],
+    "Mulesoft": [],
+    "Ocelot": [],
+    "Okta": [],
+    "OpenAPI": [],
+    "PayPal API": [],
+    "Plaid API": [],
+    "Postman": [],
+    "Protocol Buffers": [
+      "protobuf"
+    ],
+    "rate limiting": [
+      "throttling design"
+    ],
+    "Refit": [],
+    "SendGrid API": [
+      "sendgrid",
+      "sendgrid email"
+    ],
+    "ServiceStack": [],
+    "Square API": [],
+    "Stripe API": [
+      "stripe",
+      "stripe payments"
+    ],
+    "Swagger": [],
+    "Third party integrations": [],
+    "token limit management": [
+      "truncation strategy",
+      "window management"
+    ],
+    "Tonic": [],
+    "twilio": [
+      "Twilio API",
+      "twilio communications"
+    ],
+    "twirp": [],
+    "webhooks": [],
+    "Windows API": [
+      "winapi"
+    ],
+    "Zoom SDK": []
+  },
+  "Application Servers": {
+    "Apache HTTP Server": [
+      "apache httpd"
+    ],
+    "GlassFish": [],
+    "IIS": [],
+    "Jetty": [],
+    "WildFly": []
+  },
+  "Audio Technologies": {
+    "AVFoundation": [],
+    "FFmpeg": [],
+    "FMOD": [],
+    "OpenAL": [],
+    "Sound Design": [],
+    "Wwise": []
+  },
+  "Backend Systems": {
+    ".net": [
+      "asp.net",
+      "dotnet core"
+    ],
+    "activemq": [
+      "apache activemq"
+    ],
+    "apache pulsar": [],
+    "appwrite": [
+      "open source backend as a service"
+    ],
+    "APScheduler": [],
+    "AWS AppSync": [],
+    "AWS Connect": [],
+    "AWS Elastic Beanstalk": [],
+    "AWS Lambda": [
+      "aws lambda",
+      "lambda",
+      "serverless functions"
+    ],
+    "AWS SNS": [
+      "amazon simple notification service",
+      "sns"
+    ],
+    "AWS SQS": [
+      "amazon simple queue service",
+      "sqs"
+    ],
+    "Azure Logic Apps": [],
+    "Azure Service Bus": [
+      "Azure Messaging Service Bus",
+      "Azure.Messaging.ServiceBus"
+    ],
+    "Backend": [],
+    "Backend Development": [],
+    "bullmq": [],
+    "Cadence": [],
+    "Celery": [],
+    "CICS": [],
+    "Dramatiq": [],
+    "EJS": [],
+    "Express.js": [],
+    "Flask": [],
+    "FluentValidation": [],
+    "Google Cloud Functions": [],
+    "Hangfire": [],
+    "honeycomb": [
+      "honeycomb observability"
+    ],
+    "Kue": [],
+    "logstash": [
+      "elk logstash"
+    ],
+    "LoopBack": [],
+    "memcached": [],
+    "n8n": [],
+    "NestJS": [],
+    "nodemon": [
+      "nodemon auto-restart"
+    ],
+    "pm2": [
+      "pm2 process manager"
+    ],
+    "Prefect": [],
+    "Quartz.NET": [],
+    "RQ": [],
+    "ruby sidekiq": [
+      "sidekiq"
+    ],
+    "Spring Boot": [],
+    "SuiteTalk": [],
+    "Supabase": [],
+    "ZeroMQ": [
+      "0mq",
+      "zeromq"
+    ]
+  },
+  "BDD Tools": {
+    "SpecFlow": []
+  },
+  "Bioinformatics Tools": {
+    "SnapGene": [],
+    "Unipro UGENE": []
+  },
+  "Blockchain": {
+    "Aave": [],
+    "Algorand": [],
+    "ApeCoin": [],
+    "Arweave": [],
+    "Avalanche": [],
+    "AWS Managed Blockchain": [],
+    "Binance Smart Chain": [],
+    "Bitcoin": [],
+    "Cardano": [],
+    "Chainlink": [],
+    "Corda": [],
+    "DApps": [],
+    "DeFi": [],
+    "Dogecoin": [],
+    "Elliptic": [],
+    "Embark": [],
+    "EOS": [],
+    "Ethereum": [],
+    "EVM": [],
+    "Fantom": [],
+    "Filecoin": [],
+    "Ganache": [],
+    "Gnosis Safe": [],
+    "Hardhat": [],
+    "Harmony": [],
+    "Hedera Hashgraph": [],
+    "IOTA": [],
+    "Litecoin": [],
+    "MakerDAO": [],
+    "Marlowe": [],
+    "Monero": [],
+    "Moralis": [],
+    "Motoko": [],
+    "Move": [],
+    "Near Protocol": [],
+    "NFTs": [],
+    "OpenZeppelin": [],
+    "Optimistic Rollups": [],
+    "Parachains": [],
+    "Plutus": [],
+    "Polkadot": [],
+    "Polygon": [],
+    "Quorum": [],
+    "Ripple": [],
+    "Sidechains": [],
+    "Smart Contracts": [],
+    "Solana": [],
+    "Solidity": [
+      "ethereum programming",
+      "smart contracts"
+    ],
+    "Substrate": [],
+    "Tendermint": [],
+    "Tezos": [],
+    "The Graph": [],
+    "Tornado Cash": [
+      "Tornado"
+    ],
+    "Truffle": [],
+    "Uniswap": [],
+    "Zcash": [],
+    "Zk Rollups": []
+  },
+  "Blockchain Frameworks": {
+    "Hyperledger": []
+  },
+  "Browser Automation": {
+    "Browser Automation Tools": [
+      "playwright-core",
+      "puppeteer-core"
+    ],
+    "Mechanize": [],
+    "Playwright": []
+  },
+  "Build Systems": {
+    "Ant": [],
+    "Autotools": [],
+    "Bazel": [],
+    "CMake": [],
+    "Leiningen": [],
+    "Meson": [],
+    "Ninja": [],
+    "Pants": []
+  },
+  "Business Sales": {
+    "Account Planning": [],
+    "B2B SaaS sales": [],
+    "Business analysis": [],
+    "Business Development": [],
+    "Channel Sales": [],
+    "Consultative Selling": [],
+    "CRM": [
+      "Customer Relationship Management"
+    ],
+    "Customer success": [],
+    "Customer Support": [
+      "User support"
+    ],
+    "Disaster Recovery": [],
+    "Enterprise sales": [],
+    "Negotiation": [],
+    "Payroll Coordination": [],
+    "Sales": [],
+    "Sales Enablement": [],
+    "Sales engineering": [],
+    "Sales Motions": [],
+    "Service Level Agreements": [
+      "service level agreements",
+      "slas"
+    ],
+    "SuiteFoundation certification": [],
+    "SuiteScript": [],
+    "Team leadership": [],
+    "Team leadership and mentorship": [],
+    "Technical Product Communication": []
+  },
+  "C# Libraries": {
+    "LINQ": [],
+    "RestSharp": []
+  },
+  "Caching Technologies": {
+    "Elastic Cache": []
+  },
+  "CAD Software": {
+    "AutoCAD": [],
+    "Bentley MicroStation": [
+      "MicroStation"
+    ],
+    "CATIA": [],
+    "layout": [
+      "ic layout"
+    ],
+    "Onshape": [],
+    "PTC Creo": [],
+    "Revit": [],
+    "Siemens NX": [
+      "Nx"
+    ],
+    "SketchUp": [],
+    "SolidWorks": []
+  },
+  "Change Management Tools": {
+    "Asana": [],
+    "Changeman": [],
+    "collibra": [
+      "collibra governance"
+    ],
+    "Endevor": [],
+    "Liquibase": [],
+    "NConf": []
+  },
+  "CI/CD Infrastructure": {
+    "Airflow": [
+      "airflow",
+      "airflow dags",
+      "apache airflow"
+    ],
+    "Ansible": [
+      "ansible playbooks",
+      "configuration management",
+      "red hat ansible"
+    ],
+    "AppDynamics": [],
+    "Argo CD": [],
+    "ARM templates": [
+      "azure resource manager templates"
+    ],
+    "Atlantis": [
+      "atlantis terraform"
+    ],
+    "Automation": [],
+    "Automation Frameworks": [],
+    "AWS CodeBuild": [],
+    "AWS CodeCommit": [],
+    "AWS CodeDeploy": [],
+    "AWS CodePipeline": [],
+    "AWS OpsWorks": [],
+    "AWS Systems Manager": [],
+    "Bamboo": [],
+    "Bamboo build plans": [],
+    "Batch data pipelines": [],
+    "Bicep": [
+      "azure bicep"
+    ],
+    "Buck": [],
+    "Buildkite": [],
+    "Canary analysis": [
+      "automated canary analysis"
+    ],
+    "cdktf": [
+      "cdk for terraform"
+    ],
+    "CI/CD": [
+      "CI/CD Pipeline",
+      "CI/CD Pipelines"
+    ],
+    "CI/CD Engineer": [],
+    "CircleCI": [],
+    "cloudformation": [
+      "aws cloudformation"
+    ],
+    "Consul": [],
+    "Continuous Integration": [],
+    "Cross Env": [
+      "cross-env"
+    ],
+    "Dagger": [],
+    "DevOps": [],
+    "devsecops": [
+      "secure devops",
+      "security in pipelines"
+    ],
+    "Direnv": [],
+    "drone": [
+      "drone ci"
+    ],
+    "env0": [
+      "env0 infrastructure"
+    ],
+    "Fastlane": [],
+    "Gearset": [],
+    "GitHub": [
+      "git cli"
+    ],
+    "GitHub Actions": [
+      "gh actions",
+      "gha",
+      "github ci",
+      "github workflows"
+    ],
+    "GitLab": [
+      "gitlab ci"
+    ],
+    "GitLab CI": [
+      "gitlab ci cd",
+      "gitlab ci/cd"
+    ],
+    "gitops": [
+      "git operations deployment"
+    ],
+    "GoCD": [],
+    "Google Cloud Cloud Build": [],
+    "harness": [
+      "harness cd"
+    ],
+    "infrastructure as code": [],
+    "Jenkins": [
+      "jenkins ci"
+    ],
+    "Keda": [],
+    "OpenTofu": [],
+    "pre commit": [],
+    "Pulumi": [
+      "infrastructure as software",
+      "Pulumi Go",
+      "pulumi-go"
+    ],
+    "Puppet": [],
+    "renovate": [
+      "renovate bot"
+    ],
+    "saltstack": [
+      "salt engine"
+    ],
+    "semantic release": [],
+    "semaphore": [
+      "semaphore ci"
+    ],
+    "spacelift": [
+      "spacelift iac"
+    ],
+    "Spinnaker": [
+      "netflix spinnaker"
+    ],
+    "TeamCity": [
+      "jetbrains teamcity"
+    ],
+    "Terraform": [
+      "hashicorp terraform",
+      "iac",
+      "infrastructure as code",
+      "tf"
+    ],
+    "terraform cloud": [
+      "tfc"
+    ],
+    "terragrunt": [
+      "terraform wrapper"
+    ],
+    "Traefik": [],
+    "Travis CI": [
+      "travis"
+    ],
+    "Trivy": []
+  },
+  "CLI Tools": {
+    "Click": []
+  },
+  "Cloud Computing": {
+    "alibaba cloud": [
+      "aliyun"
+    ],
+    "Amazon EC2": [],
+    "Amazon ECS": [],
+    "Amazon EKS": [],
+    "Amazon S3": [
+      "AWS S3",
+      "s3"
+    ],
+    "Amazon Transcribe": [
+      "Transcribe"
+    ],
+    "App Runner": [],
+    "AWS": [
+      "amazon cloud",
+      "aws cloud"
+    ],
+    "AWS CLI": [
+      "Awscli"
+    ],
+    "AWS SAM": [
+      "SAM"
+    ],
+    "AWS Transit Gateway": [
+      "Transit Gateway"
+    ],
+    "AWS Well Architected Tool": [
+      "Well-Architected Tool"
+    ],
+    "Azure": [
+      "azure",
+      "azure cloud",
+      "Microsoft Azure",
+      "microsoft azure"
+    ],
+    "Azure App Service": [],
+    "Azure Application Gateway": [],
+    "Azure Arc": [],
+    "Azure Backup": [],
+    "Azure Bastion": [],
+    "Azure Batch": [],
+    "Azure Blob Storage": [
+      "Azure.Storage.Blobs"
+    ],
+    "Azure Blueprints": [],
+    "Azure Bot Service": [],
+    "Azure CLI": [
+      "Az"
+    ],
+    "Azure CycleCloud": [],
+    "Azure Event Hubs": [
+      "Event Hub"
+    ],
+    "Azure Front Door": [],
+    "Azure Functions": [],
+    "Azure Lab Services": [],
+    "Azure Lighthouse": [],
+    "Azure Migrate": [],
+    "Azure Orbital": [],
+    "Azure Resource Graph": [],
+    "Azure Site Recovery": [],
+    "Azure Spring Cloud": [],
+    "Azure Stack": [],
+    "Azure Virtual Desktop": [],
+    "Azure Virtual Machines": [],
+    "Azure VMware Solution": [],
+    "CDK": [],
+    "Cloud native architectures": [],
+    "Cloud native data platforms": [],
+    "Cloud Platforms (AWS, Azure, GCP)": [],
+    "Controller Runtime": [
+      "controller-runtime"
+    ],
+    "cwpp": [
+      "cloud workload protection platform"
+    ],
+    "DigitalOcean": [],
+    "Enterprise SaaS": [],
+    "finops": [
+      "cloud financial management"
+    ],
+    "Firebase": [
+      "google firebase"
+    ],
+    "Fly.io": [],
+    "GCP": [
+      "Gcloud",
+      "google cloud",
+      "Google Cloud Platform"
+    ],
+    "Google APIs": [
+      "googleapis"
+    ],
+    "Google App Engine": [],
+    "Google Cloud Access Approval": [],
+    "Google Cloud Compute Engine": [],
+    "Google Cloud Game Servers": [
+      "Google Cloud Cloud Gaming"
+    ],
+    "Google Cloud Identity Aware Proxy": [],
+    "Google Cloud Key Management Service": [
+      "Google Cloud Cloud KMS"
+    ],
+    "Google Cloud Managed Service for Microsoft Active Directory": [
+      "Google Cloud Service Directory"
+    ],
+    "Google Cloud OS Config": [],
+    "Google Cloud Private Service Connect": [],
+    "Google Cloud Pub/Sub": [],
+    "Google Cloud Resource Manager": [],
+    "Google Cloud Retail": [],
+    "Google Cloud Run": [],
+    "Google Cloud Security Command Center": [],
+    "Google Cloud Security Scanner": [],
+    "Google Cloud Source Repositories": [
+      "Google Cloud Cloud Source Repositories"
+    ],
+    "Google Cloud Storage": [],
+    "Google Cloud Workflows": [],
+    "heroku": [
+      "Heroku Client",
+      "heroku paas",
+      "heroku-client"
+    ],
+    "ibm cloud": [
+      "ibm bluemix"
+    ],
+    "Kubeflow": [],
+    "Kubeless": [],
+    "Lightsail": [],
+    "Linode": [],
+    "Macie": [],
+    "Netlify": [],
+    "Nuclio": [],
+    "OpenFaaS": [],
+    "OpenShift": [],
+    "oracle cloud": [
+      "oci"
+    ],
+    "ovh": [],
+    "PCF": [],
+    "platform engineering": [
+      "internal developer platforms"
+    ],
+    "railway": [],
+    "Rclone": [],
+    "render": [
+      "render.com",
+      "rendering"
+    ],
+    "saas security": [
+      "cloud app security"
+    ],
+    "Security Hub": [],
+    "Service Catalog": [],
+    "stackpath": [
+      "edge hosting stackpath"
+    ],
+    "Vultr": [
+      "vultr cloud"
+    ]
+  },
+  "Code Coverage Tools": {
+    "JaCoCo": []
+  },
+  "Color Libraries": {
+    "kleur": []
+  },
+  "Command Line Tools": {
+    "Yargs": []
+  },
+  "Communication Tools": {
+    "Neomutt": [],
+    "Proton": []
+  },
+  "Computer Vision": {
+    "mask r cnn": [
+      "pixel-level segmentation"
+    ],
+    "opencv": [
+      "OpenCV Python",
+      "opencv-python"
+    ],
+    "Scikit Image": []
+  },
+  "Configuration Management Tools": {
+    "Chef": [],
+    "Microsoft Intune": [],
+    "Salt": []
+  },
+  "Container Orchestration": {
+    "EKS": [],
+    "FN Project": [],
+    "GKE": [],
+    "Nomad": []
+  },
+  "Containerization": {
+    "helm": [
+      "helm charts",
+      "k8s package manager"
+    ],
+    "kubectl": [],
+    "kustomize": [
+      "k8s kustomize"
+    ]
+  },
+  "Containerization Tools": {
+    "Fargate": [],
+    "Jib": [],
+    "Packer": []
+  },
+  "Content Delivery Networks": {
+    "Amazon CloudFront": [],
+    "AWS MediaStore": [],
+    "Azure Content Delivery Network": []
+  },
+  "Content Management Systems": {
+    "blogging": [
+      "tech blogging"
+    ],
+    "Confluence": [
+      "atlassian confluence"
+    ],
+    "Contentful": [],
+    "Ghost CMS": [
+      "Ghost"
+    ],
+    "Newsboat": [],
+    "SharePoint": [],
+    "WordPress": []
+  },
+  "Cost Management": {
+    "Azure Cost Management": []
+  },
+  "Cross Platform Development": {
+    ".NET MAUI": [
+      "MAUI"
+    ],
+    "NativeScript": [],
+    "React Native": [],
+    "Toga": [],
+    "Uno Platform": []
+  },
+  "Cryptography": {
+    "Blake3": []
+  },
+  "Data Access Libraries": {
+    "ORMs": []
+  },
+  "Data Analysis and Monitoring": {
+    "ELK": [],
+    "Minitab": []
+  },
+  "Data Engineering": {
+    "airbyte": [
+      "airbyte etl"
+    ],
+    "alation": [
+      "alation data catalog"
+    ],
+    "AMQP": [],
+    "amundsen": [
+      "lyft amundsen"
+    ],
+    "Android Room": [
+      "Room"
+    ],
+    "Apache Arrow": [
+      "Arrow"
+    ],
+    "Apache Avro": [
+      "avro"
+    ],
+    "Apache Flink": [],
+    "Apache Lucene": [
+      "Lucene"
+    ],
+    "Apache Parquet": [
+      "Parquet"
+    ],
+    "Apache Pig": [],
+    "Athena": [
+      "aws athena"
+    ],
+    "AWS Elemental MediaLive": [
+      "MediaLive"
+    ],
+    "Azure Data Factory": [
+      "azure data integration"
+    ],
+    "Azure Data Lake Storage": [
+      "azure data lake",
+      "azure data lake storage"
+    ],
+    "Azure Data Share": [],
+    "Azure Purview": [],
+    "Beam": [],
+    "Big Data technologies": [],
+    "BigQuery": [
+      "Google BigQuery",
+      "google bigquery"
+    ],
+    "Bleve": [],
+    "byte pair encoding": [],
+    "cdc (change data capture)": [],
+    "Compression settings": [],
+    "confluent cloud": [
+      "managed kafka"
+    ],
+    "CRAN": [],
+    "dagster": [
+      "dagster orchestration"
+    ],
+    "data catalog": [
+      "metadata catalog"
+    ],
+    "Data Engineering": [],
+    "data fabric": [
+      "data fabric design",
+      "Fabric"
+    ],
+    "Data Governance": [
+      "ai ethics compliance",
+      "data catalogs",
+      "data privacy",
+      "governance",
+      "model safety",
+      "Registry and governance"
+    ],
+    "data ingestion": [
+      "data ingestion process"
+    ],
+    "Data lake": [],
+    "data lineage": [
+      "data lineage tracking"
+    ],
+    "Data loss prevention": [],
+    "Data Management": [],
+    "data mesh": [
+      "data mesh architecture"
+    ],
+    "Data migration": [],
+    "Data Mining": [],
+    "data modeling": [
+      "snowflake schema",
+      "star schema"
+    ],
+    "Data modernization": [],
+    "Data onboarding": [],
+    "data orchestration": [
+      "workflow orchestration"
+    ],
+    "data pipelines": [
+      "data pipeline engineering",
+      "pipeline engineering"
+    ],
+    "Data Preparation Management": [],
+    "Data Processing": [
+      "Processing"
+    ],
+    "Data Streaming": [
+      "Streaming data pipelines"
+    ],
+    "Data Structures": [],
+    "data warehousing": [],
+    "Databricks": [
+      "Azure Databricks",
+      "databricks cloud",
+      "databricks lakehouse",
+      "managed databricks"
+    ],
+    "DataDog": [],
+    "dataflow": [
+      "gcp dataflow"
+    ],
+    "DataHub": [],
+    "debezium": [
+      "debezium cdc"
+    ],
+    "Delta": [],
+    "delta lake": [
+      "delta lakehouse"
+    ],
+    "Dynamoose": [],
+    "Elasticsearch for Go": [
+      "go-elasticsearch"
+    ],
+    "emr": [
+      "aws elastic mapreduce"
+    ],
+    "Enterprise ETL tools": [],
+    "EPPlus": [],
+    "ETL/ELT workflows": [
+      "elt",
+      "ETL",
+      "extract load transform",
+      "extract transform load"
+    ],
+    "eventbridge": [
+      "aws eventbridge"
+    ],
+    "Exploratory Data Analysis": [],
+    "Factory Boy": [
+      "factory_boy"
+    ],
+    "Feast": [],
+    "Fiji": [],
+    "fivetran": [
+      "fivetran etl"
+    ],
+    "Flink": [],
+    "glue": [
+      "aws glue etl"
+    ],
+    "Gogo Proto": [
+      "gogoproto"
+    ],
+    "Google Cloud Dataplex": [],
+    "Google Cloud Looker": [],
+    "Hadoop": [
+      "apache hadoop",
+      "hdfs"
+    ],
+    "hnsw": [],
+    "Hudi": [],
+    "iceberg": [
+      "apache iceberg"
+    ],
+    "ivf pq": [],
+    "Kafka": [
+      "apache kafka",
+      "kafka streaming"
+    ],
+    "Kafka Streams": [],
+    "Kinesis": [
+      "aws kinesis"
+    ],
+    "lakehouse": [
+      "data lakehouse architecture"
+    ],
+    "Marquez": [],
+    "MassTransit": [],
+    "Modin": [],
+    "Mongoose": [],
+    "MyriMatch": [],
+    "NiFi": [],
+    "NServiceBus": [],
+    "OLAP": [],
+    "Petastorm": [],
+    "Piccolo": [],
+    "Prisma": [],
+    "RabbitMQ Client": [
+      "RabbitMQ.Client"
+    ],
+    "relational databases": [
+      "rdbms"
+    ],
+    "salting": [
+      "password salting"
+    ],
+    "Samza": [],
+    "Schema": [],
+    "SciPy": [],
+    "Sea ORM": [
+      "sea-orm"
+    ],
+    "semantic caching": [],
+    "Sequelize": [],
+    "soda": [
+      "soda sql"
+    ],
+    "Spark": [
+      "Apache Spark",
+      "apache spark",
+      "Apache Spark (Java)",
+      "pyspark",
+      "spark sql"
+    ],
+    "SQLX": [],
+    "SSIS": [],
+    "Statistical computing environments": [],
+    "Storm": [],
+    "SwiftyJSON": [],
+    "synapse": [
+      "azure synapse analytics"
+    ],
+    "TempFile": [],
+    "temporal": [
+      "temporal.io"
+    ],
+    "Tortoise ORM": [
+      "tortoise-orm"
+    ],
+    "Transformations": [],
+    "typegoose": [],
+    "TypeORM": [],
+    "Vaex": [],
+    "vector indexing": [
+      "faiss index",
+      "hnsw",
+      "ivf pq"
+    ],
+    "XORM": [],
+    "Zarr": []
+  },
+  "Data Governance": {
+    "Data Quality": [
+      "data profiling"
+    ]
+  },
+  "Data Partitioning": {
+    "Partitioning": []
+  },
+  "Data Visualization Platforms": {
+    "BioJS": [],
+    "Bokeh": [],
+    "Bowtie": [],
+    "Chart.js": [],
+    "Crazy Egg": [],
+    "D3.js": [],
+    "Deck.gl": [],
+    "Elastic Kibana": [
+      "Kibana"
+    ],
+    "Galaxy": [],
+    "Google Charts": [],
+    "Grafana": [
+      "dashboarding"
+    ],
+    "GraphPad Prism": [],
+    "Highcharts": [],
+    "Jupyter": [],
+    "Kepler.gl": [],
+    "Looker": [],
+    "Matplotlib": [],
+    "Metabase": [],
+    "Plotly": [],
+    "Power BI": [],
+    "PowerBI": [],
+    "Recharts": [],
+    "Seaborn": [],
+    "Streamlit": [],
+    "Tableau": []
+  },
+  "Database Migration Tools": {
+    "Azure Database Migration Service": [],
+    "migrations": []
+  },
+  "Databases": {
+    "Accumulo": [
+      "apache accumulo"
+    ],
+    "Adabas": [],
+    "Aerospike": [],
+    "Apache Derby": [
+      "Derby"
+    ],
+    "Apache Pinot": [
+      "Pinot"
+    ],
+    "ArangoDB": [
+      "arango multi-model"
+    ],
+    "AWS Neptune": [],
+    "AWS QLDB": [],
+    "AWS RDS": [
+      "RDS"
+    ],
+    "AWS Redshift": [
+      "Redshift"
+    ],
+    "AWS Timestream": [],
+    "azure sql database": [
+      "azure sql"
+    ],
+    "Azure SQL Database": [
+      "Azure SQL DB"
+    ],
+    "Azure Synapse Analytics": [
+      "azure synapse",
+      "azure synapse analytics"
+    ],
+    "BadgerDB": [],
+    "Berkeley DB": [],
+    "BoltDB": [],
+    "Bookshelf": [],
+    "Cassandra": [
+      "apache cassandra"
+    ],
+    "chromadb": [
+      "Chroma",
+      "chroma database"
+    ],
+    "ClickHouse": [
+      "clickhouse analytics"
+    ],
+    "CockroachDB": [],
+    "convex": [],
+    "Cosmos DB": [],
+    "Couchbase": [],
+    "CouchDB": [
+      "apache couchdb"
+    ],
+    "Database architecture": [],
+    "Database tuning": [
+      "Performance Tuning",
+      "Query Performance Tuning"
+    ],
+    "Databases": [],
+    "DataStore": [],
+    "Dataverse": [],
+    "DB2": [],
+    "DBT": [],
+    "Diesel": [],
+    "dragonfly": [],
+    "Drill": [],
+    "Druid": [],
+    "DuckDB": [],
+    "DynamoDB": [
+      "amazon dynamodb",
+      "AWS DynamoDB",
+      "dynamodb"
+    ],
+    "edgedb": [],
+    "Entity Framework Core": [],
+    "Flyway": [],
+    "FoundationDB": [],
+    "Geode": [],
+    "Google Cloud Spanner": [
+      "Google Cloud Spanner"
+    ],
+    "GORM": [],
+    "GridGain": [],
+    "H2 Database": [
+      "H2"
+    ],
+    "hbase": [
+      "apache hbase"
+    ],
+    "Hive": [],
+    "HSQLDB": [],
+    "IBM Db2": [],
+    "Impala": [],
+    "IndexedDB": [],
+    "InfluxDB": [],
+    "Informix": [],
+    "Ingres": [],
+    "Knex.js": [
+      "knex"
+    ],
+    "lancedb": [],
+    "LevelDB": [],
+    "LMDB": [],
+    "MariaDB": [],
+    "Mikro ORM": [],
+    "Milvus": [],
+    "MongoDB": [
+      "mongo",
+      "No SQL Databases (MongoDB)"
+    ],
+    "mongodb atlas": [
+      "managed mongodb"
+    ],
+    "MongoDB Driver": [
+      "mongo-driver"
+    ],
+    "MyBatis": [],
+    "MySQL": [
+      "oracle mysql"
+    ],
+    "Neo4j": [
+      "graph database",
+      "neo4j graph"
+    ],
+    "Netezza": [],
+    "Node Redis": [
+      "node_redis"
+    ],
+    "NoSQL": [
+      "non-relational database"
+    ],
+    "opensearch": [
+      "amazon opensearch"
+    ],
+    "ORACLE": [],
+    "Oracle Database": [],
+    "OrientDB": [
+      "orient graph"
+    ],
+    "Ormar": [],
+    "Peewee": [],
+    "PGX": [],
+    "pinecone": [
+      "pinecone vector db"
+    ],
+    "PlanetScale": [],
+    "PostgreSQL": [
+      "pgsql",
+      "postgres"
+    ],
+    "Presto": [],
+    "qdrant": [
+      "qdrant vector"
+    ],
+    "questdb": [
+      "quest time series"
+    ],
+    "RavenDB": [],
+    "Realm": [],
+    "Redis": [
+      "IO Redis",
+      "ioredis",
+      "redis cache",
+      "redis labs"
+    ],
+    "RethinkDB": [],
+    "RocksDB": [],
+    "ScyllaDB": [],
+    "SingleStore": [],
+    "Snowflake": [
+      "snowflake cloud",
+      "snowflake data warehouse"
+    ],
+    "solr": [
+      "apache solr"
+    ],
+    "SPSS": [],
+    "SQL": [
+      "T SQL"
+    ],
+    "SQL Server": [
+      "microsoft sql server",
+      "mssql"
+    ],
+    "SQLAlchemy": [],
+    "SQLite": [
+      "Better SQLite3",
+      "better-sqlite3",
+      "sql lite",
+      "SQLite3"
+    ],
+    "SQLModel": [],
+    "StackExchange.Redis": [],
+    "Stored procedures": [],
+    "surrealdb": [
+      "surreal database"
+    ],
+    "Sybase": [],
+    "Tarantool": [],
+    "Teradata": [],
+    "TiDB": [
+      "pingcap tidb"
+    ],
+    "tigergraph": [
+      "tigergraph database"
+    ],
+    "TiKV": [],
+    "TimescaleDB": [
+      "timescale postgres"
+    ],
+    "Trino": [],
+    "valkey": [
+      "valkey database"
+    ],
+    "vector db": [
+      "semantic database",
+      "vector database"
+    ],
+    "Vertica": [],
+    "VoltDB": [],
+    "weaviate": [
+      "weaviate vector"
+    ],
+    "Yugabyte": [
+      "yugabyte",
+      "YugabyteDB"
+    ],
+    "zilliz": [
+      "zilliz cloud"
+    ]
+  },
+  "Debugging Tools": {
+    "Flipper": []
+  },
+  "Dependency Injection Libraries": {
+    "Hilt": [],
+    "Koin": [],
+    "Mockito": []
+  },
+  "Dependency Management": {
+    "sonatype nexus": [
+      "Nexus",
+      "nexus repository"
+    ]
+  },
+  "Dependency Management Tools": {
+    "Artifactory": [
+      "artifactory",
+      "jfrog artifactory"
+    ],
+    "Ivy": []
+  },
+  "Deployment Tools": {
+    "kayenta": [
+      "netflix kayenta"
+    ],
+    "octopus deploy": [
+      "octopus"
+    ],
+    "waypoint": []
+  },
+  "Deprecated Technologies": {
+    "PyGTK": []
+  },
+  "Design Creative": {
+    "3ds Max": [],
+    "Adobe After Effects": [
+      "After Effects"
+    ],
+    "Adobe Illustrator": [],
+    "Adobe InDesign": [
+      "InDesign"
+    ],
+    "Adobe Lightroom": [],
+    "Adobe Photoshop": [
+      "adobe photoshop",
+      "Photoshop",
+      "ps"
+    ],
+    "Adobe Premiere Pro": [],
+    "Adobe XD": [],
+    "AmCharts": [],
+    "Animation Blending": [],
+    "Ant Design": [],
+    "Autodesk Maya": [
+      "Maya",
+      "maya"
+    ],
+    "Cairo": [],
+    "Collaborative skills": [],
+    "Color Theory": [],
+    "Core Animation": [],
+    "CorelDRAW": [],
+    "Creative design": [],
+    "Design Systems": [],
+    "Framer": [],
+    "Fritzing": [],
+    "GIMP": [],
+    "Glide": [],
+    "GStreamer": [],
+    "Iconography": [],
+    "Interaction Design": [],
+    "Jimp": [],
+    "Lumion": [],
+    "mahotas": [],
+    "Marmoset Toolbag": [],
+    "Mobile First Design": [],
+    "Pillow": [],
+    "Premiere": [],
+    "Protopie": [],
+    "Prototyping": [],
+    "Responsive Design": [],
+    "Semantic UI": [],
+    "SimpleITK": [],
+    "Sketch": [],
+    "substance painter": [],
+    "Twinmotion": [],
+    "Typography": [],
+    "user centric": [
+      "user focused"
+    ],
+    "User Experience (UX)": [],
+    "Video Editing": [],
+    "Visual Design": [],
+    "Wireframing": [],
+    "Zeplin": []
+  },
+  "Design Software": {
+    "ArchiCAD": [],
+    "Axure RP": [],
+    "Balsamiq": [],
+    "Blender": [],
+    "Canva": [],
+    "Figma": [],
+    "Foundry": [],
+    "Fusion 360": [],
+    "Grasshopper": [],
+    "Inkscape": [],
+    "InVision": [],
+    "Keyshot": [],
+    "KiCad": [],
+    "Lens": [],
+    "NUKE": [],
+    "Visio": []
+  },
+  "Desktop App Development": {
+    "Eclipse": [],
+    "Electron": [],
+    "FX": [],
+    "IntelliJ IDEA": [],
+    "NetBeans": [],
+    "PowerBuilder": [],
+    "PyCharm": [],
+    "Tauri": [],
+    "Windows Presentation Foundation": [
+      "WPF"
+    ],
+    "WinForms": []
+  },
+  "Development Practices": {
+    "Coverage": [],
+    "Feature Flagging": []
+  },
+  "Development Tools": {
+    "Advanced Package Tool (APT)": [
+      "Apt",
+      "apt",
+      "apt-get"
+    ],
+    "ai coding assistants": [
+      "ai code generation"
+    ],
+    "AKS": [
+      "Azure Kubernetes Service"
+    ],
+    "Anaconda": [
+      "Conda"
+    ],
+    "Ansi colors": [],
+    "AnyIO": [],
+    "Apache Maven": [
+      "Maven"
+    ],
+    "Application Observability": [
+      "Observability Technologies"
+    ],
+    "Arduino IDE": [],
+    "ARO": [
+      "Azure Red Hat OpenShift"
+    ],
+    "Async Std": [],
+    "Atlassian Suite": [],
+    "Atom": [],
+    "AuthBoss": [],
+    "Automation scripts": [
+      "devops scripts"
+    ],
+    "AWS SDK": [
+      "aws-sdk"
+    ],
+    "Azure DevOps": [],
+    "Azure SDK": [
+      "azure-sdk"
+    ],
+    "BioJava": [],
+    "Bitbucket pipelines": [
+      "bitbucket ci"
+    ],
+    "Brownie": [],
+    "Buildah": [
+      "buildah images"
+    ],
+    "Bzip2": [],
+    "Casbin": [],
+    "CFFI": [],
+    "Chalk": [],
+    "Chrono": [],
+    "Cloud9": [],
+    "CNI": [],
+    "Cobra": [],
+    "Code Review": [
+      "code reviews",
+      "pr reviews"
+    ],
+    "CodeGuru": [],
+    "Command Line Interface (CLI)": [
+      "Shell"
+    ],
+    "Commander": [],
+    "Compose": [],
+    "Containerd": [],
+    "Containerization": [
+      "container runtime",
+      "containerization",
+      "docker container",
+      "docker engine",
+      "ebpf networking",
+      "kubernetes engine",
+      "moby",
+      "project calico"
+    ],
+    "Convict": [],
+    "Cosmos SDK": [],
+    "cri o": [
+      "cri-o runtime"
+    ],
+    "Crossplane": [
+      "cloud control plane"
+    ],
+    "CTypes": [],
+    "Curio": [],
+    "deequ": [
+      "amazon deequ"
+    ],
+    "DefusedXML": [],
+    "dive": [
+      "docker dive"
+    ],
+    "Docker": [],
+    "Dockerode": [],
+    "Docopt": [],
+    "Dotenv": [
+      "python dotenv",
+      "python-dotenv"
+    ],
+    "Dotenv Expand": [
+      "dotenv-expand"
+    ],
+    "Dynaconf": [],
+    "e2e testing": [
+      "end to end testing"
+    ],
+    "Emacs": [],
+    "emulation": [
+      "hardware emulation"
+    ],
+    "Entity Framework": [],
+    "Ethers.js": [],
+    "Eventlet": [],
+    "Fantasy Land": [
+      "fantasy-land"
+    ],
+    "Feathers": [],
+    "Fiddler": [],
+    "firecracker": [
+      "aws firecracker",
+      "microvms"
+    ],
+    "Fission": [],
+    "Flake8": [],
+    "flannel": [
+      "cni flannel"
+    ],
+    "FlatBuffers": [],
+    "Flate2": [],
+    "Futures": [],
+    "Fzf": [],
+    "gcc": [
+      "gnu compiler collection"
+    ],
+    "Gevent": [],
+    "Ginkgo": [],
+    "Git": [
+      "git cli"
+    ],
+    "GNU Make": [
+      "cmake",
+      "gnu make",
+      "Make",
+      "make",
+      "makefile"
+    ],
+    "Go Cmp": [
+      "go-cmp"
+    ],
+    "Google Cloud Anthos": [],
+    "Google Cloud Container Registry": [],
+    "Google Cloud Kubernetes Engine": [],
+    "Google Cloud SDK": [
+      "google-cloud-sdk"
+    ],
+    "gprof": [
+      "gnu profiler"
+    ],
+    "Gradle": [],
+    "great expectations": [
+      "gx"
+    ],
+    "Greenlet": [],
+    "Guava": [],
+    "gvisor": [
+      "sandboxed container runtime"
+    ],
+    "Handlebars": [],
+    "harbor": [
+      "container registry harbor"
+    ],
+    "hdl": [
+      "hardware description language"
+    ],
+    "Hex": [],
+    "hpctoolkit": [
+      "hpc performance tools"
+    ],
+    "htop": [],
+    "IdentityModel": [],
+    "ImageSharp": [],
+    "Inquirer": [
+      "Enquirer"
+    ],
+    "Inspector": [],
+    "Isort": [],
+    "iterm2": [
+      "iterm"
+    ],
+    "JIRA": [
+      "atlassian jira"
+    ],
+    "jq": [],
+    "K3d": [
+      "k3s in docker"
+    ],
+    "K3s": [
+      "lightweight kubernetes"
+    ],
+    "k8s.io/client-go": [],
+    "K9s": [],
+    "Kaniko": [
+      "kaniko container build"
+    ],
+    "kata containers": [
+      "kata vms"
+    ],
+    "KeychainAccess": [],
+    "Kind": [
+      "Kubernetes Kind"
+    ],
+    "knative": [
+      "serverless kubernetes"
+    ],
+    "Kubernetes": [],
+    "Kubernetes Client": [
+      "kubernetes-client"
+    ],
+    "kubevirt": [
+      "vms on kubernetes"
+    ],
+    "LabVIEW": [],
+    "likwid": [
+      "lightweight performance tools"
+    ],
+    "Linkerd": [
+      "linkerd service mesh"
+    ],
+    "logrus": [],
+    "loguru": [],
+    "Lumberjack": [],
+    "Luxon": [],
+    "lvs": [
+      "layout vs schematic"
+    ],
+    "lxc": [
+      "linux containers"
+    ],
+    "lxd": [
+      "lxd container manager"
+    ],
+    "mamba": [
+      "selective state space",
+      "ssm"
+    ],
+    "MapStruct": [],
+    "Marshmallow": [],
+    "Maven Central Repository": [
+      "Maven Central"
+    ],
+    "meltano": [
+      "meltano data ops"
+    ],
+    "Mercurial": [],
+    "MicroK8s": [],
+    "Midnight Commander": [],
+    "minikube": [
+      "local kubernetes"
+    ],
+    "Model Mommy": [
+      "model_mommy"
+    ],
+    "ms test": [
+      "MSTest"
+    ],
+    "Mutt": [],
+    "MyPy": [],
+    "Ncdu": [],
+    "Neovim": [
+      "nvim"
+    ],
+    "Nix": [],
+    "Notion": [],
+    "npm": [],
+    "nvm": [
+      "node version manager"
+    ],
+    "ObjectMapper": [],
+    "Oh My Zsh": [
+      "ohmyzsh"
+    ],
+    "Optimizely": [],
+    "Paket": [],
+    "Pandera": [],
+    "Parking Lot": [
+      "parking_lot"
+    ],
+    "perf": [
+      "linux performance events"
+    ],
+    "Perforce Helix": [
+      "Perforce"
+    ],
+    "Performance Analysis": [],
+    "Pino": [],
+    "Pipenv": [],
+    "PlatformIO": [],
+    "PMD": [],
+    "Pnpm": [
+      "performant npm"
+    ],
+    "pnr": [
+      "place and route"
+    ],
+    "podman": [
+      "dockerless containers"
+    ],
+    "Poetry": [],
+    "Powerlevel10k": [],
+    "Proc Macro 2": [
+      "proc-macro2"
+    ],
+    "Prost": [],
+    "PyBind11": [],
+    "Pyenv": [
+      "python version manager"
+    ],
+    "Pylint": [],
+    "PyO3": [],
+    "PyPI": [],
+    "Python Package Installer": [
+      "pip"
+    ],
+    "rancher": [
+      "rancher desktop",
+      "rancher k8s"
+    ],
+    "Rayon": [],
+    "Rbenv": [],
+    "React 360": [
+      "React VR"
+    ],
+    "Ripgrep": [],
+    "rkt": [
+      "coreos rocket"
+    ],
+    "RStudio": [],
+    "Runc": [],
+    "RVM": [],
+    "S3cmd": [],
+    "sca": [
+      "software composition analysis"
+    ],
+    "SDKs": [],
+    "Setuptools": [],
+    "ShellJS": [],
+    "skaffold": [
+      "google skaffold"
+    ],
+    "Skopeo": [],
+    "slis": [
+      "service level indicators"
+    ],
+    "Socat": [],
+    "SonarQube": [],
+    "Spectre.Console": [],
+    "split": [
+      "split.io"
+    ],
+    "SpotBugs": [],
+    "stern": [
+      "stern log tail"
+    ],
+    "Stetho": [],
+    "StructOpt": [],
+    "Sublime Text": [],
+    "Subversion (SVN)": [
+      "SVN"
+    ],
+    "SwiftLint": [],
+    "tanzu": [
+      "vmware tanzu"
+    ],
+    "tau": [
+      "tuning and analysis utilities"
+    ],
+    "tekton": [
+      "tekton pipelines"
+    ],
+    "telepresence": [
+      "ambassador telepresence"
+    ],
+    "ThreadPoolCTL": [],
+    "throughput optimization": [
+      "batching optimization",
+      "tokens per second"
+    ],
+    "tmux": [
+      "terminal multiplexer"
+    ],
+    "Tokio": [],
+    "trio": [],
+    "typer": [],
+    "UWP": [],
+    "Vagrant": [],
+    "valgrind": [
+      "cachegrind",
+      "helgrind",
+      "memory profiler"
+    ],
+    "versioning": [
+      "data versioning",
+      "model versioning"
+    ],
+    "Vim": [],
+    "VirtualBox": [],
+    "Virtualenv": [],
+    "Visual Studio": [],
+    "Visual Studio Code": [
+      "VS Code"
+    ],
+    "VMware": [],
+    "vtune": [
+      "intel vtune profiler"
+    ],
+    "Web3.js": [],
+    "WebStorm": [],
+    "wget": [],
+    "Xcode": [],
+    "Xojo": [],
+    "Yarn (package manager)": [
+      "Yarn"
+    ],
+    "Yum": [],
+    "ZIP": [],
+    "Zstandard": [
+      "zstd"
+    ],
+    "Zypper": []
+  },
+  "DevOps": {
+    "HashiCorp Vault": [
+      "Vault"
+    ],
+    "Kyverno": []
+  },
+  "Distributed Systems": {
+    "Apache ZooKeeper": [
+      "ZooKeeper"
+    ],
+    "Distributed Computing": [],
+    "Etcd": []
+  },
+  "DNS Services": {},
+  "Document Conversion Tools": {
+    "Pandoc": [],
+    "PDFMiner": [],
+    "PyPDF2": [],
+    "ReportLab": [],
+    "weasyprint": [],
+    "XSLT": []
+  },
+  "Document Processing": {
+    "IronPDF": [],
+    "PDFKit": [],
+    "PdfSharp": [],
+    "PowerPoint": [],
+    "rfc": [
+      "request for comments doc"
+    ],
+    "technical writing": [
+      "technical authoring"
+    ],
+    "XHTML2PDF": []
+  },
+  "E commerce Platforms": {
+    "Adobe Magento": [
+      "Magento"
+    ],
+    "AWS Marketplace": [],
+    "BigCommerce": [],
+    "E-commerce platforms": [],
+    "Shopify": [],
+    "WooCommerce": []
+  },
+  "Edge Computing": {
+    "AWS Local Zones": [],
+    "AWS Wavelength": []
+  },
+  "Embedded Systems": {
+    "SPI": [
+      "Serial Peripheral Interface"
+    ]
+  },
+  "Enterprise Integration Platforms": {
+    "Oracle Integration Cloud": [
+      "OIC"
+    ]
+  },
+  "File Transfer Tools": {
+    "AWS Transfer Family": [],
+    "Rsync": []
+  },
+  "Frontend Development": {
+    "Babel": [],
+    "CSS in JS": [],
+    "Forms": [],
+    "Lazy Loading": [],
+    "Lightning Web Components": [],
+    "logrocket": [
+      "logrocket logging"
+    ],
+    "LWC": [],
+    "Relay": [],
+    "Rollup": [],
+    "urql": [],
+    "Visualforce": [],
+    "Webpack": [
+      "Parcel"
+    ]
+  },
+  "Game Engine Components": {
+    "Box2D": [],
+    "Bullet": [],
+    "Collision Detection": [],
+    "Entity Component System (ECS)": [
+      "ECS",
+      "Entity Component System"
+    ],
+    "Game Loop": [],
+    "Havok": [],
+    "NavMesh": [],
+    "Ogre3D": [
+      "Ogre"
+    ],
+    "Physics Engine": [
+      "physics engines"
+    ],
+    "Pyglet": [],
+    "Rigging": [],
+    "SDL": [],
+    "Skinning": [],
+    "Unity UI": [],
+    "Unreal UMG": [],
+    "Visual Scripting": []
+  },
+  "Game Engines": {
+    "Amazon Lumberyard": [],
+    "Amethyst": [],
+    "Behavior Trees": [],
+    "Bevy": [],
+    "Cocos2d": [],
+    "CryEngine": [],
+    "Defold": [],
+    "GameMaker": [],
+    "Godot Engine": [
+      "Godot",
+      "godot"
+    ],
+    "LibGDX": [],
+    "MonoGame": [],
+    "Panda3D": [],
+    "Phaser": [],
+    "PlayCanvas": [],
+    "Pygame": [],
+    "Ren'Py": [
+      "renpy"
+    ],
+    "RPG Maker": [],
+    "SceneKit": [],
+    "SFML": [],
+    "Source Engine": [],
+    "SpriteKit": [],
+    "Unity": [
+      "unity engine"
+    ],
+    "unity 3d": [],
+    "Unreal Engine": [
+      "Unreal Engine 5"
+    ]
+  },
+  "Generative AI": {
+    "Flux.1": []
+  },
+  "Genomics Tools": {
+    "Samtools": []
+  },
+  "Go Frameworks": {
+    "AWS SDK for Go": [
+      "aws-sdk-go"
+    ],
+    "Axum": [],
+    "Azure SDK for Go": [
+      "azure-sdk-for-go"
+    ],
+    "Beego": [],
+    "kingpin": [],
+    "Revel": []
+  },
+  "Governance": {
+    "Compliance": []
+  },
+  "Governance Tools": {
+    "Control Tower": []
+  },
+  "GPU Computing": {
+    "Apple Metal": [
+      "Metal"
+    ],
+    "GPU Computing": [
+      "cuda",
+      "gpu",
+      "graphics processing unit"
+    ],
+    "PyCUDA": [],
+    "PyOpenCL": []
+  },
+  "Graph Databases": {
+    "memgraph": []
+  },
+  "Graphics Techniques": {
+    "DirectX": [],
+    "Displacement Mapping": [],
+    "Frustum Culling": [],
+    "Global Illumination": [],
+    "Houdini": [],
+    "ImageMagick": [],
+    "Lightmapping": [],
+    "Motion Graphics": [],
+    "Normal Mapping": [
+      "Bump Mapping"
+    ],
+    "Occlusion Culling": [],
+    "Parallax Mapping": [],
+    "Rasterization": [],
+    "Ray Tracing": [],
+    "Scenegraph": [],
+    "Shader Graph": [],
+    "Shadow Mapping": [],
+    "Texture Mapping": [],
+    "UV Mapping": [],
+    "WebGPU": [
+      "w3c webgpu",
+      "web gpu api",
+      "WGPU"
+    ]
+  },
+  "GraphQL Tools": {},
+  "Groovy Frameworks": {
+    "Grails": []
+  },
+  "GUI Libraries": {
+    "Conversational UI": [],
+    "FLTK": [],
+    "GLFW": [],
+    "Material Components for the Web": [
+      "Material Components"
+    ],
+    "PyQt5": [],
+    "PySide2": [],
+    "Tkinter": [],
+    "Winit": [],
+    "WxPython": []
+  },
+  "Hardware Embedded": {
+    "Altium Designer": [],
+    "arm architecture": [
+      "armv8",
+      "armv9",
+      "cortex-a",
+      "cortex-m"
+    ],
+    "arm pl": [
+      "arm performance libraries"
+    ],
+    "asic": [
+      "application specific integrated circuit"
+    ],
+    "atpg": [
+      "automatic test pattern generation"
+    ],
+    "Azure Sphere": [],
+    "bare metal": [
+      "no-os"
+    ],
+    "Cadence Virtuoso": [],
+    "chiplet": [
+      "chiplet design"
+    ],
+    "Chisel": [],
+    "CircuitPython": [],
+    "congestion analysis": [
+      "layout congestion"
+    ],
+    "cxl": [
+      "compute express link"
+    ],
+    "ddr5": [
+      "double data rate 5"
+    ],
+    "dfat": [
+      "design for assembly and test"
+    ],
+    "dft": [
+      "design for testability"
+    ],
+    "drc": [
+      "design rule check"
+    ],
+    "dsp": [
+      "digital signal processor"
+    ],
+    "extraction": [
+      "parasitic extraction"
+    ],
+    "Fiber": [],
+    "formal verification": [
+      "formal hardware verification"
+    ],
+    "Forward Kinematics": [],
+    "FPGA": [
+      "field programmable gate array"
+    ],
+    "fpga prototyping": [
+      "fpga based prototyping"
+    ],
+    "hardware synthesis": [
+      "logic synthesis"
+    ],
+    "hbm": [
+      "high bandwidth memory"
+    ],
+    "I2C": [],
+    "IBM i": [],
+    "low power design": [
+      "power aware design"
+    ],
+    "low power microarchitecture": [
+      "efficient microarchitecture"
+    ],
+    "lpddr4": [
+      "mobile ddr4"
+    ],
+    "LTspice": [],
+    "mbist": [
+      "memory built-in self-test"
+    ],
+    "mcu": [
+      "arm microcontroller"
+    ],
+    "microarchitecture": [
+      "computer architecture"
+    ],
+    "noc design": [
+      "network on chip"
+    ],
+    "npu": [
+      "ai accelerator",
+      "neural processing unit"
+    ],
+    "nvme": [
+      "non-volatile memory express"
+    ],
+    "PADS": [],
+    "palladium": [
+      "cadence palladium"
+    ],
+    "pcie": [
+      "pci express"
+    ],
+    "physical design": [
+      "ic physical design"
+    ],
+    "risc v": [
+      "risc v architecture"
+    ],
+    "routing": [
+      "ic routing"
+    ],
+    "rtl coding": [
+      "register transfer level"
+    ],
+    "rtos": [
+      "real time operating system"
+    ],
+    "serdes": [
+      "serializer/deserializer"
+    ],
+    "signoff": [
+      "hardware signoff"
+    ],
+    "soc integration": [
+      "system on chip integration"
+    ],
+    "sta": [
+      "static timing analysis"
+    ],
+    "Synopsys Design Compiler": [],
+    "SystemC": [],
+    "SystemVerilog": [
+      "sv",
+      "system verilog",
+      "verification language"
+    ],
+    "thermal analysis": [
+      "chip thermal"
+    ],
+    "tpu": [
+      "tensor processing unit"
+    ],
+    "upf": [
+      "unified power format"
+    ],
+    "uvm": [
+      "universal verification methodology"
+    ],
+    "Verilog AMS": [],
+    "VHDL": [],
+    "vlsi design": [
+      "very large scale integration"
+    ],
+    "wifi": [
+      "802.11",
+      "wireless lan"
+    ],
+    "zebu": [
+      "synopsys zebu"
+    ]
+  },
+  "Healthcare APIs": {
+    "Clinical data repositories": [],
+    "FHIR": [],
+    "HealthKit": [],
+    "HL7": []
+  },
+  "Healthcare Platforms": {
+    "CDISC": [],
+    "Clinical data management": [],
+    "EDC tools (e.g., Rave, Veeva)": [],
+    "HealthShare": [],
+    "HIPAA": [
+      "hipaa",
+      "hipaa compliance"
+    ],
+    "OMOP": []
+  },
+  "HTTP Clients": {
+    "Axios": [],
+    "Chi": [],
+    "Cross Fetch": [
+      "cross-fetch"
+    ],
+    "cURL": [],
+    "Google API Go Client": [
+      "google-api-go-client"
+    ],
+    "Grequests": [],
+    "HTTPie": [],
+    "HTTPX": [],
+    "Isomorphic Fetch": [
+      "isomorphic-fetch"
+    ],
+    "ky": [],
+    "Node Fetch": [
+      "node-fetch"
+    ],
+    "OkHttp": [],
+    "Reqwest": [],
+    "SuperAgent": [],
+    "urllib3": []
+  },
+  "Hybrid Cloud Storage": {
+    "AWS Storage Gateway": []
+  },
+  "Incident Management": {
+    "incident management": [
+      "security incidents"
+    ]
+  },
+  "Incident Response": {
+    "forensics": [
+      "digital forensics"
+    ]
+  },
+  "Infrastructure Management": {},
+  "Internet of Things": {
+    "Azure IoT Central": [],
+    "Azure IoT Hub": [],
+    "MicroPython": []
+  },
+  "IT Management Tools": {
+    "Omegamon": [],
+    "ServiceNow": []
+  },
+  "Java Web Tools": {
+    "Dropwizard": [],
+    "Gson": [],
+    "GWT": [],
+    "Hibernate": [
+      "JPA/Hibernate"
+    ],
+    "J2EE": [],
+    "Jackson": [],
+    "Javalin": [],
+    "JDBC": [],
+    "Jersey": [],
+    "JPA": [],
+    "JSF": [],
+    "JSP": [],
+    "Micronaut": [],
+    "Moshi": [],
+    "NHibernate": [],
+    "Play Framework": [],
+    "Quarkus": [],
+    "RestEasy": [],
+    "Restlet": [
+      "RESTlets"
+    ],
+    "Thymeleaf": []
+  },
+  "JavaScript Ecosystem": {
+    "": [
+      "underscore"
+    ],
+    "AdonisJS": [],
+    "Bun": [],
+    "Esbuild": [],
+    "Execa": [],
+    "Foundation": [],
+    "Grunt": [],
+    "Gulp": [],
+    "Immutable.js": [
+      "immutable"
+    ],
+    "Lit": [],
+    "Minimist": [],
+    "node": [],
+    "Qwik": [],
+    "Remix": [
+      "Remix IDE"
+    ]
+  },
+  "Languages": {
+    "abap": [],
+    "Ada": [
+      "safety critical"
+    ],
+    "Agda": [],
+    "Apex": [],
+    "Assembly": [],
+    "Awk": [],
+    "Bash": [
+      "bash shell",
+      "sh",
+      "shell scripting"
+    ],
+    "BioPerl": [],
+    "C#": [
+      "c sharp",
+      "csharp"
+    ],
+    "C++": [
+      "c plus plus",
+      "cpp"
+    ],
+    "Clojure": [
+      "lisp jvm"
+    ],
+    "COBOL": [
+      "legacy banking"
+    ],
+    "ColdFusion": [],
+    "Coq": [],
+    "Core Java": [],
+    "Crystal": [
+      "ruby-like compiled"
+    ],
+    "D": [],
+    "Dart": [],
+    "Delphi": [],
+    "Elixir": [
+      "erlang"
+    ],
+    "Elm": [],
+    "F#": [],
+    "F*": [],
+    "Fortran": [
+      "scientific computing"
+    ],
+    "Freemarker": [],
+    "fsharp": [],
+    "FullStack Java": [],
+    "Go": [
+      "go",
+      "golang"
+    ],
+    "Groovy": [],
+    "Haskell": [],
+    "haxe": [],
+    "Java": [],
+    "JavaScript": [
+      "ecmascript",
+      "es2022",
+      "es5",
+      "es6",
+      "js",
+      "vanilla js"
+    ],
+    "JScript": [],
+    "Julia": [],
+    "JVM": [],
+    "Kotlin": [
+      "Kodein",
+      "kotlin-jvm"
+    ],
+    "LISP": [
+      "scheme"
+    ],
+    "lua": [],
+    "Nim": [
+      "compiled python-like"
+    ],
+    "Objective C": [
+      "ansi c",
+      "c",
+      "embedded c"
+    ],
+    "OCaml": [],
+    "Pascal": [
+      "Pascal",
+      "pascal"
+    ],
+    "perl": [],
+    "PHP": [
+      "hypertext preprocessor",
+      "lamp stack"
+    ],
+    "pl/sql": [],
+    "Pony": [],
+    "powershell": [
+      "power shell scripting",
+      "pwsh",
+      "windows shell"
+    ],
+    "prolog": [
+      "logic programming"
+    ],
+    "Python": [
+      "cpython",
+      "py",
+      "python 3",
+      "python3"
+    ],
+    "r": [],
+    "Racket": [],
+    "Ruby": [
+      "cruby",
+      "mruby",
+      "rails",
+      "rb",
+      "ruby on rails"
+    ],
+    "Rust": [
+      "cargo",
+      "rs",
+      "rustlang"
+    ],
+    "Scala": [
+      "functional java",
+      "sbt"
+    ],
+    "Smalltalk": [
+      "pure oop"
+    ],
+    "Swift": [
+      "ios development",
+      "swift lang",
+      "swiftui"
+    ],
+    "TCL": [
+      "scripting language"
+    ],
+    "TypeScript": [
+      "ts"
+    ],
+    "verilog": [
+      "hardware description language",
+      "hdl",
+      "Verilog A"
+    ],
+    "Visual Basic": [],
+    "Vyper": [],
+    "Wolfram Language": [],
+    "Zig": []
+  },
+  "Libraries": {
+    "Amqplib": [],
+    "Apache Commons": [],
+    "Apache Log4j": [
+      "Log4j"
+    ],
+    "AutoMapper": [],
+    "Backbone.js": [
+      "BackboneJS"
+    ],
+    "BioRuby": [],
+    "Boost.Python": [],
+    "CsvHelper": [],
+    "Date fns": [],
+    "Day.js": [],
+    "gensim": [],
+    "GNU C Library (glibc)": [
+      "libc"
+    ],
+    "GSAP": [],
+    "Newtonsoft.Json": [],
+    "NumPy": [
+      "numba"
+    ],
+    "pandas": [],
+    "Project Lombok": [
+      "Lombok"
+    ],
+    "RxJava": [],
+    "RxSwift": [],
+    "SDWebImage": [],
+    "Serde JSON": [
+      "serde_json"
+    ],
+    "SkiaSharp": [],
+    "SLF4J": [],
+    "SQLite.swift": [],
+    "System.Text.Json": [],
+    "User libraries": [],
+    "Validator.js": [],
+    "Zap": []
+  },
+  "Linting Tools": {
+    "Ktlint": []
+  },
+  "Load Balancers": {
+    "haproxy": [
+      "high availability proxy"
+    ]
+  },
+  "Load Testing": {
+    "gatling": [
+      "gatling.io"
+    ]
+  },
+  "Logging": {
+    "Seelog": [],
+    "StructLog": [],
+    "structured Logging": [],
+    "Winston": [],
+    "Zerolog": []
+  },
+  "Logging and Monitoring": {
+    "Bunyan": [],
+    "Env Logger": [
+      "env_logger"
+    ],
+    "Fluent Logger": [
+      "fluent-logger"
+    ],
+    "Graylog": [],
+    "log4js": [],
+    "log4net": [],
+    "Logback": [],
+    "NLog": [],
+    "Papertrail": [],
+    "Serilog": [],
+    "Timber": []
+  },
+  "Logging Tools": {
+    "fluentd": [
+      "fluentd log collector"
+    ],
+    "logs": []
+  },
+  "Low-Code Development Platforms": {
+    "Power Apps": []
+  },
+  "Mainframe Technologies": {
+    "IBM Z/OS": [
+      "Z/OS"
+    ],
+    "IBM Z/VM": [
+      "Z/VM"
+    ],
+    "IBM Z/VSE": [
+      "Z/VSE"
+    ],
+    "JCL": [],
+    "MVS": [],
+    "OS/390": [],
+    "VSAM": []
+  },
+  "Management Methodologies": {
+    "Agile": [
+      "agile development",
+      "agile methodology"
+    ],
+    "Benefits Administration": [],
+    "Compliance with company policies": [],
+    "Employee Relations": [],
+    "Enterprise IT policies": [],
+    "Kanban": [
+      "kanban board"
+    ],
+    "Monday.com": [],
+    "OPA": [],
+    "Process Improvement": [],
+    "Quality Assurance": [],
+    "SAFe": [],
+    "Scrum": [
+      "scrum framework",
+      "scrum master"
+    ],
+    "slos": [
+      "service level objectives"
+    ],
+    "SSDLC": [],
+    "technical leadership": [
+      "tech lead"
+    ],
+    "Time Management": [
+      "scheduling",
+      "task prioritization"
+    ]
+  },
+  "Manufacturing Technologies": {},
+  "Mapping Technologies": {
+    "MapKit": []
+  },
+  "Marketing": {
+    "ClickFunnels": [],
+    "Constant Contact": [],
+    "Content Marketing": [],
+    "Conversion Rate Optimization": [],
+    "Digital marketing": [],
+    "Facebook Ads": [],
+    "Google Ads": [],
+    "Google Analytics": [],
+    "Hotjar": [],
+    "HR Data Analysis": [],
+    "HubSpot": [],
+    "Influencer Marketing": [],
+    "Mailchimp": [],
+    "Marketo": [],
+    "Performance driven creative testing": [],
+    "Salesforce Marketing Cloud": [],
+    "SEMrush": [],
+    "SEO": [],
+    "Social Media Marketing": [],
+    "Twitter Ads": [],
+    "Unbounce": [],
+    "User acquisition strategies": [],
+    "VWO": []
+  },
+  "Mathematics": {
+    "cosine similarity": []
+  },
+  "Media Packaging Services": {
+    "AWS MediaPackage": []
+  },
+  "Media Players": {
+    "ExoPlayer": []
+  },
+  "Message Queues": {
+    "EasyNetQ": [],
+    "MQ": [],
+    "Pulsar": []
+  },
+  "Message Queuing Services": {
+    "MSK": []
+  },
+  "Messaging Libraries": {
+    "Azure SignalR Service": [],
+    "Azure Web PubSub": [],
+    "Confluent Kafka": [
+      "Confluent Kafka Go",
+      "confluent-kafka-go",
+      "Confluent.Kafka"
+    ],
+    "FIX protocol": [],
+    "Google Cloud Pub/Sub": [
+      "google cloud pub sub"
+    ],
+    "Jitsi": [],
+    "kafkajs": [],
+    "MediatR": [],
+    "Microsoft Teams": [],
+    "MQTT": [],
+    "NATS": [],
+    "NSQ": [],
+    "RabbitMQ": [],
+    "Sarama": [],
+    "Slack": [
+      "slack communication"
+    ]
+  },
+  "Messaging Services": {},
+  "Methodologies Vibe": {
+    "Accessibility": [],
+    "Adaptability": [
+      "agility",
+      "flexibility"
+    ],
+    "Analytic skills": [],
+    "Communication": [
+      "effective communication",
+      "interpersonal skills",
+      "verbal communication",
+      "written communication"
+    ],
+    "community building": [
+      "tech community"
+    ],
+    "conflict resolution": [
+      "team conflict management"
+    ],
+    "Continuous Learning": [],
+    "contribution": [
+      "technical contribution"
+    ],
+    "Copilot": [
+      "github copilot"
+    ],
+    "customer empathy": [
+      "customer empathy mindset"
+    ],
+    "design thinking": [
+      "design thinking process"
+    ],
+    "devops culture": [
+      "devops collaboration"
+    ],
+    "Documentation": [
+      "technical documentation"
+    ],
+    "Drive": [],
+    "emotional intelligence": [
+      "eq"
+    ],
+    "feature flags": [
+      "feature toggles"
+    ],
+    "growth mindset": [
+      "professional growth"
+    ],
+    "gRPC Gateway": [
+      "grpc-gateway"
+    ],
+    "husky": [
+      "husky hooks"
+    ],
+    "incident command": [
+      "incident management command"
+    ],
+    "launchdarkly": [
+      "launchdarkly flags"
+    ],
+    "lifelong learning": [
+      "continuous learning"
+    ],
+    "mentoring": [
+      "developer mentoring"
+    ],
+    "middleware": [],
+    "MIME": [],
+    "mob programming": [
+      "mobbing"
+    ],
+    "modularization": [],
+    "on call": [
+      "on-call rotations"
+    ],
+    "open source": [
+      "oss contribution"
+    ],
+    "Operational best practices": [],
+    "Optimization": [
+      "Performance Optimization"
+    ],
+    "Organizational skills": [],
+    "pacman": [
+      "arch pacman"
+    ],
+    "pair programming": [
+      "pairing"
+    ],
+    "post mortems": [
+      "incident post-mortems"
+    ],
+    "presentation skills": [
+      "presenting tech"
+    ],
+    "Problem solving": [
+      "analytical skills",
+      "critical thinking",
+      "troubleshooting"
+    ],
+    "product minded": [
+      "product centric"
+    ],
+    "production ready quality": [
+      "production quality"
+    ],
+    "public speaking": [
+      "tech speaking"
+    ],
+    "Rave": [],
+    "Reporting": [],
+    "Risk mitigation": [],
+    "Root Cause Analysis": [
+      "root cause analysis (rca)"
+    ],
+    "SaaS": [],
+    "Schema validation": [],
+    "SIEM/SOAR": [
+      "security information and event management",
+      "siem"
+    ],
+    "Social listening": [],
+    "Social media best practices": [],
+    "Software Engineering": [],
+    "Taxation": [],
+    "TFS": [],
+    "Tilt": [],
+    "Tomcat": [],
+    "Tools": [],
+    "Turborepo": [],
+    "Web Content Accessibility Guidelines": [
+      "WCAG"
+    ]
+  },
+  "Microservices Frameworks": {
+    "Helidon": [],
+    "istio": [
+      "istio service mesh"
+    ],
+    "Lagom": [],
+    "Thrift": []
+  },
+  "ML Algorithms": {
+    "adversarial training": [],
+    "anomaly detection": [
+      "novelty detection",
+      "outlier detection"
+    ],
+    "ARIMA Model": [
+      "ARIMA",
+      "arima",
+      "autoregressive integrated moving average"
+    ],
+    "autoencoders": [],
+    "bayesian optimization": [
+      "hyperparameter optimization"
+    ],
+    "CatBoost": [
+      "categorical boosting"
+    ],
+    "Cluster knowledge": [],
+    "clustering": [
+      "data grouping",
+      "unsupervised clustering"
+    ],
+    "CNN": [],
+    "contrastive learning": [
+      "simclr"
+    ],
+    "diffusion policy": [],
+    "diffusion sampling": [
+      "ancestral sampling",
+      "denoising step"
+    ],
+    "faster r cnn": [],
+    "feature selection": [
+      "dimensionality reduction",
+      "subset selection"
+    ],
+    "gated recurrent unit": [
+      "gru"
+    ],
+    "gradient boosting": [
+      "catboost",
+      "gbm",
+      "lightgbm",
+      "xgboost"
+    ],
+    "gradient clipping": [
+      "clip gradients",
+      "exploding gradient prevention"
+    ],
+    "hidden markov models": [
+      "hmm",
+      "markov chains"
+    ],
+    "inception": [
+      "googlenet",
+      "inceptionv3"
+    ],
+    "isolation forest": [
+      "anomaly forest",
+      "iforest"
+    ],
+    "k-means": [
+      "k means",
+      "k-means clustering"
+    ],
+    "knn": [
+      "k nearest neighbor",
+      "k-nearest neighbors"
+    ],
+    "lda": [
+      "linear discriminant analysis"
+    ],
+    "learning rate scheduling": [
+      "annealing",
+      "lr decay",
+      "lr scheduler"
+    ],
+    "LightGBM": [
+      "lgbm",
+      "light gradient boosting machine"
+    ],
+    "linear regression": [
+      "ols",
+      "ordinary least squares"
+    ],
+    "logistic regression": [
+      "logistic classification",
+      "logit regression"
+    ],
+    "LSTM": [
+      "long short-term memory"
+    ],
+    "mutual information": [
+      "information gain"
+    ],
+    "neural networks": [
+      "ann",
+      "artificial neural networks",
+      "neural nets"
+    ],
+    "Optax": [],
+    "pca": [
+      "eigenvalue decomposition",
+      "principal component analysis"
+    ],
+    "Prophet": [
+      "facebook prophet"
+    ],
+    "qda": [
+      "quadratic discriminant analysis"
+    ],
+    "random forests": [
+      "random forest"
+    ],
+    "Recurrent Neural Networks": [
+      "RNN"
+    ],
+    "regression": [
+      "continuous variable prediction",
+      "general regression"
+    ],
+    "Scikit learn": [],
+    "spectral clustering": [
+      "graph-based clustering"
+    ],
+    "statsmodels": [],
+    "svm": [
+      "kernel method",
+      "support vector machines",
+      "svms"
+    ],
+    "tcn": [
+      "temporal convolutional network"
+    ],
+    "Theano": [],
+    "time series": [
+      "forecasting",
+      "sequence prediction"
+    ],
+    "transformer xl": [
+      "long-range transformer"
+    ],
+    "tree ensembles": [
+      "ensemble learning",
+      "forest models",
+      "gradient boosted trees"
+    ],
+    "u net": [
+      "bi-medical image segmentation"
+    ],
+    "variational autoencoders (vae)": [],
+    "vgg": [
+      "vgg16",
+      "vgg19"
+    ],
+    "XGBoost": [
+      "extreme gradient boosting",
+      "xgb"
+    ],
+    "yolo": [
+      "yolov10",
+      "yolov11",
+      "yolov8",
+      "you only look once"
+    ]
+  },
+  "Mobile Development": {
+    "Android": [
+      "android development",
+      "android sdk"
+    ],
+    "Carbon": [],
+    "Core Data": [],
+    "detox": [
+      "react native detox"
+    ],
+    "Espresso": [
+      "android espresso"
+    ],
+    "Expo": [],
+    "Firebase Realtime Database": [],
+    "Firestore": [],
+    "Flutter": [],
+    "Ionic": [],
+    "iOS": [],
+    "Jetpack Compose": [],
+    "MvvmCross": [],
+    "PromiseKit": [],
+    "R.swift": [],
+    "RecyclerView": [],
+    "Retrofit": [],
+    "SiriKit": [],
+    "SkeletonView": [],
+    "SnapKit": [],
+    "UIKit": [],
+    "WorkManager": [],
+    "Xamarin": []
+  },
+  "Mocking Frameworks": {
+    "PowerMock": []
+  },
+  "Mocking Libraries": {
+    "Mockk": [],
+    "Moq": [],
+    "NSubstitute": []
+  },
+  "Model Context Protocol Servers": {
+    "MCP servers": []
+  },
+  "Monitoring and Error Handling": {
+    "Sentry": [
+      "Sentry SDK",
+      "sentry-sdk"
+    ]
+  },
+  "Monitoring Tools": {
+    "Dynatrace": [
+      "dynatrace",
+      "dynatrace monitoring"
+    ],
+    "Jaeger": [
+      "jaeger",
+      "jaeger tracing"
+    ],
+    "JConsole": [],
+    "Monitoring Systems": [],
+    "New Relic": [
+      "new relic",
+      "new relic apm"
+    ],
+    "Prometheus": [
+      "Prometheus Client",
+      "prometheus_client",
+      "promql"
+    ],
+    "telemetry": [],
+    "traces": [],
+    "zipkin tracing": [
+      "zipkin"
+    ]
+  },
+  "Networking Services": {
+    "AWS VPC": [
+      "Amazon VPC"
+    ],
+    "VPC": []
+  },
+  "Networking Systems": {
+    "Ably": [],
+    "Active Directory": [],
+    "akamai": [
+      "akamai cdn"
+    ],
+    "Amazon Route 53": [
+      "AWS Route53"
+    ],
+    "Amazon SNS": [
+      "AWS SNS"
+    ],
+    "Amazon SQS": [
+      "AWS SQS"
+    ],
+    "AWS Cloud Map": [],
+    "AWS PrivateLink": [
+      "PrivateLink"
+    ],
+    "Azure DNS": [],
+    "Azure ExpressRoute": [],
+    "Azure Load Balancer": [],
+    "Azure Private Link": [],
+    "Azure Relay": [],
+    "Azure Route Server": [],
+    "Azure Traffic Manager": [],
+    "Azure Virtual Network": [],
+    "Azure Virtual WAN": [],
+    "BGP": [],
+    "bluetooth": [
+      "ble",
+      "bluetooth low energy",
+      "bt"
+    ],
+    "Boundary": [],
+    "Centrifuge": [],
+    "Cisco": [],
+    "ddos protection": [
+      "ddos mitigation"
+    ],
+    "DHCP": [],
+    "Dig": [],
+    "DNS": [
+      "domain name system"
+    ],
+    "edge devices": [
+      "edge computing hardware"
+    ],
+    "Envoy": [
+      "envoy proxy"
+    ],
+    "Ethernet": [],
+    "Google Cloud Cloud CDN": [],
+    "Google Cloud Cloud DNS": [],
+    "Google Cloud Cloud Interconnect": [],
+    "Google Cloud Cloud Load Balancing": [],
+    "Google Cloud Cloud NAT": [],
+    "Google Cloud Cloud Router": [],
+    "Google Cloud Network Intelligence Center": [],
+    "Google Cloud Traffic Director": [],
+    "Google Cloud VPC": [],
+    "HTTP": [
+      "hypertext transfer protocol"
+    ],
+    "Iftop": [],
+    "Irssi": [],
+    "Juniper": [],
+    "Kernel mode Networking": [],
+    "Moya": [],
+    "NDIS Drivers": [],
+    "Netcat": [],
+    "Nethogs": [],
+    "Netty": [],
+    "Network Programming": [],
+    "Networking": [],
+    "Nmap": [],
+    "OSPF": [],
+    "protocols": [
+      "http/1.1",
+      "http/2",
+      "https"
+    ],
+    "Proxy": [],
+    "PubNub": [],
+    "Pusher": [],
+    "Route53": [],
+    "SD-WAN": [],
+    "Serverless Architecture": [
+      "Serverless"
+    ],
+    "Serverless Functions": [],
+    "SIP": [],
+    "Socket.IO": [],
+    "SSH": [],
+    "subnets": [],
+    "TCP/IP": [],
+    "TCPDump": [],
+    "UDP": [],
+    "VLANS": [],
+    "WebSocket": [
+      "websockets"
+    ],
+    "WeeChat": [],
+    "Wireshark": []
+  },
+  "NLP": {
+    "embeddings": []
+  },
+  "NodeJS Frameworks": {
+    "Express": [],
+    "Hapi": [],
+    "Koa": [],
+    "Sails.js": []
+  },
+  "NoSQL Databases": {
+    "faunadb": [
+      "fauna"
+    ]
+  },
+  "Operating Systems": {
+    "Arch Linux": [],
+    "CentOS": [],
+    "Debian": [],
+    "Fedora": [],
+    "Kali Linux": [],
+    "Linux": [
+      "gnu/linux",
+      "gnulinux",
+      "ubuntu"
+    ],
+    "macOS": [],
+    "Manjaro Linux": [
+      "Manjaro"
+    ],
+    "Operating Systems": [],
+    "RedHat": [],
+    "RHEL": [],
+    "shell scripting": [
+      "bash scripting",
+      "shell scripts"
+    ],
+    "Ubuntu": [],
+    "Windows": [],
+    "Windows Server": [],
+    "Zsh": []
+  },
+  "Package Management": {
+    "brew": [
+      "homebrew"
+    ]
+  },
+  "Parallel Computing": {
+    "ccl": [
+      "intel collective communications library",
+      "oneapi ccl"
+    ],
+    "charm++": [],
+    "dask": [],
+    "Message Passing Interface (MPI)": [
+      "message passing interface",
+      "MPI",
+      "mpi"
+    ],
+    "MPI4Py": [],
+    "OpenMP": [],
+    "papi": [
+      "performance application programming interface"
+    ],
+    "score p": [
+      "parallel performance measurement"
+    ]
+  },
+  "Parsing Libraries": {
+    "CommandLineParser": [],
+    "Pydantic": [],
+    "Spacy": []
+  },
+  "Penetration Testing": {
+    "Hydra": []
+  },
+  "Performance Testing": {
+    "BenchmarkDotNet": [],
+    "jmeter": [
+      "apache jmeter"
+    ],
+    "K6": [],
+    "load testing": [
+      "performance testing"
+    ],
+    "locust": [],
+    "Profiling": []
+  },
+  "PHP Frameworks": {
+    "Laravel": []
+  },
+  "PHP Libraries": {
+    "Smarty": []
+  },
+  "Programming Paradigms": {
+    "Async/Await": [],
+    "Functional Programming": [],
+    "OOP": [
+      "OOPS"
+    ]
+  },
+  "Project Management Tools": {
+    "CodeStar": [],
+    "trello": [
+      "atlassian trello"
+    ]
+  },
+  "Python Programming": {
+    "Aiohttp": [],
+    "asyncio": [],
+    "Bottle": [],
+    "Dataclasses": [],
+    "Huey": [],
+    "Mako": [],
+    "Masonite": [],
+    "Pyramid": [],
+    "Sanic": [],
+    "tox": []
+  },
+  "QA Testing": {
+    "A/B testing": [
+      "ab testing",
+      "champion challenger",
+      "split testing"
+    ],
+    "Agile practices": [],
+    "allure": [],
+    "Angular Testing Library": [
+      "angular-testing-library"
+    ],
+    "API E2E testing strategy": [],
+    "appium": [],
+    "AssertJ": [],
+    "Ava": [],
+    "BDD": [
+      "behavior driven development",
+      "behavior driven development (bdd)",
+      "behavior driven development bdd"
+    ],
+    "Behave": [],
+    "Chai": [],
+    "Cross-Browser Testing": [],
+    "Cucumber": [
+      "cucumber bdd"
+    ],
+    "Cypress": [
+      "cypress test",
+      "cypress.io"
+    ],
+    "dast": [
+      "dynamic application security testing"
+    ],
+    "Debugging": [],
+    "Enzyme": [],
+    "FluentAssertions": [],
+    "Freezegun": [],
+    "Functional Testing": [],
+    "gherkin": [
+      "gherkin syntax"
+    ],
+    "Gomega": [],
+    "gremlin": [
+      "gremlin chaos"
+    ],
+    "HTTPEXpect": [],
+    "Integration Testing": [
+      "integration tests"
+    ],
+    "Jasmine": [],
+    "Jest": [
+      "jest test",
+      "jestjs"
+    ],
+    "JProfiler": [],
+    "JUnit": [
+      "junit4",
+      "junit5"
+    ],
+    "karma": [],
+    "litmus chaos": [
+      "litmus"
+    ],
+    "Mocha": [],
+    "Nightwatch.js": [
+      "nightwatch"
+    ],
+    "Nock": [],
+    "Objection": [],
+    "pact": [],
+    "percy": [],
+    "Pest": [],
+    "property based testing": [
+      "property tests"
+    ],
+    "quality engineering": [
+      "qe"
+    ],
+    "QUnit": [],
+    "React Testing Library": [
+      "react-testing-library"
+    ],
+    "Selenium WebDriver": [
+      "Selenium",
+      "selenium webdriver",
+      "selenium-webdriver"
+    ],
+    "Sinon": [],
+    "snapshot testing": [],
+    "SuperTest": [],
+    "System testing": [],
+    "TAP": [],
+    "TDD": [
+      "test driven development",
+      "test driven development (tdd)",
+      "test driven development tdd",
+      "test-driven development",
+      "test-driven development (tdd)"
+    ],
+    "test automation": [
+      "automated testing"
+    ],
+    "Test cases": [],
+    "Test Driven Development": [
+      "tdd"
+    ],
+    "Test execution": [],
+    "TestNG": [],
+    "TestRail": [],
+    "Unit Testing": [
+      "unit tests"
+    ],
+    "visual regression": [
+      "visual testing"
+    ],
+    "VisualVM": [],
+    "Zephyr": []
+  },
+  "Reactive Programming": {
+    "Bacon.js": [
+      "baconjs"
+    ],
+    "kefir": [],
+    "RXJS": []
+  },
+  "Regulatory Compliance": {
+    "Compliance standards": [],
+    "GDPR": [
+      "general data protection regulation"
+    ]
+  },
+  "Rendering Engines": {
+    "Arnold Renderer": [
+      "Arnold"
+    ],
+    "Babylon.js": [],
+    "Cesium": [],
+    "Cinema 4D": [],
+    "Corona Renderer": [],
+    "Enscape": [],
+    "Fresco": [],
+    "Maxwell Render": [],
+    "Octane Render": [],
+    "OpenGL": [],
+    "Vertices": [],
+    "vulkan": [],
+    "WebGL": []
+  },
+  "Resilience Tools": {
+    "chaos mesh": [
+      "kubernetes chaos mesh"
+    ]
+  },
+  "Ruby Frameworks": {
+    "Hanami": []
+  },
+  "Ruby Tools": {
+    "Rake": []
+  },
+  "Runtime Environments": {},
+  "Rust Frameworks": {
+    "Actix web": [
+      "Actix"
+    ],
+    "Clap": [],
+    "Crossbeam": [],
+    "Glium": [],
+    "GTK RS": [],
+    "lalrpop": [],
+    "polars": [],
+    "Rocket": []
+  },
+  "Satellite Data Processing": {
+    "AWS Ground Station": []
+  },
+  "Scala Tools": {
+    "Sbt": []
+  },
+  "Scheduling Tools": {
+    "Luigi": [],
+    "Slurm": [],
+    "Timewarrior": []
+  },
+  "Scientific Computing": {
+    "ABySS": [],
+    "Annovar": [],
+    "AutoDock": [],
+    "Azure Quantum": [],
+    "Bedtools": [],
+    "Bioconductor": [],
+    "Biopython": [],
+    "BLAST": [],
+    "BWA": [],
+    "CellProfiler": [],
+    "ClustalW": [],
+    "cupy": [],
+    "FlowJo": [],
+    "Foldit": [],
+    "FreeBayes": [],
+    "GATK": [],
+    "Gaussian": [],
+    "Geneious": [],
+    "ImageJ": [],
+    "linear": [
+      "linear.app"
+    ],
+    "Maple": [],
+    "Mascot": [],
+    "Mathematica": [],
+    "MATLAB": [],
+    "Matrices": [],
+    "MaxQuant": [],
+    "Modelica": [],
+    "MUMmer": [],
+    "Neuroconductor": [],
+    "NVIDIA PhysX": [
+      "PhysX",
+      "physx"
+    ],
+    "OMSSA": [],
+    "OpenMS": [],
+    "Peptidematch": [],
+    "Percolator": [],
+    "Picard": [],
+    "Proteome Discoverer": [],
+    "Quaternions": [],
+    "SEQUEST": [],
+    "Simulink": [],
+    "SnpEff": [],
+    "SOAPdenovo": [],
+    "SPAdes": [],
+    "VarScan": [],
+    "Velvet": []
+  },
+  "Scientific Visualization": {
+    "PyMOL": []
+  },
+  "Scripting Languages": {
+    "REXX": []
+  },
+  "Search Engines": {
+    "elasticsearch": [
+      "Elastic"
+    ]
+  },
+  "Search Technologies": {
+    "algolia": [
+      "algolia search"
+    ],
+    "elastic cloud": [
+      "managed elasticsearch"
+    ]
+  },
+  "Security": {
+    "abac": [
+      "attribute based access control"
+    ],
+    "Access control": [],
+    "Anti tampering": [],
+    "Application security": [],
+    "Argon2": [],
+    "Audit": [],
+    "Auth0": [
+      "okta auth0"
+    ],
+    "Authentication": [],
+    "AWS Artifact": [],
+    "AWS Cognito": [],
+    "AWS KMS": [],
+    "AWS Secrets Manager": [],
+    "Azure Active Directory": [],
+    "Azure AD B2C": [],
+    "Azure Key Vault": [],
+    "Azure Policy": [],
+    "Azure Security Center": [],
+    "Azure Sentinel": [],
+    "Azure VPN Gateway": [],
+    "BCrypt": [
+      "BCrypt.Net"
+    ],
+    "biometrics": [
+      "biometric security"
+    ],
+    "Burp Suite": [],
+    "Cerberus": [],
+    "Chainalysis": [],
+    "Charles Proxy": [],
+    "Clair": [],
+    "cloud security": [
+      "infrastructure security"
+    ],
+    "cloudflare": [
+      "cloudflare cdn",
+      "cloudflare workers"
+    ],
+    "CryptoSwift": [],
+    "cspm": [
+      "cloud security posture management"
+    ],
+    "CSRF": [],
+    "Cybersecurity": [],
+    "Data security": [],
+    "edr": [
+      "endpoint detection and response"
+    ],
+    "Encryption": [
+      "cryptography"
+    ],
+    "Endpoint Agents": [],
+    "Falco": [],
+    "Falcon": [],
+    "Firewall Manager": [],
+    "firewalls": [],
+    "fuzzing": [
+      "fuzz testing"
+    ],
+    "Google Cloud Binary Authorization": [],
+    "Google Cloud Cloud Armor": [],
+    "Google Cloud Cloud IAM": [],
+    "Google Cloud Compliance Reports": [],
+    "Google Cloud Secret Manager": [],
+    "Google Cloud Web Risk": [],
+    "GuardDuty": [],
+    "hashing": [
+      "cryptographic hashing"
+    ],
+    "IAM Policies": [],
+    "iast": [
+      "interactive application security testing"
+    ],
+    "Identity and access management (IAM)": [
+      "Amazon IAM",
+      "AWS IAM",
+      "iam",
+      "identity access management",
+      "Identity Management"
+    ],
+    "incident response": [
+      "ir"
+    ],
+    "ipsec": [
+      "ip security"
+    ],
+    "iso 27001": [
+      "iso 27001 standard"
+    ],
+    "jwt": [
+      "json web tokens",
+      "JWT Go",
+      "jwt-go"
+    ],
+    "malware prevention": [
+      "antivirus"
+    ],
+    "Metasploit": [],
+    "Multi factor authentication (MFA)": [
+      "mfa",
+      "multi factor authentication"
+    ],
+    "Native TLS": [
+      "native-tls"
+    ],
+    "ndr": [
+      "network detection and response"
+    ],
+    "Network security": [],
+    "OAuth 2.0": [
+      "oauth 2.0",
+      "OAuth2",
+      "oauth2"
+    ],
+    "OIDC": [
+      "oidc",
+      "open id connect"
+    ],
+    "OpenIddict": [],
+    "OpenSSL": [],
+    "owasp": [
+      "owasp top 10"
+    ],
+    "Palo Alto": [],
+    "pentesting": [
+      "penetration testing"
+    ],
+    "PKI": [],
+    "rbac": [
+      "role based access control"
+    ],
+    "saml": [
+      "saml sso"
+    ],
+    "Secrets Management": [],
+    "Security": [
+      "cybersecurity",
+      "information security",
+      "infosec"
+    ],
+    "Security best practices": [],
+    "security controls": [],
+    "security design reviews": [
+      "security audits"
+    ],
+    "Security Groups": [],
+    "Snyk": [],
+    "soar": [
+      "security orchestration automation and response"
+    ],
+    "soc2": [
+      "soc 2 compliance"
+    ],
+    "Splunk": [],
+    "Spring Security": [],
+    "SSL": [],
+    "SSO": [
+      "single sign on"
+    ],
+    "Terrascan": [],
+    "threat modeling": [
+      "security threat modeling"
+    ],
+    "TLS": [],
+    "vpn": [
+      "virtual private network"
+    ],
+    "vulnerability assessment": [
+      "security scanning",
+      "vulnerability scanning"
+    ],
+    "waf": [
+      "web application firewall"
+    ],
+    "Web Application Firewall": [
+      "WAF"
+    ],
+    "xdr": [
+      "extended detection and response"
+    ],
+    "zero trust": [
+      "zero trust architecture"
+    ]
+  },
+  "Security Testing": {
+    "XSS": [
+      "Cross-Site Scripting"
+    ]
+  },
+  "SEO Tools": {
+    "Screaming Frog": []
+  },
+  "Serverless Computing": {
+    "AWS ElastiCache": [],
+    "Serverless Framework": []
+  },
+  "Serverless Orchestration Services": {
+    "AWS Step Functions": []
+  },
+  "Shader Languages": {
+    "GLSL": [],
+    "HLSL": []
+  },
+  "Simulation Technologies": {
+    "Ansys Fluent": [],
+    "Ansys Mechanical": [],
+    "COMSOL Multiphysics": [],
+    "GROMACS": [],
+    "LAMMPS": [],
+    "Mentor Graphics ModelSim": [],
+    "Multisim": [],
+    "NAMD": [],
+    "Particle Systems": [],
+    "PSpice": [],
+    "SPICE": [],
+    "Stateflow": [],
+    "VMD": []
+  },
+  "Smart Home Technologies": {
+    "HomeKit": []
+  },
+  "Software Architecture": {
+    "adr": [
+      "architecture decision records"
+    ],
+    "ADTs": [],
+    "api gateway": [
+      "api gateway pattern"
+    ],
+    "cap theorem": [
+      "cap theorem consistency"
+    ],
+    "circuit breaker": [
+      "resiliency circuit breaker"
+    ],
+    "clean architecture": [
+      "bob martin clean architecture"
+    ],
+    "consensus algorithms": [
+      "paxos",
+      "raft consensus"
+    ],
+    "consistent hashing": [
+      "distributed hashing"
+    ],
+    "cqrs": [
+      "command query responsibility segregation"
+    ],
+    "Dapper": [],
+    "Design Patterns": [],
+    "distributed locking": [
+      "distributed mutex"
+    ],
+    "Distributed Systems": [],
+    "domain driven design (ddd)": [],
+    "embedded firmware": [
+      "low-level programming",
+      "mcu firmware"
+    ],
+    "ethics in ai": [],
+    "event driven architecture": [
+      "eda"
+    ],
+    "event sourcing": [
+      "event logs"
+    ],
+    "functional verification": [
+      "functional verification"
+    ],
+    "grpc": [
+      "grpc communication"
+    ],
+    "hexagonal architecture": [
+      "ports and adapters"
+    ],
+    "inter operability": [
+      "system interoperability"
+    ],
+    "kiss": [
+      "keep it simple stupid"
+    ],
+    "kong": [
+      "kong api gateway"
+    ],
+    "krakenjs": [],
+    "load balancing": [
+      "lb design"
+    ],
+    "messaging patterns": [
+      "queueing patterns"
+    ],
+    "Messaging/Stream Architecture": [],
+    "Microservices": [
+      "microservice architecture",
+      "Microservices Architecture"
+    ],
+    "modular monolith": [
+      "modulith"
+    ],
+    "MVC": [],
+    "object oriented design": [
+      "object oriented programming",
+      "ood"
+    ],
+    "onion architecture": [
+      "onion pattern"
+    ],
+    "OOAD": [
+      "OOD"
+    ],
+    "paxos": [
+      "paxos algorithm"
+    ],
+    "POJO": [
+      "Serialization techniques (POJO)"
+    ],
+    "raft": [
+      "raft algorithm"
+    ],
+    "ReactiveUI": [],
+    "retry logic": [
+      "automatic retry"
+    ],
+    "reverse proxy": [
+      "reverse proxy design"
+    ],
+    "rpcs": [
+      "remote procedure call"
+    ],
+    "saga pattern": [
+      "distributed saga"
+    ],
+    "scalable architectures": [
+      "high scale design"
+    ],
+    "service mesh": [
+      "consul",
+      "istio",
+      "linkerd",
+      "mesh networking architecture"
+    ],
+    "sharding": [
+      "database sharding"
+    ],
+    "soa": [
+      "service oriented architecture"
+    ],
+    "solid principles": [
+      "solid design"
+    ],
+    "Solution architecture": [],
+    "Stateless Architectures": [],
+    "System Design": [],
+    "threading": [
+      "multithreading"
+    ],
+    "tyk": [
+      "tyk api gateway"
+    ],
+    "UML": [],
+    "ViewModel": [],
+    "yagni": [
+      "you ain't gonna need it"
+    ]
+  },
+  "Software Development Principles": {
+    "dry": [
+      "don't repeat yourself"
+    ],
+    "SOLID": []
+  },
+  "Software Engineering": {
+    "Engineering": []
+  },
+  "Software Engineering Practices": {
+    "code ownership": [
+      "module ownership"
+    ]
+  },
+  "Software Quality": {
+    "mutation testing": [
+      "mutation tests"
+    ]
+  },
+  "State Management Libraries": {
+    "Context API": [],
+    "Flux": [
+      "fluxcd",
+      "gitops flux"
+    ],
+    "Jotai": [],
+    "MobX": [],
+    "NgRx": [],
+    "Recoil": [],
+    "Redux": [],
+    "XState": [],
+    "Zustand": []
+  },
+  "Static Code Analysis": {
+    "Checkmarx": [],
+    "Checkstyle": []
+  },
+  "Storage Services": {
+    "Ceph": [],
+    "wasabi": [
+      "wasabi storage"
+    ]
+  },
+  "Streaming Platforms": {
+    "AWS MediaConnect": [],
+    "Azure Stream Analytics": []
+  },
+  "Support Services": {
+    "Technical Support": [],
+    "Troubleshooting": [
+      "debugging skills"
+    ]
+  },
+  "Test Automation Frameworks": {
+    "automated testing frameworks": [],
+    "Robot Framework": [
+      "robotframework"
+    ]
+  },
+  "Testing Frameworks": {
+    "Hamcrest": [],
+    "NUnit": [],
+    "Pytest": [],
+    "Robolectric": [],
+    "XCTest": [],
+    "Xunit": []
+  },
+  "Testing Methodologies": {
+    "chaos engineering": [
+      "fault injection testing"
+    ]
+  },
+  "Translation Services": {
+    "Google Translate": [
+      "Translate"
+    ]
+  },
+  "TypeScript Libraries": {
+    "Zod": []
+  },
+  "User Experience": {
+    "Usability Testing": []
+  },
+  "Version Control Systems": {
+    "Bitbucket": [],
+    "Source Control": [],
+    "Version control": []
+  },
+  "Video Conferencing Tools": {
+    "Twilio Video": [],
+    "Zoom": []
+  },
+  "Video Processing": {
+    "AWS MediaConvert": [
+      "MediaConvert"
+    ],
+    "Elastic Transcoder": [],
+    "Google Cloud Transcoder": []
+  },
+  "Virtualization Technologies": {
+    "Hyper V": [],
+    "KVM": [],
+    "Multipass": [],
+    "QEMU": []
+  },
+  "Wearable Technologies": {
+    "WatchKit": []
+  },
+  "Web Ecosystem": {
+    "Accessibility Standards": [],
+    "AJAX": [],
+    "Alpine.js": [],
+    "Angular": [
+      "angular-js",
+      "angular.js",
+      "angularjs",
+      "ng"
+    ],
+    "AngularJS": [],
+    "Anime.js": [],
+    "Apache Wicket": [
+      "Wicket"
+    ],
+    "API testing tools (Rest Assured, SOAP UI)": [],
+    "Apollo Client": [
+      "apollo-client"
+    ],
+    "astro": [
+      "astro.build"
+    ],
+    "Beautiful Soup": [],
+    "Bing Maps API": [],
+    "Blazor": [],
+    "Bleach": [],
+    "Bootstrap": [],
+    "Bulma": [],
+    "Caddy": [],
+    "CakePHP": [],
+    "Canvas API": [],
+    "CesiumJS": [],
+    "Chakra UI": [],
+    "Chameleon": [],
+    "Cheerio": [],
+    "CherryPy": [],
+    "CodeIgniter": [],
+    "CreateJS": [],
+    "CSS": [
+      "cascading style sheets",
+      "css3"
+    ],
+    "CSS Modules": [],
+    "Dash": [],
+    "Discord": [],
+    "Django": [
+      "django"
+    ],
+    "Drupal": [],
+    "edge computing": [
+      "edge workers"
+    ],
+    "Ember.js": [],
+    "emotion": [
+      "emotion css"
+    ],
+    "eslint": [],
+    "Fabric.js": [],
+    "FastAPI": [],
+    "Formik": [],
+    "framer motion": [
+      "framer motion animation"
+    ],
+    "Frontend Development": [],
+    "full stack": [
+      "fullstack development"
+    ],
+    "Gatsby": [],
+    "Genshi": [],
+    "Google Maps Platform": [],
+    "Google Search Console": [],
+    "Google Tag Manager": [],
+    "Gorilla Mux": [
+      "gorilla/mux"
+    ],
+    "graphql": [
+      "gql",
+      "graph query language"
+    ],
+    "HTML": [
+      "html5",
+      "hypertext markup language"
+    ],
+    "HTTP Router": [
+      "httprouter"
+    ],
+    "http/3": [
+      "http3",
+      "quic"
+    ],
+    "Input Handling": [],
+    "Instapage": [],
+    "JavaScript Frameworks": [
+      "Vue.js"
+    ],
+    "Jinja2": [],
+    "Joi": [],
+    "Jquery": [],
+    "JSON": [],
+    "Konva": [],
+    "Less": [
+      "less css"
+    ],
+    "Liquid": [],
+    "Lottie": [],
+    "material ui": [
+      "mui"
+    ],
+    "Mediasoup": [],
+    "Meteor.js": [
+      "Meteor"
+    ],
+    "Micro Frontend": [],
+    "Mustache": [],
+    "Negroni": [],
+    "NetSuite": [],
+    "Next.js": [],
+    "Nginx": [],
+    "Node.js": [
+      "JavaScript/Node.js"
+    ],
+    "Nunjucks": [],
+    "Nuxt.js": [],
+    "P5.js": [],
+    "Padrino": [],
+    "Paper.js": [],
+    "PeerJS": [],
+    "Percent Encoding": [
+      "percent-encoding"
+    ],
+    "Phalcon": [],
+    "Phoenix Framework": [
+      "Phoenix"
+    ],
+    "PixiJS": [],
+    "PostCSS": [],
+    "Preact": [],
+    "prettier": [],
+    "Pug": [],
+    "puppeteer": [
+      "google puppeteer"
+    ],
+    "pwa": [
+      "progressive web apps"
+    ],
+    "PyQuery": [],
+    "radix ui": [
+      "radix ui components"
+    ],
+    "React": [
+      "react (reason+act)",
+      "react framework",
+      "react-js",
+      "react.js",
+      "React.js 19",
+      "reactjs"
+    ],
+    "react query": [
+      "tanstack query"
+    ],
+    "React Router": [],
+    "Requests HTML": [
+      "requests-html"
+    ],
+    "REST": [
+      "representational state transfer",
+      "rest api design",
+      "REST APIs",
+      "REST principles",
+      "restful api"
+    ],
+    "RoboBrowser": [],
+    "Ruby on Rails": [],
+    "Sass": [
+      "sast",
+      "static application security testing"
+    ],
+    "server side rendering": [
+      "ssr"
+    ],
+    "shadcn": [],
+    "SignalR": [],
+    "SimpleWebRTC": [],
+    "Sinatra": [],
+    "SOAP": [],
+    "SOAP UI": [],
+    "Socket.IO Client": [
+      "socket.io-client"
+    ],
+    "SockJS": [],
+    "SolidJS": [],
+    "Spring": [
+      "spring boot",
+      "spring framework",
+      "spring mvc"
+    ],
+    "Spring Framework": [
+      "Spring Core"
+    ],
+    "Spring MVC": [],
+    "Stencil": [],
+    "storybook": [],
+    "Struts": [],
+    "Styled Components": [],
+    "Styletron": [],
+    "Stylus": [],
+    "SuiteFlow": [],
+    "Svelte": [
+      "sveltejs"
+    ],
+    "SwiftUI": [],
+    "swr": [],
+    "Symfony": [],
+    "tailwind": [
+      "tailwindcss"
+    ],
+    "Tailwind CSS": [],
+    "Tapestry": [],
+    "Three.js": [],
+    "trpc": [],
+    "turbopack": [],
+    "Turf.js": [],
+    "Twig": [],
+    "Two.js": [],
+    "UI Frameworks (React/Angular)": [],
+    "UI/UX": [],
+    "vercel": [
+      "vercel deployment"
+    ],
+    "vite": [],
+    "Vue": [
+      "vue framework",
+      "vue.js"
+    ],
+    "warp": [],
+    "wasm": [
+      "web assembly"
+    ],
+    "wasm bindgen": [],
+    "Web Applications": [],
+    "web server optimization": [],
+    "Web Services": [
+      "rest services",
+      "soap"
+    ],
+    "Web Storage API": [
+      "LocalStorage"
+    ],
+    "web sys": [],
+    "webassembly": [],
+    "WebRTC": [],
+    "Werkzeug": [],
+    "WhatWG Fetch API": [
+      "whatwg-fetch"
+    ],
+    "XML": [],
+    "XPath": [],
+    "Yii": [],
+    "Yoast SEO": [],
+    "Zend Framework": []
+  },
+  "Web Servers": {
+    "Apache": [],
+    "gunicorn": [
+      "gunicorn wsgi"
+    ]
+  },
+  "XML Libraries": {
+    "Fast XML Parser": [
+      "fast-xml-parser"
+    ]
+  },
+  "XR Technologies": {
+    "3d modeling": [],
+    "3d spatial computing": [],
+    "8th wall": [],
+    "A Frame": [],
+    "Agora": [],
+    "Ambient Occlusion": [],
+    "ar": [],
+    "arcore": [],
+    "ARKit": [],
+    "AWS RoboMaker": [],
+    "Azure Digital Twins": [],
+    "Azure HoloLens": [],
+    "bullet physics": [],
+    "extended reality": [],
+    "eye tracking": [],
+    "game development": [],
+    "hand tracking": [],
+    "haptics": [],
+    "inverse kinematics": [],
+    "kinematics": [],
+    "lidar": [],
+    "metal": [],
+    "mr": [],
+    "niantic lightship": [],
+    "occlusion": [],
+    "openxr": [],
+    "photogrammetry": [],
+    "point clouds": [],
+    "quest": [],
+    "RealityKit": [],
+    "sensor fusion": [],
+    "shaders": [],
+    "slam": [],
+    "spatial audio": [],
+    "virtual reality": [
+      "vr"
+    ],
+    "visionpro": [],
+    "volumetric video": [],
+    "vuforia": [],
+    "webxr": [],
+    "zbrush": []
+  }
+}

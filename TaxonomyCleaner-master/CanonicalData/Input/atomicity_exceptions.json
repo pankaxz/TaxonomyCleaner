@@ -52,6 +52,11 @@
       "term_normalized": "sns/sqs",
       "reason_code": "industry_standard_name",
       "notes": "AWS services commonly written together"
+    },
+    {
+      "term_normalized": "ai/ml pipelines",
+      "reason_code": "industry_standard_name",
+      "notes": "AI/ML is a standard compound abbreviation"
     }
   ]
 }

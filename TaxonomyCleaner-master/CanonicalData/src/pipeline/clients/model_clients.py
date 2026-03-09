@@ -17,14 +17,38 @@ from ..shared.utilities import normalize_term
 ARBITRATION_PROMPT_TEMPLATE = """You are a Taxonomy Arbitration Engine operating on a mission-critical canonical skill store.
 You are given a cluster of semantically similar terms.
 These terms were grouped via embedding similarity.
-Return strict JSON only.
+Return strict JSON only. No markdown. No commentary.
 
-ALLOWED ACTIONS:
-- MERGE_AS_ALIAS
-- KEEP_DISTINCT
-- MARK_AS_CONTEXTUAL
-- SPLIT_INTO_MULTIPLE_CANONICALS
-- REMOVE_CANONICAL
+OUTPUT CONTRACT
+Return exactly one JSON object matching this schema:
+{
+  "cluster": ["<term1>", "<term2>", ...],
+  "decisions": [
+    {
+      "term": "<exact term from input>",
+      "action": "MERGE_AS_ALIAS" | "KEEP_DISTINCT" | "MARK_AS_CONTEXTUAL" | "SPLIT_INTO_MULTIPLE_CANONICALS" | "REMOVE_CANONICAL",
+      "target_canonical": "<string or null>",
+      "split_candidates": ["<string>", ...] | null,
+      "reasoning": {
+        "semantic_equivalence": "<string>",
+        "ecosystem": "Same" | "Different" | "Unknown",
+        "abstraction_level": "Same" | "Different" | "Unknown",
+        "graph_safety": "<string>"
+      },
+      "confidence": "HIGH" | "MEDIUM" | "LOW"
+    }
+  ]
+}
+
+CRITICAL RULES
+1. Return JSON only. No markdown fences. No explanation text.
+2. You MUST produce exactly one decision per term in the cluster. No extra, no missing.
+3. "confidence" MUST be exactly one of: HIGH, MEDIUM, LOW.
+4. "action" MUST be exactly one of the five allowed values above.
+5. If action is MERGE_AS_ALIAS or MARK_AS_CONTEXTUAL, "target_canonical" MUST be a non-empty string (the canonical to merge into / map to).
+6. If action is SPLIT_INTO_MULTIPLE_CANONICALS, "split_candidates" MUST be a non-empty array of atomic terms.
+7. "term" MUST exactly match one of the input terms (case-sensitive).
+8. "reasoning" MUST be an object with all four keys shown above.
 """
 
 CLASSIFICATION_PROMPT_TEMPLATE = """You are a Technology Ontology Classifier.
@@ -312,6 +336,28 @@ class HttpReasoningLLMClient(LLMClient):
         self.timeout_seconds = timeout_seconds
 
     def arbitrate_cluster(self, cluster_id: str, terms: List[str]) -> Dict[str, Any]:
+        prompt = self._build_arbitration_prompt(cluster_id, terms)
+        parsed = self._chat_and_parse_json(prompt)
+
+        if self._is_schema_shaped_arbitration_response(parsed, terms):
+            return parsed
+
+        repair_prompt = self._build_arbitration_repair_prompt(cluster_id, terms, parsed)
+        repaired = self._chat_and_parse_json(repair_prompt)
+        if self._is_schema_shaped_arbitration_response(repaired, terms):
+            return repaired
+
+        if isinstance(parsed, dict) and "decisions" in parsed:
+            parsed["decisions"] = self._repair_arbitration_decisions(parsed["decisions"], terms)
+            return parsed
+
+        return {
+            "error": "invalid_arbitration_json",
+            "raw": parsed,
+            "repair_raw": repaired,
+        }
+
+    def _build_arbitration_prompt(self, cluster_id: str, terms: List[str]) -> str:
         prompt_lines: List[str] = []
         prompt_lines.append(ARBITRATION_PROMPT_TEMPLATE)
         prompt_lines.append("")
@@ -320,17 +366,92 @@ class HttpReasoningLLMClient(LLMClient):
         for term in terms:
             prompt_lines.append(f"- {term}")
         prompt_lines.append("")
-        prompt_lines.append("Return STRICT JSON with fields: cluster, decisions[].")
-        prompt = "\n".join(prompt_lines)
+        prompt_lines.append("Now output one strict JSON object following OUTPUT CONTRACT.")
+        return "\n".join(prompt_lines)
 
-        parsed = self._chat_and_parse_json(prompt)
-        if isinstance(parsed, dict):
-            return parsed
+    def _build_arbitration_repair_prompt(self, cluster_id: str, terms: List[str], previous_output: Any) -> str:
+        serialized_previous = self._serialize_for_prompt(previous_output)
+        prompt_lines: List[str] = []
+        prompt_lines.append("You returned an invalid arbitration JSON payload.")
+        prompt_lines.append("Repair it to match the exact required schema.")
+        prompt_lines.append("Return JSON only. Do not include explanations.")
+        prompt_lines.append("")
+        prompt_lines.append("Required schema:")
+        prompt_lines.append('{')
+        prompt_lines.append('  "cluster": ["term1", "term2"],')
+        prompt_lines.append('  "decisions": [')
+        prompt_lines.append('    {')
+        prompt_lines.append('      "term": "<exact input term>",')
+        prompt_lines.append('      "action": "MERGE_AS_ALIAS" | "KEEP_DISTINCT" | "MARK_AS_CONTEXTUAL" | "SPLIT_INTO_MULTIPLE_CANONICALS" | "REMOVE_CANONICAL",')
+        prompt_lines.append('      "target_canonical": "<string or null>",')
+        prompt_lines.append('      "split_candidates": null,')
+        prompt_lines.append('      "reasoning": {"semantic_equivalence": "...", "ecosystem": "Same|Different|Unknown", "abstraction_level": "Same|Different|Unknown", "graph_safety": "..."},')
+        prompt_lines.append('      "confidence": "HIGH" | "MEDIUM" | "LOW"')
+        prompt_lines.append('    }')
+        prompt_lines.append('  ]')
+        prompt_lines.append('}')
+        prompt_lines.append("")
+        prompt_lines.append("RULES: One decision per term. confidence must be HIGH|MEDIUM|LOW.")
+        prompt_lines.append("MERGE_AS_ALIAS and MARK_AS_CONTEXTUAL require non-empty target_canonical.")
+        prompt_lines.append("")
+        prompt_lines.append(f"Cluster ID: {cluster_id}")
+        prompt_lines.append(f"Terms: {terms}")
+        prompt_lines.append("Previous invalid output:")
+        prompt_lines.append(serialized_previous)
+        prompt_lines.append("")
+        prompt_lines.append("Provide corrected JSON now.")
+        return "\n".join(prompt_lines)
 
-        return {
-            "error": "invalid_arbitration_json",
-            "raw": parsed,
-        }
+    def _is_schema_shaped_arbitration_response(self, payload: Any, terms: List[str]) -> bool:
+        if not isinstance(payload, dict):
+            return False
+        decisions = payload.get("decisions")
+        if not isinstance(decisions, list):
+            return False
+        if len(decisions) != len(terms):
+            return False
+        for decision in decisions:
+            if not isinstance(decision, dict):
+                return False
+            if not decision.get("term"):
+                return False
+            if decision.get("confidence", "") not in {"HIGH", "MEDIUM", "LOW"}:
+                return False
+            action = decision.get("action", "")
+            if action not in {"MERGE_AS_ALIAS", "KEEP_DISTINCT", "MARK_AS_CONTEXTUAL", "SPLIT_INTO_MULTIPLE_CANONICALS", "REMOVE_CANONICAL"}:
+                return False
+            if action in {"MERGE_AS_ALIAS", "MARK_AS_CONTEXTUAL"}:
+                target = decision.get("target_canonical")
+                if not target or not str(target).strip():
+                    return False
+        return True
+
+    def _repair_arbitration_decisions(self, decisions: Any, terms: List[str]) -> List[Dict[str, Any]]:
+        if not isinstance(decisions, list):
+            return []
+        repaired: List[Dict[str, Any]] = []
+        for decision in decisions:
+            if not isinstance(decision, dict):
+                continue
+            if not decision.get("term"):
+                continue
+            if decision.get("confidence", "") not in {"HIGH", "MEDIUM", "LOW"}:
+                decision["confidence"] = "LOW"
+            if not isinstance(decision.get("reasoning"), dict):
+                decision["reasoning"] = {
+                    "semantic_equivalence": "Unknown",
+                    "ecosystem": "Unknown",
+                    "abstraction_level": "Unknown",
+                    "graph_safety": "Unknown",
+                }
+            action = decision.get("action", "")
+            if action in {"MERGE_AS_ALIAS", "MARK_AS_CONTEXTUAL"}:
+                target = decision.get("target_canonical")
+                if not target or not str(target).strip():
+                    decision["action"] = "KEEP_DISTINCT"
+                    decision["confidence"] = "LOW"
+            repaired.append(decision)
+        return repaired
 
     def classify_term(self, term: str) -> Dict[str, Any]:
         prompt = self._build_classification_prompt(term)
@@ -435,6 +556,7 @@ class HttpReasoningLLMClient(LLMClient):
         chat_payload: Dict[str, Any] = {
             "model": self.model,
             "temperature": 0,
+            "response_format": {"type": "json_object"},
             "messages": [
                 {"role": "system", "content": "Return only valid JSON, no markdown."},
                 {"role": "user", "content": prompt},

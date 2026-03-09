@@ -17,7 +17,9 @@
     "agentic AI": []
   },
   "AI Protocols": {
-    "Model Context Protocol (MCP)": []
+    "Model Context Protocol": [
+      "MCP"
+    ]
   },
   "API Management": {
     "Mulesoft": [],
@@ -121,7 +123,9 @@
     "Shopify": []
   },
   "Enterprise Integration Platforms": {
-    "Oracle Integration Cloud (OIC)": []
+    "Oracle Integration Cloud": [
+      "OIC"
+    ]
   },
   "Event Streaming": {
     "Event Streaming": []
@@ -129,10 +133,10 @@
   "Frontend Development": {
     "Babel": [],
     "Forms": [],
-    "LWC": [],
     "Lazy Loading": [],
-    "Lightning Web Components": [],
-    "Lightning Web Components (LWC)": [],
+    "Lightning Web Components": [
+      "LWC"
+    ],
     "Visualforce": []
   },
   "Game Engines": {
