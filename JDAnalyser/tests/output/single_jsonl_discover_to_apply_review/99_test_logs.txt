@@ -1,18 +1,20 @@
-INFO     tests.test_discovery:test_discovery.py:828 STEP 1/4: Created JSONL with exactly one JSON object at /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/test_jobs.jsonl
-INFO     discovery.processor:processor.py:312 discovery: read test_jobs.jsonl
-INFO     discovery.processor:processor.py:343 discovery: scanned 1 records, extracted 1 raw candidates (sequential)
-INFO     discovery.taxonomy:taxonomy.py:43 taxonomy: loaded 6 skills from /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/canonical_data.json
-INFO     discovery.processor:processor.py:434 discovery: 1 novel skills, 0 already in taxonomy, queue now has 1 entries
-INFO     discovery.processor:processor.py:58 saved /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/discovery_queue.json
-INFO     discovery.processor:processor.py:58 saved /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/discovery_statuses/ready_for_promotion.json
-INFO     discovery.processor:processor.py:269 discovery: wrote status files to /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/discovery_statuses ({'ready_for_promotion': 1})
-INFO     tests.test_discovery:test_discovery.py:831 STEP 2/4: Discovery queue updated: {"langgraph": {"display_name": "LangGraph", "first_seen": "2026-03-07", "last_seen": "2026-03-07", "llm_group_tags": {"AI Data Science": 1}, "sample_sources": ["https://example.com/single-record"], "seen_count": 1, "status": "ready_for_promotion", "suggested_groups": {"AI Data Science": 1}}}
-INFO     discovery.promoter:promoter.py:19 saved /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/review_candidates.json
-INFO     discovery.promoter:promoter.py:132 discovery: generated review with 1 candidates → /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/review_candidates.json
-INFO     tests.test_discovery:test_discovery.py:842 STEP 3/4: Review file generated at /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/review_candidates.json: {"langgraph": {"action": "approve", "all_suggested_groups": {"AI Data Science": 1}, "display_name": "LangGraph", "sample_sources": ["https://example.com/single-record"], "seen_count": 1, "suggested_group": "AI Data Science"}}
-INFO     discovery.promoter:promoter.py:206   approved: LangGraph → [AI Data Science]
-INFO     discovery.promoter:promoter.py:19 saved /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/approved_canonical_output.json
-INFO     discovery.promoter:promoter.py:19 saved /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/discovery_queue.json
-INFO     discovery.promoter:promoter.py:221 discovery: applied review — 1 approved, 0 aliased, 0 rejected, 0 skipped (1 total)
-INFO     discovery.promoter:promoter.py:227 discovery: approved output written to /tmp/pytest-of-pankaj/pytest-11/test_single_jsonl_discover_to_0/approved_canonical_output.json
+INFO     tests.test_discovery:test_discovery.py:828 STEP 1/4: Created JSONL with exactly one JSON object at /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/test_jobs.jsonl
+INFO     discovery.canonical.processor:processor.py:289 discovery: read test_jobs.jsonl
+INFO     discovery.canonical.processor:processor.py:320 discovery: scanned 1 records, extracted 1 raw candidates (sequential)
+INFO     discovery.canonical.taxonomy:taxonomy.py:43 taxonomy: loaded 6 skills from /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/canonical_data.json
+INFO     discovery.canonical.processor:processor.py:411 discovery: 1 novel skills, 0 already in taxonomy, queue now has 1 entries
+INFO     discovery.common.pipeline_common:pipeline_common.py:38 saved /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/discovery_queue.json
+INFO     discovery.common.pipeline_common:pipeline_common.py:38 saved /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/discovery_statuses/ready_for_promotion.json
+INFO     discovery.canonical.processor:processor.py:246 discovery: wrote status files to /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/discovery_statuses ({'ready_for_promotion': 1})
+INFO     tests.test_discovery:test_discovery.py:831 STEP 2/4: Discovery queue updated: {"langgraph": {"display_name": "LangGraph", "first_seen": "2026-03-12", "last_seen": "2026-03-12", "llm_group_tags": {"AI Data Science": 1}, "sample_sources": ["https://example.com/single-record"], "seen_count": 1, "status": "ready_for_promotion", "suggested_groups": {"AI Data Science": 1}}}
+INFO     discovery.canonical.promoter:promoter.py:137 discovery: loaded 431 LLM group assignments
+INFO     discovery.canonical.promoter:promoter.py:144 discovery: loaded 21 semantic alias suggestions
+INFO     discovery.canonical.promoter:promoter.py:19 saved /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/review_candidates.json
+INFO     discovery.canonical.promoter:promoter.py:241 discovery: generated review with 1 candidates → /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/review_candidates.json
+INFO     tests.test_discovery:test_discovery.py:842 STEP 3/4: Review file generated at /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/review_candidates.json: {"langgraph": {"action": "approve", "all_suggested_groups": {"AI Data Science": 1}, "display_name": "LangGraph", "sample_sources": ["https://example.com/single-record"], "seen_count": 1, "suggested_group": "AI Data Science"}}
+INFO     discovery.canonical.promoter:promoter.py:315   approved: LangGraph → [AI Data Science]
+INFO     discovery.canonical.promoter:promoter.py:19 saved /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/approved_canonical_output.json
+INFO     discovery.canonical.promoter:promoter.py:19 saved /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/discovery_queue.json
+INFO     discovery.canonical.promoter:promoter.py:330 discovery: applied review — 1 approved, 0 aliased, 0 rejected, 0 skipped (1 total)
+INFO     discovery.canonical.promoter:promoter.py:336 discovery: approved output written to /tmp/pytest-of-pankaj/pytest-8/test_single_jsonl_discover_to_0/approved_canonical_output.json
 INFO     tests.test_discovery:test_discovery.py:850 STEP 4/4: apply_review summary: {'approved': 1, 'aliased': 0, 'rejected': 0, 'skipped': 0}

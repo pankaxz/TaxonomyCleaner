@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 from config import cfg
-from discovery.dedup import SkillDeduplicator
-from discovery.processor import (
+from discovery.canonical.dedup import SkillDeduplicator
+from discovery.canonical.processor import (
     _chunk_list,
     _match_chunk,
     _NUM_WORKERS,

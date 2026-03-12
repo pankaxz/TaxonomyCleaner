@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Dict
 
 from config import cfg
-from discovery.taxonomy import TaxonomyReader
+from discovery.canonical.taxonomy import TaxonomyReader
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +53,7 @@ class PromotionManager:
 
         queue_path = Path(
             cfg.get_abs_path("discovery.queue_path")
-            or "data/discovery/discovery_queue.json"
+            or "data/discovery/technical_skills/discovery_queue.json"
         )
         return str(queue_path.parent / "approved_canonical_output.json")
 

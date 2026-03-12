@@ -40,10 +40,12 @@ def setup_logging() -> None:
     root.addHandler(handler)
 
 
-def cmd_discover(path: str | None = None, *, parallel: bool = True) -> None:
+def cmd_discover(path: str | None = None, *, parallel: bool = True, verbs_only: bool = False) -> None:
     from pathlib import Path
 
-    from discovery.processor import DiscoveryProcessor, SoftSkillProcessor, VerbProcessor
+    from discovery.canonical.processor import DiscoveryProcessor
+    from discovery.soft_skills.processor import SoftSkillProcessor
+    from discovery.VerbAnalysis.processor import VerbProcessor
 
     # No path given → use the configured input directory (crawler.input_dir)
     if path is None:
@@ -57,25 +59,26 @@ def cmd_discover(path: str | None = None, *, parallel: bool = True) -> None:
         p = Path(default_queue)
         out_path = str(p.with_stem(p.stem + "_no_parallel"))
 
-    # ── Technical skills (existing pipeline) ─────────────────────────
-    queue = DiscoveryProcessor.process_jsonl(path, parallel=parallel, out_path=out_path)
-    ready = sum(1 for e in queue.values() if e.get("status") == "ready_for_promotion")
-    pending = sum(1 for e in queue.values() if e.get("status") == "pending")
-    print(
-        f"\nTechnical skills queue: {len(queue)} total "
-        f"— {ready} ready for promotion, {pending} pending"
-    )
+    if not verbs_only:
+        # ── Technical skills (existing pipeline) ─────────────────────────
+        queue = DiscoveryProcessor.process_jsonl(path, parallel=parallel, out_path=out_path)
+        ready = sum(1 for e in queue.values() if e.get("status") == "ready_for_promotion")
+        pending = sum(1 for e in queue.values() if e.get("status") == "pending")
+        print(
+            f"\nTechnical skills queue: {len(queue)} total "
+            f"— {ready} ready for promotion, {pending} pending"
+        )
 
-    # ── Soft skills ───────────────────────────────────────────────────
-    ss_queue = SoftSkillProcessor.process_jsonl(path, parallel=parallel)
-    ss_novel = sum(1 for e in ss_queue.values() if e.get("status") != "known")
-    ss_ready = sum(
-        1 for e in ss_queue.values() if e.get("status") == "ready_for_promotion"
-    )
-    print(
-        f"Soft skills queue:      {len(ss_queue)} total "
-        f"— {ss_ready} ready for promotion, {ss_novel - ss_ready} pending"
-    )
+        # ── Soft skills ───────────────────────────────────────────────────
+        ss_queue = SoftSkillProcessor.process_jsonl(path, parallel=parallel)
+        ss_novel = sum(1 for e in ss_queue.values() if e.get("status") != "known")
+        ss_ready = sum(
+            1 for e in ss_queue.values() if e.get("status") == "ready_for_promotion"
+        )
+        print(
+            f"Soft skills queue:      {len(ss_queue)} total "
+            f"— {ss_ready} ready for promotion, {ss_novel - ss_ready} pending"
+        )
 
     # ── Action verbs ──────────────────────────────────────────────────
     vb_queue = VerbProcessor.process_jsonl(path, parallel=parallel)
@@ -86,12 +89,12 @@ def cmd_discover(path: str | None = None, *, parallel: bool = True) -> None:
         f"— {vb_known} known (taxonomy), {vb_novel} novel"
     )
 
-    if out_path:
+    if out_path and not verbs_only:
         print(f"\nTechnical skills output: {out_path}")
 
 
 def cmd_review() -> None:
-    from discovery.promoter import PromotionManager
+    from discovery.canonical.promoter import PromotionManager
 
     path = PromotionManager.generate_review()
     print(f"\nReview file written to: {path}")
@@ -102,7 +105,7 @@ def cmd_review() -> None:
 
 
 def cmd_apply_review() -> None:
-    from discovery.promoter import PromotionManager
+    from discovery.canonical.promoter import PromotionManager
 
     counts = PromotionManager.apply_review()
     print(
@@ -167,7 +170,12 @@ def main() -> None:
     parser.add_argument(
         "--no-parallel",
         action="store_true",
-        help="Disable multiprocessing — run parsing and matching single-process",
+        help="Disable multiprocessing \u2014 run parsing and matching single-process",
+    )
+    parser.add_argument(
+        "--verbs-only",
+        action="store_true",
+        help="Only run the verb extraction pipeline during discovery",
     )
 
     args = parser.parse_args()
@@ -176,7 +184,7 @@ def main() -> None:
     if args.discover is not None:
         # True when --discover used without a path, string when path given
         path = None if args.discover is True else args.discover
-        cmd_discover(path, parallel=not args.no_parallel)
+        cmd_discover(path, parallel=not args.no_parallel, verbs_only=args.verbs_only)
     elif args.review:
         cmd_review()
     elif args.apply_review:
@@ -259,7 +267,7 @@ def cmd_semantic_dedup() -> None:
 
 
 def cmd_audit(path: str | None = None) -> None:
-    from discovery.auditor import DiscoveryAuditor
+    from discovery.canonical.auditor import DiscoveryAuditor
 
     if path is None:
         print(f"No path given, using configured input_dir: {cfg.get_abs_path('crawler.input_dir')}")

@@ -65,9 +65,9 @@ def _isolated_config(tmp_path):
         patch("config.cfg._base", str(tmp_path)),
     ):
         # Clear all static caches
-        from discovery.dedup import SkillDeduplicator
-        from discovery.processor import DiscoveryProcessor
-        from discovery.taxonomy import TaxonomyReader
+        from discovery.canonical.dedup import SkillDeduplicator
+        from discovery.canonical.processor import DiscoveryProcessor
+        from discovery.canonical.taxonomy import TaxonomyReader
 
         TaxonomyReader.invalidate()
         SkillDeduplicator.invalidate_cache()
@@ -156,7 +156,7 @@ def _write_text_output(out_dir: Path, filename: str, text: str) -> Path:
 
 class TestSkillDeduplicator:
     def test_exact_match(self):
-        from discovery.dedup import SkillDeduplicator
+        from discovery.canonical.dedup import SkillDeduplicator
 
         result = SkillDeduplicator.find_match("Python")
         assert result is not None
@@ -165,7 +165,7 @@ class TestSkillDeduplicator:
         assert result[2] == 1.0
 
     def test_exact_match_alias(self):
-        from discovery.dedup import SkillDeduplicator
+        from discovery.canonical.dedup import SkillDeduplicator
 
         result = SkillDeduplicator.find_match("k8s")
         assert result is not None
@@ -173,7 +173,7 @@ class TestSkillDeduplicator:
         assert result[1] == "exact"
 
     def test_exact_match_case_insensitive(self):
-        from discovery.dedup import SkillDeduplicator
+        from discovery.canonical.dedup import SkillDeduplicator
 
         result = SkillDeduplicator.find_match("TENSORFLOW")
         assert result is not None
@@ -181,13 +181,13 @@ class TestSkillDeduplicator:
         assert result[1] == "exact"
 
     def test_novel_skill_returns_none(self):
-        from discovery.dedup import SkillDeduplicator
+        from discovery.canonical.dedup import SkillDeduplicator
 
         result = SkillDeduplicator.find_match("LangChain")
         assert result is None
 
     def test_fuzzy_match(self):
-        from discovery.dedup import SkillDeduplicator
+        from discovery.canonical.dedup import SkillDeduplicator
 
         # "JavaScriptt" is close enough to "javascript"
         result = SkillDeduplicator.find_match("JavaScriptt", fuzzy_threshold=0.85)
@@ -196,7 +196,7 @@ class TestSkillDeduplicator:
         assert result[2] >= 0.85
 
     def test_containment_match(self):
-        from discovery.dedup import SkillDeduplicator
+        from discovery.canonical.dedup import SkillDeduplicator
 
         result = SkillDeduplicator.find_match("Advanced Python Programming")
         assert result is not None
@@ -205,7 +205,7 @@ class TestSkillDeduplicator:
         assert result[2] == 0.80
 
     def test_batch_matching(self):
-        from discovery.dedup import SkillDeduplicator
+        from discovery.canonical.dedup import SkillDeduplicator
 
         results = SkillDeduplicator.find_match_batch(["Python", "LangChain", "k8s"])
         assert results["Python"] is not None
@@ -213,7 +213,7 @@ class TestSkillDeduplicator:
         assert results["k8s"] is not None
 
     def test_group_name_exact_match(self):
-        from discovery.dedup import SkillDeduplicator
+        from discovery.canonical.dedup import SkillDeduplicator
 
         result = SkillDeduplicator.find_match("Languages")
         assert result is not None
@@ -226,7 +226,7 @@ class TestSkillDeduplicator:
 
 class TestDiscoveryProcessor:
     def test_parse_skill_with_tag(self):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         name, tag = DiscoveryProcessor._parse_skill_with_tag(
             "Docker [Containerization]"
@@ -235,21 +235,21 @@ class TestDiscoveryProcessor:
         assert tag == "Containerization"
 
     def test_parse_skill_underscore_tag(self):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         name, tag = DiscoveryProcessor._parse_skill_with_tag("AWS [Cloud_Platforms]")
         assert name == "AWS"
         assert tag == "Cloud Platforms"
 
     def test_parse_skill_no_tag(self):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         name, tag = DiscoveryProcessor._parse_skill_with_tag("Docker")
         assert name == "Docker"
         assert tag is None
 
     def test_process_jsonl_filters_known_skills(self, tmp_path):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         records = [
             {
@@ -273,7 +273,7 @@ class TestDiscoveryProcessor:
         assert queue["langchain"]["status"] == "pending"
 
     def test_process_jsonl_accumulates_counts(self, tmp_path):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         records = [
             {
@@ -294,7 +294,7 @@ class TestDiscoveryProcessor:
 
     def test_process_jsonl_incremental(self, tmp_path):
         """Running twice on different files should accumulate."""
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         records1 = [
             {
@@ -328,7 +328,7 @@ class TestDiscoveryProcessor:
         assert len(queue["newtool"]["sample_sources"]) == 2
 
     def test_process_jsonl_pending_to_ready_across_runs(self, tmp_path):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         # Threshold in test config is 3.
         records1 = [
@@ -369,7 +369,7 @@ class TestDiscoveryProcessor:
 
     def test_process_jsonl_writes_status_files(self, tmp_path):
         from config import cfg
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         records = [
             {
@@ -418,7 +418,7 @@ class TestDiscoveryProcessor:
         assert "newtool" in pending
 
     def test_extract_candidates_enriches_group_tag_from_technical_skills(self):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         record = {
             "source_url": "https://example.com/enrich",
@@ -433,7 +433,7 @@ class TestDiscoveryProcessor:
         assert candidates[0]["source_url"] == "https://example.com/enrich"
 
     def test_extract_candidates_uses_unmapped_as_candidate_source(self):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         record = {
             "source_url": "https://example.com/unmapped-only",
@@ -449,7 +449,7 @@ class TestDiscoveryProcessor:
         assert candidates[0]["group_tag"] is None
 
     def test_extract_candidates_prefers_technical_tag_for_unmapped_overlap(self):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         record = {
             "source_url": "https://example.com/overlap",
@@ -465,7 +465,7 @@ class TestDiscoveryProcessor:
         assert candidates[0]["group_tag"] == "AI Data Science"
 
     def test_extract_candidates_ignores_technical_only_entries(self):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         record = {
             "source_url": "https://example.com/technical-only",
@@ -477,7 +477,7 @@ class TestDiscoveryProcessor:
         assert candidates == []
 
     def test_extract_candidates_can_enrich_tag_from_unmapped_hint(self):
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.processor import DiscoveryProcessor
 
         record = {
             "source_url": "https://example.com/unmapped-hint",
@@ -506,7 +506,7 @@ class TestPromotionManager:
             json.dump(entries, f)
 
     def test_generate_review_empty(self, tmp_path):
-        from discovery.promoter import PromotionManager
+        from discovery.canonical.promoter import PromotionManager
 
         path = PromotionManager.generate_review()
         with open(path) as f:
@@ -514,7 +514,7 @@ class TestPromotionManager:
         assert review == {}
 
     def test_generate_review_picks_ready(self, tmp_path):
-        from discovery.promoter import PromotionManager
+        from discovery.canonical.promoter import PromotionManager
 
         self._seed_queue(
             tmp_path,
@@ -552,7 +552,7 @@ class TestPromotionManager:
         assert review["langchain"]["suggested_group"] == "AI Data Science"
 
     def test_generate_review_prefills_alias_for_known_term(self, tmp_path):
-        from discovery.promoter import PromotionManager
+        from discovery.canonical.promoter import PromotionManager
 
         self._seed_queue(
             tmp_path,
@@ -578,7 +578,7 @@ class TestPromotionManager:
         assert review["python_stale"]["action"] == "alias_of:Python"
 
     def test_generate_review_prefills_reject_for_group_name(self, tmp_path):
-        from discovery.promoter import PromotionManager
+        from discovery.canonical.promoter import PromotionManager
 
         self._seed_queue(
             tmp_path,
@@ -605,7 +605,7 @@ class TestPromotionManager:
 
     def test_apply_review_approve(self, tmp_path):
         from config import cfg
-        from discovery.promoter import PromotionManager
+        from discovery.canonical.promoter import PromotionManager
 
         self._seed_queue(
             tmp_path,
@@ -656,7 +656,7 @@ class TestPromotionManager:
 
     def test_apply_review_alias(self, tmp_path):
         from config import cfg
-        from discovery.promoter import PromotionManager
+        from discovery.canonical.promoter import PromotionManager
 
         self._seed_queue(
             tmp_path,
@@ -705,7 +705,7 @@ class TestPromotionManager:
 
     def test_apply_review_reject(self, tmp_path):
         from config import cfg
-        from discovery.promoter import PromotionManager
+        from discovery.canonical.promoter import PromotionManager
 
         self._seed_queue(
             tmp_path,
@@ -754,7 +754,7 @@ class TestPromotionManager:
 
     def test_apply_review_alias_self_is_noop(self, tmp_path):
         from config import cfg
-        from discovery.promoter import PromotionManager
+        from discovery.canonical.promoter import PromotionManager
 
         self._seed_queue(
             tmp_path,
@@ -802,8 +802,8 @@ class TestDiscoveryPipelineEndToEnd:
     ):
         """Run full pipeline on exactly one JSONL record with step-by-step logs."""
         from config import cfg
-        from discovery.promoter import PromotionManager
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.promoter import PromotionManager
+        from discovery.canonical.processor import DiscoveryProcessor
 
         logger = logging.getLogger(__name__)
         caplog.set_level(logging.INFO)
@@ -881,8 +881,8 @@ class TestDiscoveryPipelineEndToEnd:
     ):
         """Run full pipeline on first ten JSON objects from crawler output."""
         from config import cfg
-        from discovery.promoter import PromotionManager
-        from discovery.processor import DiscoveryProcessor
+        from discovery.canonical.promoter import PromotionManager
+        from discovery.canonical.processor import DiscoveryProcessor
 
         logger = logging.getLogger(__name__)
         caplog.set_level(logging.INFO)

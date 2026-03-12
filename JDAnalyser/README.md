@@ -20,8 +20,11 @@ DataCrawler (JSONL) → JDAnalyser → CanonicalDataCleaner → DataFactory
 ## CLI Workflow
 
 ```bash
-# 1. Scan crawler JSONL and build discovery queue
+# 1. Scan crawler JSONL and build discovery queue (includes technical, soft skills, and verbs)
 python main.py --discover
+
+# 1a. Run ONLY the high-speed verb extraction pipeline
+python main.py --discover --verbs-only
 
 # 2. LLM classifies ready-for-promotion skills (group, reject, ontology)
 python main.py --assign-groups
@@ -57,10 +60,11 @@ python main.py --discover /path/to/directory/
 
 ### Step 1: `--discover` (Discovery & Dedup)
 
-Reads all `.jsonl` files from `crawler.input_dir` (or a given path). For each JD record:
+Reads all `.jsonl` files from `crawler.input_dir` (or a given path). The pipeline operates across three isolated domains using `ProcessPoolExecutor` for parallel parsing:
 
+#### Technical Skills (`discovery/canonical/`)
 1. Extracts candidates from `extraction_quality.unmapped_skills` AND `technical_skills`
-2. Strips `[Category]` tags (e.g., `"Python [Languages]"` → `"Python"`)
+2. Strips `[Category]` tags (e.g., `"Python [Languages]"` → `"vPython"`)
 3. Deduplicates each candidate against the canonical taxonomy using 4 tiers:
    - **Exact** (1.0) — case-insensitive alias/canonical lookup
    - **Normalized** (0.95) — strip punctuation, collapse whitespace
@@ -69,9 +73,18 @@ Reads all `.jsonl` files from `crawler.input_dir` (or a given path). For each JD
 4. Novel skills enter the queue as `pending`
 5. Once `seen_count >= 5` (configurable), status auto-promotes to `ready_for_promotion`
 
-Uses `ProcessPoolExecutor` for parallel JSONL parsing and taxonomy matching.
+**Output:** `data/discovery/technical_skills/discovery_queue.json` + `data/discovery/technical_skills/statuses/*.json`
 
-**Output:** `data/discovery/discovery_queue.json` + `data/discovery/statuses/*.json`
+#### Soft Skills (`discovery/soft_skills/`)
+Extracts candidates from the `soft_skills` field and deduplicates them against `soft_skill_taxonomy.json`.
+
+**Output:** `data/discovery/soft_skills_queue.json` + `data/discovery/soft_skills_statuses/*.json`
+
+#### Action Verbs (`discovery/VerbAnalysis/`)
+Uses blazing-fast **spaCy dependency parsing** to extract action verbs and their direct/prepositional objects (`context_sample`) directly from the `raw_jd`. 
+Performs an O(1) deduplication check against `verb-taxonomy.json`. 
+
+**Output:** `data/discovery/verb_occurrences.json` + `data/discovery/verb_statuses/*.json`
 
 ### Step 2: `--assign-groups` (LLM Classification)
 

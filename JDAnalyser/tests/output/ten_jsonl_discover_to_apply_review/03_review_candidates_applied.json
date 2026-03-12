@@ -73,11 +73,16 @@
     "suggested_group": "CI/CD Infrastructure"
   },
   "cloud_technologies": {
+    "abstraction_level": "Domain",
     "action": "reject",
     "all_suggested_groups": {
       "Cloud Computing": 1
     },
+    "confidence": "HIGH",
     "display_name": "Cloud Technologies",
+    "llm_group": "REJECT:generic_term",
+    "llm_reasoning": "This is a broad, vague business term referring to a domain rather than a specific actionable technical skill or tool.",
+    "ontological_nature": "Concept",
     "sample_sources": [
       "https://builtin.com/job/mobile-engineering-manager/8576370"
     ],
@@ -85,11 +90,16 @@
     "suggested_group": "Cloud Computing"
   },
   "concurrency": {
+    "abstraction_level": "Domain",
     "action": "reject",
     "all_suggested_groups": {
       "Programming Paradigms": 1
     },
+    "confidence": "HIGH",
     "display_name": "Concurrency",
+    "llm_group": "REJECT:soft_skill",
+    "llm_reasoning": "Concurrency is a general programming concept or paradigm rather than a specific tool, framework, or concrete technical skill.",
+    "ontological_nature": "Concept",
     "sample_sources": [
       "https://builtin.com/job/sr-engineer-c-linux/8512375"
     ],
@@ -218,11 +228,16 @@
     "suggested_group": "Mobile Development"
   },
   "monitoring": {
+    "abstraction_level": "Domain",
     "action": "reject",
     "all_suggested_groups": {
       "Monitoring Tools": 2
     },
+    "confidence": "HIGH",
     "display_name": "Monitoring",
+    "llm_group": "REJECT:generic_term",
+    "llm_reasoning": "Monitoring is a broad business concept or responsibility rather than a specific technical tool, framework, or methodology.",
+    "ontological_nature": "Concept",
     "sample_sources": [
       "https://builtin.com/job/senior-software-engineer-enterprise/8577140",
       "https://builtin.com/job/senior-software-engineer-enterprise/8577139"
@@ -328,11 +343,16 @@
     "suggested_group": "Security"
   },
   "synchronization": {
+    "abstraction_level": "Domain",
     "action": "reject",
     "all_suggested_groups": {
       "Programming Paradigms": 1
     },
+    "confidence": "HIGH",
     "display_name": "Synchronization",
+    "llm_group": "REJECT:soft_skill",
+    "llm_reasoning": "Synchronization is a general concept or soft skill related to coordination rather than a specific technical tool, framework, or concrete programming paradigm.",
+    "ontological_nature": "Concept",
     "sample_sources": [
       "https://builtin.com/job/sr-engineer-c-linux/8512375"
     ],

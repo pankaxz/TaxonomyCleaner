@@ -21,8 +21,8 @@ soft_skill_taxonomy:
 
 verb_taxonomy:
   path: input/Taxonomy/verb-taxonomy.json
-  queue_path: data/discovery/verb_occurrences.json
-  status_output_dir: data/discovery/verb_statuses
+  queue_path: data/discovery/verbs/verb_occurrences.json
+  status_output_dir: data/discovery/verbs/statuses
 
 # Crawler input — --discover with no path uses input_dir by default
 crawler:
@@ -31,10 +31,10 @@ crawler:
 
 # Discovery queue settings
 discovery:
-  queue_path: data/discovery/discovery_queue.json
-  status_output_dir: data/discovery/statuses
-  review_output: data/discovery/review_candidates.json
-  approved_output: data/discovery/approved_canonical_output.json
+  queue_path: data/discovery/technical_skills/discovery_queue.json
+  status_output_dir: data/discovery/technical_skills/statuses
+  review_output: data/discovery/technical_skills/review_candidates.json
+  approved_output: data/discovery/technical_skills/approved_canonical_output.json
   promotion_threshold: 5
   fuzzy_threshold: 0.85
   max_sample_sources: 10

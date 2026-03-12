@@ -6,7 +6,7 @@ from difflib import SequenceMatcher
 from typing import Dict, Optional, Tuple
 
 from config import cfg
-from discovery.taxonomy import TaxonomyReader
+from discovery.canonical.taxonomy import TaxonomyReader
 
 logger = logging.getLogger(__name__)
 
